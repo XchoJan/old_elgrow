@@ -6,7 +6,7 @@ variables:
 #  MAIN_DOCKER_STACK_FILE: ./cicd/docker-stack.main.yml
 
 stages:
-  - build_project
+#  - build_project
   - make_image
   - deploy_image
   - clean
@@ -15,7 +15,7 @@ include:
   - project: 'templates/cicd-templates'
     ref: v2.0.0
     file:
-      - 'build_project.yml'
+#      - 'build_project.yml'
       - 'make_docker_image.yml'
       - 'deploy_to_develop.yml'
       #      - 'deploy_to_test.yml'
