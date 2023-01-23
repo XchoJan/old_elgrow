@@ -1,57 +1,44 @@
 import { Parallax } from 'react-scroll-parallax';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-// gsap.registerPlugin(ScrollTrigger)
+import { useRef, useEffect, useState } from 'react';
 
 const MainPage = () => {
   const ref = useRef(null);
+  const [vw, setVw]: any = useState('93vw');
 
-  // useEffect(()=> {
-  //   gsap.from(".header_bottom-cases_box", {
-  //     scrollTrigger: {
-  //       trigger: ".header_bottom-cases",
-  //       scrub: true,
-  //       start: "top bottom",
-  //       end: "top top",
-  //     },
-  //     scaleX: 3,
-  //     ease: "1s",
-  //   })
-
-  // },[])
+  let oldValue = 0;
 
   if (typeof document !== 'undefined') {
-    let rect = document?.getElementById('qwezxc');
-    const wrap = document.querySelector('.header_bottom-cases_box');
-    // const ball: any = document.querySelector('.cases_box_green');
-    // let { width, height } = ball?.getBoundingClientRect();
-    // [width, height] = [(width / 2) | 0, (height / 2) | 0];
+    // const wrap: any = document.querySelector('.header_bottom-cases_box');
 
-    // const setBallPosition = ({ x = 0, y = 0 } = {}) =>
-    //   (ball.style.transform = `translateX(${x}px) translateY(${y}px) rotate(45deg)`);
+    window.addEventListener('scroll', function (e) {
+      let newValue = window.pageYOffset;
 
-    // wrap?.addEventListener('mousemove', ({ clientX, clientY }: any) =>
-    //   setBallPosition({ x: clientX - width, y: clientY - height }),
-    // );
-    // wrap?.addEventListener('mousewheel', ({ clientX, clientY }: any) =>
-    //   setBallPosition({ x: clientX - width, y: clientY - height }),
-    // );
-    // wrap?.addEventListener('mouseout', () => setBallPosition());
+      let valueWidth = vw.substring(0, 4);
 
-     
+      if (valueWidth[2] === 'v') {
+        valueWidth = Number(vw.substring(0, 2));
+      } else {
+        valueWidth = Number(vw.substring(0, 4));
+      }
+
+      if (oldValue - newValue < 0) {
+        valueWidth += 0.3;
+        let newWidth = String(valueWidth) + 'vw';
+        setVw(newWidth);
+      } else if (oldValue - newValue > 0) {
+        valueWidth = valueWidth - 1;
+        console.log(valueWidth);
+        
+        let newWidth = String(valueWidth) + 'vw';
+        setVw(newWidth);
+      }
+      oldValue = newValue;
+    });
+
     window.addEventListener('scroll', () => {
-      gsap.from('.header_bottom-cases_box', {
-        scrollTrigger: {
-          trigger: '.header_bottom-cases',
-          start: 'top top',
-          end: 'top bottom',
-        },
-        scaleX: 0.86,
-        ease: '1s',
-      });
+      // console.log(window.pageYOffset);
     });
   }
 
@@ -75,7 +62,7 @@ const MainPage = () => {
             <img className="eagle" src="/images/eagle.png" alt="" />
 
             <div id="trigger1" className="header_bottom-title">
-              <Parallax speed={-20} translateY={[1, 100]}>
+              <Parallax speed={-100} translateY={[1, 100]}>
                 <h1>
                   Разработка и интеграция <br />
                   <span>IT-РеШеНИЙ. </span> <br />
@@ -87,7 +74,11 @@ const MainPage = () => {
             </div>
           </div>
           <div className="header_bottom-cases">
-            <div ref={ref} className="header_bottom-cases_box">
+            <div
+              style={{ maxWidth: vw }}
+              ref={ref}
+              className="header_bottom-cases_box"
+            >
               <div className="cases_box_green">
                 <p>Новый кейс</p>
               </div>
