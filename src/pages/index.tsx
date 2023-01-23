@@ -1,114 +1,13 @@
-import { Parallax } from 'react-scroll-parallax';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { useRef, useEffect, useState } from 'react';
+
+import Header from '../Components/Header';
+import Footer from '../Components/Footer';
 
 const MainPage = () => {
-  const ref = useRef(null);
-  // const [vw, setVw]: any = useState('93%');
-
-  let oldValue = 0;
-
-
-
-  if (typeof document !== 'undefined') {
-    const wrap: any = document.querySelector('.header_bottom-cases_box');
-    wrap.style.maxWidth = '95%';
-    const growBlockElem = () => {
-      let newValue = window.pageYOffset;
-      const maxWidth = wrap.style.maxWidth;
-      let valueWidth = maxWidth.substring(0, 4);
-
-     
-
-      if (valueWidth[2] === '%') {
-        valueWidth = Number(maxWidth.substring(0, 2));
-      } else if (valueWidth[3] === '%') {
-        valueWidth = Number(maxWidth.substring(0, 3));
-      } else {
-        valueWidth = Number(maxWidth.substring(0, 4));
-      }
-      if (oldValue - newValue < 0) {
-        if (valueWidth === 100) {
-          valueWidth = 100;
-          let newWidth = String(valueWidth) + '%';
-          wrap.style.maxWidth = newWidth;
-        } else {
-          valueWidth += 1;
-          let newWidth = String(valueWidth) + '%';
-          wrap.style.maxWidth = newWidth;
-        }
-      } else if (oldValue - newValue > 0) {
-        if (valueWidth <= 95) {
-          valueWidth = 95;
-          let newWidth = String(valueWidth) + '%';
-          wrap.style.maxWidth = newWidth;
-        } else {
-          valueWidth -= 1;
-
-          let newWidth = String(valueWidth) + '%';
-          wrap.style.maxWidth = newWidth;
-        }
-      }
-      oldValue = newValue;
-    } 
-
-
-   
-    let pageYOffset = window.pageYOffset;
-
- if(pageYOffset <= 1200) {
-  
-   console.log(123)
-  window.addEventListener('scroll', growBlockElem)}
- else    window.removeEventListener('scroll', growBlockElem)
-  
-  }
-
   return (
     <div>
-      {' '}
-      <header>
-        <div className="container">
-          <div className="header_top">
-            <div className="logo">
-              <img src="/images/elgrow._logo.svg" alt="" />
-            </div>
-            <div className="after_logo">
-              <h2>
-                Digital- <br />
-                интегратор <br />c 2012 года
-              </h2>
-            </div>
-          </div>
-          <div className="header_bottom">
-            <img className="eagle" src="/images/eagle.png" alt="" />
-
-            <div id="trigger1" className="header_bottom-title">
-              <Parallax speed={-20} translateY={[-200, 400]}>
-                <h1>
-                  Разработка и интеграция <br />
-                  <span>IT-РеШеНИЙ. </span> <br />
-                  Автоматизация бизнеса.
-                  <br />
-                  <span>аУТСТАФ.</span>
-                </h1>{' '}
-              </Parallax>
-            </div>
-          </div>
-          <div className="header_bottom-cases">
-            <div
-              // style={{ maxWidth: vw }}
-              ref={ref}
-              className="header_bottom-cases_box"
-            >
-              <div className="cases_box_green">
-                <p>Новый кейс</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
       <section className="tabs">
         <div className="tabs_container">
           <div className="tabs__nav">
@@ -1060,58 +959,7 @@ const MainPage = () => {
           </div>
         </div>
       </section>
-      <footer className="footer">
-        <div className="container">
-          <div className="footer_inner">
-            <div className="footer_title">
-              <div className="footer_title_left">
-                <img src="/images/logo_white.svg" alt="" />
-              </div>
-              <div className="footer_title_right">
-                <a href="#"> ВАКАНСИИ </a>
-              </div>
-            </div>
-            <div className="footer_center">
-              <div className="footer_center-title">
-                <h1>Стать клиентом</h1>
-              </div>
-              <div className="footer_center-wrap">
-                <div className="footer_center-wrap_left">
-                  <a href="#">Главная</a>
-                  <a href="#">Цены</a>
-                  <a href="#">Портфолио</a>
-                  <a href="#">контакты</a>
-                </div>
-                <div className="footer_center-wrap_right">
-                  <a className="presentation" href="#">
-                    презентация
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="footer_bottom">
-              <div className="footer_bottom_item">
-                <h2>
-                  <img src="/images/Copyright.svg" alt="" />
-                  Все права защищены 2023
-                </h2>
-              </div>
-              <div className="footer_bottom_item">
-                <h3>
-                  <img src="/images/telegram-small1440.svg" alt="" />
-                  Telegram
-                </h3>
-              </div>
-              <div className="footer_bottom_item">
-                <h3>
-                  <img src="/images/fluent_mail-20-filled.svg" alt="" />
-                  info@elgrow.ru
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>{' '}
+      <Footer />
     </div>
   );
 };

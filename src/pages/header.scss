@@ -1,0 +1,98 @@
+.container {
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 40px;
+}
+.header_top .logo {
+  padding-top: 8px;
+}
+.after_logo h2 {
+  font-weight: 400;
+  font-size: 12px;
+  text-align: right;
+  text-transform: uppercase;
+  color: #000000;
+}
+.header_bottom {
+  position: relative;
+}
+.header_bottom-title {
+  padding: 43px 50px 0px;
+  // position: fixed;
+  height: 80vh;
+  width: 100%;
+  display: block;
+}
+.header_bottom-title.out {
+  display: none;
+}
+
+.header_bottom-title h1 {
+  font-weight: 400;
+  font-size: 80px;
+  text-transform: uppercase;
+}
+.header_bottom-title h1 span {
+  font-family: 'ALS Alumna';
+  color: #898989;
+  text-transform: none;
+}
+.header_bottom-cases {
+  position: relative;
+}
+
+.header_bottom-cases_box {
+  margin-top: 10px;
+  background: #000000;
+  position: relative;
+  height: 113vh;
+  background-image: url('../../public/images/group_photo.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-y: 90px;
+  margin-bottom: 81px;
+  cursor: none;
+  // transition: 200ms;
+  // max-width: 95%;
+  transform-origin: left !important;
+}
+.header_bottom-cases_box img {
+  float: right;
+  padding: 90px 0px;
+}
+.cases_box_green {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #3ece5d;
+  transform: rotate(45deg);
+  top: 67px;
+  left: 40px;
+  position: absolute;
+}
+.cases_box_green p {
+  font-weight: 500;
+  font-size: 14px;
+  transform: rotate(-45deg);
+  font-family: 'Inter Tight';
+
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.eagle {
+  position: fixed;
+  right: 0;
+  top: 100px;
+}
