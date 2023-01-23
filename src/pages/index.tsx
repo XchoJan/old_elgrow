@@ -5,41 +5,64 @@ import { useRef, useEffect, useState } from 'react';
 
 const MainPage = () => {
   const ref = useRef(null);
-  const [vw, setVw]: any = useState('93vw');
+  // const [vw, setVw]: any = useState('93%');
 
   let oldValue = 0;
 
+
+
   if (typeof document !== 'undefined') {
-    // const wrap: any = document.querySelector('.header_bottom-cases_box');
-
-    window.addEventListener('scroll', function (e) {
+    const wrap: any = document.querySelector('.header_bottom-cases_box');
+    wrap.style.maxWidth = '95%';
+    const growBlockElem = () => {
       let newValue = window.pageYOffset;
+      const maxWidth = wrap.style.maxWidth;
+      let valueWidth = maxWidth.substring(0, 4);
 
-      let valueWidth = vw.substring(0, 4);
+     
 
-      if (valueWidth[2] === 'v') {
-        valueWidth = Number(vw.substring(0, 2));
+      if (valueWidth[2] === '%') {
+        valueWidth = Number(maxWidth.substring(0, 2));
+      } else if (valueWidth[3] === '%') {
+        valueWidth = Number(maxWidth.substring(0, 3));
       } else {
-        valueWidth = Number(vw.substring(0, 4));
+        valueWidth = Number(maxWidth.substring(0, 4));
       }
-
       if (oldValue - newValue < 0) {
-        valueWidth += 0.3;
-        let newWidth = String(valueWidth) + 'vw';
-        setVw(newWidth);
+        if (valueWidth === 100) {
+          valueWidth = 100;
+          let newWidth = String(valueWidth) + '%';
+          wrap.style.maxWidth = newWidth;
+        } else {
+          valueWidth += 1;
+          let newWidth = String(valueWidth) + '%';
+          wrap.style.maxWidth = newWidth;
+        }
       } else if (oldValue - newValue > 0) {
-        valueWidth = valueWidth - 1;
-        console.log(valueWidth);
-        
-        let newWidth = String(valueWidth) + 'vw';
-        setVw(newWidth);
+        if (valueWidth <= 95) {
+          valueWidth = 95;
+          let newWidth = String(valueWidth) + '%';
+          wrap.style.maxWidth = newWidth;
+        } else {
+          valueWidth -= 1;
+
+          let newWidth = String(valueWidth) + '%';
+          wrap.style.maxWidth = newWidth;
+        }
       }
       oldValue = newValue;
-    });
+    } 
 
-    window.addEventListener('scroll', () => {
-      // console.log(window.pageYOffset);
-    });
+
+   
+    let pageYOffset = window.pageYOffset;
+
+ if(pageYOffset <= 1200) {
+  
+   console.log(123)
+  window.addEventListener('scroll', growBlockElem)}
+ else    window.removeEventListener('scroll', growBlockElem)
+  
   }
 
   return (
@@ -62,7 +85,7 @@ const MainPage = () => {
             <img className="eagle" src="/images/eagle.png" alt="" />
 
             <div id="trigger1" className="header_bottom-title">
-              <Parallax speed={-100} translateY={[1, 100]}>
+              <Parallax speed={-20} translateY={[-200, 400]}>
                 <h1>
                   Разработка и интеграция <br />
                   <span>IT-РеШеНИЙ. </span> <br />
@@ -75,7 +98,7 @@ const MainPage = () => {
           </div>
           <div className="header_bottom-cases">
             <div
-              style={{ maxWidth: vw }}
+              // style={{ maxWidth: vw }}
               ref={ref}
               className="header_bottom-cases_box"
             >
