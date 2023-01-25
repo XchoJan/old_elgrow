@@ -59,32 +59,29 @@
   background-position-y: 90px;
   margin-bottom: 81px;
   cursor: none;
-  // transition: 200ms;
-  // max-width: 95%;
-  transform-origin: left !important;
 }
 .header_bottom-cases_box img {
   float: right;
   padding: 90px 0px;
 }
+
 .cases_box_green {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #3ece5d;
-  transform: rotate(45deg);
   top: 67px;
   left: 40px;
   position: absolute;
+  border-radius: 50%;
+  // transition: linear 50ms;
 }
 .cases_box_green p {
   font-weight: 500;
   font-size: 14px;
-  transform: rotate(-45deg);
   font-family: 'Inter Tight';
-
   text-align: center;
   text-transform: uppercase;
 

@@ -4,24 +4,6 @@
 @import './header.scss';
 @import './footer.scss';
 
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,200;0,300;0,400;0,600;0,700;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap');
-@font-face {
-  font-family: 'ALS Alumna';
-  src: url('//db.onlinewebfonts.com/t/c5ee43325037adc9ae4c5b469e7c1ae4.eot');
-  src: url('//db.onlinewebfonts.com/t/c5ee43325037adc9ae4c5b469e7c1ae4.eot?#iefix')
-      format('embedded-opentype'),
-    url('//db.onlinewebfonts.com/t/c5ee43325037adc9ae4c5b469e7c1ae4.woff2')
-      format('woff2'),
-    url('//db.onlinewebfonts.com/t/c5ee43325037adc9ae4c5b469e7c1ae4.woff')
-      format('woff'),
-    url('//db.onlinewebfonts.com/t/c5ee43325037adc9ae4c5b469e7c1ae4.ttf')
-      format('truetype'),
-    url('//db.onlinewebfonts.com/t/c5ee43325037adc9ae4c5b469e7c1ae4.svg#ALS Alumna')
-      format('svg');
-}
-
 h1,
 h2,
 h3,
@@ -51,13 +33,14 @@ h6 {
 .tabs__nav {
   padding-left: 50px;
   display: flex;
+  gap: 116px;
 }
 .tabs__btn {
-  margin-right: 125px;
+  font-family: 'Inter Tight';
   background: transparent;
   position: relative;
   border: none;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 20px;
   color: #000000;
   cursor: pointer;
@@ -131,41 +114,66 @@ h6 {
 .info_box_bottom_left img {
   margin-right: 35px;
 }
-.info_box_bottom_right a {
-  font-family: 'Inter Tight';
+.info_box_bottom_right {
+  width: 102px;
+  height: 25px;
+  margin-bottom: 50px;
 
-  display: flex;
-  align-items: center;
-  font-weight: 400;
-  font-size: 20px;
-  text-decoration-line: underline;
-  color: #000000;
+  border-bottom: 2px solid black;
+  a {
+    font-family: 'Inter Tight';
+    font-weight: 400;
+    font-size: 20px;
+    text-decoration: none;
+
+    color: #000000;
+  }
 }
 .info_box-tags {
-  padding: 37px 90px 41px 17px;
-  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 487px;
+  height: 100%;
+  max-height: 165px;
+
+  background: black;
   position: absolute;
   right: -90px;
   bottom: -120px;
+
+  h3 {
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 389px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    color: #fff;
+    text-align: left;
+  }
+
+  span {
+    color: #3ece5d;
+  }
+
+  h1 {
+    text-align: start;
+    width: 80%;
+    font-weight: 700;
+    margin-bottom: 11px;
+    font-size: 24px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+    color: #ffffff;
+  }
 }
-.info_box-tags h3 {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 26px;
-  color: #fff;
-  text-align: left;
-}
-.info_box-tags span {
-  color: #3ece5d;
-}
-.info_box-tags h1 {
-  font-weight: 700;
-  margin-bottom: 11px;
-  font-size: 24px;
-  line-height: 19px;
-  letter-spacing: 0.01em;
-  color: #ffffff;
-}
+
 .products_principles-inner {
   position: relative;
   padding-right: 98px;
@@ -319,7 +327,7 @@ h6 {
 /*scroll start */
 .swiper {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 .swiper1 .swiper-wrapper {
@@ -555,7 +563,7 @@ h6 {
   margin-top: 106px;
 }
 .carusel_bottom_banner {
-  margin-left: -20px;
+  margin-left: -127px;
 }
 .carusel_top a {
   display: inline-flex;

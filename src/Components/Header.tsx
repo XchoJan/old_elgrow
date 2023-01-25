@@ -2,54 +2,85 @@ import React from 'react';
 import { Parallax } from 'react-scroll-parallax';
 
 const Header = () => {
-    let oldValue = 0;
+  const imageMove = (e: any) => {
+    const rect = e.target.getBoundingClientRect();
+    const y = e.clientY - rect.top;
+    const x = e.clientX - rect.left;
 
-    if (typeof document !== 'undefined') {
-      const wrap: any = document.querySelector('.header_bottom-cases_box');
-      wrap.style.maxWidth = '95%';
-      const growBlockElem = () => {
-        let newValue = window.pageYOffset;
-        const maxWidth = wrap.style.maxWidth;
-        let valueWidth = maxWidth.substring(0, 4);
-        console.log(wrap.getBoundingClientRect().y);
-        if (wrap.getBoundingClientRect().y <= 298) {
-          return;
-        }
-  
-        if (valueWidth[2] === '%') {
-          valueWidth = Number(maxWidth.substring(0, 2));
-        } else if (valueWidth[3] === '%') {
-          valueWidth = Number(maxWidth.substring(0, 3));
+    let image: any = document.getElementsByClassName('cases_box_green');
+    // console.log(x == image[0].style.left.replace(/px/g, ''));
+
+    // if (x - image[0].style.left.replace(/px/g, '') > 10) {
+    //   image[0].style.transition = 'linear 500ms';
+    // } else if (x == image[0].style.left.replace(/px/g, '') ) {
+    //   image[0].style.transition = '';
+    // }
+
+    image[0].style.transform = `translate(${x}px, ${y - 100}px`;
+
+    // image[0].style.left = `${x}px`;
+    // image[0].style.top = `${y}px`;
+  };
+
+  const imageOut = (e: any) => {
+    const rect = e.target.getBoundingClientRect();
+    const y = e.clientY - rect.top;
+    const x = e.clientX - rect.left;
+
+    let image: any = document.getElementsByClassName('cases_box_green');
+
+    // image[0].style.left = ``;
+    // image[0].style.top = ``;
+    image[0].style.transform = ``;
+  };
+
+  let oldValue = 0;
+
+  if (typeof document !== 'undefined') {
+    const wrap: any = document.querySelector('.header_bottom-cases_box');
+    wrap.style.maxWidth = '95%';
+    const growBlockElem = () => {
+      let newValue = window.pageYOffset;
+      const maxWidth = wrap.style.maxWidth;
+      let valueWidth = maxWidth.substring(0, 4);
+      if (wrap.getBoundingClientRect().y <= 298) {
+        return;
+      }
+
+      if (valueWidth[2] === '%') {
+        valueWidth = Number(maxWidth.substring(0, 2));
+      } else if (valueWidth[3] === '%') {
+        valueWidth = Number(maxWidth.substring(0, 3));
+      } else {
+        valueWidth = Number(maxWidth.substring(0, 4));
+      }
+      if (oldValue - newValue < 0) {
+        if (valueWidth === 100) {
+          valueWidth = 100;
+          let newWidth = String(valueWidth) + '%';
+          wrap.style.maxWidth = newWidth;
         } else {
-          valueWidth = Number(maxWidth.substring(0, 4));
+          valueWidth += 1;
+          let newWidth = String(valueWidth) + '%';
+          wrap.style.maxWidth = newWidth;
         }
-        if (oldValue - newValue < 0) {
-          if (valueWidth === 100) {
-            valueWidth = 100;
-            let newWidth = String(valueWidth) + '%';
-            wrap.style.maxWidth = newWidth;
-          } else {
-            valueWidth += 1;
-            let newWidth = String(valueWidth) + '%';
-            wrap.style.maxWidth = newWidth;
-          }
-        } else if (oldValue - newValue > 0) {
-          if (valueWidth <= 95) {
-            valueWidth = 95;
-            let newWidth = String(valueWidth) + '%';
-            wrap.style.maxWidth = newWidth;
-          } else {
-            valueWidth -= 1;
-  
-            let newWidth = String(valueWidth) + '%';
-            wrap.style.maxWidth = newWidth;
-          }
+      } else if (oldValue - newValue > 0) {
+        if (valueWidth <= 95) {
+          valueWidth = 95;
+          let newWidth = String(valueWidth) + '%';
+          wrap.style.maxWidth = newWidth;
+        } else {
+          valueWidth -= 1;
+
+          let newWidth = String(valueWidth) + '%';
+          wrap.style.maxWidth = newWidth;
         }
-        oldValue = newValue;
-      };
-  
-      window.addEventListener('scroll', growBlockElem);
-    }
+      }
+      oldValue = newValue;
+    };
+
+    window.addEventListener('scroll', growBlockElem);
+  }
 
   return (
     <header>
@@ -69,7 +100,7 @@ const Header = () => {
           <img className="eagle" src="/images/eagle.png" alt="" />
 
           <div id="trigger1" className="header_bottom-title">
-            <Parallax speed={-20} translateY={[-200, 400]}>
+            <Parallax speed={-20} translateY={[-200, 350]}>
               <h1>
                 Разработка и интеграция <br />
                 <span>IT-РеШеНИЙ. </span> <br />
@@ -80,10 +111,16 @@ const Header = () => {
             </Parallax>
           </div>
         </div>
-        <div className="header_bottom-cases">
+        <div
+          onMouseOut={(e) => imageOut(e)}
+          onMouseMove={(e) => imageMove(e)}
+          className="header_bottom-cases"
+        >
           <div className="header_bottom-cases_box">
             <div className="cases_box_green">
-              <p>Новый кейс</p>
+              <p>
+                Новый <br /> кейс
+              </p>
             </div>
           </div>
         </div>
