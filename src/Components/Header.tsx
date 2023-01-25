@@ -8,30 +8,14 @@ const Header = () => {
     const x = e.clientX - rect.left;
 
     let image: any = document.getElementsByClassName('cases_box_green');
-    // console.log(x == image[0].style.left.replace(/px/g, ''));
-
-    // if (x - image[0].style.left.replace(/px/g, '') > 10) {
-    //   image[0].style.transition = 'linear 500ms';
-    // } else if (x == image[0].style.left.replace(/px/g, '') ) {
-    //   image[0].style.transition = '';
-    // }
-
-    image[0].style.transform = `translate(${x}px, ${y - 100}px`;
-
-    // image[0].style.left = `${x}px`;
-    // image[0].style.top = `${y}px`;
+    image[0].style.opacity = 1;
+    image[0].style.left = `${x}px`;
+    image[0].style.top = `${y}px`;
   };
 
   const imageOut = (e: any) => {
-    const rect = e.target.getBoundingClientRect();
-    const y = e.clientY - rect.top;
-    const x = e.clientX - rect.left;
-
     let image: any = document.getElementsByClassName('cases_box_green');
-
-    // image[0].style.left = ``;
-    // image[0].style.top = ``;
-    image[0].style.transform = ``;
+    image[0].style.opacity = 0;
   };
 
   let oldValue = 0;
@@ -117,7 +101,7 @@ const Header = () => {
           className="header_bottom-cases"
         >
           <div className="header_bottom-cases_box">
-            <div className="cases_box_green">
+            <div  className="cases_box_green">
               <p>
                 Новый <br /> кейс
               </p>

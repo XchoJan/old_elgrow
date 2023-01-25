@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel } from 'swiper';
+import { Mousewheel, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/mousewheel';
 import { useRef } from 'react';
@@ -13,6 +13,74 @@ const MainPage = () => {
   let story3: any = useRef(null);
   let story4: any = useRef(null);
 
+  const engineering = [
+    {
+      num: '01',
+      text: 'Изучение продукта',
+    },
+    {
+      num: '02',
+      text: 'Архитектура',
+    },
+    {
+      num: '03',
+      text: 'Подбор команды',
+    },
+  ];
+
+  const transparency = [
+    {
+      num: '01',
+      text: 'Знакомство с командой',
+    },
+    {
+      num: '02',
+      text: 'Планирование рисков',
+    },
+    {
+      num: '03',
+      text: 'Результат хоть каждый день',
+    },
+  ];
+
+  const saving = [
+    {
+      num: '01',
+      text: 'Оценка исполнителем',
+    },
+    {
+      num: '02',
+      text: 'Понятное коммерческое предложение',
+    },
+    {
+      num: '03',
+      text: 'Продуктовый подход',
+    },
+  ];
+
+  const quality = [
+    {
+      num: '01',
+      text: 'Техлид всегда на проекте',
+    },
+    {
+      num: '02',
+      text: 'Код-ревью',
+    },
+    {
+      num: '03',
+      text: 'А если разраб сбежал?',
+    },
+  ];
+
+  const navigation = [
+    'Продукты',
+    'Сайты',
+    'Мобильные приложения',
+    'Поддержка',
+    'Аутстафф',
+  ];
+
   if (typeof document !== 'undefined') {
     story1 = document.getElementById('story1');
     story2 = document.getElementById('story2');
@@ -25,237 +93,279 @@ const MainPage = () => {
       <Header />
       <section className="tabs">
         <div className="tabs_container">
-          <div className="tabs__nav">
-            <button className="tabs__btn tabs__btn_active">Продукты</button>
+          <div className="tabsNav">
+            {/* <button className="tabs__btn tabs__btn_active">Продукты</button>
             <button className="tabs__btn">Сайты</button>
             <button className="tabs__btn">Мобильные приложения</button>
             <button className="tabs__btn">Поддержка</button>
-            <button className="tabs__btn">Аутстаф</button>
+            <button className="tabs__btn">Аутстаф</button> */}
           </div>
           <div className="tabs__content">
-            <div className="tabs__pane tabs__pane_show">
-              <div className="info_box">
-                <div className="info_box_top">
-                  <div className="info_box_top_left">
-                    <h2>
-                      Усилим команду или сделаем все под ключ: задачи,
-                      микросервисы, MVP, продукт целиком
-                    </h2>
-                  </div>
-                  <div className="info_box_top_right">
-                    <h3>
-                      от <span>280 000 ₽</span> <br />
-                      за спринт
-                    </h3>
-                  </div>
-                </div>
-                <div className="info_box_bottom">
-                  <div className="info_box_bottom_left">
-                    <img src="/images/vtb.svg" alt="" />
-                    <img src="/images/utg.svg" alt="" />
-                    <img src="/images/megafon.svg" alt="" />
-                  </div>
-                  <div className="info_box_bottom_right">
-                    <a href="#">
-                      Подробнее
-                      <img style={{ marginLeft: '10px' }} src="" alt="" />
-                    </a>
-                  </div>
-                </div>
-                <div className="info_box-tags">
-                  <h1 className="info_box_title">Теги:</h1>
-                  <h3 className="tags">
-                    <span>#</span> Архитектура,&nbsp; <span>#</span>{' '}
-                    Разработка,&nbsp;
-                    <span>#</span> Тестирование, &nbsp; <span>#</span> MVP,
-                    &nbsp;
-                    <span>#</span>
-                    Продуктовая команда, <span>#</span>
-                    Бэклог
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="tabs__pane">
-              <div className="info_box">
-                <div className="info_box_top">
-                  <div className="info_box_top_left">
-                    <h2>
-                      Любого уровня и под любые задачи: промо, e-commerce,
-                      спецпроекты, порталы и сервисы
-                    </h2>
-                  </div>
-                  <div className="info_box_top_right">
-                    <h3>
-                      от <span>250 000 ₽</span> <br />
-                      плюс лицензия
-                    </h3>
-                  </div>
-                </div>
-                <div className="info_box_bottom">
-                  <div className="info_box_bottom_left">
-                    <img src="/images/UTG-PA-logo_gold 1.svg" alt="" />
-                    <img src="/images/Sfs_1-removebg-preview.png" alt="" />
-                    <img src="/images/Group 25.svg" alt="" />
-                  </div>
-                  <div className="info_box_bottom_right">
-                    <a href="#">
-                      Подробнее
-                      <img
-                        style={{ marginLeft: '10px' }}
-                        src="/images/arrow.svg"
-                        alt=""
-                      />
-                    </a>
+            <Swiper
+              modules={[Pagination]}
+              spaceBetween={50}
+              slidesPerView={1}
+              speed={1000}
+              pagination={{
+                el: '.tabsNav',
+                type: 'bullets',
+                clickable: true,
+                bulletClass: 'tabsBtn',
+                bulletActiveClass: 'tabsBtnActive',
+                renderBullet: function (index, className) {
+                  return (
+                    '<span class="' +
+                    className +
+                    '">' +
+                    navigation[index] +
+                    '</span>'
+                  );
+                },
+              }}
+            >
+              <SwiperSlide>
+                {' '}
+                <div className="tabs__pane tabs__pane_show ">
+                  <div className="info_box">
+                    <div className="info_box_top">
+                      <div className="info_box_top_left">
+                        <h2>
+                          Усилим команду или сделаем все под ключ: задачи,
+                          микросервисы, MVP, продукт целиком
+                        </h2>
+                      </div>
+                      <div className="info_box_top_right">
+                        <h3>
+                          от <span>280 000 ₽</span> <br />
+                          за спринт
+                        </h3>
+                      </div>
+                    </div>
+                    <div className="info_box_bottom">
+                      <div className="info_box_bottom_left">
+                        <img src="/images/vtb.svg" alt="" />
+                        <img src="/images/utg.svg" alt="" />
+                        <img src="/images/megafon.svg" alt="" />
+                      </div>
+                      <div className="info_box_bottom_right">
+                        <a href="#">
+                          Подробнее
+                          <img style={{ marginLeft: '10px' }} src="" alt="" />
+                        </a>
+                      </div>
+                    </div>
+                    <div className="info_box-tags">
+                      <h1 className="info_box_title">Теги:</h1>
+                      <h3 className="tags">
+                        <span>#</span> Архитектура,&nbsp; <span>#</span>{' '}
+                        Разработка,&nbsp;
+                        <span>#</span> Тестирование, &nbsp; <span>#</span> MVP,
+                        &nbsp;
+                        <span>#</span>
+                        Продуктовая команда, <span>#</span>
+                        Бэклог
+                      </h3>
+                    </div>
                   </div>
                 </div>
-                <div className="info_box-tags">
-                  <h1 className="info_box_title">Теги:</h1>
-                  <h3 className="tags">
-                    <span>#</span> Быстрая разработка <span>#</span> Битрикс,
-                    <span>#</span> Интернет- <br />
-                    магазин,
-                    <span>#</span> Корпоративный сайт, <span>#</span>
-                    Лэндинг
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="tabs__pane" id="content-3">
-              <div className="info_box">
-                <div className="info_box_top">
-                  <div className="info_box_top_left">
-                    <h2>
-                      Любого уровня и под любые задачи: промо, e-commerce,
-                      спецпроекты, порталы и сервисы
-                    </h2>
+              </SwiperSlide>
+              <SwiperSlide>
+                {' '}
+                <div className="tabs__pane">
+                  <div className="info_box">
+                    <div className="info_box_top">
+                      <div className="info_box_top_left">
+                        <h2>
+                          Любого уровня и под любые задачи: промо, e-commerce,
+                          спецпроекты, порталы и сервисы
+                        </h2>
+                      </div>
+                      <div className="info_box_top_right">
+                        <h3>
+                          от <span>250 000 ₽</span> <br />
+                          плюс лицензия
+                        </h3>
+                      </div>
+                    </div>
+                    <div className="info_box_bottom">
+                      <div className="info_box_bottom_left">
+                        <img src="/images/UTG-PA-logo_gold 1.svg" alt="" />
+                        <img src="/images/Sfs_1-removebg-preview.png" alt="" />
+                        <img src="/images/Group 25.svg" alt="" />
+                      </div>
+                      <div className="info_box_bottom_right">
+                        <a href="#">
+                          Подробнее
+                          <img
+                            style={{ marginLeft: '10px' }}
+                            src="/images/arrow.svg"
+                            alt=""
+                          />
+                        </a>
+                      </div>
+                    </div>
+                    <div className="info_box-tags">
+                      <h1 className="info_box_title">Теги:</h1>
+                      <h3 className="tags">
+                        <span>#</span> Быстрая разработка <span>#</span>{' '}
+                        Битрикс,
+                        <span>#</span> Интернет- <br />
+                        магазин,
+                        <span>#</span> Корпоративный сайт, <span>#</span>
+                        Лэндинг
+                      </h3>
+                    </div>
                   </div>
-                  <div className="info_box_top_right">
-                    <h3>
-                      от <span>250 000 ₽</span> <br />
-                      плюс лицензия
-                    </h3>
+                </div>{' '}
+              </SwiperSlide>
+              <SwiperSlide>
+                {' '}
+                <div className="tabs__pane" id="content-3">
+                  <div className="info_box">
+                    <div className="info_box_top">
+                      <div className="info_box_top_left">
+                        <h2>
+                          Любого уровня и под любые задачи: промо, e-commerce,
+                          спецпроекты, порталы и сервисы
+                        </h2>
+                      </div>
+                      <div className="info_box_top_right">
+                        <h3>
+                          от <span>250 000 ₽</span> <br />
+                          плюс лицензия
+                        </h3>
+                      </div>
+                    </div>
+                    <div className="info_box_bottom">
+                      <div className="info_box_bottom_left">
+                        <img src="/images/UTG-PA-logo_gold 1.svg" alt="" />
+                        <img src="/images/Sfs_1-removebg-preview.png" alt="" />
+                        <img src="/images/Group 25.svg" alt="" />
+                      </div>
+                      <div className="info_box_bottom_right">
+                        <a href="#">
+                          Подробнее
+                          <img
+                            style={{ marginLeft: '10px' }}
+                            src="/images/arrow.svg"
+                            alt=""
+                          />
+                        </a>
+                      </div>
+                    </div>
+                    <div className="info_box-tags">
+                      <h1 className="info_box_title">Теги:</h1>
+                      <h3 className="tags">
+                        <span>#</span> Быстрая разработка <span>#</span>{' '}
+                        Битрикс,
+                        <span>#</span> Интернет- <br />
+                        магазин,
+                        <span>#</span> Корпоративный сайт, <span>#</span>
+                        Лэндинг
+                      </h3>
+                    </div>
                   </div>
-                </div>
-                <div className="info_box_bottom">
-                  <div className="info_box_bottom_left">
-                    <img src="/images/UTG-PA-logo_gold 1.svg" alt="" />
-                    <img src="/images/Sfs_1-removebg-preview.png" alt="" />
-                    <img src="/images/Group 25.svg" alt="" />
+                </div>{' '}
+              </SwiperSlide>
+              <SwiperSlide>
+                {' '}
+                <div className="tabs__pane" id="content-3">
+                  <div className="info_box">
+                    <div className="info_box_top">
+                      <div className="info_box_top_left">
+                        <h2>
+                          Любого уровня и под любые задачи: промо, e-commerce,
+                          спецпроекты, порталы и сервисы
+                        </h2>
+                      </div>
+                      <div className="info_box_top_right">
+                        <h3>
+                          от <span>250 000 ₽</span> <br />
+                          плюс лицензия
+                        </h3>
+                      </div>
+                    </div>
+                    <div className="info_box_bottom">
+                      <div className="info_box_bottom_left">
+                        <img src="/images/UTG-PA-logo_gold 1.svg" alt="" />
+                        <img src="/images/Sfs_1-removebg-preview.png" alt="" />
+                        <img src="/images/Group 25.svg" alt="" />
+                      </div>
+                      <div className="info_box_bottom_right">
+                        <a href="#">
+                          Подробнее
+                          <img
+                            style={{ marginLeft: '10px' }}
+                            src="/images/arrow.svg"
+                            alt=""
+                          />
+                        </a>
+                      </div>
+                    </div>
+                    <div className="info_box-tags">
+                      <h1 className="info_box_title">Теги:</h1>
+                      <h3 className="tags">
+                        <span>#</span> Быстрая разработка <span>#</span>{' '}
+                        Битрикс,
+                        <span>#</span> Интернет- <br />
+                        магазин,
+                        <span>#</span> Корпоративный сайт, <span>#</span>
+                        Лэндинг
+                      </h3>
+                    </div>
                   </div>
-                  <div className="info_box_bottom_right">
-                    <a href="#">
-                      Подробнее
-                      <img
-                        style={{ marginLeft: '10px' }}
-                        src="/images/arrow.svg"
-                        alt=""
-                      />
-                    </a>
+                </div>{' '}
+              </SwiperSlide>
+              <SwiperSlide>
+                {' '}
+                <div className="tabs__pane" id="content-3">
+                  <div className="info_box">
+                    <div className="info_box_top">
+                      <div className="info_box_top_left">
+                        <h2>
+                          Любого уровня и под любые задачи: промо, e-commerce,
+                          спецпроекты, порталы и сервисы
+                        </h2>
+                      </div>
+                      <div className="info_box_top_right">
+                        <h3>
+                          от <span>250 000 ₽</span> <br />
+                          плюс лицензия
+                        </h3>
+                      </div>
+                    </div>
+                    <div className="info_box_bottom">
+                      <div className="info_box_bottom_left">
+                        <img src="/images/UTG-PA-logo_gold 1.svg" alt="" />
+                        <img src="/images/Sfs_1-removebg-preview.png" alt="" />
+                        <img src="/images/Group 25.svg" alt="" />
+                      </div>
+                      <div className="info_box_bottom_right">
+                        <a href="#">
+                          Подробнее
+                          <img
+                            style={{ marginLeft: '10px' }}
+                            src="/images/arrow.svg"
+                            alt=""
+                          />
+                        </a>
+                      </div>
+                    </div>
+                    <div className="info_box-tags">
+                      <h1 className="info_box_title">Теги:</h1>
+                      <h3 className="tags">
+                        <span>#</span> Быстрая разработка <span>#</span>{' '}
+                        Битрикс,
+                        <span>#</span> Интернет- <br />
+                        магазин,
+                        <span>#</span> Корпоративный сайт, <span>#</span>
+                        Лэндинг
+                      </h3>
+                    </div>
                   </div>
-                </div>
-                <div className="info_box-tags">
-                  <h1 className="info_box_title">Теги:</h1>
-                  <h3 className="tags">
-                    <span>#</span> Быстрая разработка <span>#</span> Битрикс,
-                    <span>#</span> Интернет- <br />
-                    магазин,
-                    <span>#</span> Корпоративный сайт, <span>#</span>
-                    Лэндинг
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="tabs__pane" id="content-3">
-              <div className="info_box">
-                <div className="info_box_top">
-                  <div className="info_box_top_left">
-                    <h2>
-                      Любого уровня и под любые задачи: промо, e-commerce,
-                      спецпроекты, порталы и сервисы
-                    </h2>
-                  </div>
-                  <div className="info_box_top_right">
-                    <h3>
-                      от <span>250 000 ₽</span> <br />
-                      плюс лицензия
-                    </h3>
-                  </div>
-                </div>
-                <div className="info_box_bottom">
-                  <div className="info_box_bottom_left">
-                    <img src="/images/UTG-PA-logo_gold 1.svg" alt="" />
-                    <img src="/images/Sfs_1-removebg-preview.png" alt="" />
-                    <img src="/images/Group 25.svg" alt="" />
-                  </div>
-                  <div className="info_box_bottom_right">
-                    <a href="#">
-                      Подробнее
-                      <img
-                        style={{ marginLeft: '10px' }}
-                        src="/images/arrow.svg"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div className="info_box-tags">
-                  <h1 className="info_box_title">Теги:</h1>
-                  <h3 className="tags">
-                    <span>#</span> Быстрая разработка <span>#</span> Битрикс,
-                    <span>#</span> Интернет- <br />
-                    магазин,
-                    <span>#</span> Корпоративный сайт, <span>#</span>
-                    Лэндинг
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="tabs__pane" id="content-3">
-              <div className="info_box">
-                <div className="info_box_top">
-                  <div className="info_box_top_left">
-                    <h2>
-                      Любого уровня и под любые задачи: промо, e-commerce,
-                      спецпроекты, порталы и сервисы
-                    </h2>
-                  </div>
-                  <div className="info_box_top_right">
-                    <h3>
-                      от <span>250 000 ₽</span> <br />
-                      плюс лицензия
-                    </h3>
-                  </div>
-                </div>
-                <div className="info_box_bottom">
-                  <div className="info_box_bottom_left">
-                    <img src="/images/UTG-PA-logo_gold 1.svg" alt="" />
-                    <img src="/images/Sfs_1-removebg-preview.png" alt="" />
-                    <img src="/images/Group 25.svg" alt="" />
-                  </div>
-                  <div className="info_box_bottom_right">
-                    <a href="#">
-                      Подробнее
-                      <img
-                        style={{ marginLeft: '10px' }}
-                        src="/images/arrow.svg"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div className="info_box-tags">
-                  <h1 className="info_box_title">Теги:</h1>
-                  <h3 className="tags">
-                    <span>#</span> Быстрая разработка <span>#</span> Битрикс,
-                    <span>#</span> Интернет- <br />
-                    магазин,
-                    <span>#</span> Корпоративный сайт, <span>#</span>
-                    Лэндинг
-                  </h3>
-                </div>
-              </div>
-            </div>
+                </div>{' '}
+              </SwiperSlide>
+            </Swiper>
           </div>{' '}
           <div id="js-wrapper" className="wrapper">
             <div className="sections" id="js-slideContainer">
@@ -268,7 +378,7 @@ const MainPage = () => {
                   releaseOnEdges: true,
                   eventsTarget: '.sectionTitle',
                 }}
-                speed={500}
+                speed={1000}
               >
                 <SwiperSlide>
                   <section className="section horizontal_section">
@@ -308,29 +418,33 @@ const MainPage = () => {
                           </div>
                           <Swiper
                             nested={true}
-                            modules={[Mousewheel]}
+                            modules={[Pagination]}
                             spaceBetween={50}
                             slidesPerView={1}
-                            speed={500}
-                            mousewheel={{
-                              invert: false,
-                              eventsTarget: story1,
+                            speed={1000}
+                            pagination={{
+                              el: '.websites-content_inner-body_left',
+                              type: 'bullets',
+                              clickable: true,
+                              bulletClass: 'websites-tab websites-tab1',
+                              bulletActiveClass: 'websites-tab_active',
+                              renderBullet: function (index, className) {
+                                return (
+                                  '<h2 class="' +
+                                  className +
+                                  '">' +
+                                  '<span>' +
+                                  engineering[index].num +
+                                  '</span>' +
+                                  engineering[index].text +
+                                  '</h2>'
+                                );
+                              },
                             }}
                           >
                             <SwiperSlide>
                               <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left">
-                                  <h2 className="websites-tab websites-tab1  websites-tab_active">
-                                    <span>01</span> Изучение продукта
-                                  </h2>
-
-                                  <h2 className="websites-tab websites-tab1">
-                                    <span>02</span> Архитектура
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab1">
-                                    <span>03</span> Подбор команды
-                                  </h2>
-                                </div>
+                                <div className="websites-content_inner-body_left"></div>
                                 <div className="websites-content_inner-body_right">
                                   <div className="website-tab_content">
                                     <div className="website-tab_content_item">
@@ -351,18 +465,7 @@ const MainPage = () => {
                             </SwiperSlide>
                             <SwiperSlide>
                               <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left">
-                                  <h2 className="websites-tab websites-tab1  ">
-                                    <span>01</span> Изучение продукта
-                                  </h2>
-
-                                  <h2 className="websites-tab websites-tab1 websites-tab_active">
-                                    <span>02</span> Архитектура
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab1">
-                                    <span>03</span> Подбор команды
-                                  </h2>
-                                </div>
+                                <div className="websites-content_inner-body_left"></div>
                                 <div className="websites-content_inner-body_right">
                                   <div className="website-tab_content">
                                     <div className="website-tab_content_item">
@@ -382,18 +485,7 @@ const MainPage = () => {
                             </SwiperSlide>
                             <SwiperSlide>
                               <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left">
-                                  <h2 className="websites-tab websites-tab1  ">
-                                    <span>01</span> Изучение продукта
-                                  </h2>
-
-                                  <h2 className="websites-tab websites-tab1">
-                                    <span>02</span> Архитектура
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab1 websites-tab_active">
-                                    <span>03</span> Подбор команды
-                                  </h2>
-                                </div>
+                                <div className="websites-content_inner-body_left"></div>
                                 <div className="websites-content_inner-body_right">
                                   <div className="website-tab_content">
                                     <div className="website-tab_content_item">
@@ -432,28 +524,33 @@ const MainPage = () => {
                           </div>
                           <Swiper
                             nested={true}
-                            modules={[Mousewheel]}
+                            modules={[Pagination]}
                             spaceBetween={50}
                             slidesPerView={1}
-                            speed={500}
-                            mousewheel={{
-                              invert: false,
-                              eventsTarget: story2,
+                            speed={1000}
+                            pagination={{
+                              el: '.websites-content_inner-body_left',
+                              type: 'bullets',
+                              clickable: true,
+                              bulletClass: 'websites-tab websites-tab1',
+                              bulletActiveClass: 'websites-tab_active',
+                              renderBullet: function (index, className) {
+                                return (
+                                  '<h2 class="' +
+                                  className +
+                                  '">' +
+                                  '<span>' +
+                                  transparency[index].num +
+                                  '</span>' +
+                                  transparency[index].text +
+                                  '</h2>'
+                                );
+                              },
                             }}
                           >
                             <SwiperSlide>
                               <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left">
-                                  <h2 className="websites-tab websites-tab2 websites-tab_active">
-                                    <span>01</span> Знакомство с командой
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab2 ">
-                                    <span>02</span> Планирование рисков
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab2 ">
-                                    <span>03</span> Результат хоть каждый день
-                                  </h2>
-                                </div>
+                                <div className="websites-content_inner-body_left"></div>
                                 <div className="websites-content_inner-body_right">
                                   <div className="website-tab_content">
                                     <div className="website-tab_content_item">
@@ -472,17 +569,7 @@ const MainPage = () => {
                             </SwiperSlide>
                             <SwiperSlide>
                               <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left">
-                                  <h2 className="websites-tab websites-tab2 ">
-                                    <span>01</span> Знакомство с командой
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab2 websites-tab_active">
-                                    <span>02</span> Планирование рисков
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab2 ">
-                                    <span>03</span> Результат хоть каждый день
-                                  </h2>
-                                </div>
+                                <div className="websites-content_inner-body_left"></div>
                                 <div className="websites-content_inner-body_right">
                                   <div className="website-tab_content">
                                     <div className="website-tab_content_item">
@@ -502,17 +589,7 @@ const MainPage = () => {
                             </SwiperSlide>
                             <SwiperSlide>
                               <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left">
-                                  <h2 className="websites-tab websites-tab2 ">
-                                    <span>01</span> Знакомство с командой
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab2 ">
-                                    <span>02</span> Планирование рисков
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab2 websites-tab_active">
-                                    <span>03</span> Результат хоть каждый день
-                                  </h2>
-                                </div>
+                                <div className="websites-content_inner-body_left"></div>
                                 <div className="websites-content_inner-body_right">
                                   <div className="website-tab_content">
                                     <div className="website-tab_content_item">
@@ -549,30 +626,34 @@ const MainPage = () => {
                           </div>
                           <Swiper
                             nested={true}
-                            modules={[Mousewheel]}
+                            modules={[Pagination]}
                             spaceBetween={50}
                             slidesPerView={1}
-                            speed={500}
-                            mousewheel={{
-                              invert: false,
-                              eventsTarget: story3,
+                            speed={1000}
+                            pagination={{
+                              el: '.websites-content_inner-body_left',
+                              type: 'bullets',
+                              clickable: true,
+                              bulletClass: 'websites-tab websites-tab1',
+                              bulletActiveClass: 'websites-tab_active',
+                              renderBullet: function (index, className) {
+                                return (
+                                  '<h2 class="' +
+                                  className +
+                                  '">' +
+                                  '<span>' +
+                                  saving[index].num +
+                                  '</span>' +
+                                  saving[index].text +
+                                  '</h2>'
+                                );
+                              },
                             }}
                           >
                             {' '}
                             <SwiperSlide>
                               <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left">
-                                  <h2 className="websites-tab websites-tab3 websites-tab_active">
-                                    <span>01</span> Оценка исполнителям
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab3 ">
-                                    <span>02</span> Понятное коммерческое
-                                    предложение
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab3 ">
-                                    <span>03</span> Продуктовый подход
-                                  </h2>
-                                </div>
+                                <div className="websites-content_inner-body_left"></div>
                                 <div className="websites-content_inner-body_right">
                                   <div className="website-tab_content">
                                     <div className="website-tab_content_item">
@@ -592,18 +673,7 @@ const MainPage = () => {
                             </SwiperSlide>
                             <SwiperSlide>
                               <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left">
-                                  <h2 className="websites-tab websites-tab3 ">
-                                    <span>01</span> Оценка исполнителям
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab3 websites-tab_active">
-                                    <span>02</span> Понятное коммерческое
-                                    предложение
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab3 ">
-                                    <span>03</span> Продуктовый подход
-                                  </h2>
-                                </div>
+                                <div className="websites-content_inner-body_left"></div>
                                 <div className="websites-content_inner-body_right">
                                   <div className="website-tab_content">
                                     <div className="website-tab_content_item">
@@ -623,18 +693,7 @@ const MainPage = () => {
                             </SwiperSlide>
                             <SwiperSlide>
                               <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left">
-                                  <h2 className="websites-tab websites-tab3 ">
-                                    <span>01</span> Оценка исполнителям
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab3">
-                                    <span>02</span> Понятное коммерческое
-                                    предложение
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab3 websites-tab_active">
-                                    <span>03</span> Продуктовый подход
-                                  </h2>
-                                </div>
+                                <div className="websites-content_inner-body_left"></div>
                                 <div className="websites-content_inner-body_right">
                                   <div className="website-tab_content">
                                     <div className="website-tab_content_item">
@@ -672,29 +731,33 @@ const MainPage = () => {
                           </div>
                           <Swiper
                             nested={true}
-                            modules={[Mousewheel]}
+                            modules={[Pagination]}
                             spaceBetween={50}
                             slidesPerView={1}
-                            speed={500}
-                            mousewheel={{
-                              invert: false,
-                              eventsTarget: story4,
-                              releaseOnEdges: true,
+                            speed={1000}
+                            pagination={{
+                              el: '.websites-content_inner-body_left',
+                              type: 'bullets',
+                              clickable: true,
+                              bulletClass: 'websites-tab websites-tab1',
+                              bulletActiveClass: 'websites-tab_active',
+                              renderBullet: function (index, className) {
+                                return (
+                                  '<h2 class="' +
+                                  className +
+                                  '">' +
+                                  '<span>' +
+                                  quality[index].num +
+                                  '</span>' +
+                                  quality[index].text +
+                                  '</h2>'
+                                );
+                              },
                             }}
                           >
                             <SwiperSlide>
                               <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left">
-                                  <h2 className="websites-tab websites-tab4 websites-tab_active">
-                                    <span>01</span> Техлид всегда на проекте
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab4">
-                                    <span>02</span> Код-ревью
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab4 ">
-                                    <span>03</span> А если разраб сбежал ?
-                                  </h2>
-                                </div>
+                                <div className="websites-content_inner-body_left"></div>
                                 <div className="websites-content_inner-body_right">
                                   <div className="website-tab_content">
                                     <div className="website-tab_content_item">

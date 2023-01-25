@@ -72,11 +72,10 @@
   justify-content: center;
   align-items: center;
   background: #3ece5d;
-  top: 67px;
-  left: 40px;
   position: absolute;
   border-radius: 50%;
-  // transition: linear 50ms;
+  opacity: 0;
+  transition: opacity 500ms;
 }
 .cases_box_green p {
   font-weight: 500;

@@ -27,15 +27,15 @@ h6 {
 
 /*Header end*/
 /*Tabs start*/
-.tabs__content {
+.tabs__content {  height: 700px;
   margin-bottom: 8%;
 }
-.tabs__nav {
+.tabsNav {
   padding-left: 50px;
   display: flex;
   gap: 116px;
 }
-.tabs__btn {
+.tabsBtn {
   font-family: 'Inter Tight';
   background: transparent;
   position: relative;
@@ -45,7 +45,7 @@ h6 {
   color: #000000;
   cursor: pointer;
 }
-.tabs__btn_active::before {
+.tabsBtnActive::before {
   content: '';
   position: absolute;
   width: 12px;
@@ -56,7 +56,8 @@ h6 {
   right: -4px;
 }
 .tabs__pane {
-  display: none;
+ 
+  display: block;
 }
 .website-mini_tab_content {
   display: none;
