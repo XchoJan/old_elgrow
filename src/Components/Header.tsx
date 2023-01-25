@@ -13,7 +13,7 @@ const Header = () => {
     image[0].style.top = `${y}px`;
   };
 
-  const imageOut = (e: any) => {
+  const imageOut = () => {
     let image: any = document.getElementsByClassName('cases_box_green');
     image[0].style.opacity = 0;
   };
@@ -96,12 +96,20 @@ const Header = () => {
           </div>
         </div>
         <div
-          onMouseOut={(e) => imageOut(e)}
-          onMouseMove={(e) => imageMove(e)}
+          onMouseOut={() =>
+            setTimeout(() => {
+              imageOut();
+            }, 50)
+          }
+          onMouseMove={(e) =>
+            setTimeout(() => {
+              imageMove(e);
+            }, 50)
+          }
           className="header_bottom-cases"
         >
           <div className="header_bottom-cases_box">
-            <div  className="cases_box_green">
+            <div className="cases_box_green">
               <p>
                 Новый <br /> кейс
               </p>
