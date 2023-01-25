@@ -2,17 +2,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/mousewheel';
-import { useRef } from 'react';
+import 'swiper/css/pagination';
 
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 
 const MainPage = () => {
-  let story1: any = useRef(null);
-  let story2: any = useRef(null);
-  let story3: any = useRef(null);
-  let story4: any = useRef(null);
-
   const engineering = [
     {
       num: '01',
@@ -81,25 +76,12 @@ const MainPage = () => {
     'Аутстафф',
   ];
 
-  if (typeof document !== 'undefined') {
-    story1 = document.getElementById('story1');
-    story2 = document.getElementById('story2');
-    story3 = document.getElementById('story3');
-    story4 = document.getElementById('story4');
-  }
-
   return (
     <div>
       <Header />
       <section className="tabs">
         <div className="tabs_container">
-          <div className="tabsNav">
-            {/* <button className="tabs__btn tabs__btn_active">Продукты</button>
-            <button className="tabs__btn">Сайты</button>
-            <button className="tabs__btn">Мобильные приложения</button>
-            <button className="tabs__btn">Поддержка</button>
-            <button className="tabs__btn">Аутстаф</button> */}
-          </div>
+          <div className="tabsNav"></div>
           <div className="tabs__content">
             <Swiper
               modules={[Pagination]}
@@ -407,11 +389,7 @@ const MainPage = () => {
                 <SwiperSlide>
                   <section className="section horizontal_section">
                     <div className="sectionTitle" id="title2">
-                      <div
-                        ref={story1}
-                        className="websites-content"
-                        id="story1"
-                      >
+                      <div className="websites-content">
                         <div className="websites-content_inner">
                           <div className="websites-content_inner-title">
                             <h1>Проектирование</h1>
@@ -513,11 +491,7 @@ const MainPage = () => {
                 <SwiperSlide>
                   <section className="section horizontal_section">
                     <div className="sectionTitle" id="title3">
-                      <div
-                        ref={story2}
-                        className="websites-content"
-                        id="story2"
-                      >
+                      <div className="websites-content">
                         <div className="websites-content_inner">
                           <div className="websites-content_inner-title">
                             <h1>Прозрачность</h1>
@@ -615,11 +589,7 @@ const MainPage = () => {
                 <SwiperSlide>
                   <section className="section horizontal_section">
                     <div className="sectionTitle" id="title3">
-                      <div
-                        ref={story3}
-                        className="websites-content"
-                        id="story3"
-                      >
+                      <div className="websites-content">
                         <div className="websites-content_inner">
                           <div className="websites-content_inner-title">
                             <h1>Экономия</h1>
@@ -720,11 +690,7 @@ const MainPage = () => {
                 <SwiperSlide>
                   <section className="section horizontal_section">
                     <div className="sectionTitle" id="title3">
-                      <div
-                        ref={story4}
-                        id="story4"
-                        className="websites-content"
-                      >
+                      <div className="websites-content">
                         <div className="websites-content_inner">
                           <div className="websites-content_inner-title">
                             <h1>Качество</h1>
@@ -845,78 +811,106 @@ const MainPage = () => {
           </div>
           <div className="swiper">
             <div className="swiper-wrapper">
-              <div className="swiper-slide">
-                <div className="team_slider">
-                  <div className="team_slider-inner">
-                    <div className="team_slider-inner_slogan">
-                      <h1>
-                        <img src="/images/logo_def.svg" alt="" /> <br />
-                        это про людей,которые постоянно с вами.
-                      </h1>
-                    </div>
-                    <div className="team_slider-inner_bootom">
-                      <div className="team_slider-inner_bootom_left">
-                        <h1>Роман Адигезалов</h1>
-                        <h2>Фронтенд-лид</h2>
+              <Swiper
+                direction="vertical"
+                modules={[Pagination]}
+                spaceBetween={0}
+                slidesPerView={1}
+                speed={1000}
+                pagination={{
+                  el: '.swiper-pagination',
+                  clickable: true,
+                }}
+              >
+                <SwiperSlide>
+                  {' '}
+                  <div className="swiper-slide">
+                    <div className="team_slider">
+                      <div className="team_slider-inner">
+                        <div className="team_slider-inner_slogan">
+                          <h1>
+                            <img src="/images/logo_def.svg" alt="" /> <br />
+                            это про людей,которые постоянно с вами.
+                          </h1>
+                        </div>
+                        <div className="team_slider-inner_bootom">
+                          <div className="team_slider-inner_bootom_left">
+                            <h1>Роман Адигезалов</h1>
+                            <h2>Фронтенд-лид</h2>
+                          </div>
+                          <div className="team_slider-inner_bootom_right">
+                            <h3>с 2019 года</h3>
+                          </div>
+                        </div>
                       </div>
-                      <div className="team_slider-inner_bootom_right">
-                        <h3>с 2019 года</h3>
-                      </div>
-                    </div>
-                  </div>
-                  <img className="team-member" src="/images/Roman.jpg" alt="" />
-                </div>
-              </div>
-              <div className="swiper-slide">
-                {' '}
-                <div className="team_slider">
-                  <div className="team_slider-inner">
-                    <div className="team_slider-inner_slogan">
-                      <h1>
-                        <img src="/images/logo_def.svg" alt="" /> <br />
-                        это про людей,которые постоянно с вами.
-                      </h1>
-                    </div>
-                    <div className="team_slider-inner_bootom">
-                      <div className="team_slider-inner_bootom_left">
-                        <h1>Роман Адигезалов</h1>
-                        <h2>Фронтенд-лид</h2>
-                      </div>
-                      <div className="team_slider-inner_bootom_right">
-                        <h3>с 2019 года</h3>
-                      </div>
+                      <img
+                        className="team-member"
+                        src="/images/Roman.jpg"
+                        alt=""
+                      />
                     </div>
                   </div>
-                  <img className="team-member" src="/images/Roman.jpg" alt="" />
-                </div>
-              </div>
-              <div className="swiper-slide">
-                {' '}
-                <div className="team_slider">
-                  <div className="team_slider-inner">
-                    <div className="team_slider-inner_slogan">
-                      <h1>
-                        <img src="/images/logo_def.svg" alt="" /> <br />
-                        это про людей,которые постоянно с вами.
-                      </h1>
-                    </div>
-                    <div className="team_slider-inner_bootom">
-                      <div className="team_slider-inner_bootom_left">
-                        <h1>Роман Адигезалов</h1>
-                        <h2>Фронтенд-лид</h2>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="swiper-slide">
+                    <div className="team_slider">
+                      <div className="team_slider-inner">
+                        <div className="team_slider-inner_slogan">
+                          <h1>
+                            <img src="/images/logo_def.svg" alt="" /> <br />
+                            это про людей,которые постоянно с вами.
+                          </h1>
+                        </div>
+                        <div className="team_slider-inner_bootom">
+                          <div className="team_slider-inner_bootom_left">
+                            <h1>Роман Адигезалов</h1>
+                            <h2>Фронтенд-лид</h2>
+                          </div>
+                          <div className="team_slider-inner_bootom_right">
+                            <h3>с 2011 года</h3>
+                          </div>
+                        </div>
                       </div>
-                      <div className="team_slider-inner_bootom_right">
-                        <h3>с 2019 года</h3>
-                      </div>
+                      <img
+                        className="team-member"
+                        src="/images/Roman.jpg"
+                        alt=""
+                      />
                     </div>
                   </div>
-                  <img className="team-member" src="/images/Roman.jpg" alt="" />
-                </div>
-              </div>
-              ...
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="swiper-slide">
+                    {' '}
+                    <div className="team_slider">
+                      <div className="team_slider-inner">
+                        <div className="team_slider-inner_slogan">
+                          <h1>
+                            <img src="/images/logo_def.svg" alt="" /> <br />
+                            это про людей,которые постоянно с вами.
+                          </h1>
+                        </div>
+                        <div className="team_slider-inner_bootom">
+                          <div className="team_slider-inner_bootom_left">
+                            <h1>Роман Адигезалов</h1>
+                            <h2>Фронтенд-лид</h2>
+                          </div>
+                          <div className="team_slider-inner_bootom_right">
+                            <h3>с 2022 года</h3>
+                          </div>
+                        </div>
+                      </div>
+                      <img
+                        className="team-member"
+                        src="/images/Roman.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <div className="swiper-pagination"></div>
+              </Swiper>
             </div>
-
-            <div className="swiper-pagination"></div>
           </div>
         </div>
       </section>
