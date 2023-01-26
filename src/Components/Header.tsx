@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Parallax } from 'react-scroll-parallax';
+import Menu from './Menu';
 
 const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
   const imageMove = (e: any) => {
     const rect = e.target.getBoundingClientRect();
     const y = e.clientY - rect.top;
@@ -69,12 +71,13 @@ const Header = () => {
   return (
     <header>
       <div className="container">
+        <Menu isOpen={showMenu} close={setShowMenu} /> 
         <div className="header_top">
           <div className="logo">
             <img src="/images/elgrow._logo.svg" alt="" />
           </div>
           <div className="after_logo">
-            <h2>
+            <h2 onClick={() => setShowMenu(true)}>
               Digital- <br />
               интегратор <br />c 2012 года
             </h2>
