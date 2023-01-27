@@ -50,6 +50,7 @@
 }
 
 .header_bottom-cases_box {
+  overflow: hidden;
   margin-top: 10px;
   background: #000000;
   position: relative;
@@ -60,6 +61,7 @@
   background-position-y: 90px;
   margin-bottom: 81px;
   cursor: none;
+  max-width: 95%;
 }
 .header_bottom-cases_box img {
   float: right;
@@ -76,12 +78,10 @@
   background: #3ece5d;
   position: absolute;
   border-radius: 50%;
-  opacity: 0;
   transition: opacity 500ms;
 }
 .cases_box_green p {
   font-weight: 500;
-  font-size: 14px;
   font-family: 'Inter Tight';
   text-align: center;
   text-transform: uppercase;

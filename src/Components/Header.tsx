@@ -1,34 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Parallax } from 'react-scroll-parallax';
 import Menu from './Menu';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [isVisibleCase, setVisibleCase] = useState(false);
   const imageMove = (e: any) => {
+    setVisibleCase(true);
     const rect = e.target.getBoundingClientRect();
     const y = e.clientY - rect.top;
     const x = e.clientX - rect.left;
 
     let image: any = document.getElementsByClassName('cases_box_green');
-    image[0].style.opacity = 1;
-    image[0].style.left = `${x}px`;
-    image[0].style.top = `${y}px`;
-  };
 
-  const imageOut = () => {
-    let image: any = document.getElementsByClassName('cases_box_green');
-    image[0].style.opacity = 0;
+    image[0].style.left = `${x - 50}px`;
+    image[0].style.top = `${y - 50}px`;
   };
 
   let oldValue = 0;
 
   if (typeof document !== 'undefined') {
     const wrap: any = document.querySelector('.header_bottom-cases_box');
-    wrap.style.maxWidth = '95%';
+
     const growBlockElem = () => {
       let newValue = window.pageYOffset;
-      const maxWidth = wrap.style.maxWidth;
-      let valueWidth = maxWidth.substring(0, 4);
+      const maxWidth = getComputedStyle(wrap).maxWidth;
+
+      let valueWidth: number | string = maxWidth.substring(0, 4);
       if (wrap.getBoundingClientRect().y <= 298) {
         return;
       }
@@ -71,7 +70,7 @@ const Header = () => {
   return (
     <header>
       <div className="container">
-        <Menu isOpen={showMenu} close={setShowMenu} /> 
+        <Menu isOpen={showMenu} close={setShowMenu} />
         <div className="header_top">
           <div className="logo">
             <img src="/images/elgrow._logo.svg" alt="" />
@@ -101,7 +100,7 @@ const Header = () => {
         <div
           onMouseOut={() =>
             setTimeout(() => {
-              imageOut();
+              setVisibleCase(false);
             }, 50)
           }
           onMouseMove={(e) =>
@@ -112,11 +111,32 @@ const Header = () => {
           className="header_bottom-cases"
         >
           <div className="header_bottom-cases_box">
-            <div className="cases_box_green">
-              <p>
-                Новый <br /> кейс
-              </p>
-            </div>
+            <AnimatePresence>
+              {isVisibleCase && (
+                <motion.div
+                  initial={{
+                    scale: 0,
+                  }}
+                  animate={{
+                    scale: 1,
+                  }}
+                  transition={{ duration: 0.3 }}
+                  exit={{
+                    scale: 0,
+                  }}
+                  className="cases_box_green"
+                >
+                  <motion.p
+                    initial={{ fontSize: 0 }}
+                    animate={{ fontSize: '14px' }}
+                    transition={{ duration: 0.3 }}
+                    exit={{ fontSize: 0 }}
+                  >
+                    Новый <br /> кейс
+                  </motion.p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>
