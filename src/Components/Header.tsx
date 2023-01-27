@@ -1,11 +1,23 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { Parallax } from 'react-scroll-parallax';
 import Menu from './Menu';
-import { motion, AnimatePresence } from 'framer-motion';
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+  useMotionValueEvent,
+} from 'framer-motion';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+
+  const ref = useRef(null);
   const [isVisibleCase, setVisibleCase] = useState(false);
+  const { scrollY, scrollYProgress } = useScroll();
+  const y1 = useTransform(scrollY, [0, 400], [100, 700]);
+  const maxWidth = useTransform(scrollY, [0, 250], ['93vw', '100vw']);
+
   const imageMove = (e: any) => {
     setVisibleCase(true);
     const rect = e.target.getBoundingClientRect();
@@ -20,52 +32,52 @@ const Header = () => {
 
   let oldValue = 0;
 
-  if (typeof document !== 'undefined') {
-    const wrap: any = document.querySelector('.header_bottom-cases_box');
+  // if (typeof document !== 'undefined') {
+  //   const wrap: any = document.querySelector('.header_bottom-cases_box');
 
-    const growBlockElem = () => {
-      let newValue = window.pageYOffset;
-      const maxWidth = getComputedStyle(wrap).maxWidth;
+  //   const growBlockElem = () => {
+  //     let newValue = window.pageYOffset;
+  //     const maxWidth = getComputedStyle(wrap).maxWidth;
 
-      let valueWidth: number | string = maxWidth.substring(0, 4);
-      if (wrap.getBoundingClientRect().y <= 298) {
-        return;
-      }
+  //     let valueWidth: number | string = maxWidth.substring(0, 4);
+  //     if (wrap.getBoundingClientRect().y <= 298) {
+  //       return;
+  //     }
 
-      if (valueWidth[2] === '%') {
-        valueWidth = Number(maxWidth.substring(0, 2));
-      } else if (valueWidth[3] === '%') {
-        valueWidth = Number(maxWidth.substring(0, 3));
-      } else {
-        valueWidth = Number(maxWidth.substring(0, 4));
-      }
-      if (oldValue - newValue < 0) {
-        if (valueWidth === 100) {
-          valueWidth = 100;
-          let newWidth = String(valueWidth) + '%';
-          wrap.style.maxWidth = newWidth;
-        } else {
-          valueWidth += 1;
-          let newWidth = String(valueWidth) + '%';
-          wrap.style.maxWidth = newWidth;
-        }
-      } else if (oldValue - newValue > 0) {
-        if (valueWidth <= 95) {
-          valueWidth = 95;
-          let newWidth = String(valueWidth) + '%';
-          wrap.style.maxWidth = newWidth;
-        } else {
-          valueWidth -= 1;
+  //     if (valueWidth[2] === '%') {
+  //       valueWidth = Number(maxWidth.substring(0, 2));
+  //     } else if (valueWidth[3] === '%') {
+  //       valueWidth = Number(maxWidth.substring(0, 3));
+  //     } else {
+  //       valueWidth = Number(maxWidth.substring(0, 4));
+  //     }
+  //     if (oldValue - newValue < 0) {
+  //       if (valueWidth === 100) {
+  //         valueWidth = 100;
+  //         let newWidth = String(valueWidth) + '%';
+  //         wrap.style.maxWidth = newWidth;
+  //       } else {
+  //         valueWidth += 1;
+  //         let newWidth = String(valueWidth) + '%';
+  //         wrap.style.maxWidth = newWidth;
+  //       }
+  //     } else if (oldValue - newValue > 0) {
+  //       if (valueWidth <= 95) {
+  //         valueWidth = 95;
+  //         let newWidth = String(valueWidth) + '%';
+  //         wrap.style.maxWidth = newWidth;
+  //       } else {
+  //         valueWidth -= 1;
 
-          let newWidth = String(valueWidth) + '%';
-          wrap.style.maxWidth = newWidth;
-        }
-      }
-      oldValue = newValue;
-    };
+  //         let newWidth = String(valueWidth) + '%';
+  //         wrap.style.maxWidth = newWidth;
+  //       }
+  //     }
+  //     oldValue = newValue;
+  //   };
 
-    window.addEventListener('scroll', growBlockElem);
-  }
+  //   window.addEventListener('scroll', growBlockElem);
+  // }
 
   return (
     <header>
@@ -86,15 +98,15 @@ const Header = () => {
           <img className="eagle" src="/images/eagle.png" alt="" />
 
           <div id="trigger1" className="header_bottom-title">
-            <Parallax speed={-20} translateY={[-200, 350]}>
-              <h1>
-                Разработка и интеграция <br />
-                <span>IT-РеШеНИЙ. </span> <br />
-                Автоматизация бизнеса.
-                <br />
-                <span>аУТСТАФ.</span>
-              </h1>{' '}
-            </Parallax>
+            {/* <Parallax translateY={[-200, 200]}> */}
+            <motion.h1 style={{ y: y1 }}>
+              Разработка и интеграция <br />
+              <span>IT-РеШеНИЙ. </span> <br />
+              Автоматизация бизнеса.
+              <br />
+              <span>аУТСТАФ.</span>
+            </motion.h1>{' '}
+            {/* </Parallax> */}
           </div>
         </div>
         <div
@@ -110,7 +122,11 @@ const Header = () => {
           }
           className="header_bottom-cases"
         >
-          <div className="header_bottom-cases_box">
+          <motion.div
+            style={{ maxWidth }}
+            ref={ref}
+            className="header_bottom-cases_box"
+          >
             <AnimatePresence>
               {isVisibleCase && (
                 <motion.div
@@ -137,7 +153,7 @@ const Header = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </motion.div>
         </div>
       </div>
     </header>
