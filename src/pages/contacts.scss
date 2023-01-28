@@ -1,0 +1,127 @@
+.contacts {
+  top: 0;
+  position: fixed;
+  z-index: 11;
+  width: 100vw;
+  height: 100%;
+  padding: 40px 66px 23px 50px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .contacts_client {
+    cursor: pointer;
+    text-align: right;
+    border-radius: 100% 0% 0% 0%;
+    width: 145px;
+    height: 132px;
+    background-color: #3ece5d;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-family: 'Inter Tight';
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+    span {
+      width: 100px;
+      position: absolute;
+      bottom: 28px;
+      right: 15px;
+    }
+  }
+
+  .contacts_email {
+    font-family: 'Inter Tight';
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .contacts_addresses {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter Tight';
+    .contacts_addresses_adress {
+      width: 436px;
+      height: 267px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &:nth-child(1) {
+        border-right: 1px solid #bababa;
+      }
+      &:nth-child(2) {
+        border-right: 1px solid #bababa;
+      }
+
+      .contacts_addresses_adress_city {
+        font-weight: 400;
+        font-size: 28px;
+      }
+      .contacts_addresses_adress_street {
+        margin-top: 10px;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 22px;
+      }
+      .contacts_addresses_adress_phone {
+        margin-top: 30px;
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      .contacts_addresses_adress_howToGet {
+        color: #3ece5d;
+        margin-top: 10px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  .contacts_text1 {
+    margin-left: 70px;
+    width: max-content;
+    font-family: 'Inter Tight';
+    font-weight: 400;
+    font-size: 45px;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 17px;
+      height: 16px;
+      border-top: 2px solid #3ece5d;
+      border-right: 2px solid #3ece5d;
+      bottom: 38px;
+      right: -11px;
+    }
+  }
+
+  .contacts_logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    font-family: 'Inter Tight';
+    font-weight: 500;
+    font-size: 24px;
+    color: #424d5e;
+
+    .contacts_logo_close {
+      cursor: pointer;
+    }
+
+    .contacts_logo_letterL {
+      color: #3ece5d;
+    }
+  }
+}

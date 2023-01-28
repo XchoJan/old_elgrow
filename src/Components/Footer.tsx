@@ -1,8 +1,12 @@
- 
+import { useState } from 'react';
+import Contacts from './Contacts';
+
 const Footer = () => {
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <footer className="footer">
       <div className="container">
+        <Contacts isOpen={showMenu} close={setShowMenu} />
         <div className="footer_inner">
           <div className="footer_title">
             <div className="footer_title_left">
@@ -21,7 +25,7 @@ const Footer = () => {
                 <a href="#">Главная</a>
                 <a href="#">Цены</a>
                 <a href="#">Портфолио</a>
-                <a href="#">контакты</a>
+                <a onClick={() => setShowMenu(true)}>контакты</a>
               </div>
               <div className="footer_center-wrap_right">
                 <a className="presentation" href="#">
