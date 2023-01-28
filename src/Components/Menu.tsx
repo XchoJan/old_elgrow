@@ -1,6 +1,7 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 
 import { motion, AnimatePresence } from 'framer-motion';
+import CallBackMenu from './CallBackMenu';
 
 interface Props {
   isOpen: boolean;
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const Menu: React.FC<Props> = ({ isOpen, close }) => {
+  const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
   const variants = {
     open: { y: 0, transition: { duration: 0.8 } },
     closed: {
@@ -22,6 +24,10 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
       variants={variants}
       className="menu"
     >
+      <CallBackMenu
+        isOpen={isVisibleCallbackMenu}
+        close={setVisibleCallbackMenu}
+      />
       <motion.div
         onClick={() => close(false)}
         animate={isOpen ? 'open' : 'closed'}
@@ -123,6 +129,7 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
         </div>
       </div>
       <motion.div
+        onClick={() => setVisibleCallbackMenu(true)}
         animate={isOpen ? 'open' : 'closed'}
         variants={{
           open: { opacity: 1, transition: { delay: 0.873 } },

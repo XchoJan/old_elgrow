@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useRef } from 'react';
-import { Parallax } from 'react-scroll-parallax';
+
 import Menu from './Menu';
 import {
   motion,
@@ -14,8 +14,8 @@ const Header = () => {
 
   const ref = useRef(null);
   const [isVisibleCase, setVisibleCase] = useState(false);
-  const { scrollY, scrollYProgress } = useScroll();
-  const y1 = useTransform(scrollY, [0, 400], [100, 700]);
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 700], [100, 700]);
   const maxWidth = useTransform(scrollY, [0, 250], ['93vw', '100vw']);
 
   const imageMove = (e: any) => {
@@ -29,55 +29,6 @@ const Header = () => {
     image[0].style.left = `${x - 50}px`;
     image[0].style.top = `${y - 50}px`;
   };
-
-  let oldValue = 0;
-
-  // if (typeof document !== 'undefined') {
-  //   const wrap: any = document.querySelector('.header_bottom-cases_box');
-
-  //   const growBlockElem = () => {
-  //     let newValue = window.pageYOffset;
-  //     const maxWidth = getComputedStyle(wrap).maxWidth;
-
-  //     let valueWidth: number | string = maxWidth.substring(0, 4);
-  //     if (wrap.getBoundingClientRect().y <= 298) {
-  //       return;
-  //     }
-
-  //     if (valueWidth[2] === '%') {
-  //       valueWidth = Number(maxWidth.substring(0, 2));
-  //     } else if (valueWidth[3] === '%') {
-  //       valueWidth = Number(maxWidth.substring(0, 3));
-  //     } else {
-  //       valueWidth = Number(maxWidth.substring(0, 4));
-  //     }
-  //     if (oldValue - newValue < 0) {
-  //       if (valueWidth === 100) {
-  //         valueWidth = 100;
-  //         let newWidth = String(valueWidth) + '%';
-  //         wrap.style.maxWidth = newWidth;
-  //       } else {
-  //         valueWidth += 1;
-  //         let newWidth = String(valueWidth) + '%';
-  //         wrap.style.maxWidth = newWidth;
-  //       }
-  //     } else if (oldValue - newValue > 0) {
-  //       if (valueWidth <= 95) {
-  //         valueWidth = 95;
-  //         let newWidth = String(valueWidth) + '%';
-  //         wrap.style.maxWidth = newWidth;
-  //       } else {
-  //         valueWidth -= 1;
-
-  //         let newWidth = String(valueWidth) + '%';
-  //         wrap.style.maxWidth = newWidth;
-  //       }
-  //     }
-  //     oldValue = newValue;
-  //   };
-
-  //   window.addEventListener('scroll', growBlockElem);
-  // }
 
   return (
     <header>
