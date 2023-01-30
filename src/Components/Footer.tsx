@@ -25,7 +25,12 @@ const Footer = () => {
                 <a href="#">Главная</a>
                 <a href="#">Цены</a>
                 <a href="#">Портфолио</a>
-                <a onClick={() => setShowMenu(true)}>контакты</a>
+                <a
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => setShowMenu(true)}
+                >
+                  контакты
+                </a>
               </div>
               <div className="footer_center-wrap_right">
                 <a className="presentation" href="#">

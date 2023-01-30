@@ -1,4 +1,5 @@
 .contacts {
+  left: 0;
   top: 0;
   position: fixed;
   z-index: 11;
@@ -46,7 +47,7 @@
     justify-content: space-between;
     font-family: 'Inter Tight';
     .contacts_addresses_adress {
-      width: 436px;
+      width: 33vw;
       height: 267px;
 
       display: flex;

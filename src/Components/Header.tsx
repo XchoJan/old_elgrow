@@ -6,7 +6,6 @@ import {
   AnimatePresence,
   useScroll,
   useTransform,
-  useMotionValueEvent,
 } from 'framer-motion';
 
 const Header = () => {
@@ -25,6 +24,7 @@ const Header = () => {
     const x = e.clientX - rect.left;
 
     let image: any = document.getElementsByClassName('cases_box_green');
+ 
 
     image[0].style.left = `${x - 50}px`;
     image[0].style.top = `${y - 50}px`;
@@ -49,7 +49,6 @@ const Header = () => {
           <img className="eagle" src="/images/eagle.png" alt="" />
 
           <div id="trigger1" className="header_bottom-title">
-            {/* <Parallax translateY={[-200, 200]}> */}
             <motion.h1 style={{ y: y1 }}>
               Разработка и интеграция <br />
               <span>IT-РеШеНИЙ. </span> <br />
@@ -57,7 +56,6 @@ const Header = () => {
               <br />
               <span>аУТСТАФ.</span>
             </motion.h1>{' '}
-            {/* </Parallax> */}
           </div>
         </div>
         <div

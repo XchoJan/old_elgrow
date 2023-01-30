@@ -2,6 +2,7 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 
 import { motion, AnimatePresence } from 'framer-motion';
 import CallBackMenu from './CallBackMenu';
+import Contacts from './Contacts';
 
 interface Props {
   isOpen: boolean;
@@ -10,6 +11,7 @@ interface Props {
 
 const Menu: React.FC<Props> = ({ isOpen, close }) => {
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
+  const [showContacts, setShowContacts] = useState(false);
   const variants = {
     open: { y: 0, transition: { duration: 0.8 } },
     closed: {
@@ -24,6 +26,7 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
       variants={variants}
       className="menu"
     >
+      <Contacts isOpen={showContacts} close={setShowContacts} />
       <CallBackMenu
         isOpen={isVisibleCallbackMenu}
         close={setVisibleCallbackMenu}
@@ -91,7 +94,7 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
             initial={false}
             animate={isOpen ? 'open' : 'closed'}
             variants={{
-              open: { opacity: 1, transition: { delay: 0.6 } },
+              open: { opacity: 1, transition: { delay: 0.7 } },
               closed: {
                 opacity: 0,
                 transition: { delay: 0.3 },
@@ -104,7 +107,7 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
             initial={false}
             animate={isOpen ? 'open' : 'closed'}
             variants={{
-              open: { opacity: 1, transition: { delay: 0.9 } },
+              open: { opacity: 1, transition: { delay: 0.8 } },
               closed: {
                 opacity: 0,
                 transition: { delay: 0.2 },
@@ -114,10 +117,11 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
             Портфолио
           </motion.span>
           <motion.span
+            onClick={() => setShowContacts(true)}
             initial={false}
             animate={isOpen ? 'open' : 'closed'}
             variants={{
-              open: { opacity: 1, transition: { delay: 1.2 } },
+              open: { opacity: 1, transition: { delay: 0.9 } },
               closed: {
                 opacity: 0,
                 transition: { delay: 0.1 },

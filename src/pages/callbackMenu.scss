@@ -9,6 +9,10 @@
   display: flex;
   flex-direction: column;
 
+  .callbackMenu_close {
+    cursor: pointer;
+  }
+
   .callbackMenu_main {
     margin-top: 100px;
     display: flex;
