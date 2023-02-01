@@ -941,7 +941,7 @@ const MainPage = () => {
                     выходя из машины
                   </h1>
                 </div>
-                <div style={{display:'none'}} className="cases_box_green">
+                <div style={{ display: 'none' }} className="cases_box_green">
                   <p>Смотреть</p>
                 </div>
                 <img src="/images/phone_banner.jpg" alt="" />
