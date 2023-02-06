@@ -15,7 +15,7 @@ const Header = () => {
   const [isVisibleCase, setVisibleCase] = useState(false);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 700], [100, 700]);
-  const maxWidth = useTransform(scrollY, [0, 250], ['93vw', '100vw']);
+  const maxWidth = useTransform(scrollY, [0, 250], ['80vw', '100vw']);
 
   const imageMove = (e: any) => {
     setVisibleCase(true);
@@ -24,7 +24,6 @@ const Header = () => {
     const x = e.clientX - rect.left;
 
     let image: any = document.getElementsByClassName('cases_box_green');
- 
 
     image[0].style.left = `${x - 50}px`;
     image[0].style.top = `${y - 50}px`;

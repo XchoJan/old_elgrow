@@ -10,8 +10,7 @@ const Footer = () => {
       <div className="container">
         <Contacts isOpen={showMenu} close={setShowMenu} />
         <CallBackMenu
-        
-        x='0'
+          x="0"
           isOpen={isVisibleCallbackMenu}
           close={setVisibleCallbackMenu}
         />
@@ -58,16 +57,16 @@ const Footer = () => {
               </h2>
             </div>
             <div className="footer_bottom_item">
-              <h3>
+              <a  href="https://t.me/Elgrow_dev">
                 <img src="/images/telegram-small1440.svg" alt="" />
                 Telegram
-              </h3>
+              </a>
             </div>
             <div className="footer_bottom_item">
-              <h3>
+              <a href="mailto:info@elgrow.ru">
                 <img src="/images/fluent_mail-20-filled.svg" alt="" />
                 info@elgrow.ru
-              </h3>
+              </a>
             </div>
           </div>
         </div>

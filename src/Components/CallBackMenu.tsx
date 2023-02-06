@@ -8,7 +8,7 @@ interface Props {
   x: string;
 }
 
-const CallBackMenu: React.FC<Props> = ({ isOpen, close,x }) => {
+const CallBackMenu: React.FC<Props> = ({ isOpen, close, x }) => {
   const budgets = ['Менее 0.5 млн', '0.5 - 1 млн', '1 - 3 млн', 'Более 3 млн'];
 
   const variants = {
@@ -42,12 +42,12 @@ const CallBackMenu: React.FC<Props> = ({ isOpen, close,x }) => {
               closed: {
                 opacity: 0,
                 transition: { delay: 0.4 },
-              },
+              },  
             }}
             className="callbackMenu_contacts_item"
           >
             <img src="/images/telegram.svg" alt="" />
-            <span>Написать в Telegram</span>
+            <a href="https://t.me/Elgrow_dev">Написать в Telegram</a>
           </motion.div>
           <motion.div
             animate={isOpen ? 'open' : 'closed'}
@@ -61,7 +61,7 @@ const CallBackMenu: React.FC<Props> = ({ isOpen, close,x }) => {
             className="callbackMenu_contacts_item"
           >
             <img src="/images/email.svg" alt="" />
-            <span>info@elgrow.ru</span>
+            <a href="mailto:info@elgrow.ru">info@elgrow.ru</a>
           </motion.div>
         </motion.div>
         <motion.div

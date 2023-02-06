@@ -59,7 +59,7 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
           className="menu_contacts_item"
         >
           <img src="/images/telegram.svg" alt="" />
-          <span>Elgrow_dev</span>
+          <a href="https://t.me/Elgrow_dev">Elgrow_dev</a>
         </motion.div>
         <motion.div
           animate={isOpen ? 'open' : 'closed'}
@@ -73,7 +73,7 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
           className="menu_contacts_item"
         >
           <img src="/images/email.svg" alt="" />
-          <span>info@elgrow.ru</span>
+          <a href="mailto:info@elgrow.ru">info@elgrow.ru</a>
         </motion.div>
       </div>
       <div className="menu_navigate_container">

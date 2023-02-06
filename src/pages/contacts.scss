@@ -40,6 +40,11 @@
     display: flex;
     align-items: center;
     gap: 9px;
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
   }
 
   .contacts_addresses {

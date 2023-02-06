@@ -249,7 +249,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close }) => {
         className="contacts_email"
       >
         <img src="/images/emailWhite.svg" alt="" />
-        <span>info@elgrow.ru</span>
+        <a href="mailto:info@elgrow.ru">info@elgrow.ru</a>
       </motion.div>
 
       <motion.div

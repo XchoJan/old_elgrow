@@ -106,7 +106,6 @@ const MainPage = () => {
               }}
             >
               <SwiperSlide>
-                {' '}
                 <div className="tabs__pane tabs__pane_show ">
                   <div className="info_box">
                     <div className="info_box_top">
@@ -139,7 +138,7 @@ const MainPage = () => {
                     <div className="info_box-tags">
                       <h1 className="info_box_title">Теги:</h1>
                       <h3 className="tags">
-                        <span>#</span> Архитектура,&nbsp; <span>#</span>{' '}
+                        <span>#</span> Архитектура,&nbsp; <span>#</span>
                         Разработка,&nbsp;
                         <span>#</span> Тестирование, &nbsp; <span>#</span> MVP,
                         &nbsp;
@@ -152,7 +151,6 @@ const MainPage = () => {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                {' '}
                 <div className="tabs__pane">
                   <div className="info_box">
                     <div className="info_box_top">
@@ -189,7 +187,7 @@ const MainPage = () => {
                     <div className="info_box-tags">
                       <h1 className="info_box_title">Теги:</h1>
                       <h3 className="tags">
-                        <span>#</span> Быстрая разработка <span>#</span>{' '}
+                        <span>#</span> Быстрая разработка <span>#</span>
                         Битрикс,
                         <span>#</span> Интернет- <br />
                         магазин,
@@ -198,10 +196,9 @@ const MainPage = () => {
                       </h3>
                     </div>
                   </div>
-                </div>{' '}
+                </div>
               </SwiperSlide>
               <SwiperSlide>
-                {' '}
                 <div className="tabs__pane" id="content-3">
                   <div className="info_box">
                     <div className="info_box_top">
@@ -238,7 +235,7 @@ const MainPage = () => {
                     <div className="info_box-tags">
                       <h1 className="info_box_title">Теги:</h1>
                       <h3 className="tags">
-                        <span>#</span> Быстрая разработка <span>#</span>{' '}
+                        <span>#</span> Быстрая разработка <span>#</span>
                         Битрикс,
                         <span>#</span> Интернет- <br />
                         магазин,
@@ -247,10 +244,9 @@ const MainPage = () => {
                       </h3>
                     </div>
                   </div>
-                </div>{' '}
+                </div>
               </SwiperSlide>
               <SwiperSlide>
-                {' '}
                 <div className="tabs__pane" id="content-3">
                   <div className="info_box">
                     <div className="info_box_top">
@@ -287,7 +283,7 @@ const MainPage = () => {
                     <div className="info_box-tags">
                       <h1 className="info_box_title">Теги:</h1>
                       <h3 className="tags">
-                        <span>#</span> Быстрая разработка <span>#</span>{' '}
+                        <span>#</span> Быстрая разработка <span>#</span>
                         Битрикс,
                         <span>#</span> Интернет- <br />
                         магазин,
@@ -296,10 +292,9 @@ const MainPage = () => {
                       </h3>
                     </div>
                   </div>
-                </div>{' '}
+                </div>
               </SwiperSlide>
               <SwiperSlide>
-                {' '}
                 <div className="tabs__pane" id="content-3">
                   <div className="info_box">
                     <div className="info_box_top">
@@ -336,7 +331,7 @@ const MainPage = () => {
                     <div className="info_box-tags">
                       <h1 className="info_box_title">Теги:</h1>
                       <h3 className="tags">
-                        <span>#</span> Быстрая разработка <span>#</span>{' '}
+                        <span>#</span> Быстрая разработка <span>#</span>
                         Битрикс,
                         <span>#</span> Интернет- <br />
                         магазин,
@@ -345,10 +340,10 @@ const MainPage = () => {
                       </h3>
                     </div>
                   </div>
-                </div>{' '}
+                </div>
               </SwiperSlide>
             </Swiper>
-          </div>{' '}
+          </div>
           <div id="js-wrapper" className="wrapper">
             <div className="sections" id="js-slideContainer">
               <Swiper
@@ -358,7 +353,7 @@ const MainPage = () => {
                 mousewheel={{
                   invert: false,
                   releaseOnEdges: true,
-                  eventsTarget: '.sectionTitle',
+                  // eventsTarget: '.sectionTitle',
                 }}
                 speed={1000}
               >
@@ -399,7 +394,7 @@ const MainPage = () => {
                             modules={[Pagination]}
                             spaceBetween={50}
                             slidesPerView={1}
-                            speed={1000}
+                            speed={0}
                             pagination={{
                               el: '.websites-content_inner-body_left',
                               type: 'bullets',
@@ -501,7 +496,7 @@ const MainPage = () => {
                             modules={[Pagination]}
                             spaceBetween={50}
                             slidesPerView={1}
-                            speed={1000}
+                            speed={0}
                             pagination={{
                               el: '.websites-content_inner-body_left',
                               type: 'bullets',
@@ -599,7 +594,7 @@ const MainPage = () => {
                             modules={[Pagination]}
                             spaceBetween={50}
                             slidesPerView={1}
-                            speed={1000}
+                            speed={0}
                             pagination={{
                               el: '.websites-content_inner-body_left',
                               type: 'bullets',
@@ -620,7 +615,6 @@ const MainPage = () => {
                               },
                             }}
                           >
-                            {' '}
                             <SwiperSlide>
                               <div className="websites-content_inner-body">
                                 <div className="websites-content_inner-body_left"></div>
@@ -639,7 +633,7 @@ const MainPage = () => {
                                     </div>
                                   </div>
                                 </div>
-                              </div>{' '}
+                              </div>
                             </SwiperSlide>
                             <SwiperSlide>
                               <div className="websites-content_inner-body">
@@ -700,7 +694,7 @@ const MainPage = () => {
                             modules={[Pagination]}
                             spaceBetween={50}
                             slidesPerView={1}
-                            speed={1000}
+                            speed={0}
                             pagination={{
                               el: '.websites-content_inner-body_left',
                               type: 'bullets',
@@ -741,7 +735,6 @@ const MainPage = () => {
                               </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                              {' '}
                               <div className="websites-content_inner-body">
                                 <div className="websites-content_inner-body_left">
                                   <h2 className="websites-tab websites-tab4 ">
@@ -813,7 +806,11 @@ const MainPage = () => {
             <div className="swiper-wrapper">
               <Swiper
                 direction="vertical"
-                modules={[Pagination]}
+                modules={[Pagination, Mousewheel]}
+                mousewheel={{
+                  invert: false,
+                  releaseOnEdges: true,
+                }}
                 spaceBetween={0}
                 slidesPerView={1}
                 speed={1000}
@@ -823,7 +820,6 @@ const MainPage = () => {
                 }}
               >
                 <SwiperSlide>
-                  {' '}
                   <div className="swiper-slide">
                     <div className="team_slider">
                       <div className="team_slider-inner">
@@ -881,7 +877,6 @@ const MainPage = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                   <div className="swiper-slide">
-                    {' '}
                     <div className="team_slider">
                       <div className="team_slider-inner">
                         <div className="team_slider-inner_slogan">
