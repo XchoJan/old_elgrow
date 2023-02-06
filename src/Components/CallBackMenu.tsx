@@ -207,7 +207,7 @@ const CallBackMenu: React.FC<Props> = ({ isOpen, close, x }) => {
             }}
             className="callbackMenu_main_staff_politics"
           >
-            Политика обработки <br /> персональных данных
+             <span>  Политика обработки </span> <br />   <span> персональных данных </span>
           </motion.div>
         </motion.div>
         <motion.div className="callbackMenu_main_brief">

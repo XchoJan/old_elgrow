@@ -101,15 +101,15 @@ h6 {
     max-width: 500px;
   }
 }
-.info_box_top_right  {
+.info_box_top_right {
   h3 {
     font-family: 'Inter Tight';
     font-weight: 400;
     font-size: 20px;
     text-transform: lowercase;
     text-align: right;
-    color: #000000; 
-     p {
+    color: #000000;
+    p {
       margin: 0;
       font-family: 'Inter Tight';
       font-style: normal;
@@ -117,13 +117,10 @@ h6 {
       font-size: 16px;
       line-height: 19px;
       text-transform: lowercase;
-  
+
       color: #000000;
     }
   }
-  
-  
- 
 }
 .info_box_top_right h3 span {
   font-size: 40px;
@@ -180,7 +177,7 @@ h6 {
     margin-bottom: 25px;
     width: 100%;
     max-width: 389px;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 18px;
     line-height: 26px;
     color: #fff;
@@ -331,6 +328,7 @@ h6 {
   max-width: 420px;
 }
 .website-tab_content_item p {
+  line-height: 145.5%;
   font-family: 'Inter Tight';
   font-weight: 300;
   font-size: 20px;
@@ -352,8 +350,8 @@ h6 {
   font-family: 'Inter Tight';
   font-weight: 400;
   font-size: 20px;
-  text-decoration-line: underline;
-
+  text-decoration-line: none;
+ border-bottom: 1px solid black;
   color: #000000;
 }
 /*website end*/

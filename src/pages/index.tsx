@@ -432,7 +432,7 @@ const MainPage = () => {
                                           бизнес-цели и переведем их на
                                           технический язык.
                                         </p>{' '}
-                                        <a href="#">Скачать бриф</a>
+                                        <a href="#">Скачать брифф</a>
                                       </div>
                                       <div className="border_green"></div>
                                     </div>
@@ -814,6 +814,8 @@ const MainPage = () => {
                 mousewheel={{
                   invert: false,
                   releaseOnEdges: true,
+                  // thresholdDelta: 300,
+                  thresholdTime: 300,
                 }}
                 spaceBetween={0}
                 slidesPerView={1}

@@ -31,9 +31,13 @@
   margin: 118px auto auto;
 }
 .footer_center-title {
+  transition: 0.5s;
   cursor: pointer;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #c9c9c9;
   margin-bottom: 84px;
+  &:hover {
+    border-bottom: 1px solid white;
+  }
 }
 .footer_center-title h1 {
   margin: 0;
@@ -54,6 +58,10 @@
   color: #ffffff;
   text-decoration: none;
   margin-bottom: 20px;
+  transition: 0.5s;
+  &:hover {
+    color: #9c9c9c;
+  }
 }
 .presentation {
   font-family: 'Inter Tight';
