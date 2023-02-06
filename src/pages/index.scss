@@ -38,7 +38,7 @@ h6 {
 .tabsNav {
   padding-left: 50px;
   display: flex;
-  gap: 116px;
+  gap: 130px;
 }
 .tabsBtn {
   font-family: 'Inter Tight';
@@ -482,6 +482,10 @@ h6 {
   text-align: left;
 }
 .team_slider-inner_bootom_left {
+  h1,
+  h2 {
+    margin: 0;
+  }
   text-align: left;
 }
 .team_slider-inner_slogan h1 img {
@@ -492,7 +496,7 @@ h6 {
 .team_slider-inner_bootom {
   display: flex;
   justify-content: space-between;
-  margin-top: 400px;
+  margin-top: 475px;
   align-items: flex-end;
 }
 .team_slider-inner_bootom h1 {
@@ -506,6 +510,7 @@ h6 {
   color: #000000;
 }
 .team_slider-inner_bootom h3 {
+  margin: 0;
   font-weight: 300;
   font-size: 20px;
   color: #000000;

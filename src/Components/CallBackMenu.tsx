@@ -5,13 +5,14 @@ import Input from './Input';
 interface Props {
   isOpen: boolean;
   close: Dispatch<SetStateAction<boolean>>;
+  x: string;
 }
 
-const CallBackMenu: React.FC<Props> = ({ isOpen, close }) => {
+const CallBackMenu: React.FC<Props> = ({ isOpen, close,x }) => {
   const budgets = ['Менее 0.5 млн', '0.5 - 1 млн', '1 - 3 млн', 'Более 3 млн'];
 
   const variants = {
-    open: { x: '-50px', transition: { duration: 0.8 } },
+    open: { x: x, transition: { duration: 0.8 } },
     closed: {
       x: '-104%',
       transition: { duration: 0.8, delay: 0.2 },

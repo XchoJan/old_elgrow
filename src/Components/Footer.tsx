@@ -1,12 +1,20 @@
 import { useState } from 'react';
+import CallBackMenu from './CallBackMenu';
 import Contacts from './Contacts';
 
 const Footer = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
   return (
     <footer className="footer">
       <div className="container">
         <Contacts isOpen={showMenu} close={setShowMenu} />
+        <CallBackMenu
+        
+        x='0'
+          isOpen={isVisibleCallbackMenu}
+          close={setVisibleCallbackMenu}
+        />
         <div className="footer_inner">
           <div className="footer_title">
             <div className="footer_title_left">
@@ -17,7 +25,10 @@ const Footer = () => {
             </div>
           </div>
           <div className="footer_center">
-            <div className="footer_center-title">
+            <div
+              onClick={() => setVisibleCallbackMenu(true)}
+              className="footer_center-title"
+            >
               <h1>Стать клиентом</h1>
             </div>
             <div className="footer_center-wrap">

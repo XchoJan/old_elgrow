@@ -267,6 +267,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close }) => {
         <span> СТАТЬ КЛИЕНТОМ</span>
       </motion.div>
       <CallBackMenu
+        x='-50px'
         isOpen={isVisibleCallbackMenu}
         close={setVisibleCallbackMenu}
       />
