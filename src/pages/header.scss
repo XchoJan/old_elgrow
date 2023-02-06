@@ -22,11 +22,12 @@
   color: #000000;
 }
 .header_bottom {
+  height: max-content;
   position: relative;
 }
 .header_bottom-title {
   padding: 43px 50px 0px;
-  height: 65vh;
+  height: 48vh;
   width: 100%;
   display: block;
 }
@@ -35,6 +36,7 @@
 }
 
 .header_bottom-title h1 {
+  line-height: 67px;
   font-weight: 400;
   font-size: 80px;
   text-transform: uppercase;

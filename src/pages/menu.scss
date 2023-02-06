@@ -9,6 +9,10 @@
   display: flex;
 
   .menu_client {
+    &:hover {
+      transition: 0.5s;
+      background: #1A9634;
+    }
     cursor: pointer;
     text-align: right;
     border-radius: 100% 0% 0% 0%;

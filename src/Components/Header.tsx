@@ -14,7 +14,7 @@ const Header = () => {
   const ref = useRef(null);
   const [isVisibleCase, setVisibleCase] = useState(false);
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 700], [100, 700]);
+  const y1 = useTransform(scrollY, [0, 700], [60, 700]);
   const maxWidth = useTransform(scrollY, [0, 250], ['80vw', '100vw']);
 
   const imageMove = (e: any) => {

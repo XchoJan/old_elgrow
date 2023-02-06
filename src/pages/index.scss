@@ -36,9 +36,9 @@ h6 {
   margin-bottom: 8%;
 }
 .tabsNav {
-  padding-left: 50px;
+  padding-left: 74px;
   display: flex;
-  gap: 130px;
+  gap: 126px;
 }
 .tabsBtn {
   font-family: 'Inter Tight';
@@ -89,12 +89,17 @@ h6 {
   display: flex;
   justify-content: space-between;
 }
-.info_box_top_left h2 {
-  font-weight: 300;
-  font-size: 45px;
-  line-height: 54px;
-  color: #000000;
+.info_box_top_left {
+  text-align: start;
   max-width: 500px;
+  span {
+    font-family: 'Inter Tight';
+    font-weight: 300;
+    font-size: 45px;
+    line-height: 54px;
+    color: #000000;
+    max-width: 500px;
+  }
 }
 .info_box_top_right h3 {
   font-weight: 400;
@@ -120,11 +125,11 @@ h6 {
   margin-right: 35px;
 }
 .info_box_bottom_right {
-  width: 102px;
+  width: 161px;
   height: 25px;
   margin-bottom: 50px;
 
-  border-bottom: 2px solid black;
+ 
   a {
     font-family: 'Inter Tight';
     font-weight: 400;
@@ -132,6 +137,9 @@ h6 {
     text-decoration: none;
 
     color: #000000;
+    span {
+      border-bottom: 2px solid black;
+    }
   }
 }
 .info_box-tags {
@@ -187,6 +195,7 @@ h6 {
   position: relative;
 }
 .products_principles {
+  margin-top: -420px;
   padding-left: 86px;
 }
 .products_principles-title {
@@ -222,7 +231,7 @@ h6 {
 }
 .products_principles-center p {
   display: flex;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 20px;
   color: #000000;
   margin-top: 16px;
@@ -238,7 +247,7 @@ h6 {
   justify-content: center;
   margin-left: 247px;
   text-align: left;
-  margin-top: 16px;
+  margin-top: -5px;
   font-size: 20px;
 }
 .products_principles_border::before {
@@ -323,7 +332,6 @@ h6 {
   font-weight: 400;
   font-size: 20px;
   text-decoration-line: underline;
-  text-transform: uppercase;
 
   color: #000000;
 }
@@ -331,16 +339,19 @@ h6 {
 
 /*scroll start */
 .swiper {
+  overflow: hidden;
   width: 100%;
   height: 800px;
   overflow: hidden;
 }
 .swiper1 .swiper-wrapper {
+  overflow: hidden;
   display: grid;
   justify-content: space-between;
   grid-template-columns: repeat(4, 100%);
 }
 .swiper-slide {
+  overflow: hidden;
   text-align: center;
   font-size: 18px;
   background: none;
@@ -350,6 +361,7 @@ h6 {
   width: 100%;
 }
 .swiper-pagination {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -505,7 +517,7 @@ h6 {
   color: #000000;
 }
 .team_slider-inner_bootom h2 {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 20px;
   color: #000000;
 }
@@ -565,7 +577,8 @@ h6 {
   display: block;
 }
 .carusel_top span {
-  margin: 20px;
+  margin-left: 50px;
+  margin-bottom: 30px;
 }
 .carusel_bottom span {
   margin-left: 50px;
@@ -582,11 +595,25 @@ h6 {
 .carusel_bottom_banner {
   margin-left: -127px;
 }
-.carusel_top a {
-  display: inline-flex;
-  align-items: center;
-  position: relative;
-  text-decoration: none;
+.carusel_top   {
+  a {
+    margin-top: 40px;
+    margin-left: 50px;
+    gap: 17px;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+  }
+  p {
+    font-family: 'Inter Tight';
+    font-weight: 400;
+    font-size: 20px;
+    position: relative;
+    color: #000000;
+ 
+    border-bottom: 1px solid black;
+  }
 }
 .carusel_top a span {
   font-family: 'Inter Tight';
@@ -607,32 +634,54 @@ h6 {
 .carusel_top_banner .cases_box_green {
   top: 311px;
 }
-.carusel_banner_words h1 {
-  position: absolute;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  font-size: 20px;
-  color: #ffffff;
-  max-width: 320px;
-  top: 75px;
-  left: 86px;
+.carusel_banner_words   {
+  h1  {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #ffffff;
+    max-width: 320px;
+    top: 75px;
+    left: 86px;
+  }
+  h2 {
+    margin: 0;
+  }
+  
 }
-.carusel_bottom_banner_words h1 {
-  position: absolute;
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 140%;
-  color: #000000;
-  top: 200px;
-  left: 73px;
+.carusel_bottom_banner_words  {
+  h1 {
+    position: absolute;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    color: #000000;
+    top: 200px;
+    left: 73px;
+  }
+  h2 {
+    margin: 0;
+  }
+   
 }
-.carusel_inner h2 {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 20px;
-  color: #000000;
-  margin-top: 30px;
-  margin-left: 50px;
+.carusel_inner  {
+  h2 {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    color: #000000;
+    margin: 0;
+    margin-top: 30px;
+  }
+  h3 {
+    margin-left: 50px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    color: #000000;
+  }
+  
 }
 
 /*Carusel end*/

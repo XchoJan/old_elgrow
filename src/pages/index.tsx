@@ -110,10 +110,10 @@ const MainPage = () => {
                   <div className="info_box">
                     <div className="info_box_top">
                       <div className="info_box_top_left">
-                        <h2>
+                        <span>
                           Усилим команду или сделаем все под ключ: задачи,
                           микросервисы, MVP, продукт целиком
-                        </h2>
+                        </span>
                       </div>
                       <div className="info_box_top_right">
                         <h3>
@@ -130,8 +130,12 @@ const MainPage = () => {
                       </div>
                       <div className="info_box_bottom_right">
                         <a href="#">
-                          Подробнее
-                          <img style={{ marginLeft: '10px' }} src="" alt="" />
+                          <span> Подробнее   </span>
+                          <img
+                            style={{ marginLeft: '10px' }}
+                            src="/images/arrow.svg"
+                            alt=""
+                          />
                         </a>
                       </div>
                     </div>
@@ -155,10 +159,10 @@ const MainPage = () => {
                   <div className="info_box">
                     <div className="info_box_top">
                       <div className="info_box_top_left">
-                        <h2>
+                        <span>
                           Любого уровня и под любые задачи: промо, e-commerce,
                           спецпроекты, порталы и сервисы
-                        </h2>
+                        </span>
                       </div>
                       <div className="info_box_top_right">
                         <h3>
@@ -175,7 +179,7 @@ const MainPage = () => {
                       </div>
                       <div className="info_box_bottom_right">
                         <a href="#">
-                          Подробнее
+                        <span> Подробнее   </span>
                           <img
                             style={{ marginLeft: '10px' }}
                             src="/images/arrow.svg"
@@ -203,15 +207,14 @@ const MainPage = () => {
                   <div className="info_box">
                     <div className="info_box_top">
                       <div className="info_box_top_left">
-                        <h2>
-                          Любого уровня и под любые задачи: промо, e-commerce,
-                          спецпроекты, порталы и сервисы
-                        </h2>
+                        <span>
+                        Внутренние и коммерческие приложения для бизнеса и госсектора. Оперативная разработка на React Native или Flutter
+                        </span>
                       </div>
                       <div className="info_box_top_right">
                         <h3>
-                          от <span>250 000 ₽</span> <br />
-                          плюс лицензия
+                          от <span>от 500 000 ₽</span> <br />
+                          под ключ
                         </h3>
                       </div>
                     </div>
@@ -223,7 +226,7 @@ const MainPage = () => {
                       </div>
                       <div className="info_box_bottom_right">
                         <a href="#">
-                          Подробнее
+                        <span> Подробнее   </span>
                           <img
                             style={{ marginLeft: '10px' }}
                             src="/images/arrow.svg"
@@ -251,15 +254,14 @@ const MainPage = () => {
                   <div className="info_box">
                     <div className="info_box_top">
                       <div className="info_box_top_left">
-                        <h2>
-                          Любого уровня и под любые задачи: промо, e-commerce,
-                          спецпроекты, порталы и сервисы
-                        </h2>
+                        <span>
+                        На любом уровне завершенности. Разберемся, починим, не допустим падений.
+                        </span>
                       </div>
                       <div className="info_box_top_right">
                         <h3>
-                          от <span>250 000 ₽</span> <br />
-                          плюс лицензия
+                          от <span>50 000 ₽</span> <br />
+                       за задачу
                         </h3>
                       </div>
                     </div>
@@ -271,7 +273,7 @@ const MainPage = () => {
                       </div>
                       <div className="info_box_bottom_right">
                         <a href="#">
-                          Подробнее
+                        <span> Подробнее   </span>
                           <img
                             style={{ marginLeft: '10px' }}
                             src="/images/arrow.svg"
@@ -299,15 +301,14 @@ const MainPage = () => {
                   <div className="info_box">
                     <div className="info_box_top">
                       <div className="info_box_top_left">
-                        <h2>
-                          Любого уровня и под любые задачи: промо, e-commerce,
-                          спецпроекты, порталы и сервисы
-                        </h2>
+                        <span>
+                        Подберем специалистов под любые специфические запросы. Вовлекаемся от одного месяца.
+                        </span>
                       </div>
                       <div className="info_box_top_right">
                         <h3>
-                          от <span>250 000 ₽</span> <br />
-                          плюс лицензия
+                          от <span>1800 ₽</span> <br />
+                         в час
                         </h3>
                       </div>
                     </div>
@@ -319,7 +320,7 @@ const MainPage = () => {
                       </div>
                       <div className="info_box_bottom_right">
                         <a href="#">
-                          Подробнее
+                        <span> Подробнее   </span>
                           <img
                             style={{ marginLeft: '10px' }}
                             src="/images/arrow.svg"
@@ -825,8 +826,8 @@ const MainPage = () => {
                       <div className="team_slider-inner">
                         <div className="team_slider-inner_slogan">
                           <h1>
-                            <img src="/images/logo_def.svg" alt="" /> <br />
-                            это про людей,которые постоянно с вами.
+                            <img src="/images/logo_def.svg" alt="" />   <br />
+                            это про людей,  <br />которые постоянно  <br /> с вами.
                           </h1>
                         </div>
                         <div className="team_slider-inner_bootom">
@@ -941,12 +942,12 @@ const MainPage = () => {
                 </div>
                 <img src="/images/phone_banner.jpg" alt="" />
               </div>
-              <h2>
+              <h3>
                 Мобильное приложение по управлению <br />
                 парковками аэропорта
-              </h2>
+              </h3>
               <a href="#">
-                <span>Все кейсы</span> <img src="/images/arrow2.svg" alt="" />
+                <p>Все кейсы</p> <img src="/images/arrow2.svg" alt="" />
               </a>
             </div>
             <div className="carusel_bottom">
@@ -960,11 +961,12 @@ const MainPage = () => {
                   </h1>
                 </div>
                 <img src="/images/modal.jpg" alt="" />
-              </div>
-              <h2>
+                <h2>
                 Интернет-магазин бренда женской <br />
                 одежды nou
               </h2>
+              </div>
+             
             </div>
           </div>
         </div>
