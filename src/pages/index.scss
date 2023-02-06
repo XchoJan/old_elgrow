@@ -57,8 +57,8 @@ h6 {
   height: 12px;
   border-bottom: 3px solid #3ece5d;
   border-right: 3px solid #3ece5d;
-  bottom: -1px;
-  right: -4px;
+  bottom: -2px;
+  right: -7px;
 }
 .tabs__pane {
   display: block;
@@ -101,12 +101,29 @@ h6 {
     max-width: 500px;
   }
 }
-.info_box_top_right h3 {
-  font-weight: 400;
-  font-size: 20px;
-  text-transform: lowercase;
-  text-align: right;
-  color: #000000;
+.info_box_top_right  {
+  h3 {
+    font-family: 'Inter Tight';
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: lowercase;
+    text-align: right;
+    color: #000000; 
+     p {
+      margin: 0;
+      font-family: 'Inter Tight';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      text-transform: lowercase;
+  
+      color: #000000;
+    }
+  }
+  
+  
+ 
 }
 .info_box_top_right h3 span {
   font-size: 40px;
@@ -129,7 +146,6 @@ h6 {
   height: 25px;
   margin-bottom: 50px;
 
- 
   a {
     font-family: 'Inter Tight';
     font-weight: 400;
@@ -231,7 +247,7 @@ h6 {
 }
 .products_principles-center p {
   display: flex;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 20px;
   color: #000000;
   margin-top: 16px;
@@ -265,6 +281,7 @@ h6 {
   padding-left: 96px;
   padding-right: 96px;
 }
+
 .websites-content_inner-title {
   display: flex;
   justify-content: flex-start;
@@ -303,6 +320,10 @@ h6 {
   font-size: 32px;
   color: #3ece5d;
   margin-right: 23px;
+}
+
+.website-tab_content {
+  text-align: start;
 }
 
 .websites-content_inner-body_right {
@@ -517,7 +538,7 @@ h6 {
   color: #000000;
 }
 .team_slider-inner_bootom h2 {
-  font-weight: 400;
+  font-weight: 300;
   font-size: 20px;
   color: #000000;
 }
@@ -595,7 +616,7 @@ h6 {
 .carusel_bottom_banner {
   margin-left: -127px;
 }
-.carusel_top   {
+.carusel_top {
   a {
     margin-top: 40px;
     margin-left: 50px;
@@ -611,7 +632,7 @@ h6 {
     font-size: 20px;
     position: relative;
     color: #000000;
- 
+
     border-bottom: 1px solid black;
   }
 }
@@ -634,8 +655,8 @@ h6 {
 .carusel_top_banner .cases_box_green {
   top: 311px;
 }
-.carusel_banner_words   {
-  h1  {
+.carusel_banner_words {
+  h1 {
     position: absolute;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
@@ -648,9 +669,8 @@ h6 {
   h2 {
     margin: 0;
   }
-  
 }
-.carusel_bottom_banner_words  {
+.carusel_bottom_banner_words {
   h1 {
     position: absolute;
     font-weight: 400;
@@ -663,9 +683,8 @@ h6 {
   h2 {
     margin: 0;
   }
-   
 }
-.carusel_inner  {
+.carusel_inner {
   h2 {
     font-style: normal;
     font-weight: 300;
@@ -681,7 +700,6 @@ h6 {
     font-size: 20px;
     color: #000000;
   }
-  
 }
 
 /*Carusel end*/
