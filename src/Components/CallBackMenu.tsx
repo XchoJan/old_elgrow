@@ -14,7 +14,7 @@ const CallBackMenu: React.FC<Props> = ({ isOpen, close, x }) => {
   const variants = {
     open: { x: x, transition: { duration: 0.8 } },
     closed: {
-      x: '-104%',
+      x: '-2000px',
       transition: { duration: 0.8, delay: 0.2 },
     },
   };
@@ -42,7 +42,7 @@ const CallBackMenu: React.FC<Props> = ({ isOpen, close, x }) => {
               closed: {
                 opacity: 0,
                 transition: { delay: 0.4 },
-              },  
+              },
             }}
             className="callbackMenu_contacts_item"
           >
@@ -207,7 +207,8 @@ const CallBackMenu: React.FC<Props> = ({ isOpen, close, x }) => {
             }}
             className="callbackMenu_main_staff_politics"
           >
-             <span>  Политика обработки </span> <br />   <span> персональных данных </span>
+            <span> Политика обработки </span> <br />{' '}
+            <span> персональных данных </span>
           </motion.div>
         </motion.div>
         <motion.div className="callbackMenu_main_brief">

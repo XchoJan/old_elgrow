@@ -878,7 +878,9 @@ const MainPage = () => {
                 <div style={{ display: 'none' }} className="cases_box_green">
                   <p>Смотреть</p>
                 </div>
-                   <div className="carusel_top_banner_image1"><img src="/images/phone_banner.jpg" alt="" />  </div> 
+                <div className="carusel_top_banner_image1">
+                  <img src="/images/phone_banner.jpg" alt="" />{' '}
+                </div>
               </div>
               <h3>
                 Мобильное приложение по управлению <br />
@@ -886,9 +888,8 @@ const MainPage = () => {
               </h3>
               <a href="#">
                 <p>Все кейсы</p>
-                
-                 <img src="/images/arrow2.svg" alt="" />
-                 
+
+                <img src="/images/arrow2.svg" alt="" />
               </a>
             </div>
             <div className="carusel_bottom">
@@ -901,10 +902,10 @@ const MainPage = () => {
                     женской одежды
                   </h1>
                 </div>
-                <div className="carusel_bottom_banner_image2"> 
-                <img src="/images/modal.jpg" alt="" />
-                </div> 
-                 
+                <div className="carusel_bottom_banner_image2">
+                  <img src="/images/modal.jpg" alt="" />
+                </div>
+
                 <h2>
                   Интернет-магазин бренда женской <br />
                   одежды nou
