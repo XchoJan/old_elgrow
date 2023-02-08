@@ -14,8 +14,13 @@ const Header = () => {
   const ref = useRef(null);
   const [isVisibleCase, setVisibleCase] = useState(false);
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 700], [60, 700]);
+  const y1 = useTransform(scrollY, [0, 400], [60, 330]);
   const maxWidth = useTransform(scrollY, [0, 250], ['80vw', '100vw']);
+  let viewportWidth = 0;
+
+  if (typeof window !== 'undefined') {
+    viewportWidth = window.innerWidth;
+  }
 
   const imageMove = (e: any) => {
     setVisibleCase(true);
@@ -71,7 +76,7 @@ const Header = () => {
           className="header_bottom-cases"
         >
           <motion.div
-            style={{ maxWidth }}
+            style={viewportWidth > 768 ? { maxWidth } : { maxWidth: '100vw' }}
             ref={ref}
             className="header_bottom-cases_box"
           >

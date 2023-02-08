@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CallBackMenu from './CallBackMenu';
 import Contacts from './Contacts';
 
 const Footer = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
+
+  const [max, setMax] = useState(0);
+
+  useEffect(() => {
+    setMax(window.innerWidth);
+  }, []);
   return (
     <footer className="footer">
       <div className="container">
@@ -17,7 +23,7 @@ const Footer = () => {
         <div className="footer_inner">
           <div className="footer_title">
             <div className="footer_title_left">
-              <img src="/images/logo_white.svg" alt="" />
+            e<span className="letterL">l</span>grow
             </div>
             <div className="footer_title_right">
               <a href="#"> ВАКАНСИИ </a>
@@ -50,14 +56,17 @@ const Footer = () => {
             </div>
           </div>
           <div className="footer_bottom">
+            {max > 390 && (
+              <div className="footer_bottom_item">
+                <h2>
+                  <img src="/images/Copyright.svg" alt="" />
+                  Все права защищены 2023
+                </h2>
+              </div>
+            )}
+
             <div className="footer_bottom_item">
-              <h2>
-                <img src="/images/Copyright.svg" alt="" />
-                Все права защищены 2023
-              </h2>
-            </div>
-            <div className="footer_bottom_item">
-              <a  href="https://t.me/Elgrow_dev">
+              <a href="https://t.me/Elgrow_dev">
                 <img src="/images/telegram-small1440.svg" alt="" />
                 Telegram
               </a>
@@ -69,6 +78,15 @@ const Footer = () => {
               </a>
             </div>
           </div>
+          {max <= 390 && (
+            <div style={{paddingTop: '19px',paddingBottom: '29px'
+            }} className="footer_bottom_item">
+              <h2>
+                <img src="/images/Copyright.svg" alt="" />
+                Все права защищены 2023
+              </h2>
+            </div>
+          )}
         </div>
       </div>
     </footer>

@@ -8,7 +8,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 32px 40px;
+  @include adaptive-value('padding-top', 32, 10, 1);
+  @include adaptive-value('padding-right', 40, 20, 1);
+  @include adaptive-value('padding-left', 40, 20, 1);
 }
 .header_top .logo {
   padding-top: 8px;
@@ -26,7 +28,11 @@
   position: relative;
 }
 .header_bottom-title {
-  padding: 43px 50px 0px;
+  // padding: 43px 50px 0px;
+  @include adaptive-value('padding-left', 50, 20, 1);
+  padding-top: 43px;
+  @include adaptive-value('font-size', 80, 24, 1);
+  @include adaptive-value('height', 460, 210, 1);
   height: 48vh;
   width: 100%;
   display: block;
@@ -36,9 +42,12 @@
 }
 
 .header_bottom-title h1 {
-  line-height: 67px;
+  // line-height: 67px;
   font-weight: 400;
-  font-size: 80px;
+  // font-size: 80px;
+
+  @include adaptive-value('line-height', 74, 24, 1);
+  @include adaptive-value('font-size', 80, 24, 1);
   text-transform: uppercase;
 }
 .header_bottom-title h1 span {
@@ -48,6 +57,7 @@
 }
 .header_bottom-cases {
   position: relative;
+  @include adaptive-value('padding-bottom', 81, 30, 1);
 }
 
 .header_bottom-cases_box {
@@ -55,12 +65,14 @@
   margin-top: 10px;
   background: #000000;
   position: relative;
-  height: 113vh;
+  @include adaptive-value('height', 815, 263, 1);
   background-image: url('../../public/images/group_photo.png');
   background-repeat: no-repeat;
-  background-position: right;
-  background-position-y: 90px;
-  margin-bottom: 81px;
+  background-position: bottom right;
+  // background-position-y: 90px;
+  @include adaptive-value('background-size', 1100, 361, 1);
+  // @include adaptive-value('background-position-y', 90, 19, 1);
+  // padding-bottom: 81px;
   cursor: none;
 }
 .header_bottom-cases_box img {

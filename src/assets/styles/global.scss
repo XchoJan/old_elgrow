@@ -10,6 +10,33 @@ body {
   font-weight: 400;
 }
 
+@mixin adaptive-value($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+  @if $type==1 {
+    #{$property}: $startSize + px;
+    @media (max-width: #{1440 + px}) {
+      #{$property}: calc(
+        #{$minSize + px} + #{$addSize} * ((100vw - 390px) / #{1440 - 390})
+      );
+    }
+  } @else if $type==2 {
+    #{$property}: $startSize + px;
+    @media (min-width: #{1440 + px}) {
+      #{$property}: calc(
+        #{$minSize + px} + #{$addSize} * ((100vw - 390px) / #{1920 - 390})
+      );
+    }
+  } @else {
+    #{$property}: calc(
+      #{$minSize + px} + #{$addSize} * ((100vw- 390px) / #{1920 - 390})
+    );
+  }
+}
+
+.letterL {
+  color: #3ece5d;
+}
+
 * {
   ::-webkit-scrollbar {
     width: 10px;
