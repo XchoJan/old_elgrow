@@ -32,16 +32,19 @@ h6 {
 /*Header end*/
 /*Tabs start*/
 .tabsNav {
+  @include adaptive-value('max-width', 1200, 540, 1);
   height: 40px;
   overflow-x: auto;
   overflow-y: hidden;
   @include adaptive-value('padding-left', 74, 40, 1);
+  @include adaptive-value('padding-right', 74, 40, 1);
   display: flex;
-
-  @include adaptive-value('gap', 126, 52, 1);
-
+  justify-content: space-between;
+  // @include adaptive-value('gap', 126, 52, 1);
   @media (max-width: 560px) {
+    justify-content: flex-start;
     padding-right: 24px;
+    @include adaptive-value('gap', 126, 52, 1);
   }
 
   &::-webkit-scrollbar {
@@ -130,7 +133,10 @@ h6 {
     text-align: right;
     color: #000000;
     span {
-      @include adaptive-value('font-size', 40, 28, 1);
+      @include adaptive-value('font-size', 40, 16, 1);
+      @media (max-width: 560px) {
+        font-size: 28px;
+      }
     }
     p {
       margin: 0;
@@ -155,6 +161,7 @@ h6 {
   justify-content: space-between;
   @media (max-width: 560px) {
     flex-direction: row;
+    padding-bottom: 22px;
   }
 }
 .info_box_bottom_left {
@@ -172,10 +179,12 @@ h6 {
 .info_box_bottom_right {
   width: 161px;
   height: 64px;
+  padding-bottom: 54px;
 
   @media (max-width: 560px) {
     width: auto;
-    height: 37px;
+    height: max-content;
+    padding-bottom: 20px;
   }
 
   a {
@@ -209,10 +218,14 @@ h6 {
   background: black;
   position: absolute;
 
-  @include adaptive-value('right', -90, -82, 1);
+  @include adaptive-value('right', -90, -32, 1);
 
-  @include adaptive-value('bottom', -120, -102, 1);
+  @include adaptive-value('bottom', -145, -102, 1);
 
+  @media (max-width: 768px) {
+    @include adaptive-value('width', 250, 354, 1);
+    @include adaptive-value('padding-right', 1, 79, 1);
+  }
   h3 {
     margin: 0;
     margin-top: 10px;
@@ -348,7 +361,7 @@ h6 {
   @include adaptive-value('margin-right', 180, 111, 1);
 
   @media (max-width: 560px) {
-    max-width: 350px;
+    @include adaptive-value('max-width', 1000, 360, 1);
   }
 }
 .websites-tab.websites-tab_active {
@@ -478,6 +491,10 @@ h6 {
   img {
     object-fit: contain;
     height: 100%;
+
+    @media(min-width: 1441px) {
+      object-fit: cover;
+    }
   }
   width: 100%;
 }
@@ -733,35 +750,34 @@ h6 {
 .carusel_bottom_banner {
   position: relative;
   width: 100%;
-   
 }
 .carusel_bottom {
   margin-top: 106px;
 }
 .carusel_bottom_banner {
-  @include adaptive-value('margin-left', -127, 0, 1);
-   
+  // margin-left: -127px;
+  @include adaptive-value('margin-left', -127, -47, 1);
 
   .carusel_bottom_banner_image2 {
     @include adaptive-value('width', 724, 237, 1);
     @include adaptive-value('height', 830, 271, 1);
-    img {  @include adaptive-value('width', 724, 237, 1);
+    img {
+      @include adaptive-value('width', 724, 237, 1);
       @include adaptive-value('height', 830, 271, 1);
-      object-fit: contain;
+      object-fit: cover;
     }
-    
   }
-    
 }
-.carusel_top {.carusel_top_banner_image1 {
-  @include adaptive-value('width', 724, 237, 1);
+.carusel_top {
+  .carusel_top_banner_image1 {
+    @include adaptive-value('width', 724, 237, 1);
     @include adaptive-value('height', 841, 275, 1);
-  img {  @include adaptive-value('width', 724, 237, 1);
-    @include adaptive-value('height', 841, 275, 1);
-    object-fit: contain;
+    img {
+      @include adaptive-value('width', 724, 237, 1);
+      @include adaptive-value('height', 841, 275, 1);
+      object-fit: cover;
+    }
   }
-  
-}
   a {
     margin-top: 40px;
     margin-left: 50px;
@@ -771,7 +787,7 @@ h6 {
     position: relative;
     text-decoration: none;
     @media (max-width: 560px) {
-      display: none 
+      display: none;
     }
   }
   p {
@@ -812,30 +828,25 @@ h6 {
     color: #ffffff;
     @include adaptive-value('max-width', 323, 105, 1);
     @include adaptive-value('top', 72, 24, 1);
-    @include adaptive-value('left', 92  , 30, 1);
+    @include adaptive-value('left', 92, 30, 1);
   }
   h2 {
     margin: 0;
   }
 }
 .carusel_bottom_banner_words {
-   
   h1 {
     position: absolute;
     font-weight: 400;
     @include adaptive-value('font-size', 20, 6, 1);
     line-height: 140%;
     color: #000000;
-    @include adaptive-value('top', 200, 58, 1);;
+    @include adaptive-value('top', 200, 58, 1);
     @include adaptive-value('left', 73, 23, 1);
   }
   h2 {
     margin: 0;
   }
-
- 
-     
-   
 }
 .carusel_inner {
   h2 {
@@ -847,7 +858,7 @@ h6 {
     margin-top: 30px;
   }
   h3 {
-    @include adaptive-value('margin-left', 50, 20 , 1);
+    @include adaptive-value('margin-left', 50, 20, 1);
     font-style: normal;
     font-weight: 300;
     @include adaptive-value('font-size', 20, 12, 1);

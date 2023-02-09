@@ -16,14 +16,15 @@ const Footer = () => {
       <div className="container">
         <Contacts isOpen={showMenu} close={setShowMenu} />
         <CallBackMenu
-          x="0"
+          y="0"
+          x='0'
           isOpen={isVisibleCallbackMenu}
           close={setVisibleCallbackMenu}
         />
         <div className="footer_inner">
           <div className="footer_title">
             <div className="footer_title_left">
-            e<span className="letterL">l</span>grow
+              e<span className="letterL">l</span>grow
             </div>
             <div className="footer_title_right">
               <a href="#"> ВАКАНСИИ </a>
@@ -56,7 +57,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="footer_bottom">
-            {max > 390 && (
+            {max > 560 && (
               <div className="footer_bottom_item">
                 <h2>
                   <img src="/images/Copyright.svg" alt="" />
@@ -78,9 +79,11 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          {max <= 390 && (
-            <div style={{paddingTop: '19px',paddingBottom: '29px'
-            }} className="footer_bottom_item">
+          {max <= 560 && (
+            <div
+              style={{ paddingTop: '19px', paddingBottom: '29px' }}
+              className="footer_bottom_item"
+            >
               <h2>
                 <img src="/images/Copyright.svg" alt="" />
                 Все права защищены 2023

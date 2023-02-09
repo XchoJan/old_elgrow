@@ -13,7 +13,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close }) => {
   const variants = {
     open: { y: 0, transition: { duration: 0.8 } },
     closed: {
-      y: '-100%',
+      y: '-110%',
       transition: { duration: 0.8, delay: 0.2 },
     },
   };
@@ -267,7 +267,8 @@ const Contacts: React.FC<Props> = ({ isOpen, close }) => {
         <span> СТАТЬ КЛИЕНТОМ</span>
       </motion.div>
       <CallBackMenu
-        x='-50px'
+        y='0px'
+        x='0px'
         isOpen={isVisibleCallbackMenu}
         close={setVisibleCallbackMenu}
       />

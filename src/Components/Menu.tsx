@@ -28,7 +28,8 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
     >
       <Contacts isOpen={showContacts} close={setShowContacts} />
       <CallBackMenu
-      x='-50px'
+      y='-0'
+      x='0'
         isOpen={isVisibleCallbackMenu}
         close={setVisibleCallbackMenu}
       />
