@@ -1,15 +1,21 @@
 import { motion } from 'framer-motion';
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import Input from './Input';
 
 interface Props {
   isOpen: boolean;
   close: Dispatch<SetStateAction<boolean>>;
   y: string;
-  x: string
+  x: string;
 }
 
 const CallBackMenu: React.FC<Props> = ({ isOpen, close, y, x }) => {
+  const [max, setMax] = useState(0);
+
+  useEffect(() => {
+    setMax(window.innerWidth);
+  }, []);
+
   const budgets = ['Менее 0.5 млн', '0.5 - 1 млн', '1 - 3 млн', 'Более 3 млн'];
 
   const variants = {
@@ -118,7 +124,10 @@ const CallBackMenu: React.FC<Props> = ({ isOpen, close, y, x }) => {
                 <motion.div
                   animate={isOpen ? 'open' : 'closed'}
                   variants={{
-                    open: { opacity: 1, transition: { delay: 0.2 * idx + 1 } },
+                    open: {
+                      opacity: 1,
+                      transition: { delaпоy: 0.2 * idx + 1 },
+                    },
                     closed: {
                       opacity: 0,
                       transition: { delay: 0.4 },
@@ -143,7 +152,24 @@ const CallBackMenu: React.FC<Props> = ({ isOpen, close, y, x }) => {
           >
             Отправить
           </motion.button>
+
+          {max <= 768 && (
+            <motion.div
+              animate={isOpen ? 'open' : 'closed'}
+              variants={{
+                open: { opacity: 1, transition: { delay: 1.5 } },
+                closed: {
+                  opacity: 0,
+                  transition: { delay: 0.4 },
+                },
+              }}
+              className="callbackMenu_main_form_politics"
+            >
+              <span> Политика обработки персональных данных </span>
+            </motion.div>
+          )}
         </motion.div>
+        <motion.div className="callbackMenu_main_container">   
         <motion.div className="callbackMenu_main_staff">
           <motion.div
             animate={isOpen ? 'open' : 'closed'}
@@ -198,20 +224,22 @@ const CallBackMenu: React.FC<Props> = ({ isOpen, close, y, x }) => {
               </span>
             </motion.div>
           </motion.div>
-          <motion.div
-            animate={isOpen ? 'open' : 'closed'}
-            variants={{
-              open: { opacity: 1, transition: { delay: 1.5 } },
-              closed: {
-                opacity: 0,
-                transition: { delay: 0.4 },
-              },
-            }}
-            className="callbackMenu_main_staff_politics"
-          >
-            <span> Политика обработки </span> <br />{' '}
-            <span> персональных данных </span>
-          </motion.div>
+          {max > 768 && (
+            <motion.div
+              animate={isOpen ? 'open' : 'closed'}
+              variants={{
+                open: { opacity: 1, transition: { delay: 1.5 } },
+                closed: {
+                  opacity: 0,
+                  transition: { delay: 0.4 },
+                },
+              }}
+              className="callbackMenu_main_staff_politics"
+            >
+              <span> Политика обработки </span> <br />{' '}
+              <span> персональных данных </span>
+            </motion.div>
+          )}
         </motion.div>
         <motion.div className="callbackMenu_main_brief">
           <motion.div
@@ -240,6 +268,7 @@ const CallBackMenu: React.FC<Props> = ({ isOpen, close, y, x }) => {
           >
             ЗАПОЛНИТЬ БРИФ
           </motion.div>
+        </motion.div>
         </motion.div>
       </motion.div>
     </motion.div>

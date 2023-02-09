@@ -18,7 +18,6 @@ input {
   outline-color: rgba(0, 0, 0, 0.94);
 
   background: rgba(0, 0, 0, 0.94);
-
 }
 
 textarea {
@@ -149,6 +148,9 @@ input[type='password'] {
   top: 16px;
   transition: 0.2s ease all;
   color: white;
+  @media (max-width: 560px) {
+    left: 0px
+  }
 }
 
 .input:focus {
