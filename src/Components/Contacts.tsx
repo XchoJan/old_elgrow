@@ -10,6 +10,15 @@ interface Props {
 const Contacts: React.FC<Props> = ({ isOpen, close }) => {
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
 
+  if (typeof window !== 'undefined' && isOpen) {
+    let body: any = document.querySelector('body');
+    body.style.overflowY = 'hidden';
+  }
+  if (typeof window !== 'undefined' && !isOpen) {
+    let body: any = document.querySelector('body');
+    body.style.overflowY = 'auto';
+  }
+
   const variants = {
     open: { y: 0, transition: { duration: 0.8 } },
     closed: {
@@ -267,8 +276,8 @@ const Contacts: React.FC<Props> = ({ isOpen, close }) => {
         <span> СТАТЬ КЛИЕНТОМ</span>
       </motion.div>
       <CallBackMenu
-        y='0px'
-        x='0px'
+        y="0px"
+        x="0px"
         isOpen={isVisibleCallbackMenu}
         close={setVisibleCallbackMenu}
       />

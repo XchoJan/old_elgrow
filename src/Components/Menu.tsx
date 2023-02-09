@@ -10,6 +10,16 @@ interface Props {
 }
 
 const Menu: React.FC<Props> = ({ isOpen, close }) => {
+  if (typeof window !== 'undefined' && isOpen) {
+    let body: any = document.querySelector('body');
+    body.style.overflowY = 'hidden';
+  }
+
+  if (typeof window !== 'undefined' && !isOpen) {
+    let body: any = document.querySelector('body');
+    body.style.overflowY = 'auto';
+  }
+
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
   const [showContacts, setShowContacts] = useState(false);
   const variants = {

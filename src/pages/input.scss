@@ -17,14 +17,14 @@ input {
   font-size: 16px;
   outline-color: rgba(0, 0, 0, 0.94);
 
-  background: rgba(0, 0, 0, 0.94);
+  background: transparent;
 }
 
 textarea {
   width: 100%;
   height: 100px;
   color: white;
-  background: rgba(0, 0, 0, 0.94);
+  background: transparent;
 
   resize: none;
   cursor: text;
@@ -149,7 +149,7 @@ input[type='password'] {
   transition: 0.2s ease all;
   color: white;
   @media (max-width: 560px) {
-    left: 0px
+    left: 0px;
   }
 }
 

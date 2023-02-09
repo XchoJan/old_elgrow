@@ -12,6 +12,16 @@ interface Props {
 const CallBackMenu: React.FC<Props> = ({ isOpen, close, y, x }) => {
   const [max, setMax] = useState(0);
 
+  if (typeof window !== 'undefined' && isOpen) {
+    let body: any = document.querySelector('body');
+    body.style.overflowY = 'hidden';
+  }
+
+  if (typeof window !== 'undefined' && !isOpen) {
+    let body: any = document.querySelector('body');
+    body.style.overflowY = 'auto';
+  }
+
   useEffect(() => {
     setMax(window.innerWidth);
   }, []);
@@ -169,106 +179,106 @@ const CallBackMenu: React.FC<Props> = ({ isOpen, close, y, x }) => {
             </motion.div>
           )}
         </motion.div>
-        <motion.div className="callbackMenu_main_container">   
-        <motion.div className="callbackMenu_main_staff">
-          <motion.div
-            animate={isOpen ? 'open' : 'closed'}
-            variants={{
-              open: { opacity: 1, transition: { delay: 0.9 } },
-              closed: {
-                opacity: 0,
-                transition: { delay: 0.4 },
-              },
-            }}
-            className="callbackMenu_main_staff_slogan"
-          >
-            <h1>
-              С вами на связи <br /> <span> самые отзвывчивые : </span>
-            </h1>
-          </motion.div>
-          <motion.div className="callbackMenu_main_staff_personnel">
+        <motion.div className="callbackMenu_main_container">
+          <motion.div className="callbackMenu_main_staff">
             <motion.div
               animate={isOpen ? 'open' : 'closed'}
               variants={{
-                open: { opacity: 1, transition: { delay: 1.4 } },
+                open: { opacity: 1, transition: { delay: 0.9 } },
                 closed: {
                   opacity: 0,
                   transition: { delay: 0.4 },
                 },
               }}
-              className="callbackMenu_main_staff_personnel_person"
+              className="callbackMenu_main_staff_slogan"
             >
-              <img src="/images/miniPerson.png" alt="" />
-              <h2>Михаил Посошнов</h2>
-              <span>
-                клиент - менеджер <br /> ( ответит на вопросы и <br />
-                организует встречу )
-              </span>
+              <h1>
+                С вами на связи <br /> <span> самые отзвывчивые : </span>
+              </h1>
             </motion.div>
+            <motion.div className="callbackMenu_main_staff_personnel">
+              <motion.div
+                animate={isOpen ? 'open' : 'closed'}
+                variants={{
+                  open: { opacity: 1, transition: { delay: 1.4 } },
+                  closed: {
+                    opacity: 0,
+                    transition: { delay: 0.4 },
+                  },
+                }}
+                className="callbackMenu_main_staff_personnel_person"
+              >
+                <img src="/images/miniPerson.png" alt="" />
+                <h2>Михаил Посошнов</h2>
+                <span>
+                  клиент - менеджер <br /> ( ответит на вопросы и <br />
+                  организует встречу )
+                </span>
+              </motion.div>
+              <motion.div
+                animate={isOpen ? 'open' : 'closed'}
+                variants={{
+                  open: { opacity: 1, transition: { delay: 1.2 } },
+                  closed: {
+                    opacity: 0,
+                    transition: { delay: 0.4 },
+                  },
+                }}
+                className="callbackMenu_main_staff_personnel_person"
+              >
+                <img src="/images/miniPerson.png" alt="" />
+                <h2>Максим Макаров</h2>
+                <span>
+                  руководитель отдела <br /> маркетинга <br />( разберется в
+                  проблеме и <br /> предложит решение )
+                </span>
+              </motion.div>
+            </motion.div>
+            {max > 768 && (
+              <motion.div
+                animate={isOpen ? 'open' : 'closed'}
+                variants={{
+                  open: { opacity: 1, transition: { delay: 1.5 } },
+                  closed: {
+                    opacity: 0,
+                    transition: { delay: 0.4 },
+                  },
+                }}
+                className="callbackMenu_main_staff_politics"
+              >
+                <span> Политика обработки </span> <br />{' '}
+                <span> персональных данных </span>
+              </motion.div>
+            )}
+          </motion.div>
+          <motion.div className="callbackMenu_main_brief">
             <motion.div
+              className="callbackMenu_main_brief_text1"
               animate={isOpen ? 'open' : 'closed'}
               variants={{
-                open: { opacity: 1, transition: { delay: 1.2 } },
+                open: { opacity: 1, transition: { delay: 1 } },
                 closed: {
                   opacity: 0,
                   transition: { delay: 0.4 },
                 },
               }}
-              className="callbackMenu_main_staff_personnel_person"
             >
-              <img src="/images/miniPerson.png" alt="" />
-              <h2>Максим Макаров</h2>
-              <span>
-                руководитель отдела <br /> маркетинга <br />( разберется в
-                проблеме и <br /> предложит решение )
-              </span>
+              или
             </motion.div>
-          </motion.div>
-          {max > 768 && (
             <motion.div
               animate={isOpen ? 'open' : 'closed'}
               variants={{
-                open: { opacity: 1, transition: { delay: 1.5 } },
+                open: { opacity: 1, transition: { delay: 0.8 } },
                 closed: {
                   opacity: 0,
                   transition: { delay: 0.4 },
                 },
               }}
-              className="callbackMenu_main_staff_politics"
+              className="callbackMenu_main_brief_text2"
             >
-              <span> Политика обработки </span> <br />{' '}
-              <span> персональных данных </span>
+              ЗАПОЛНИТЬ БРИФ
             </motion.div>
-          )}
-        </motion.div>
-        <motion.div className="callbackMenu_main_brief">
-          <motion.div
-            className="callbackMenu_main_brief_text1"
-            animate={isOpen ? 'open' : 'closed'}
-            variants={{
-              open: { opacity: 1, transition: { delay: 1 } },
-              closed: {
-                opacity: 0,
-                transition: { delay: 0.4 },
-              },
-            }}
-          >
-            или
           </motion.div>
-          <motion.div
-            animate={isOpen ? 'open' : 'closed'}
-            variants={{
-              open: { opacity: 1, transition: { delay: 0.8 } },
-              closed: {
-                opacity: 0,
-                transition: { delay: 0.4 },
-              },
-            }}
-            className="callbackMenu_main_brief_text2"
-          >
-            ЗАПОЛНИТЬ БРИФ
-          </motion.div>
-        </motion.div>
         </motion.div>
       </motion.div>
     </motion.div>

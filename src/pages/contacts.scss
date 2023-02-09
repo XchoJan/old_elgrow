@@ -22,7 +22,7 @@
     cursor: pointer;
     text-align: right;
     border-radius: 100% 0% 0% 0%;
-  @include adaptive-value('width', 145, 95, 1);
+    @include adaptive-value('width', 145, 95, 1);
     @include adaptive-value('height', 132, 91, 1);
     background-color: #3ece5d;
     position: absolute;
@@ -30,7 +30,7 @@
     right: 0;
     font-family: 'Inter Tight';
     font-weight: 400;
-    @include adaptive-value('font-size', 20 , 12, 1);
+    @include adaptive-value('font-size', 20, 12, 1);
     color: white;
     span {
       width: 100px;
@@ -59,7 +59,7 @@
     justify-content: space-between;
     font-family: 'Inter Tight';
 
-    @media (max-width:560px) {
+    @media (max-width: 560px) {
       flex-direction: column;
       align-items: center;
     }
@@ -72,8 +72,9 @@
       align-items: center;
       justify-content: center;
 
-      @media (max-width:560px) {
-        height: 212px;
+      @media (max-width: 560px) {
+        width: 46vw;
+        height: 178px;
       }
 
       &:nth-child(1) {
@@ -83,19 +84,20 @@
         border-right: 1px solid #bababa;
       }
 
-      @media (max-width:560px) {
-     
-        &:nth-child(1) {    border-right: 0;
+      @media (max-width: 560px) {
+        &:nth-child(1) {
+          border-right: 0;
           border-bottom: 1px solid #bababa;
         }
-        &:nth-child(2) {    border-right: 0;
+        &:nth-child(2) {
+          border-right: 0;
           border-bottom: 1px solid #bababa;
         }
       }
 
       .contacts_addresses_adress_city {
-        @media (max-width:560px) {
-          text-align:center
+        @media (max-width: 560px) {
+          text-align: center;
         }
         font-weight: 400;
         @include adaptive-value('font-size', 28, 20, 1);
@@ -105,22 +107,22 @@
         font-weight: 300;
         @include adaptive-value('font-size', 16, 12, 1);
         line-height: 22px;
-        @media (max-width:560px) {
-          text-align:center
+        @media (max-width: 560px) {
+          text-align: center;
         }
       }
       .contacts_addresses_adress_phone {
         margin-top: 30px;
         font-weight: 500;
-        font-size: 16px; 
-        @media (max-width:560px) {
-          text-align:center
+        font-size: 16px;
+        @media (max-width: 560px) {
+          text-align: center;
         }
       }
 
       .contacts_addresses_adress_howToGet {
-        @media (max-width:560px) {
-          text-align:center
+        @media (max-width: 560px) {
+          text-align: center;
         }
         color: #3ece5d;
         margin-top: 10px;
@@ -163,9 +165,9 @@
     .contacts_logo_close {
       cursor: pointer;
     }
-    img {  @include adaptive-value('width', 50, 40, 1);
+    img {
+      @include adaptive-value('width', 50, 40, 1);
       @include adaptive-value('height', 50, 40, 1);
-    
     }
     .contacts_logo_letterL {
       color: #3ece5d;
