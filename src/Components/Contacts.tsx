@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { Dispatch, SetStateAction, useState,useEffect } from 'react';
 import CallBackMenu from './CallBackMenu';
 
 interface Props {
@@ -10,6 +10,11 @@ interface Props {
 
 const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
+  const [max, setMax] = useState(0);
+
+  useEffect(() => {
+    setMax(window.innerWidth);
+  }, []);
 
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');
@@ -283,7 +288,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
         </motion.div>
       </motion.div>
       <CallBackMenu
-        y="0px"
+        y={ max > 560 ?"0px" : '144px'}
         x="0px"
         isOpen={isVisibleCallbackMenu}
         close={setVisibleCallbackMenu}
