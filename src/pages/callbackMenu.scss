@@ -98,6 +98,11 @@
           padding-top: 56px;
           padding-bottom: 0px;
         }
+
+        @media (max-width: 560px) {
+          padding-top: 0px;
+          padding-bottom: 0px;
+        }
       }
 
       .callbackMenu_main_brief_text2 {
@@ -110,11 +115,13 @@
         text-orientation: upright;
 
         @media (max-width: 560px) {
+          height: 24px;
           letter-spacing: 10px;
           border-left: none;
           text-orientation: mixed;
           writing-mode: horizontal-tb;
           border-bottom: 1px solid white;
+          padding-left: 8px;
         }
         &:hover {
           color: #7e7b77;
@@ -153,7 +160,7 @@
         span {
           line-height: 22px;
           font-weight: 300;
-          @include adaptive-value('font-size', 16, 9, 1);
+          @include adaptive-value('font-size', 16, 12, 1);
         }
         .callbackMenu_main_staff_personnel_person {
           img {
@@ -178,6 +185,9 @@
             font-family: 'Inter Tight';
             font-weight: 400;
             color: white;
+          }
+          @media (max-width: 560px) {
+            line-height: 33px;
           }
         }
       }
@@ -211,6 +221,9 @@
         outline: none;
         background: #3ece5d;
         transition: 0.5s;
+        @media (max-width: 560px) {
+          height: 50px;
+        }
         &:hover {
           background: #1a9634;
         }

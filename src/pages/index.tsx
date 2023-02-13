@@ -6,8 +6,15 @@ import 'swiper/css/pagination';
 
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
+import { useState, useEffect } from 'react';
 
 const MainPage = () => {
+  const [max, setMax] = useState(0);
+
+  useEffect(() => {
+    setMax(window.innerWidth);
+  }, []);
+
   const engineering = [
     {
       num: '01',
@@ -883,8 +890,8 @@ const MainPage = () => {
                 </div>
               </div>
               <h3>
-                Мобильное приложение по управлению <br />
-                парковками аэропорта
+                Мобильное приложение по управлению  {max > 560 && <br />}
+                парковками  {max <= 560 && <br />} аэропорта
               </h3>
               <a href="#">
                 <p>Все кейсы</p>
@@ -907,8 +914,8 @@ const MainPage = () => {
                 </div>
 
                 <h2>
-                  Интернет-магазин бренда женской <br />
-                  одежды nou
+                  Интернет-магазин бренда женской {max > 560 && <br />}
+                  одежды NOU
                 </h2>
               </div>
             </div>

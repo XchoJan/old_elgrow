@@ -32,16 +32,6 @@ const CallBackMenu: React.FC<Props> = ({
     body.style.overflowY = 'hidden';
   }
 
-  console.log(childFromMenu);
-
-  // useEffect(() => {
-  //   first
-
-  //   return () => {
-  //     second
-  //   }
-  // }, [third])
-
   useEffect(() => {
     setMax(window.innerWidth);
   }, []);
@@ -231,7 +221,8 @@ const CallBackMenu: React.FC<Props> = ({
                 <img src="/images/miniPerson.png" alt="" />
                 <h2>Михаил Посошнов</h2>
                 <span>
-                  клиент - менеджер <br /> ( ответит на вопросы и <br />
+                  клиент - менеджер <br /> ( ответит на вопросы и{' '}
+                  {max > 560 && <br />}
                   организует встречу )
                 </span>
               </motion.div>
@@ -250,7 +241,7 @@ const CallBackMenu: React.FC<Props> = ({
                 <h2>Максим Макаров</h2>
                 <span>
                   руководитель отдела <br /> маркетинга <br />( разберется в
-                  проблеме и <br /> предложит решение )
+                  проблеме и {max > 560 && <br />} предложит решение )
                 </span>
               </motion.div>
             </motion.div>

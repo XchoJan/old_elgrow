@@ -251,34 +251,36 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
           </motion.div>
         </motion.div>
       </motion.div>
-      <motion.div
-        animate={isOpen ? 'open' : 'closed'}
-        variants={{
-          open: { opacity: 1, transition: { delay: 0.7 } },
-          closed: {
-            opacity: 0,
-            transition: { delay: 0.6 },
-          },
-        }}
-        className="contacts_email"
-      >
-        <img src="/images/emailWhite.svg" alt="" />
-        <a href="mailto:info@elgrow.ru">info@elgrow.ru</a>
-      </motion.div>
+      <motion.div style={{ width: '97vw', position: 'relative' }}>
+        <motion.div
+          animate={isOpen ? 'open' : 'closed'}
+          variants={{
+            open: { opacity: 1, transition: { delay: 0.7 } },
+            closed: {
+              opacity: 0,
+              transition: { delay: 0.6 },
+            },
+          }}
+          className="contacts_email"
+        >
+          <img src="/images/emailWhite.svg" alt="" />
+          <a href="mailto:info@elgrow.ru">info@elgrow.ru</a>
+        </motion.div>
 
-      <motion.div
-        animate={isOpen ? 'open' : 'closed'}
-        variants={{
-          open: { opacity: 1, transition: { delay: 0.6 } },
-          closed: {
-            opacity: 0,
-            transition: { delay: 0.6 },
-          },
-        }}
-        onClick={() => setVisibleCallbackMenu(true)}
-        className="contacts_client"
-      >
-        <span> СТАТЬ КЛИЕНТОМ</span>
+        <motion.div
+          animate={isOpen ? 'open' : 'closed'}
+          variants={{
+            open: { opacity: 1, transition: { delay: 0.6 } },
+            closed: {
+              opacity: 0,
+              transition: { delay: 0.6 },
+            },
+          }}
+          onClick={() => setVisibleCallbackMenu(true)}
+          className="contacts_client"
+        >
+          <span> СТАТЬ КЛИЕНТОМ</span>
+        </motion.div>
       </motion.div>
       <CallBackMenu
         y="0px"
