@@ -10,6 +10,9 @@ interface Props {
 }
 
 const Menu: React.FC<Props> = ({ isOpen, close }) => {
+  const [CallBackFromMenu, setCallBackFromMenu] = useState(true);
+  const [ContactsFromMenu, setContactsFromMenu] = useState(true);
+
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');
     body.style.overflowY = 'hidden';
@@ -36,15 +39,24 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
       variants={variants}
       className="menu"
     >
-      <Contacts isOpen={showContacts} close={setShowContacts} />
+      <Contacts
+        childFromMenu={ContactsFromMenu}
+        isOpen={showContacts}
+        close={setShowContacts}
+      />
       <CallBackMenu
+        childFromMenu={CallBackFromMenu}
         y="-0"
         x="0"
         isOpen={isVisibleCallbackMenu}
         close={setVisibleCallbackMenu}
       />
       <motion.div
-        onClick={() => close(false)}
+        onClick={() => {
+          setContactsFromMenu(false);
+          setCallBackFromMenu(false);
+          close(false);
+        }}
         animate={isOpen ? 'open' : 'closed'}
         variants={{
           open: { opacity: 1, transition: { delay: 1.1 } },
@@ -129,7 +141,10 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
             Портфолио
           </motion.span>
           <motion.span
-            onClick={() => setShowContacts(true)}
+            onClick={() => {
+              setShowContacts(true);
+              setContactsFromMenu(true);
+            }}
             initial={false}
             animate={isOpen ? 'open' : 'closed'}
             variants={{
@@ -145,7 +160,10 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
         </div>
       </div>
       <motion.div
-        onClick={() => setVisibleCallbackMenu(true)}
+        onClick={() => {
+          setVisibleCallbackMenu(true);
+          setCallBackFromMenu(true);
+        }}
         animate={isOpen ? 'open' : 'closed'}
         variants={{
           open: { opacity: 1, transition: { delay: 0.873 } },

@@ -5,18 +5,23 @@ import CallBackMenu from './CallBackMenu';
 interface Props {
   isOpen: boolean;
   close: Dispatch<SetStateAction<boolean>>;
+  childFromMenu?: boolean;
 }
 
-const Contacts: React.FC<Props> = ({ isOpen, close }) => {
+const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
 
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');
     body.style.overflowY = 'hidden';
-  }
-  if (typeof window !== 'undefined' && !isOpen) {
+  } else if (typeof window !== 'undefined' && !isOpen) {
     let body: any = document.querySelector('body');
     body.style.overflowY = 'auto';
+  }
+
+  if (typeof window !== 'undefined' && childFromMenu) {
+    let body: any = document.querySelector('body');
+    body.style.overflowY = 'hidden';
   }
 
   const variants = {

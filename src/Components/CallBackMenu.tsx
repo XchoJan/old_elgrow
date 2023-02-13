@@ -7,20 +7,40 @@ interface Props {
   close: Dispatch<SetStateAction<boolean>>;
   y: string;
   x: string;
+  childFromMenu?: boolean;
 }
 
-const CallBackMenu: React.FC<Props> = ({ isOpen, close, y, x }) => {
+const CallBackMenu: React.FC<Props> = ({
+  isOpen,
+  close,
+  y,
+  x,
+  childFromMenu,
+}) => {
   const [max, setMax] = useState(0);
 
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');
     body.style.overflowY = 'hidden';
-  }
-
-  if (typeof window !== 'undefined' && !isOpen) {
+  } else if (typeof window !== 'undefined' && !isOpen) {
     let body: any = document.querySelector('body');
     body.style.overflowY = 'auto';
   }
+
+  if (typeof window !== 'undefined' && childFromMenu) {
+    let body: any = document.querySelector('body');
+    body.style.overflowY = 'hidden';
+  }
+
+  console.log(childFromMenu);
+
+  // useEffect(() => {
+  //   first
+
+  //   return () => {
+  //     second
+  //   }
+  // }, [third])
 
   useEffect(() => {
     setMax(window.innerWidth);
