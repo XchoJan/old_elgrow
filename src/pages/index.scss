@@ -210,7 +210,7 @@ h6 {
   }
 }
 .info_box-tags {
-  @include adaptive-value('padding-right', 62, 79, 1);
+  padding-right: 45px;
   @include adaptive-value('padding-left', 36, 20, 1);
   display: flex;
   align-items: center;
@@ -230,17 +230,26 @@ h6 {
 
   @media (max-width: 768px) {
     @include adaptive-value('width', 250, 354, 1);
-    @include adaptive-value('padding-right', 1, 79, 1);
+    padding-right: 30px;
   }
 
   @media (max-width: 560px) {
+    width: 89vw;
+    margin-top: 98px;
+    margin-right: 1vw;
+    margin-left: 1vw;
     padding-right: 45px;
+    bottom: -125px;
+    right: -3px;
   }
   h3 {
     display: flex;
     flex-wrap: wrap;
-    @media (max-width: 560px) {
+    @include adaptive-value('font-size', 18, 13, 1);
+    @include adaptive-value('line-height', 26, 17, 1);
+    @media (max-width: 768px) {
       gap: 1px;
+      font-size: 12px;
     }
     margin: 0;
     margin-top: 10px;
@@ -248,14 +257,13 @@ h6 {
     width: 100%;
     max-width: 396px;
     font-weight: 300;
-    @include adaptive-value('font-size', 18, 13, 1);
-    @include adaptive-value('line-height', 26, 17, 1);
+
     color: #fff;
     text-align: left;
   }
 
-  span {
-    word-break: break-all;
+  .tags_lattice {
+    // word-break: break-all;
     color: #3ece5d;
   }
 

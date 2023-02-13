@@ -222,10 +222,12 @@ const MainPage = () => {
                         <h1 className="info_box_title">Теги:</h1>
                         <h3 className="tags">
                           {slide.tags.map((tag: string) => (
-                            <>
-                              <span>#</span>
-                              {tag} &nbsp;
-                            </>
+                            <div>
+                              <span className="tags_lattice">#</span>
+                              &nbsp;
+                              <span>{tag}</span>
+                              &nbsp;
+                            </div>
                           ))}
                         </h3>
                       </div>
