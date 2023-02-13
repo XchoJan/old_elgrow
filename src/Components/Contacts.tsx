@@ -137,7 +137,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
               }}
               className="contacts_addresses_adress_howToGet"
             >
-              Как добраться?
+              <span> Как добраться? </span>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -194,7 +194,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
               }}
               className="contacts_addresses_adress_howToGet"
             >
-              Как добраться?
+              <span> Как добраться? </span>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -251,7 +251,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
               }}
               className="contacts_addresses_adress_howToGet"
             >
-              Как добраться?
+              <span> Как добраться? </span>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -288,7 +288,8 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
         </motion.div>
       </motion.div>
       <CallBackMenu
-        y={max > 560 ? '0px' : '144px'}
+        inline={{ height: 'auto' }}
+        y="0px"
         x="0px"
         isOpen={isVisibleCallbackMenu}
         close={setVisibleCallbackMenu}

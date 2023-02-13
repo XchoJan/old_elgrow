@@ -8,6 +8,7 @@ interface Props {
   y: string;
   x: string;
   childFromMenu?: boolean;
+  inline?: any;
 }
 
 const CallBackMenu: React.FC<Props> = ({
@@ -16,25 +17,25 @@ const CallBackMenu: React.FC<Props> = ({
   y,
   x,
   childFromMenu,
+  inline,
 }) => {
   const [max, setMax] = useState(0);
 
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');
-    let contacts: any = document.querySelectorAll('.contacts');
+ 
     body.style.overflowY = 'hidden';
-    contacts[1].style.overflowY = 'hidden';
+  
   } else if (typeof window !== 'undefined' && !isOpen) {
     let body: any = document.querySelector('body');
-    let contacts: any = document.querySelectorAll('.contacts');
+ 
     body.style.overflowY = 'auto';
-    contacts[1].style.overflowY = 'auto';
-  }  
+ 
+  }
 
   if (typeof window !== 'undefined' && childFromMenu) {
     let body: any = document.querySelector('body');
     body.style.overflowY = 'hidden';
-  
   }
 
   useEffect(() => {
@@ -65,6 +66,7 @@ const CallBackMenu: React.FC<Props> = ({
       animate={isOpen ? 'open' : 'closed'}
       variants={variants}
       className={'callbackMenu'}
+      style={inline}
     >
       <motion.div className="callbackMenu_contacts_container">
         <motion.div className="callbackMenu_contacts">

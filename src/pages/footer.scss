@@ -120,6 +120,10 @@
   background: #fff;
   left: 0;
   bottom: 0px;
+
+  @media (max-width: 560px) {
+    height: 1px;
+  }
 }
 .footer_center-wrap {
   display: flex;
