@@ -80,7 +80,7 @@
       justify-content: center;
 
       @media (max-width: 560px) {
-        width: 46vw;
+        width: 60vw;
       }
 
       &:nth-child(1) {
@@ -102,16 +102,18 @@
       }
 
       .contacts_addresses_adress_city {
-        @media (max-width: 560px) {
-          text-align: center;
-        }
         font-weight: 400;
         @include adaptive-value('font-size', 28, 20, 1);
+        @media (max-width: 560px) {
+          text-align: center;
+          font-size: 28px;
+        }
+      
       }
       .contacts_addresses_adress_street {
         margin-top: 10px;
         font-weight: 300;
-        @include adaptive-value('font-size', 16, 12, 1);
+        @include adaptive-value('font-size', 16, 16, 1);
         line-height: 22px;
         @media (max-width: 560px) {
           text-align: center;
