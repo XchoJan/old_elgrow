@@ -21,15 +21,20 @@ const CallBackMenu: React.FC<Props> = ({
 
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');
+    let contacts: any = document.querySelectorAll('.contacts');
     body.style.overflowY = 'hidden';
+    contacts[1].style.overflowY = 'hidden';
   } else if (typeof window !== 'undefined' && !isOpen) {
     let body: any = document.querySelector('body');
+    let contacts: any = document.querySelectorAll('.contacts');
     body.style.overflowY = 'auto';
-  }
+    contacts[1].style.overflowY = 'auto';
+  }  
 
   if (typeof window !== 'undefined' && childFromMenu) {
     let body: any = document.querySelector('body');
     body.style.overflowY = 'hidden';
+  
   }
 
   useEffect(() => {

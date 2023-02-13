@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { Dispatch, SetStateAction, useState,useEffect } from 'react';
+import React, { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import CallBackMenu from './CallBackMenu';
 
 interface Props {
@@ -288,7 +288,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
         </motion.div>
       </motion.div>
       <CallBackMenu
-        y={ max > 560 ?"0px" : '144px'}
+        y={max > 560 ? '0px' : '144px'}
         x="0px"
         isOpen={isVisibleCallbackMenu}
         close={setVisibleCallbackMenu}
