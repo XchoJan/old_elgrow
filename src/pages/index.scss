@@ -29,9 +29,8 @@ h6 {
 
   .tabs__content {
     @media (max-width: 560px) {
-      height: 600px
-     }
-
+      height: 600px;
+    }
   }
 }
 /*Header*/
@@ -506,10 +505,7 @@ h6 {
   overflow: hidden;
   width: 100%;
   // @include adaptive-value('height', 800, 254, 1);
-  height: 100vh;
-  @media (max-width: 560px) {
-    height: 90vh;
-  }
+  height: 800px;
   overflow: hidden;
 }
 
