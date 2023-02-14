@@ -294,7 +294,7 @@ h6 {
 }
 .products_principles {
   @media (max-width: 560px) {
-    margin-bottom: 616px;
+    margin-bottom: 73vh;
   }
   @include adaptive-value('padding-left', 86, 20, 1);
 }
