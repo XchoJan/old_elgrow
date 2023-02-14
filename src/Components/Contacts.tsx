@@ -18,13 +18,14 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
 
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');
+
     body.style.overflowY = 'hidden';
   } else if (typeof window !== 'undefined' && !isOpen) {
     let body: any = document.querySelector('body');
     body.style.overflowY = 'auto';
   }
 
-  if (typeof window !== 'undefined' && childFromMenu) {
+  if (typeof window !== 'undefined' && childFromMenu && isOpen) {
     let body: any = document.querySelector('body');
     body.style.overflowY = 'hidden';
   }
@@ -288,7 +289,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
         </motion.div>
       </motion.div>
       <CallBackMenu
-        inline={{ height: 'auto' }}
+        inline={max <= 560 && { height: 'auto' }}
         y="0px"
         x="0px"
         isOpen={isVisibleCallbackMenu}

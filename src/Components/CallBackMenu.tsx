@@ -24,21 +24,24 @@ const CallBackMenu: React.FC<Props> = ({
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');
     let callbackMenu: any = document.querySelectorAll('.contacts');
+    callbackMenu[0].style.overflowY = 'hidden';
     setTimeout(() => {
       callbackMenu[0].scrollTop = 0;
       callbackMenu[1].scrollTop = 0;
     }, 1000);
-    
 
     body.style.overflowY = 'hidden';
   } else if (typeof window !== 'undefined' && !isOpen) {
     let body: any = document.querySelector('body');
+    let callbackMenu: any = document.querySelectorAll('.contacts');
+    callbackMenu[0].style.overflowY = 'auto';
 
     body.style.overflowY = 'auto';
   }
 
-  if (typeof window !== 'undefined' && childFromMenu) {
+  if (typeof window !== 'undefined' && childFromMenu && isOpen) {
     let body: any = document.querySelector('body');
+
     body.style.overflowY = 'hidden';
   }
 

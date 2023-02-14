@@ -66,11 +66,11 @@
   background: #000000;
   position: relative;
   @include adaptive-value('height', 815, 263, 1);
-  background-image: url('../../public/images/group_photo.png');
+  background-image: url('../../public/images/preloader.png');
   background-repeat: no-repeat;
   background-position: bottom right;
   // background-position-y: 90px;
-  @include adaptive-value('background-size', 1100, 361, 1);
+  @include adaptive-value('background-size', 1210, 390, 1);
   // @include adaptive-value('background-position-y', 90, 19, 1);
   // padding-bottom: 81px;
   cursor: none;
