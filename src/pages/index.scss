@@ -240,10 +240,10 @@ h6 {
   }
 
   @media (max-width: 560px) {
-    width: 89vw;
+    width: 90vw;
     margin-top: 98px;
-    margin-right: 1vw;
-    margin-left: 1vw;
+    margin-right: 3px;
+
     padding-right: 45px;
     bottom: -125px;
     right: -3px;
@@ -906,6 +906,9 @@ h6 {
     @include adaptive-value('font-size', 20, 12, 1);
     color: #000000;
     margin: 0;
+    @media (max-width: 560px) {
+      margin-top: 16px;
+    }
     margin-top: 30px;
   }
   h3 {

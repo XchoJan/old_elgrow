@@ -67,6 +67,7 @@
     font-family: 'Inter Tight';
 
     @media (max-width: 560px) {
+      margin-top: 75px;
       flex-direction: column;
       align-items: center;
     }
@@ -108,7 +109,6 @@
           text-align: center;
           font-size: 28px;
         }
-      
       }
       .contacts_addresses_adress_street {
         margin-top: 10px;
@@ -138,10 +138,8 @@
         font-size: 16px;
         line-height: 22px;
         span {
-          border-bottom: 1px solid #3ECE5D;
+          border-bottom: 1px solid #3ece5d;
         }
-
-      
       }
     }
   }

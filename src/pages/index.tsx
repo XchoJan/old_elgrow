@@ -241,7 +241,7 @@ const MainPage = () => {
           <div id="js-wrapper" className="wrapper">
             <div className="sections" id="js-slideContainer">
               <Swiper
-                modules={[Mousewheel,  ]}
+                modules={[Mousewheel]}
                 spaceBetween={50}
                 slidesPerView={1}
                 mousewheel={{
@@ -277,7 +277,7 @@ const MainPage = () => {
                     </div>
                   </section>
                 </SwiperSlide>
-                <SwiperSlide  >
+                <SwiperSlide>
                   <section className="section horizontal_section">
                     <div className="sectionTitle" id="title2">
                       <div className="websites-content">
@@ -388,7 +388,7 @@ const MainPage = () => {
                     </div>
                   </section>
                 </SwiperSlide>
-                <SwiperSlide  >
+                <SwiperSlide>
                   <section className="section horizontal_section">
                     <div className="sectionTitle" id="title3">
                       <div className="websites-content">
@@ -495,7 +495,7 @@ const MainPage = () => {
                     </div>
                   </section>
                 </SwiperSlide>
-                <SwiperSlide>  
+                <SwiperSlide>
                   <section className="section horizontal_section">
                     <div className="sectionTitle" id="title3">
                       <div className="websites-content">
@@ -604,7 +604,7 @@ const MainPage = () => {
                     </div>
                   </section>
                 </SwiperSlide>
-                <SwiperSlide  >
+                <SwiperSlide>
                   <section className="section horizontal_section">
                     <div className="sectionTitle" id="title3">
                       <div className="websites-content">
