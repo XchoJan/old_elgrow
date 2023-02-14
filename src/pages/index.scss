@@ -340,6 +340,9 @@ h6 {
   margin-top: 16px;
   justify-content: center;
   font-family: 'Inter Tight';
+  @media (max-width: 560px) {
+    padding-right: 10px;
+  }
 }
 
 .products_principles-center h4 {
@@ -349,9 +352,13 @@ h6 {
   color: #898989;
   justify-content: center;
   @include adaptive-value('margin-left', 247, 160, 1);
+
   text-align: left;
   margin-top: -5px;
   @include adaptive-value('font-size', 20, 14, 1);
+  @media (max-width: 560px) {
+    margin-left: 140px;
+  }
 }
 .products_principles_border::before {
   content: '';

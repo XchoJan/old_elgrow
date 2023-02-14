@@ -912,7 +912,7 @@ const MainPage = () => {
                   </h1>
                 </div>
                 <div className="carusel_bottom_banner_image2">
-                  <img src="/images/modal.jpg" alt="" />
+                  <img src="/images/NOU.png" alt="" />
                 </div>
 
                 <h2>
