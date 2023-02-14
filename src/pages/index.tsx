@@ -1,8 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Pagination } from 'swiper';
+import { Mousewheel, Pagination, Virtual } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/mousewheel';
 import 'swiper/css/pagination';
+import 'swiper/css/virtual';
 
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
@@ -167,7 +168,7 @@ const MainPage = () => {
           <div className="tabsNav"></div>
           <div className="tabs__content">
             <Swiper
-              modules={[Pagination]}
+              modules={[Pagination, Virtual]}
               spaceBetween={50}
               slidesPerView={1}
               speed={1000}
@@ -240,7 +241,7 @@ const MainPage = () => {
           <div id="js-wrapper" className="wrapper">
             <div className="sections" id="js-slideContainer">
               <Swiper
-                modules={[Mousewheel]}
+                modules={[Mousewheel,  ]}
                 spaceBetween={50}
                 slidesPerView={1}
                 mousewheel={{
@@ -276,7 +277,7 @@ const MainPage = () => {
                     </div>
                   </section>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide  >
                   <section className="section horizontal_section">
                     <div className="sectionTitle" id="title2">
                       <div className="websites-content">
@@ -387,7 +388,7 @@ const MainPage = () => {
                     </div>
                   </section>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide  >
                   <section className="section horizontal_section">
                     <div className="sectionTitle" id="title3">
                       <div className="websites-content">
@@ -494,7 +495,7 @@ const MainPage = () => {
                     </div>
                   </section>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide>  
                   <section className="section horizontal_section">
                     <div className="sectionTitle" id="title3">
                       <div className="websites-content">
@@ -603,7 +604,7 @@ const MainPage = () => {
                     </div>
                   </section>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide  >
                   <section className="section horizontal_section">
                     <div className="sectionTitle" id="title3">
                       <div className="websites-content">
@@ -729,7 +730,6 @@ const MainPage = () => {
                     </div>
                   </section>
                 </SwiperSlide>
-                ...
               </Swiper>
             </div>
           </div>
@@ -912,7 +912,7 @@ const MainPage = () => {
                   </h1>
                 </div>
                 <div className="carusel_bottom_banner_image2">
-                  <img src="/images/NOU.png" alt="" />
+                  <img src="/images/main.png" alt="" />
                 </div>
 
                 <h2>
