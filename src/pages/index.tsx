@@ -160,6 +160,17 @@ const MainPage = () => {
     },
   ];
 
+  let principes: any = null;
+
+  if (typeof window !== 'undefined') {
+    principes = document.querySelector('#principes');
+  }
+
+  const changeMarginSlider = (margin: string) => {
+    let swiperPerson: any = document.querySelector('.swiperPerson');
+    swiperPerson.style.marginTop = margin;
+  };
+
   return (
     <div>
       <Header />
@@ -168,6 +179,7 @@ const MainPage = () => {
           <div className="tabsNav"></div>
           <div className="tabs__content">
             <Swiper
+              style={max > 560 ? { height: '700px' } : { height: '590px' }}
               modules={[Pagination, Virtual]}
               spaceBetween={50}
               slidesPerView={1}
@@ -241,6 +253,15 @@ const MainPage = () => {
           <div id="js-wrapper" className="wrapper">
             <div className="sections" id="js-slideContainer">
               <Swiper
+                onSlideChangeTransitionEnd={(swiper) => {
+                  max <= 560 &&
+                    swiper.slides[0].className ===
+                      'swiper-slide swiper-slide-active' &&
+                    changeMarginSlider('-145px');
+                }}
+                onSlideChangeTransitionStart={() => {
+                  max <= 560 && changeMarginSlider('150px');
+                }}
                 modules={[Mousewheel]}
                 spaceBetween={50}
                 slidesPerView={1}
@@ -251,7 +272,7 @@ const MainPage = () => {
                 }}
                 speed={1000}
               >
-                <SwiperSlide>
+                <SwiperSlide id="principes">
                   <section className="section horizontal_section">
                     <div className="sectionTitle" id="title1">
                       <div className="products_principles">
