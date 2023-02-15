@@ -844,20 +844,17 @@ h6 {
   }
   a {
     margin-top: 40px;
-    margin-left: 50px;
+    @include adaptive-value('margin-left', 50, 20, 1);
     gap: 17px;
     display: inline-flex;
     align-items: center;
     position: relative;
     text-decoration: none;
-    @media (max-width: 560px) {
-      display: none;
-    }
   }
   p {
     font-family: 'Inter Tight';
     font-weight: 400;
-    font-size: 20px;
+    @include adaptive-value('font-size', 20, 14, 1);
     position: relative;
     color: #000000;
 
