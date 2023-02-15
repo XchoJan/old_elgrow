@@ -24,7 +24,7 @@ const CallBackMenu: React.FC<Props> = ({
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');
     let callbackMenu: any = document.querySelectorAll('.contacts');
-    callbackMenu[0].style.overflowY = 'hidden';
+    // callbackMenu[0].style.overflowY = 'hidden';
     setTimeout(() => {
       callbackMenu[0].scrollTop = 0;
       callbackMenu[1].scrollTop = 0;
