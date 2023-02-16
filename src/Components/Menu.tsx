@@ -13,15 +13,15 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
   const [CallBackFromMenu, setCallBackFromMenu] = useState(true);
   const [ContactsFromMenu, setContactsFromMenu] = useState(true);
 
-  if (typeof window !== 'undefined' && isOpen) {
-    let body: any = document.querySelector('body');
-    body.style.overflowY = 'hidden';
-  }
+  // if (typeof window !== 'undefined' && isOpen) {
+  //   let body: any = document.querySelector('body');
+  //   body.style.overflowY = 'hidden';
+  // }
 
-  if (typeof window !== 'undefined' && !isOpen) {
-    let body: any = document.querySelector('body');
-    body.style.overflowY = 'auto';
-  }
+  // if (typeof window !== 'undefined' && !isOpen) {
+  //   let body: any = document.querySelector('body');
+  //   body.style.overflowY = 'auto';
+  // }
 
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
   const [showContacts, setShowContacts] = useState(false);

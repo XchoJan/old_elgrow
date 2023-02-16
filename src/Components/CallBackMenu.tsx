@@ -33,16 +33,15 @@ const CallBackMenu: React.FC<Props> = ({
     body.style.overflowY = 'hidden';
   } else if (typeof window !== 'undefined' && !isOpen) {
     let body: any = document.querySelector('body');
-    let callbackMenu: any = document.querySelectorAll('.contacts');
-    callbackMenu[0].style.overflowY = 'auto';
+    // let callbackMenu: any = document.querySelectorAll('.contacts');
+    // callbackMenu[0].style.overflowY = 'auto';
 
     body.style.overflowY = 'auto';
   }
 
   if (typeof window !== 'undefined' && childFromMenu && isOpen) {
-    let body: any = document.querySelector('body');
-
-    body.style.overflowY = 'hidden';
+    // let body: any = document.querySelector('body');
+    // body.style.overflowY = 'hidden';
   }
 
   useEffect(() => {
@@ -235,9 +234,8 @@ const CallBackMenu: React.FC<Props> = ({
                 <img src="/images/miniPerson.png" alt="" />
                 <h2>Михаил Посошнов</h2>
                 <span>
-                  клиент - менеджер <br /> ( ответит на вопросы и{' '}
-                  {max > 560 && <br />}
-                  организует встречу )
+                  клиент - менеджер <br /> ( ответит на вопросы и организует
+                  встречу )
                 </span>
               </motion.div>
               <motion.div
@@ -254,8 +252,8 @@ const CallBackMenu: React.FC<Props> = ({
                 <img src="/images/miniPerson.png" alt="" />
                 <h2>Максим Макаров</h2>
                 <span>
-                  руководитель отдела <br /> маркетинга <br />( разберется в
-                  проблеме и {max > 560 && <br />} предложит решение )
+                  руководитель отдела маркетинга <br /> ( разберется в проблеме
+                  и предложит решение )
                 </span>
               </motion.div>
             </motion.div>
