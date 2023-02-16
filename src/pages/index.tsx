@@ -216,7 +216,7 @@ const MainPage = () => {
                                 <img
                                   style={
                                     image === 'smile.svg'
-                                      ? { paddingTop: '2px' }
+                                      ? { paddingTop: '10px' }
                                       : {}
                                   }
                                   src={`/images/${image}`}
