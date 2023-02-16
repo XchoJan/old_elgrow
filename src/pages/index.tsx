@@ -270,6 +270,21 @@ const MainPage = () => {
           <div id="js-wrapper" className="wrapper">
             <div className="sections" id="js-slideContainer">
               <Swiper
+                onSlideChange={(swiper: any) =>
+                  setTimeout(() => {
+                    swiper.params.mousewheel.releaseOnEdges = false;
+                  }, 500)
+                }
+                onReachBeginning={(swiper: any) =>
+                  setTimeout(() => {
+                    swiper.params.mousewheel.releaseOnEdges = true;
+                  }, 750)
+                }
+                onReachEnd={(swiper: any) =>
+                  setTimeout(() => {
+                    swiper.params.mousewheel.releaseOnEdges = true;
+                  }, 750)
+                }
                 onSlideChangeTransitionEnd={(swiper) => {
                   max <= 560 &&
                     swiper.slides[0].className ===
@@ -284,8 +299,8 @@ const MainPage = () => {
                 slidesPerView={1}
                 mousewheel={{
                   invert: false,
-                  releaseOnEdges: true,
-                  // eventsTarget: '.sectionTitle',
+
+                  // eventsTarget: '.websites-content_inner-body',
                 }}
                 speed={1000}
               >
@@ -774,12 +789,26 @@ const MainPage = () => {
           <div className="swiperPerson">
             <div className="swiper-wrapper">
               <Swiper
+                onReachBeginning={(swiper: any) =>
+                  setTimeout(() => {
+                    swiper.params.mousewheel.releaseOnEdges = true;
+                  }, 750)
+                }
+                onSlideChange={(swiper: any) =>
+                  setTimeout(() => {
+                    swiper.params.mousewheel.releaseOnEdges = false;
+                  }, 500)
+                }
+                onReachEnd={(swiper: any) =>
+                  setTimeout(() => {
+                    swiper.params.mousewheel.releaseOnEdges = true;
+                  }, 750)
+                }
                 speed={1000}
                 direction="vertical"
                 modules={[Pagination, Mousewheel]}
                 mousewheel={{
-                  releaseOnEdges: true,
-                  // thresholdDelta: 300,
+                  invert: false,
                 }}
                 spaceBetween={30}
                 slidesPerView={1}
