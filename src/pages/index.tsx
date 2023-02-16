@@ -216,8 +216,8 @@ const MainPage = () => {
                                 <img
                                   style={
                                     image === 'smile.svg'
-                                      ? { paddingTop: '2px' } : {}
-                                      ||  image === 'arrow.svg' ?  { paddingBottom: '10px' } : {}
+                                      ? { paddingTop: '2px' }
+                                      : {}
                                   }
                                   src={`/images/${image}`}
                                   alt=""
