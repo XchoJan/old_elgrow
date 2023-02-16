@@ -169,7 +169,7 @@ const MainPage = () => {
           <div className="tabsNav"></div>
           <div className="tabs__content">
             <Swiper
-              style={max > 560 ? { height: '700px' } : { height: '590px' }}
+              style={max > 560 ? { height: '800px' } : { height: '590px' }}
               modules={[Pagination, Virtual]}
               spaceBetween={50}
               slidesPerView={1}
