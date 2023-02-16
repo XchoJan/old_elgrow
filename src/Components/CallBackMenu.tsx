@@ -20,8 +20,7 @@ const CallBackMenu: React.FC<Props> = ({
   inline,
 }) => {
   const [max, setMax] = useState(0);
-  console.log('test')
-
+ 
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');
     let callbackMenu: any = document.querySelectorAll('.contacts');

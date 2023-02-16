@@ -270,28 +270,29 @@ const MainPage = () => {
           <div id="js-wrapper" className="wrapper">
             <div className="sections" id="js-slideContainer">
               <Swiper
-                onSlideChange={(swiper: any) =>
+                onSlideChange={(swiper: any) => {
                   setTimeout(() => {
                     swiper.params.mousewheel.releaseOnEdges = false;
-                  }, 500)
-                }
+                  }, 500);
+                }}
                 onReachBeginning={(swiper: any) =>
                   setTimeout(() => {
                     swiper.params.mousewheel.releaseOnEdges = true;
                   }, 750)
                 }
-                onReachEnd={(swiper: any) =>
+                onReachEnd={(swiper: any) => {
+                  console.log(swiper);
                   setTimeout(() => {
                     swiper.params.mousewheel.releaseOnEdges = true;
-                  }, 750)
-                }
+                  }, 750);
+                }}
                 onSlideChangeTransitionEnd={(swiper) => {
                   max <= 560 &&
                     swiper.slides[0].className ===
                       'swiper-slide swiper-slide-active' &&
                     changeMarginSlider('-145px');
                 }}
-                onSlideChangeTransitionStart={() => {
+                onSlideChangeTransitionStart={(swiper: any) => {
                   max <= 560 && changeMarginSlider('150px');
                 }}
                 modules={[Mousewheel]}
@@ -299,8 +300,8 @@ const MainPage = () => {
                 slidesPerView={1}
                 mousewheel={{
                   invert: false,
-
-                  // eventsTarget: '.websites-content_inner-body',
+                  thresholdTime: 1000,
+                
                 }}
                 speed={1000}
               >
@@ -308,23 +309,25 @@ const MainPage = () => {
                   <section className="section horizontal_section">
                     <div className="sectionTitle" id="title1">
                       <div className="products_principles">
-                        <div className="products_principles-inner">
-                          <div className="products_principles-title">
-                            <h1>Принципы</h1>
+                        <div className="containerSlider">
+                          <div className="products_principles-inner">
+                            <div className="products_principles-title">
+                              <h1>Принципы</h1>
+                            </div>
+                            <div className="products_principles-center">
+                              <p>
+                                <span className="products_principles-center-logo">
+                                  e<span className="letterL">l</span>grow
+                                </span>
+                                &nbsp; – это про результат.
+                              </p>
+                              <h4>
+                                Рассказываем, как у нас тут <br />
+                                все устроено.
+                              </h4>
+                            </div>
+                            <div className="products_principles_border"></div>
                           </div>
-                          <div className="products_principles-center">
-                            <p>
-                              <span className="products_principles-center-logo">
-                                e<span className="letterL">l</span>grow
-                              </span>
-                              &nbsp; – это про результат.
-                            </p>
-                            <h4>
-                              Рассказываем, как у нас тут <br />
-                              все устроено.
-                            </h4>
-                          </div>
-                          <div className="products_principles_border"></div>
                         </div>
                       </div>
                     </div>
@@ -339,7 +342,6 @@ const MainPage = () => {
                             <h1>Проектирование</h1>
                           </div>
                           <Swiper
-                            nested={true}
                             modules={[Pagination]}
                             spaceBetween={50}
                             slidesPerView={1}
@@ -365,71 +367,77 @@ const MainPage = () => {
                             }}
                           >
                             <SwiperSlide>
-                              <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left"></div>
-                                <div
-                                  id="Project1"
-                                  className="websites-content_inner-body_right"
-                                >
-                                  <div className="website-tab_content">
-                                    <div className="website-tab_content_item">
-                                      <div className="website_tab_content">
-                                        <p className="website-mini_tab_content website-mini_tab_content1 active">
-                                          Перед стартом предоставим аналитика и
-                                          проджект-менеджера. Проанализируем
-                                          бизнес-цели и переведем их на
-                                          технический язык.
-                                        </p>
-                                        <a href="#">Скачать бриф</a>
+                              <div className="containerSlider">
+                                <div className="websites-content_inner-body">
+                                  <div className="websites-content_inner-body_left"></div>
+                                  <div
+                                    id="Project1"
+                                    className="websites-content_inner-body_right"
+                                  >
+                                    <div className="website-tab_content">
+                                      <div className="website-tab_content_item">
+                                        <div className="website_tab_content">
+                                          <p className="website-mini_tab_content website-mini_tab_content1 active">
+                                            Перед стартом предоставим аналитика
+                                            и проджект-менеджера. Проанализируем
+                                            бизнес-цели и переведем их на
+                                            технический язык.
+                                          </p>
+                                          <a href="#">Скачать бриф</a>
+                                        </div>
+                                        <div className="border_green"></div>
                                       </div>
-                                      <div className="border_green"></div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                              <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left"></div>
-                                <div
-                                  id="Project2"
-                                  className="websites-content_inner-body_right"
-                                >
-                                  <div className="website-tab_content">
-                                    <div className="website-tab_content_item">
-                                      <div className="website_tab_content">
-                                        <p className="website-mini_tab_content website-mini_tab_content1 active ">
-                                          Подключим архитектора, определим
-                                          микросервисы и масштабируемость.
-                                          Заложим риски.
-                                        </p>
-                                      </div>
+                              <div className="containerSlider">
+                                <div className="websites-content_inner-body">
+                                  <div className="websites-content_inner-body_left"></div>
+                                  <div
+                                    id="Project2"
+                                    className="websites-content_inner-body_right"
+                                  >
+                                    <div className="website-tab_content">
+                                      <div className="website-tab_content_item">
+                                        <div className="website_tab_content">
+                                          <p className="website-mini_tab_content website-mini_tab_content1 active ">
+                                            Подключим архитектора, определим
+                                            микросервисы и масштабируемость.
+                                            Заложим риски.
+                                          </p>
+                                        </div>
 
-                                      <div className="border_green"></div>
+                                        <div className="border_green"></div>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                              <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left"></div>
-                                <div
-                                  id="Project3"
-                                  className="websites-content_inner-body_right"
-                                >
-                                  <div className="website-tab_content">
-                                    <div className="website-tab_content_item">
-                                      <div className="website_tab_content">
-                                        <p className="website-mini_tab_content website-mini_tab_content1 active ">
-                                          Распределим задачи и определим уровень
-                                          и количество специалистов. Распределим
-                                          задачи в Jira и будем готовы к
-                                          разработке.
-                                        </p>
-                                      </div>
+                              <div className="containerSlider">
+                                <div className="websites-content_inner-body">
+                                  <div className="websites-content_inner-body_left"></div>
+                                  <div
+                                    id="Project3"
+                                    className="websites-content_inner-body_right"
+                                  >
+                                    <div className="website-tab_content">
+                                      <div className="website-tab_content_item">
+                                        <div className="website_tab_content">
+                                          <p className="website-mini_tab_content website-mini_tab_content1 active ">
+                                            Распределим задачи и определим
+                                            уровень и количество специалистов.
+                                            Распределим задачи в Jira и будем
+                                            готовы к разработке.
+                                          </p>
+                                        </div>
 
-                                      <div className="border_green"></div>
+                                        <div className="border_green"></div>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -450,7 +458,6 @@ const MainPage = () => {
                             <h1>Прозрачность</h1>
                           </div>
                           <Swiper
-                            nested={true}
                             modules={[Pagination]}
                             spaceBetween={50}
                             slidesPerView={1}
@@ -476,67 +483,73 @@ const MainPage = () => {
                             }}
                           >
                             <SwiperSlide>
-                              <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left"></div>
-                                <div
-                                  id="Project1"
-                                  className="websites-content_inner-body_right"
-                                >
-                                  <div className="website-tab_content">
-                                    <div className="website-tab_content_item">
-                                      <div className="website_tab_content">
-                                        <p className="website-mini_tab_content website-mini_tab_content2 active">
-                                          Покажем всех, кто будет задействован
-                                          на проекте. Без ноунеймов и котов в
-                                          мешках.
-                                        </p>
+                              <div className="containerSlider">
+                                <div className="websites-content_inner-body">
+                                  <div className="websites-content_inner-body_left"></div>
+                                  <div
+                                    id="Project1"
+                                    className="websites-content_inner-body_right"
+                                  >
+                                    <div className="website-tab_content">
+                                      <div className="website-tab_content_item">
+                                        <div className="website_tab_content">
+                                          <p className="website-mini_tab_content website-mini_tab_content2 active">
+                                            Покажем всех, кто будет задействован
+                                            на проекте. Без ноунеймов и котов в
+                                            мешках.
+                                          </p>
+                                        </div>
+                                        <div className="border_green"></div>
                                       </div>
-                                      <div className="border_green"></div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                              <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left"></div>
-                                <div
-                                  id="Project2"
-                                  className="websites-content_inner-body_right"
-                                >
-                                  <div className="website-tab_content">
-                                    <div className="website-tab_content_item">
-                                      <div className="website_tab_content">
-                                        <p className="website-mini_tab_content website-mini_tab_content2 active ">
-                                          В оценку закладываем сценарии, исходя
-                                          из нашего опыта. При новых вводных и
-                                          задачах откорректируем или перестроим
-                                          работу.
-                                        </p>
+                              <div className="containerSlider">
+                                <div className="websites-content_inner-body">
+                                  <div className="websites-content_inner-body_left"></div>
+                                  <div
+                                    id="Project2"
+                                    className="websites-content_inner-body_right"
+                                  >
+                                    <div className="website-tab_content">
+                                      <div className="website-tab_content_item">
+                                        <div className="website_tab_content">
+                                          <p className="website-mini_tab_content website-mini_tab_content2 active ">
+                                            В оценку закладываем сценарии,
+                                            исходя из нашего опыта. При новых
+                                            вводных и задачах откорректируем или
+                                            перестроим работу.
+                                          </p>
+                                        </div>
+                                        <div className="border_green"></div>
                                       </div>
-                                      <div className="border_green"></div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                              <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left"></div>
-                                <div
-                                  id="Project3"
-                                  className="websites-content_inner-body_right"
-                                >
-                                  <div className="website-tab_content">
-                                    <div className="website-tab_content_item">
-                                      <div className="website_tab_content">
-                                        <p className="website-mini_tab_content website-mini_tab_content2  active">
-                                          Даем доступ к рабочим Jira, Figma,
-                                          Telegram. Презентации в конце спринта,
-                                          пуши - ежедневно.
-                                        </p>
+                              <div className="containerSlider">
+                                <div className="websites-content_inner-body">
+                                  <div className="websites-content_inner-body_left"></div>
+                                  <div
+                                    id="Project3"
+                                    className="websites-content_inner-body_right"
+                                  >
+                                    <div className="website-tab_content">
+                                      <div className="website-tab_content_item">
+                                        <div className="website_tab_content">
+                                          <p className="website-mini_tab_content website-mini_tab_content2  active">
+                                            Даем доступ к рабочим Jira, Figma,
+                                            Telegram. Презентации в конце
+                                            спринта, пуши - ежедневно.
+                                          </p>
+                                        </div>
+                                        <div className="border_green"></div>
                                       </div>
-                                      <div className="border_green"></div>
                                     </div>
                                   </div>
                                 </div>
@@ -557,7 +570,6 @@ const MainPage = () => {
                             <h1>Экономия</h1>
                           </div>
                           <Swiper
-                            nested={true}
                             modules={[Pagination]}
                             spaceBetween={50}
                             slidesPerView={1}
@@ -583,69 +595,77 @@ const MainPage = () => {
                             }}
                           >
                             <SwiperSlide>
-                              <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left"></div>
-                                <div
-                                  id="Project1"
-                                  className="websites-content_inner-body_right"
-                                >
-                                  <div className="website-tab_content">
-                                    <div className="website-tab_content_item">
-                                      <div className="website_tab_content">
-                                        <p className="website-mini_tab_content website-mini_tab_content3 active">
-                                          Сроки определяют специалисты, которые
-                                          и будут делать продукт. Никаких
-                                          готовых смет и скриптов для менеджеров
-                                          по оценке нет.
-                                        </p>
+                              <div className="containerSlider">
+                                <div className="containerSlider">
+                                  <div className="websites-content_inner-body">
+                                    <div className="websites-content_inner-body_left"></div>
+                                    <div
+                                      id="Project1"
+                                      className="websites-content_inner-body_right"
+                                    >
+                                      <div className="website-tab_content">
+                                        <div className="website-tab_content_item">
+                                          <div className="website_tab_content">
+                                            <p className="website-mini_tab_content website-mini_tab_content3 active">
+                                              Сроки определяют специалисты,
+                                              которые и будут делать продукт.
+                                              Никаких готовых смет и скриптов
+                                              для менеджеров по оценке нет.
+                                            </p>
+                                          </div>
+                                          <div className="border_green"></div>
+                                        </div>
                                       </div>
-                                      <div className="border_green"></div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                              <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left"></div>
-                                <div
-                                  id="Project2"
-                                  className="websites-content_inner-body_right"
-                                >
-                                  <div className="website-tab_content">
-                                    <div className="website-tab_content_item">
-                                      <div className="website_tab_content">
-                                        <p className="website-mini_tab_content website-mini_tab_content3 active ">
-                                          Составляем гант с делением на этапы,
-                                          часы, дни и результаты. Заказчик
-                                          контролирует траты по каждому спринту.
-                                          пример КП: (ссылка на ПДФ)
-                                        </p>
+                              <div className="containerSlider">
+                                <div className="websites-content_inner-body">
+                                  <div className="websites-content_inner-body_left"></div>
+                                  <div
+                                    id="Project2"
+                                    className="websites-content_inner-body_right"
+                                  >
+                                    <div className="website-tab_content">
+                                      <div className="website-tab_content_item">
+                                        <div className="website_tab_content">
+                                          <p className="website-mini_tab_content website-mini_tab_content3 active ">
+                                            Составляем гант с делением на этапы,
+                                            часы, дни и результаты. Заказчик
+                                            контролирует траты по каждому
+                                            спринту. пример КП: (ссылка на ПДФ)
+                                          </p>
+                                        </div>
+                                        <div className="border_green"></div>
                                       </div>
-                                      <div className="border_green"></div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                              <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left"></div>
-                                <div
-                                  id="Project3"
-                                  className="websites-content_inner-body_right"
-                                >
-                                  <div className="website-tab_content">
-                                    <div className="website-tab_content_item">
-                                      <div className="website_tab_content">
-                                        <p className="website-mini_tab_content website-mini_tab_content3 active ">
-                                          Быстро собираем MVP, внедряем,
-                                          получаем обратную связь и только потом
-                                          дорабатываем. Годовых разработок “в
-                                          стол” не практикуем
-                                        </p>
+                              <div className="containerSlider">
+                                <div className="websites-content_inner-body">
+                                  <div className="websites-content_inner-body_left"></div>
+                                  <div
+                                    id="Project3"
+                                    className="websites-content_inner-body_right"
+                                  >
+                                    <div className="website-tab_content">
+                                      <div className="website-tab_content_item">
+                                        <div className="website_tab_content">
+                                          <p className="website-mini_tab_content website-mini_tab_content3 active ">
+                                            Быстро собираем MVP, внедряем,
+                                            получаем обратную связь и только
+                                            потом дорабатываем. Годовых
+                                            разработок “в стол” не практикуем
+                                          </p>
+                                        </div>
+                                        <div className="border_green"></div>
                                       </div>
-                                      <div className="border_green"></div>
                                     </div>
                                   </div>
                                 </div>
@@ -666,7 +686,6 @@ const MainPage = () => {
                             <h1>Качество</h1>
                           </div>
                           <Swiper
-                            nested={true}
                             modules={[Pagination]}
                             spaceBetween={50}
                             slidesPerView={1}
@@ -692,86 +711,94 @@ const MainPage = () => {
                             }}
                           >
                             <SwiperSlide>
-                              <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left"></div>
-                                <div
-                                  id="Project1"
-                                  className="websites-content_inner-body_right"
-                                >
-                                  <div className="website-tab_content">
-                                    <div className="website-tab_content_item">
-                                      <div className="website_tab_content">
-                                        <p className="website-mini_tab_content website-mini_tab_content4 active">
-                                          Ведущий разработчик руководит командой
-                                          и следит за ходом работ. Разработчики
-                                          не предоставлены сами себе.
-                                        </p>
+                              <div className="containerSlider">
+                                <div className="websites-content_inner-body">
+                                  <div className="websites-content_inner-body_left"></div>
+                                  <div
+                                    id="Project1"
+                                    className="websites-content_inner-body_right"
+                                  >
+                                    <div className="website-tab_content">
+                                      <div className="website-tab_content_item">
+                                        <div className="website_tab_content">
+                                          <p className="website-mini_tab_content website-mini_tab_content4 active">
+                                            Ведущий разработчик руководит
+                                            командой и следит за ходом работ.
+                                            Разработчики не предоставлены сами
+                                            себе.
+                                          </p>
+                                        </div>
+                                        <div className="border_green"></div>
                                       </div>
-                                      <div className="border_green"></div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                              <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left">
-                                  <h2 className="websites-tab websites-tab4 ">
-                                    <span>01</span> Техлид всегда на проекте
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab4 websites-tab_active">
-                                    <span>02</span> Код-ревью
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab4 ">
-                                    <span>03</span> А если разраб сбежал ?
-                                  </h2>
-                                </div>
-                                <div
-                                  id="Project2"
-                                  className="websites-content_inner-body_right"
-                                >
-                                  <div className="website-tab_content">
-                                    <div className="website-tab_content_item">
-                                      <div className="website_tab_content">
-                                        <p className="website-mini_tab_content website-mini_tab_content4 active ">
-                                          Каждые три дня проводим ревью дабы
-                                          продукт следовал заложенным принципам
-                                          и качеству.
-                                        </p>
+                              <div className="containerSlider">
+                                <div className="websites-content_inner-body">
+                                  <div className="websites-content_inner-body_left">
+                                    <h2 className="websites-tab websites-tab4 ">
+                                      <span>01</span> Техлид всегда на проекте
+                                    </h2>
+                                    <h2 className="websites-tab websites-tab4 websites-tab_active">
+                                      <span>02</span> Код-ревью
+                                    </h2>
+                                    <h2 className="websites-tab websites-tab4 ">
+                                      <span>03</span> А если разраб сбежал ?
+                                    </h2>
+                                  </div>
+                                  <div
+                                    id="Project2"
+                                    className="websites-content_inner-body_right"
+                                  >
+                                    <div className="website-tab_content">
+                                      <div className="website-tab_content_item">
+                                        <div className="website_tab_content">
+                                          <p className="website-mini_tab_content website-mini_tab_content4 active ">
+                                            Каждые три дня проводим ревью дабы
+                                            продукт следовал заложенным
+                                            принципам и качеству.
+                                          </p>
+                                        </div>
+                                        <div className="border_green"></div>
                                       </div>
-                                      <div className="border_green"></div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                              <div className="websites-content_inner-body">
-                                <div className="websites-content_inner-body_left">
-                                  <h2 className="websites-tab websites-tab4 ">
-                                    <span>01</span> Техлид всегда на проекте
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab4">
-                                    <span>02</span> Код-ревью
-                                  </h2>
-                                  <h2 className="websites-tab websites-tab4 websites-tab_active">
-                                    <span>03</span> А если разраб сбежал ?
-                                  </h2>
-                                </div>
-                                <div
-                                  id="Project3"
-                                  className="websites-content_inner-body_right"
-                                >
-                                  <div className="website-tab_content">
-                                    <div className="website-tab_content_item">
-                                      <div className="website_tab_content">
-                                        <p className="website-mini_tab_content website-mini_tab_content4 active ">
-                                          Устроился работать в Google или
-                                          переехал на Луну. Оперативно подключим
-                                          другого и презентуем его заказчику.
-                                        </p>
+                              <div className="containerSlider">
+                                <div className="websites-content_inner-body">
+                                  <div className="websites-content_inner-body_left">
+                                    <h2 className="websites-tab websites-tab4 ">
+                                      <span>01</span> Техлид всегда на проекте
+                                    </h2>
+                                    <h2 className="websites-tab websites-tab4">
+                                      <span>02</span> Код-ревью
+                                    </h2>
+                                    <h2 className="websites-tab websites-tab4 websites-tab_active">
+                                      <span>03</span> А если разраб сбежал ?
+                                    </h2>
+                                  </div>
+                                  <div
+                                    id="Project3"
+                                    className="websites-content_inner-body_right"
+                                  >
+                                    <div className="website-tab_content">
+                                      <div className="website-tab_content_item">
+                                        <div className="website_tab_content">
+                                          <p className="website-mini_tab_content website-mini_tab_content4 active ">
+                                            Устроился работать в Google или
+                                            переехал на Луну. Оперативно
+                                            подключим другого и презентуем его
+                                            заказчику.
+                                          </p>
+                                        </div>
+                                        <div className="border_green"></div>
                                       </div>
-                                      <div className="border_green"></div>
                                     </div>
                                   </div>
                                 </div>
@@ -808,7 +835,9 @@ const MainPage = () => {
                 direction="vertical"
                 modules={[Pagination, Mousewheel]}
                 mousewheel={{
+                  releaseOnEdges: true,
                   invert: false,
+                  sensitivity: 10,
                 }}
                 spaceBetween={30}
                 slidesPerView={1}
