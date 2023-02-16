@@ -151,7 +151,7 @@ const MainPage = () => {
         cash: '1 800 ₽',
         time: 'в час',
       },
-      images: ['1nda.png', 'smile.svg', 'arrow.svg'],
+      images: ['smile.svg', 'arrow.svg'],
       tags: ['Аутстаффинг,', 'Усиление команды,', 'Middle+,', 'Senior'],
     },
   ];
@@ -192,7 +192,6 @@ const MainPage = () => {
               }}
             >
               {navigationSlider.map((slide: any) => {
-                console.log(slide);
                 return (
                   <SwiperSlide>
                     <div className="tabs__pane tabs__pane_show ">
@@ -201,16 +200,24 @@ const MainPage = () => {
                           <div className="info_box_top_left">
                             <span>{slide.maintext}</span>
                           </div>
-                          <div 
-                           style={slide.price.cash === '1 800 ₽' ? {gap: '17px'} : {}}
-                          className="info_box_bottom_left">
+                          <div
+                            style={
+                              slide.price.cash === '1 800 ₽'
+                                ? { gap: '17px' }
+                                : {}
+                            }
+                            className="info_box_bottom_left"
+                          >
+                            {slide.price.cash === '1 800 ₽' && (
+                              <span> NDA</span>
+                            )}
                             {slide.images.map((image: string) => (
                               <div>
                                 <img
                                   style={
-                                    image === '1nda.png'
-                                      ? { paddingTop: '8px' }
-                                      : {}
+                                    image === 'smile.svg'
+                                      ? { paddingTop: '2px' } : {}
+                                      ||  image === 'arrow.svg' ?  { paddingBottom: '10px' } : {}
                                   }
                                   src={`/images/${image}`}
                                   alt=""
