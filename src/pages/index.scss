@@ -545,8 +545,11 @@ h6 {
 .swiper {
   overflow: hidden;
   width: 100%;
-  // @include adaptive-value('height', 800, 254, 1);
-  height: 800px;
+  @include adaptive-value('height', 800, 254, 1);
+  @media (min-width: 1024px) {
+    height: 100vh !important;
+   
+  }
   @media (max-width: 560px) {
     height: 700px;
   }
@@ -557,6 +560,11 @@ h6 {
   transition: 0.5s;
   overflow: hidden;
   width: 100%;
+ 
+  @media (min-width: 1024px) {
+    height: 100vh !important;
+   
+  }
   @include adaptive-value('height', 800, 254, 1);
   overflow: hidden;
   @media (max-width: 560px) {
@@ -690,6 +698,10 @@ h6 {
   width: 100%;
 }
 .team-member {
+  @media (min-width: 1024px) {
+    height: 100vh !important;
+    object-fit: cover !important;
+  }
   object-fit: cover;
   position: absolute;
   top: 0;
@@ -705,6 +717,9 @@ h6 {
 .team_slider-inner {
   position: absolute;
   width: 100%;
+  @media (min-width: 1024px) {
+    height: 100vh !important;
+  }
   @include adaptive-value('height', 800, 254, 1);
   z-index: 1;
   @include adaptive-value('padding-left', 50, 20, 1);
@@ -781,7 +796,7 @@ h6 {
 
 .portfolio_inner {
   padding-top: 175px;
-  @include adaptive-value('padding-left', 86, 20, 1);
+  @include adaptive-value('padding-left', 50, 20, 1);
 }
 .portfolio_inner_title h1 {
   font-weight: 300;

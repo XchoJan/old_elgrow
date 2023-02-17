@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100px;
   @include adaptive-value('padding-top', 32, 10, 1);
   @include adaptive-value('padding-right', 40, 20, 1);
   @include adaptive-value('padding-left', 40, 20, 1);
@@ -15,13 +16,30 @@
 .header_top .logo {
   padding-top: 8px;
 }
-.after_logo h2 {
+.after_logo   {
   cursor: pointer;
-  font-weight: 400;
-  font-size: 12px;
-  text-align: right;
-  text-transform: uppercase;
-  color: #000000;
+  h2 {
+     
+    font-weight: 400;
+    font-size: 12px;
+    text-align: right;
+    text-transform: uppercase;
+    color: #000000;
+  }
+
+  img {
+    display: none
+  }
+
+  &:hover {
+    h2 {
+      display: none
+    }
+    img {
+      display: block
+    }
+  }
+  
 }
 .header_bottom {
   height: max-content;

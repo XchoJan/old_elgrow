@@ -20,14 +20,16 @@ const CallBackMenu: React.FC<Props> = ({
   inline,
 }) => {
   const [max, setMax] = useState(0);
- 
+
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');
     let callbackMenu: any = document.querySelectorAll('.contacts');
     // callbackMenu[0].style.overflowY = 'hidden';
     setTimeout(() => {
-      callbackMenu[0].scrollTop = 0;
-      callbackMenu[1].scrollTop = 0;
+      if (max <= 560) {
+        callbackMenu[0].scrollTop = 0;
+        callbackMenu[1].scrollTop = 0;
+      }
     }, 1000);
 
     body.style.overflowY = 'hidden';

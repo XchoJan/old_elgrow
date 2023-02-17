@@ -7,10 +7,12 @@ import 'swiper/css/virtual';
 
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
+import CallBackMenu from '../Components/CallBackMenu';
 import { useState, useEffect } from 'react';
 
 const MainPage = () => {
   const [max, setMax] = useState(0);
+  const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
 
   useEffect(() => {
     setMax(window.innerWidth);
@@ -167,6 +169,12 @@ const MainPage = () => {
       <section className="tabs">
         <div className="tabs_container">
           <div className="tabsNav"></div>
+          <CallBackMenu
+            y="0"
+            x="0"
+            isOpen={isVisibleCallbackMenu}
+            close={setVisibleCallbackMenu}
+          />
           <div className="tabs__content">
             <Swiper
               style={max > 560 ? { height: '800px' } : { height: '590px' }}
@@ -234,7 +242,7 @@ const MainPage = () => {
                             </h3>
                           </div>
                           <div className="info_box_bottom_right">
-                            <a href="#">
+                            <a onClick={() => setVisibleCallbackMenu(true)}>
                               <span> Подробнее </span>
                               <svg
                                 width="41"
@@ -301,7 +309,7 @@ const MainPage = () => {
                 mousewheel={{
                   invert: false,
                   thresholdTime: 1000,
-                
+                  
                 }}
                 speed={1000}
               >
