@@ -214,6 +214,7 @@ h6 {
   }
 
   a {
+    cursor: pointer;
     font-family: 'Inter Tight';
     font-weight: 400;
     @include adaptive-value('font-size', 20, 12, 1);
@@ -548,7 +549,6 @@ h6 {
   @include adaptive-value('height', 800, 254, 1);
   @media (min-width: 1024px) {
     height: 100vh !important;
-   
   }
   @media (max-width: 560px) {
     height: 700px;
@@ -560,10 +560,9 @@ h6 {
   transition: 0.5s;
   overflow: hidden;
   width: 100%;
- 
+
   @media (min-width: 1024px) {
     height: 100vh !important;
-   
   }
   @include adaptive-value('height', 800, 254, 1);
   overflow: hidden;
@@ -743,6 +742,10 @@ h6 {
   align-items: flex-start;
   height: 100%;
 
+  // .team_sliderScrollContainer {
+  //   height: 100%;
+  //   width: 100%;
+  // }
   .team_slider-inner_bootom_right {
     display: flex;
     justify-content: space-between;
