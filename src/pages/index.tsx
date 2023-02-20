@@ -847,7 +847,7 @@ const MainPage = () => {
                   sensitivity: 10,
                   // eventsTarget: '.team_sliderScrollContainer',
                 }}
-                spaceBetween={30}
+                spaceBetween={0}
                 slidesPerView={1}
                 pagination={{
                   el: '.swiper-pagination',
