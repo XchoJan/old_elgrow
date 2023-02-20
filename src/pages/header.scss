@@ -16,10 +16,13 @@
 .header_top .logo {
   padding-top: 8px;
 }
-.after_logo   {
+.after_logo {
   cursor: pointer;
+
   h2 {
-     
+    margin-top: 33px;
+    opacity: 1;
+    transition: 0.3s;
     font-weight: 400;
     font-size: 12px;
     text-align: right;
@@ -28,18 +31,21 @@
   }
 
   img {
-    display: none
+    margin-left: 15px;
+    transition: 0.3s;
+    opacity: 0;
   }
 
   &:hover {
     h2 {
-      display: none
+      opacity: 0;
     }
     img {
-      display: block
+      margin-bottom: 85px;
+      transition: 0.3s;
+      opacity: 1;
     }
   }
-  
 }
 .header_bottom {
   height: max-content;
@@ -88,7 +94,8 @@
   background-repeat: no-repeat;
   background-position: bottom right;
   // background-position-y: 90px;
-  @include adaptive-value('background-size', 1210, 390, 1);
+  background-size: 100vw;
+  // @include adaptive-value('background-size', 100vw, 390, 1);
   // @include adaptive-value('background-position-y', 90, 19, 1);
   // padding-bottom: 81px;
   cursor: none;

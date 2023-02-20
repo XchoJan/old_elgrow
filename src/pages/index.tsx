@@ -309,7 +309,6 @@ const MainPage = () => {
                 mousewheel={{
                   invert: false,
                   thresholdTime: 1000,
-                  
                 }}
                 speed={1000}
               >
@@ -846,6 +845,7 @@ const MainPage = () => {
                   releaseOnEdges: true,
                   invert: false,
                   sensitivity: 10,
+                  // eventsTarget: '.team_sliderScrollContainer',
                 }}
                 spaceBetween={30}
                 slidesPerView={1}
@@ -871,6 +871,7 @@ const MainPage = () => {
                               </h1>
                             </div>
                           </div>
+                          {/* <div className="team_sliderScrollContainer"> </div> */}
                           <div className="team_slider-inner_bootom_right">
                             <div className="team_slider-inner_bootom_right_nameAndPost">
                               <h1>Роман Адигезалов</h1>
@@ -905,6 +906,7 @@ const MainPage = () => {
                               </h1>
                             </div>
                           </div>
+                          {/* <div className="team_sliderScrollContainer"> </div> */}
                           <div className="team_slider-inner_bootom_right">
                             <div className="team_slider-inner_bootom_right_nameAndPost">
                               <h1>Роман Адигезалов</h1>
@@ -916,7 +918,7 @@ const MainPage = () => {
                       </div>
                       <img
                         className="team-member"
-                        src="/images/Roman.jpg"
+                        src="/images/roma2.png"
                         alt=""
                       />
                     </div>
@@ -939,6 +941,7 @@ const MainPage = () => {
                               </h1>
                             </div>
                           </div>
+                          {/* <div className="team_sliderScrollContainer"> </div> */}
                           <div className="team_slider-inner_bootom_right">
                             <div className="team_slider-inner_bootom_right_nameAndPost">
                               <h1>Роман Адигезалов</h1>
@@ -950,7 +953,7 @@ const MainPage = () => {
                       </div>
                       <img
                         className="team-member"
-                        src="/images/Roman.jpg"
+                        src="/images/roma3.png"
                         alt=""
                       />
                     </div>

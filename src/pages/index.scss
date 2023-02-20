@@ -44,7 +44,7 @@ h6 {
   overflow-y: hidden;
   @include adaptive-value('padding-left', 74, 40, 1);
 
-  @include adaptive-value('padding-right', 74, 40, 1);
+  @include adaptive-value('padding-right', 20, 40, 1);
   display: flex;
   justify-content: space-between;
   // @include adaptive-value('gap', 126, 52, 1);
@@ -111,7 +111,7 @@ h6 {
   @include adaptive-value('margin-left', 50, 20, 1);
   padding: 19px 21px;
   position: relative;
-  @include adaptive-value('margin-right', 140, 20, 1);
+  @include adaptive-value('margin-right', 90, 20, 1);
   @media (max-width: 560px) {
     height: 437px;
     flex-direction: column;
@@ -266,7 +266,7 @@ h6 {
   background: black;
   position: absolute;
 
-  @include adaptive-value('right', -90, -32, 1);
+  @include adaptive-value('right', -60, -32, 1);
 
   @include adaptive-value('bottom', -145, -102, 1);
 
@@ -873,7 +873,7 @@ h6 {
 }
 .carusel_bottom_banner {
   // margin-left: -127px;
-  @include adaptive-value('margin-left', -127, -47, 1);
+  @include adaptive-value('margin-left', -87, -47, 1);
 
   .carusel_bottom_banner_image2 {
     @include adaptive-value('width', 724, 237, 1);
