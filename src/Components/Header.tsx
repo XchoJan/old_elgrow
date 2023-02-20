@@ -15,7 +15,7 @@ const Header = () => {
   const [isVisibleCase, setVisibleCase] = useState(false);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 400], [0, max > 560 ? 370 : 320]);
-  const maxWidth = useTransform(scrollY, [0, 250], ['80vw', '100vw']);
+  const maxWidth = useTransform(scrollY, [0, 250], ['85vw', '100vw']);
   let viewportWidth = 0;
 
   if (typeof window !== 'undefined') {
@@ -44,16 +44,12 @@ const Header = () => {
           <div className="logo">
             <img src="/images/elgrow._logo.svg" alt="" />
           </div>
-          <div  onClick={() => setShowMenu(true)} className="after_logo">
-            <h2 >
+          <div onClick={() => setShowMenu(true)} className="after_logo">
+            <h2>
               Digital- <br />
               интегратор <br />c 2012 года
             </h2>
-            <img
-                       
-                        src="/images/burger.svg"
-                        alt=""
-                      />
+            <img src="/images/burger.svg" alt="" />
           </div>
         </div>
         <div className="header_bottom">
