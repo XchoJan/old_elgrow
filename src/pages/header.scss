@@ -96,8 +96,8 @@
   background-repeat: no-repeat;
   background-position: bottom right;
   // background-position-y: 90px;
-  // background-size: cover;
-  @include adaptive-value('background-size', 1225, 390, 1);
+  background-size: 100% 100%;
+  // @include adaptive-value('background-size', 1225, 390, 1);
   // @include adaptive-value('background-position-y', 90, 19, 1);
   // padding-bottom: 81px;
   cursor: none;
