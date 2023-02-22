@@ -14,7 +14,7 @@ const Header = () => {
   const ref = useRef(null);
   const [isVisibleCase, setVisibleCase] = useState(false);
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 400], [0, max > 560 ? 370 : 320]);
+  const y1 = useTransform(scrollY, [0, 400], [0, max > 560 ? 460 : 320]);
   const maxWidth = useTransform(scrollY, [0, 250], ['85vw', '100vw']);
   let viewportWidth = 0;
 

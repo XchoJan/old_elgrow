@@ -742,10 +742,10 @@ h6 {
   align-items: flex-start;
   height: 100%;
 
-  // .team_sliderScrollContainer {
-  //   height: 100%;
-  //   width: 100%;
-  // }
+  .team_sliderScrollContainer {
+    height: 100%;
+    width: 100%;
+  }
   .team_slider-inner_bootom_right {
     display: flex;
     justify-content: space-between;
@@ -876,23 +876,35 @@ h6 {
   @include adaptive-value('margin-left', -87, -47, 1);
 
   .carusel_bottom_banner_image2 {
-    @include adaptive-value('width', 724, 237, 1);
-    @include adaptive-value('height', 830, 271, 1);
+    // @include adaptive-value('width', 724, 237, 1);
+    // @include adaptive-value('height', 830, 271, 1);
     img {
       @include adaptive-value('width', 724, 237, 1);
       @include adaptive-value('height', 830, 271, 1);
       object-fit: cover;
     }
+    @media (min-width: 1441px) {
+      img {
+        @include adaptive-value('width', 882, 237, 1);
+        @include adaptive-value('height', 1012, 271, 1);
+      }
+    }
   }
 }
 .carusel_top {
   .carusel_top_banner_image1 {
-    @include adaptive-value('width', 724, 237, 1);
-    @include adaptive-value('height', 841, 275, 1);
+    // @include adaptive-value('width', 724, 237, 1);
+    // @include adaptive-value('height', 841, 275, 1);
     img {
       @include adaptive-value('width', 724, 237, 1);
       @include adaptive-value('height', 841, 275, 1);
       object-fit: cover;
+    }
+    @media (min-width: 1441px) {
+      img {
+        @include adaptive-value('width', 1030, 237, 1);
+        @include adaptive-value('height', 1012, 271, 1);
+      }
     }
   }
   a {

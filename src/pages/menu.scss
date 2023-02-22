@@ -38,21 +38,18 @@
   }
 
   .menu_close {
-
-   
     cursor: pointer;
     position: absolute;
-    right: 5%;
+    right: 3%;
     @include adaptive-value('top', 40, 15, 1);
 
-    img {  @include adaptive-value('width', 50, 40, 1);
+    img {
+      @include adaptive-value('width', 50, 40, 1);
       @include adaptive-value('height', 50, 40, 1);
-    
     }
 
     &:hover {
       img {
-   
         transition: 0.5s;
         opacity: 0.5;
       }
@@ -63,12 +60,12 @@
     display: flex;
     align-items: center;
     color: white;
-  
+
     font-weight: 300;
     @include adaptive-value('gap', 290, 64, 1);
 
     @media (min-width: 1441px) {
- gap: 20vw;
+      gap: 20vw;
     }
 
     .menu_navigate_nav {

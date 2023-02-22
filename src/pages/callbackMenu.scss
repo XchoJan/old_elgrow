@@ -11,7 +11,7 @@
   @include adaptive-value('padding-right', 66, 20, 1);
   @include adaptive-value('padding-bottom', 46, 110, 1);
   @include adaptive-value('padding-left', 50, 20, 1);
-  background: rgba(0, 0, 0, 0.94);
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   flex-direction: column;
 
@@ -24,6 +24,8 @@
   }
 
   .callbackMenu_close {
+    position: absolute;
+    right: 3%;
     cursor: pointer;
 
     img {

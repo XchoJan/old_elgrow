@@ -1,14 +1,16 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Pagination, Virtual } from 'swiper';
+import { Mousewheel, Pagination, Virtual, EffectFade } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/mousewheel';
 import 'swiper/css/pagination';
 import 'swiper/css/virtual';
+import 'swiper/css/effect-fade';
 
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import CallBackMenu from '../Components/CallBackMenu';
 import { useState, useEffect } from 'react';
+import { animateScroll, Element } from 'react-scroll';
 
 const MainPage = () => {
   const [max, setMax] = useState(0);
@@ -162,6 +164,10 @@ const MainPage = () => {
     let swiperPerson: any = document.querySelector('.swiperPerson');
     swiperPerson.style.marginTop = margin;
   };
+  const ScrolltoSwiper = (element: string) => {
+   const slider = document.querySelector(element)
+   slider?.scrollIntoView()
+  };
 
   return (
     <div>
@@ -279,6 +285,7 @@ const MainPage = () => {
             <div className="sections" id="js-slideContainer">
               <Swiper
                 onSlideChange={(swiper: any) => {
+                  ScrolltoSwiper('#js-wrapper');
                   setTimeout(() => {
                     swiper.params.mousewheel.releaseOnEdges = false;
                   }, 500);
@@ -820,19 +827,21 @@ const MainPage = () => {
               </Swiper>
             </div>
           </div>
-          <div className="swiperPerson">
+          <div   className="swiperPerson">
             <div className="swiper-wrapper">
               <Swiper
+                effect={'fade'}
                 onReachBeginning={(swiper: any) =>
                   setTimeout(() => {
                     swiper.params.mousewheel.releaseOnEdges = true;
                   }, 750)
                 }
-                onSlideChange={(swiper: any) =>
+                onSlideChange={(swiper: any) => {
+                  ScrolltoSwiper('.swiperPerson');
                   setTimeout(() => {
                     swiper.params.mousewheel.releaseOnEdges = false;
-                  }, 500)
-                }
+                  }, 500);
+                }}
                 onReachEnd={(swiper: any) =>
                   setTimeout(() => {
                     swiper.params.mousewheel.releaseOnEdges = true;
@@ -840,12 +849,12 @@ const MainPage = () => {
                 }
                 speed={1000}
                 direction="vertical"
-                modules={[Pagination, Mousewheel]}
+                modules={[Pagination, Mousewheel, EffectFade]}
                 mousewheel={{
                   releaseOnEdges: true,
                   invert: false,
                   sensitivity: 10,
-                  // eventsTarget: '.team_sliderScrollContainer',
+                 
                 }}
                 spaceBetween={0}
                 slidesPerView={1}
