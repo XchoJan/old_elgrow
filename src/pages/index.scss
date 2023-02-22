@@ -547,12 +547,11 @@ h6 {
   overflow: hidden;
   width: 100%;
   @include adaptive-value('height', 800, 254, 1);
-  @media (min-width: 1024px) {
+ 
     height: 100vh !important;
-  }
-  @media (max-width: 560px) {
-    height: 700px;
-  }
+ 
+  
+  
   overflow: hidden;
 }
 
@@ -561,9 +560,8 @@ h6 {
   overflow: hidden;
   width: 100%;
 
-  @media (min-width: 1024px) {
-    height: 100vh !important;
-  }
+  height: 100vh !important;
+
   @include adaptive-value('height', 800, 254, 1);
   overflow: hidden;
   @media (max-width: 560px) {
@@ -582,6 +580,11 @@ h6 {
   font-size: 18px;
   background: none;
   display: block;
+
+  .team-member {
+    object-fit: cover;
+    height: 100vh;
+  }
   img {
     object-fit: contain;
     height: 100%;
@@ -716,9 +719,9 @@ h6 {
 .team_slider-inner {
   position: absolute;
   width: 100%;
-  @media (min-width: 1024px) {
-    height: 100vh !important;
-  }
+
+  height: 100vh !important;
+
   @include adaptive-value('height', 800, 254, 1);
   z-index: 1;
   @include adaptive-value('padding-left', 50, 20, 1);
