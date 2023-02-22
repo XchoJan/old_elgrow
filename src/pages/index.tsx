@@ -10,7 +10,7 @@ import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import CallBackMenu from '../Components/CallBackMenu';
 import { useState, useEffect } from 'react';
-import { animateScroll, Element } from 'react-scroll';
+import { animateScroll, Element, scroller } from 'react-scroll';
 
 const MainPage = () => {
   const [max, setMax] = useState(0);
@@ -165,8 +165,11 @@ const MainPage = () => {
     swiperPerson.style.marginTop = margin;
   };
   const ScrolltoSwiper = (element: string) => {
-   const slider = document.querySelector(element)
-   slider?.scrollIntoView()
+    setTimeout(() => {
+      scroller.scrollTo(element, {
+        duration: 100,
+      });
+    }, 0);
   };
 
   return (
@@ -281,11 +284,10 @@ const MainPage = () => {
               })}
             </Swiper>
           </div>
-          <div id="js-wrapper" className="wrapper">
+          <Element name="js-wrapperSlider" id="js-wrapper" className="wrapper">
             <div className="sections" id="js-slideContainer">
               <Swiper
                 onSlideChange={(swiper: any) => {
-                  ScrolltoSwiper('#js-wrapper');
                   setTimeout(() => {
                     swiper.params.mousewheel.releaseOnEdges = false;
                   }, 500);
@@ -296,7 +298,6 @@ const MainPage = () => {
                   }, 750)
                 }
                 onReachEnd={(swiper: any) => {
-                  console.log(swiper);
                   setTimeout(() => {
                     swiper.params.mousewheel.releaseOnEdges = true;
                   }, 750);
@@ -308,6 +309,8 @@ const MainPage = () => {
                     changeMarginSlider('-145px');
                 }}
                 onSlideChangeTransitionStart={(swiper: any) => {
+                  console.log(333);
+                  ScrolltoSwiper('js-wrapperSlider');
                   max <= 560 && changeMarginSlider('150px');
                 }}
                 modules={[Mousewheel]}
@@ -826,8 +829,8 @@ const MainPage = () => {
                 </SwiperSlide>
               </Swiper>
             </div>
-          </div>
-          <div   className="swiperPerson">
+          </Element>
+          <Element name="myScrollToElement" className="swiperPerson">
             <div className="swiper-wrapper">
               <Swiper
                 effect={'fade'}
@@ -836,8 +839,10 @@ const MainPage = () => {
                     swiper.params.mousewheel.releaseOnEdges = true;
                   }, 750)
                 }
+                onSlideChangeTransitionStart={() =>
+                  ScrolltoSwiper('myScrollToElement')
+                }
                 onSlideChange={(swiper: any) => {
-                  ScrolltoSwiper('.swiperPerson');
                   setTimeout(() => {
                     swiper.params.mousewheel.releaseOnEdges = false;
                   }, 500);
@@ -854,7 +859,6 @@ const MainPage = () => {
                   releaseOnEdges: true,
                   invert: false,
                   sensitivity: 10,
-                 
                 }}
                 spaceBetween={0}
                 slidesPerView={1}
@@ -971,7 +975,7 @@ const MainPage = () => {
                 <div className="swiper-pagination"></div>
               </Swiper>
             </div>
-          </div>
+          </Element>
         </div>
       </section>
       <section className="portfolio">
