@@ -208,7 +208,7 @@ const MainPage = () => {
       const sections = self.selector('section');
 
       const horizontalTween = gsap.to(sections, {
-        xPercent: -101 * (sections.length - 1),
+        xPercent: -110 * (sections.length - 1),
         ease: 'none',
         scrollTrigger: {
           trigger: wrapperRef.current,
