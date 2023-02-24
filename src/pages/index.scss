@@ -27,6 +27,10 @@ h6 {
   width: 100%;
   margin: 0 auto;
 
+  .pin-spacer {
+    overflow: hidden !important;
+    width: 100% !important;
+  }
   .tabs__content {
     @media (max-width: 560px) {
       height: 600px;
@@ -629,7 +633,7 @@ h6 {
 //   height: 100vh !important;
 //   display: flex;
 // }
-.wrapper  .section {
+.wrapper .section {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -645,7 +649,7 @@ h6 {
   // overflow: hidden;
 }
 
-.wrapper  .section .sectionTitle {
+.wrapper .section .sectionTitle {
   margin-top: 80px;
   position: absolute;
   width: 100%;
