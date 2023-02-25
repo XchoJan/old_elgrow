@@ -10,7 +10,7 @@ interface Props {
 
 const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
-  const [max, setMax] = useState(0);
+  const [max, setMax]: any  = useState(0);
 
   useEffect(() => {
     setMax(window?.visualViewport?.width);

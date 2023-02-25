@@ -19,7 +19,7 @@ const CallBackMenu: React.FC<Props> = ({
   childFromMenu,
   inline,
 }) => {
-  const [max, setMax] = useState(0);
+  const [max, setMax]: any = useState(0);
 
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');

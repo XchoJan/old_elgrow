@@ -10,7 +10,7 @@ import {
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [max, setMax] = useState(0);
+  const [max, setMax]: any  = useState(0);
   const ref = useRef(null);
   const [isVisibleCase, setVisibleCase] = useState(false);
   const { scrollY } = useScroll();

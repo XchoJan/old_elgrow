@@ -18,7 +18,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const MainPage = () => {
-  const [max, setMax] = useState(0);
+  const [max, setMax]: any  = useState(0);
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
   
   useEffect(() => {
