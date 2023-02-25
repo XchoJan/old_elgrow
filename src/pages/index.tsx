@@ -22,7 +22,7 @@ const MainPage = () => {
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
   
   useEffect(() => {
-    setMax(window.visualViewport.width);
+    setMax(window?.visualViewport?.width);
   }, []);
 
   const engineering = [

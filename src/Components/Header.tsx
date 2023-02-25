@@ -20,10 +20,10 @@ const Header = () => {
  
   if (typeof window !== 'undefined') {
  
-    viewportWidth = window.visualViewport.width;
+    viewportWidth = window?.visualViewport?.width;
   }
   useEffect(() => {
-    setMax(window.visualViewport.width);
+    setMax(window?.visualViewport?.width);
   }, []);
   const imageMove = (e: any) => {
     setVisibleCase(true);
