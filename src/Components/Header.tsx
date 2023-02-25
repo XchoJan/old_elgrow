@@ -14,15 +14,16 @@ const Header = () => {
   const ref = useRef(null);
   const [isVisibleCase, setVisibleCase] = useState(false);
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 400], [0, max > 560 ? 460 : 320]);
+  const y1 = useTransform(scrollY, [0, 400], [0, max > 560 ? 410 : 320]);
   const maxWidth = useTransform(scrollY, [0, 250], ['85vw', '100vw']);
   let viewportWidth = 0;
-
+ 
   if (typeof window !== 'undefined') {
-    viewportWidth = window.innerWidth;
+ 
+    viewportWidth = window.visualViewport.width;
   }
   useEffect(() => {
-    setMax(window.innerWidth);
+    setMax(window.visualViewport.width);
   }, []);
   const imageMove = (e: any) => {
     setVisibleCase(true);

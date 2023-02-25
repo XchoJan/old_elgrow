@@ -424,6 +424,7 @@ h6 {
 /*Product end*/
 /*website start*/
 .websites-content_inner {
+  padding-top: 20%;
   @include adaptive-value('padding-left', 96, 20, 1);
 }
 
@@ -566,9 +567,7 @@ h6 {
 
   @include adaptive-value('height', 800, 254, 1);
   overflow: hidden;
-  @media (max-width: 560px) {
-    margin-top: -145px;
-  }
+ 
 }
 .swiper1 .swiper-wrapper {
   overflow: hidden;

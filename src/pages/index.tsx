@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Pagination, Virtual, EffectFade, Scrollbar } from 'swiper';
+import { Mousewheel, Pagination, Virtual, EffectFade } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/mousewheel';
 import 'swiper/css/pagination';
@@ -20,10 +20,9 @@ gsap.registerPlugin(ScrollTrigger);
 const MainPage = () => {
   const [max, setMax] = useState(0);
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
-  const [scroll, setScroll] = useState(0);
-
+  
   useEffect(() => {
-    setMax(window.innerWidth);
+    setMax(window.visualViewport.width);
   }, []);
 
   const engineering = [
@@ -166,14 +165,13 @@ const MainPage = () => {
     },
   ];
 
-  const changeMarginSlider = (margin: string) => {
-    let swiperPerson: any = document.querySelector('.swiperPerson');
-    swiperPerson.style.marginTop = margin;
-  };
   const ScrolltoSwiper = (element: string) => {
-    scroller.scrollTo(element, {
-      duration: 100,
-    });
+    const elem = document.querySelector(element);
+
+    elem?.scrollIntoView();
+    // scroller.scrollTo(element, {
+    //   duration: 100,
+    // });
   };
 
   // const testFc = useCallback(() => {
@@ -208,14 +206,25 @@ const MainPage = () => {
       const sections = self.selector('section');
 
       const horizontalTween = gsap.to(sections, {
-        xPercent: -110 * (sections.length - 1),
+        xPercent: -100 * (sections.length - 1),
         ease: 'none',
         scrollTrigger: {
           trigger: wrapperRef.current,
           pin: true,
+          snap: {
+            delay: 0,
+            snapTo: 1 / (sections.length - 1),
+            inertia: false,
+            duration: { min: 0.1, max: 0.1 },
+          },
           // markers: true,
-          scrub: 1,
-          // end: () => '+=' + document.querySelector('.wrapper').offsetWidth,
+          scrub: 0.5,
+          end: () =>
+            //@ts-ignore
+            '+=' +
+            //@ts-ignore
+            document?.querySelector('#js-wrapper')?.offsetWidth -
+            innerWidth,
         },
       });
     }, wrapperRef);
@@ -832,6 +841,7 @@ const MainPage = () => {
           <Element name="myScrollToElement" className="swiperPerson">
             <div className="swiper-wrapper">
               <Swiper
+                touchReleaseOnEdges={true}
                 effect={'fade'}
                 onReachBeginning={(swiper: any) =>
                   setTimeout(() => {
@@ -839,8 +849,9 @@ const MainPage = () => {
                   }, 750)
                 }
                 onSlideChangeTransitionStart={() =>
-                  ScrolltoSwiper('myScrollToElement')
+                  ScrolltoSwiper('.swiperPerson')
                 }
+                // onTouchStart={() => ScrolltoSwiper('myScrollToElement')}
                 onSlideChange={(swiper: any) => {
                   setTimeout(() => {
                     swiper.params.mousewheel.releaseOnEdges = false;

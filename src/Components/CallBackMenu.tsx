@@ -47,7 +47,7 @@ const CallBackMenu: React.FC<Props> = ({
   }
 
   useEffect(() => {
-    setMax(window.innerWidth);
+    setMax(window.visualViewport.width);
   }, []);
 
   const budgets = ['Менее 0.5 млн', '0.5 - 1 млн', '1 - 3 млн', 'Более 3 млн'];

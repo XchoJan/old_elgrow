@@ -9,7 +9,7 @@ const Footer = () => {
   const [max, setMax] = useState(0);
 
   useEffect(() => {
-    setMax(window.innerWidth);
+    setMax(window.visualViewport.width);
   }, []);
   return (
     <footer className="footer">

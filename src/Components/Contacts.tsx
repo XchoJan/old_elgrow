@@ -13,7 +13,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
   const [max, setMax] = useState(0);
 
   useEffect(() => {
-    setMax(window.innerWidth);
+    setMax(window.visualViewport.width);
   }, []);
 
   if (typeof window !== 'undefined' && isOpen) {
