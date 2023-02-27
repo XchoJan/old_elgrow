@@ -11,18 +11,22 @@ import {
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [max, setMax]: any = useState(0);
+  const [maxHeight, setMaxHeight]: any = useState(0);
   const ref = useRef(null);
   const [isVisibleCase, setVisibleCase] = useState(false);
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 400], [0, max > 560 ? 410 : 320]);
+  const y1 = useTransform(scrollY, [0, 400], [0, max > 560 ? 410 : maxHeight /3]);
   const maxWidth = useTransform(scrollY, [0, 250], ['85vw', '100vw']);
   let viewportWidth: any = 0;
+
+  console.log(maxHeight)
 
   if (typeof window !== 'undefined') {
     viewportWidth = window?.visualViewport?.width;
   }
   useEffect(() => {
     setMax(window?.visualViewport?.width);
+    setMaxHeight(window?.visualViewport?.height);
   }, []);
   const imageMove = (e: any) => {
     setVisibleCase(true);

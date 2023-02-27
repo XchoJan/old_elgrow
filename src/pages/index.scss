@@ -30,6 +30,19 @@ h6 {
   .pin-spacer {
     overflow: hidden !important;
     width: 100% !important;
+
+    .swiper-wrapper-person {
+      width: 300% !important;
+      height: 100vh !important;
+      max-height: 100vh !important;
+      max-width: 10000px !important;
+      display: flex;
+    }
+  }
+
+  .pin-spacer {
+    overflow: hidden !important;
+    width: 100% !important;
   }
   .tabs__content {
     @media (max-width: 560px) {
@@ -453,7 +466,7 @@ h6 {
 .websites-tab.websites-tab_active {
   color: #000 !important;
   @media (max-width: 560px) {
-    margin-bottom: 285px;
+    margin-bottom: 20vh;
     align-items: flex-start !important;
   }
 }
@@ -494,21 +507,21 @@ h6 {
     left: 55px;
 
     p {
-      padding-bottom: 119px;
+      padding-bottom: 9vh;
     }
   }
 
   #Project2 {
     padding-right: 0px;
     position: absolute;
-    top: 250px;
+    top: 222px;
     left: 55px;
   }
 
   #Project3 {
     padding-right: 0px;
     position: absolute;
-    top: 350px;
+    top: 320px;
     left: 55px;
   }
 }
@@ -521,6 +534,9 @@ h6 {
   padding-bottom: 179px;
   margin: 0;
   text-align: left;
+  @media (max-width: 560px) {
+    padding-bottom: 0px;
+  }
 }
 .border_green::before {
   content: '';
@@ -574,8 +590,8 @@ h6 {
   justify-content: space-between;
   grid-template-columns: repeat(4, 100%);
 }
-.swiper-slide {
-  overflow: hidden;
+.swiper-slide-img {
+  // overflow: hidden;
   text-align: center;
   font-size: 18px;
   background: none;
@@ -752,6 +768,31 @@ h6 {
   justify-content: space-between;
   align-items: flex-start;
   height: 100%;
+
+  .team_slider-inner_bootom_pagination {
+    @media (max-width: 560px) {
+      display: none;
+    }
+    position: absolute;
+    right: 10px;
+    top: 50%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    .team_slider-inner_bootom_pagination_item_active {
+      width: 8px;
+      height: 8px;
+      border-radius: 10px;
+      background: #454545;
+    }
+    .team_slider-inner_bootom_pagination_item {
+      width: 8px;
+      height: 8px;
+      border-radius: 10px;
+      background: #c9c9c9;
+    }
+  }
 
   .team_sliderScrollContainer {
     height: 100%;

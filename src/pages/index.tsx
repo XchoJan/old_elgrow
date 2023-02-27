@@ -18,9 +18,9 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const MainPage = () => {
-  const [max, setMax]: any  = useState(0);
+  const [max, setMax]: any = useState(0);
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
-  
+
   useEffect(() => {
     setMax(window?.visualViewport?.width);
   }, []);
@@ -165,13 +165,12 @@ const MainPage = () => {
     },
   ];
 
-  const ScrolltoSwiper = (element: string) => {
-    const elem = document.querySelector(element);
+  const ScrolltoSwiper = (element: string, top: number) => {
+    console.log(top);
+    console.log(max, 'max');
+    window.scrollBy({ top: top, left: 0, behavior: 'smooth' });
 
-    elem?.scrollIntoView();
-    // scroller.scrollTo(element, {
-    //   duration: 100,
-    // });
+    // elem?.scrollIntoView();
   };
 
   // const testFc = useCallback(() => {
@@ -228,6 +227,41 @@ const MainPage = () => {
         },
       });
     }, wrapperRef);
+    return () => ctx.revert();
+  }, []);
+
+  const wrapperRefImg: any = useRef();
+  const firstRefImg: any = useRef();
+  const secondRefImg: any = useRef();
+  const thirdRefImg: any = useRef();
+
+  useEffect(() => {
+    const ctx = gsap.context((self: any) => {
+      const sections = self.selector('section');
+
+      const horizontalTween = gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: wrapperRefImg.current,
+          pin: true,
+          snap: {
+            delay: 0,
+            snapTo: 1 / (sections.length - 1),
+            inertia: false,
+            duration: { min: 0.1, max: 0.1 },
+          },
+          // markers: true,
+          scrub: 0.5,
+          end: () =>
+            //@ts-ignore
+            '+=' +
+            //@ts-ignore
+            document?.querySelector('.swiper-wrapper-person')?.offsetWidth -
+            innerWidth,
+        },
+      });
+    }, wrapperRefImg);
     return () => ctx.revert();
   }, []);
 
@@ -838,157 +872,135 @@ const MainPage = () => {
               </div>
             </section>
           </div>
-          <Element name="myScrollToElement" className="swiperPerson">
-            <div className="swiper-wrapper">
-              <Swiper
-                touchReleaseOnEdges={true}
-                effect={'fade'}
-                onReachBeginning={(swiper: any) =>
-                  setTimeout(() => {
-                    swiper.params.mousewheel.releaseOnEdges = true;
-                  }, 750)
-                }
-                onSlideChangeTransitionStart={() =>
-                  ScrolltoSwiper('.swiperPerson')
-                }
-                // onTouchStart={() => ScrolltoSwiper('myScrollToElement')}
-                onSlideChange={(swiper: any) => {
-                  setTimeout(() => {
-                    swiper.params.mousewheel.releaseOnEdges = false;
-                  }, 500);
-                }}
-                onReachEnd={(swiper: any) =>
-                  setTimeout(() => {
-                    swiper.params.mousewheel.releaseOnEdges = true;
-                  }, 750)
-                }
-                speed={1000}
-                direction="vertical"
-                modules={[Pagination, Mousewheel, EffectFade]}
-                mousewheel={{
-                  releaseOnEdges: true,
-                  invert: false,
-                  sensitivity: 10,
-                }}
-                spaceBetween={0}
-                slidesPerView={1}
-                pagination={{
-                  el: '.swiper-pagination',
-                  clickable: true,
-                }}
-              >
-                <SwiperSlide>
-                  <div className="swiper-slide">
-                    <div className="team_slider">
-                      <div className="team_slider-inner">
-                        <div className="team_slider-inner_bootom">
-                          <div className="team_slider-inner_bootom_left">
-                            <div className="team_slider-inner_bottom_left_slogan">
-                              <h1>
-                                <span className="team_slider-inner_bottom_left_slogan_text">
-                                  e<span className="letterL">l</span>grow —
-                                </span>{' '}
-                                <br />
-                                это про людей, <br />
-                                которые постоянно <br /> с вами.
-                              </h1>
-                            </div>
-                          </div>
-
-                          <div className="team_slider-inner_bootom_right">
-                            <div className="team_slider-inner_bootom_right_nameAndPost">
-                              <h1>Роман Адигезалов</h1>
-                              <h2>Фронтенд-лид</h2>
-                            </div>
-                            <h3>с 2011 года</h3>
-                          </div>
-                        </div>
+          {/* <Element name="myScrollToElement" className="swiperPerson"> */}
+          <div ref={wrapperRefImg} className="swiper-wrapper-person">
+            <section ref={firstRefImg} className="swiper-slide-img">
+              <div id="img1" className="team_slider">
+                <div className="team_slider-inner">
+                  <div className="team_slider-inner_bootom">
+                    <div className="team_slider-inner_bootom_pagination">
+                      <div className="team_slider-inner_bootom_pagination_item_active"></div>
+                      <div
+                        onClick={() => ScrolltoSwiper('#img2', max / 2)}
+                        className="team_slider-inner_bootom_pagination_item"
+                      ></div>
+                      <div
+                        onClick={() => ScrolltoSwiper('#img3', max)}
+                        className="team_slider-inner_bootom_pagination_item"
+                      ></div>
+                    </div>
+                    <div className="team_slider-inner_bootom_left">
+                      <div className="team_slider-inner_bottom_left_slogan">
+                        <h1>
+                          <span className="team_slider-inner_bottom_left_slogan_text">
+                            e<span className="letterL">l</span>grow —
+                          </span>{' '}
+                          <br />
+                          это про людей, <br />
+                          которые постоянно <br /> с вами.
+                        </h1>
                       </div>
-                      <img
-                        className="team-member"
-                        src="/images/Roman.jpg"
-                        alt=""
-                      />
+                    </div>
+
+                    <div className="team_slider-inner_bootom_right">
+                      <div className="team_slider-inner_bootom_right_nameAndPost">
+                        <h1>Роман Адигезалов</h1>
+                        <h2>Фронтенд-лид</h2>
+                      </div>
+                      <h3>с 2011 года</h3>
                     </div>
                   </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="swiper-slide">
-                    <div className="team_slider">
-                      <div className="team_slider-inner">
-                        <div className="team_slider-inner_bootom">
-                          <div className="team_slider-inner_bootom_left">
-                            <div className="team_slider-inner_bottom_left_slogan">
-                              <h1>
-                                <span className="team_slider-inner_bottom_left_slogan_text">
-                                  e<span className="letterL">l</span>grow —
-                                </span>{' '}
-                                <br />
-                                это про людей, <br />
-                                которые постоянно <br /> с вами.
-                              </h1>
-                            </div>
-                          </div>
+                </div>
+                <img className="team-member" src="/images/Roman.jpg" alt="" />
+              </div>
+            </section>
 
-                          <div className="team_slider-inner_bootom_right">
-                            <div className="team_slider-inner_bootom_right_nameAndPost">
-                              <h1>Роман Адигезалов</h1>
-                              <h2>Фронтенд-лид</h2>
-                            </div>
-                            <h3>с 2011 года</h3>
-                          </div>
-                        </div>
+            <section ref={secondRefImg} className="swiper-slide-img">
+              <div id="img2" className="team_slider">
+                <div className="team_slider-inner">
+                  <div className="team_slider-inner_bootom">
+                    <div className="team_slider-inner_bootom_pagination">
+                      <div
+                        onClick={() => ScrolltoSwiper('#img1', -max /2)}
+                        className="team_slider-inner_bootom_pagination_item"
+                      ></div>
+                      <div className="team_slider-inner_bootom_pagination_item_active"></div>
+                      <div
+                        onClick={() => ScrolltoSwiper('#img3', max / 2)}
+                        className="team_slider-inner_bootom_pagination_item"
+                      ></div>
+                    </div>
+                    <div className="team_slider-inner_bootom_left">
+                      <div className="team_slider-inner_bottom_left_slogan">
+                        <h1>
+                          <span className="team_slider-inner_bottom_left_slogan_text">
+                            e<span className="letterL">l</span>grow —
+                          </span>{' '}
+                          <br />
+                          это про людей, <br />
+                          которые постоянно <br /> с вами.
+                        </h1>
                       </div>
-                      <img
-                        className="team-member"
-                        src="/images/roma2.png"
-                        alt=""
-                      />
+                    </div>
+
+                    <div className="team_slider-inner_bootom_right">
+                      <div className="team_slider-inner_bootom_right_nameAndPost">
+                        <h1>Роман Адигезалов</h1>
+                        <h2>Фронтенд-лид</h2>
+                      </div>
+                      <h3>с 2012 года</h3>
                     </div>
                   </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="swiper-slide">
-                    <div className="team_slider">
-                      <div className="team_slider-inner">
-                        <div className="team_slider-inner_bootom">
-                          <div className="team_slider-inner_bootom_left">
-                            <div className="team_slider-inner_bottom_left_slogan">
-                              <h1>
-                                <span className="team_slider-inner_bottom_left_slogan_text">
-                                  e<span className="letterL">l</span>grow —
-                                </span>{' '}
-                                <br />
-                                это про людей, <br />
-                                которые постоянно <br /> с вами.
-                              </h1>
-                            </div>
-                          </div>
+                </div>
+                <img className="team-member" src="/images/roma2.png" alt="" />
+              </div>
+            </section>
 
-                          <div className="team_slider-inner_bootom_right">
-                            <div className="team_slider-inner_bootom_right_nameAndPost">
-                              <h1>Роман Адигезалов</h1>
-                              <h2>Фронтенд-лид</h2>
-                            </div>
-                            <h3>с 2011 года</h3>
-                          </div>
-                        </div>
+            <section ref={thirdRefImg} className="swiper-slide-img">
+              <div id="img3" className="team_slider">
+                <div className="team_slider-inner">
+                  <div className="team_slider-inner_bootom">
+                    <div className="team_slider-inner_bootom_pagination">
+                      <div
+                        onClick={() => ScrolltoSwiper('#img1',-max)}
+                        className="team_slider-inner_bootom_pagination_item"
+                      ></div>
+                      <div
+                        onClick={() => ScrolltoSwiper('#img2', -max/2)}
+                        className="team_slider-inner_bootom_pagination_item"
+                      ></div>
+                      <div className="team_slider-inner_bootom_pagination_item_active"></div>
+                    </div>
+                    <div className="team_slider-inner_bootom_left">
+                      <div className="team_slider-inner_bottom_left_slogan">
+                        <h1>
+                          <span className="team_slider-inner_bottom_left_slogan_text">
+                            e<span className="letterL">l</span>grow —
+                          </span>{' '}
+                          <br />
+                          это про людей, <br />
+                          которые постоянно <br /> с вами.
+                        </h1>
                       </div>
-                      <img
-                        className="team-member"
-                        src="/images/roma3.png"
-                        alt=""
-                      />
+                    </div>
+
+                    <div className="team_slider-inner_bootom_right">
+                      <div className="team_slider-inner_bootom_right_nameAndPost">
+                        <h1>Роман Адигезалов</h1>
+                        <h2>Фронтенд-лид</h2>
+                      </div>
+                      <h3>с 2015 года</h3>
                     </div>
                   </div>
-                </SwiperSlide>
-                <div className="swiper-pagination"></div>
-              </Swiper>
-            </div>
-          </Element>
+                </div>
+                <img className="team-member" src="/images/roma3.png" alt="" />
+              </div>
+            </section>
+          </div>
+          {/* </Element> */}
         </div>
       </section>
-      <section className="portfolio">
+      <div className="portfolio">
         <div className="portfolio_container">
           <div className="portfolio_inner">
             <div className="portfolio_inner_title">
@@ -1002,8 +1014,8 @@ const MainPage = () => {
             </div>
           </div>
         </div>
-      </section>
-      <section className="carusel">
+      </div>
+      <div className="carusel">
         <div className="container">
           <div className="carusel_inner">
             <div className="carusel_top">
@@ -1061,7 +1073,7 @@ const MainPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </div>
       <Footer />
     </div>
   );
