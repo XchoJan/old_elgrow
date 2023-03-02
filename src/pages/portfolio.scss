@@ -1,0 +1,131 @@
+.portfolio_main {
+  //   position: absolute;
+  //   top: 312px;
+  padding-top: 15vh;
+  @media (max-height: 800px) {
+    padding-top: 15vh;
+  }
+  //   @include adaptive-value('padding-left', 50, 20, 1);
+  padding-left: 13.5vw;
+
+  .portfolio_main_title {
+    h1 {
+      font-weight: 300;
+      @include adaptive-value('font-size', 80, 45, 1);
+      color: #000000;
+    }
+  }
+
+  .portfolio_main_content {
+    display: flex;
+    @include adaptive-value('padding-left', 180, 69, 1);
+    // padding-top: 59px;
+    @media (max-width: 560px) {
+      padding-top: 0px;
+    }
+    h3 {
+      font-weight: 300;
+      @include adaptive-value('font-size', 20, 12, 1);
+      text-align: right;
+      color: #000000;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        @include adaptive-value('width', 22, 16, 1);
+        @include adaptive-value('height', 22, 16, 1);
+        border-top: 3px solid #3ece5d;
+        border-right: 3px solid #3ece5d;
+        right: -15px;
+        top: -14px;
+      }
+    }
+  }
+}
+.portfolio_client {
+  transition: 0.5s;
+  &:hover {
+    background: #1a9634;
+  }
+  cursor: pointer;
+  text-align: left;
+  border-radius: 0% 100% 0% 0%;
+  @include adaptive-value('width', 175, 95, 1);
+  @include adaptive-value('height', 132, 91, 1);
+  background-color: #3ece5d;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-family: 'Inter Tight';
+  font-weight: 400;
+  @include adaptive-value('font-size', 20, 12, 1);
+  color: white;
+  span {
+    width: 100px;
+    position: absolute;
+    @include adaptive-value('bottom', 28, 21, 1);
+    left: 15%;
+  }
+}
+
+.portfolio_image {
+  padding-top: 31vh;
+  width: 549px;
+  height: 325px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  img {
+    object-fit: cover;
+  }
+  span {
+    // width: 279px;
+    margin-top: 20px;
+    font-family: 'Inter Tight';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+  }
+}
+
+.portfolio_pagination {
+  width: max-content !important;
+  transition: 0.5s;
+  overflow-x: hidden;
+  display: flex;
+  font-size: 20px;
+  font-family: 'Inter Tight';
+  gap: 7vw;
+  font-weight: 400;
+  margin-left: 68vw;
+
+  padding-bottom: 18px;
+  margin-top: 20px;
+  border-bottom: 1px solid #dfdede;
+  &:nth-child(1n) {
+    padding-left: 10px;
+  }
+  .portfolio_pagination_year {
+    padding-bottom: 10px;
+  }
+  .portfolio_pagination_year_active {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 70px;
+      height: 1px;
+      left: -10px;
+      bottom: -18px;
+      background: green;
+    }
+  }
+}
+
+.swiper {
+  height: 77vh !important;
+}
+.swiper-slide {
+  width: max-content !important;
+}

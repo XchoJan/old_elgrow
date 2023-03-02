@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
+import Link from 'next/link'
 
 import { motion, AnimatePresence } from 'framer-motion';
 import CallBackMenu from './CallBackMenu';
@@ -114,6 +115,7 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
           e<span className="letterL">l</span>grow.
         </motion.span>
         <div className="menu_navigate_nav">
+          <Link href='/'>  
           <motion.span
             initial={false}
             animate={isOpen ? 'open' : 'closed'}
@@ -127,6 +129,8 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
           >
             Главная
           </motion.span>
+          </Link> 
+          <Link href='/portfolio'>
           <motion.span
             initial={false}
             animate={isOpen ? 'open' : 'closed'}
@@ -140,6 +144,7 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
           >
             Портфолио
           </motion.span>
+          </Link> 
           <motion.span
             onClick={() => {
               setShowContacts(true);

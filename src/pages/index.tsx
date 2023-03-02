@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Pagination, Virtual, EffectFade } from 'swiper';
+import { Pagination, Virtual } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/mousewheel';
 import 'swiper/css/pagination';
@@ -8,18 +8,55 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/scrollbar';
 
 import Header from '../Components/Header';
+
 import Footer from '../Components/Footer';
 import CallBackMenu from '../Components/CallBackMenu';
 import { useState, useEffect, useRef } from 'react';
-import { animateScroll, Element, scroller } from 'react-scroll';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+} from 'framer-motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const MainPage = () => {
   const [max, setMax]: any = useState(0);
+  const [maxHeight, setMaxHeight]: any = useState(0);
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
+  const ref = useRef(null);
+  const [isVisibleCase, setVisibleCase] = useState(false);
+  const { scrollY } = useScroll();
+  const y1 = useTransform(
+    scrollY,
+    [0, 400],
+    [0, max > 560 ? 410 : maxHeight / 3],
+  );
+  const maxWidth = useTransform(scrollY, [0, 250], ['85vw', '100vw']);
+  let viewportWidth: any = 0;
+
+  if (typeof window !== 'undefined') {
+    viewportWidth = window?.visualViewport?.width;
+  }
+  useEffect(() => {
+    setMax(window?.visualViewport?.width);
+    setMaxHeight(window?.visualViewport?.height);
+  }, []);
+  const imageMove = (e: any) => {
+    setVisibleCase(true);
+    const rect = e.target.getBoundingClientRect();
+    const y = e.clientY - rect.top;
+    const x = e.clientX - rect.left;
+
+    let image: any = document.getElementsByClassName('main_img_green');
+    if (image[0]) {
+      image[0].style.left = `${x - 50}px`;
+      image[0].style.top = `${y - 50}px`;
+    }
+  };
 
   useEffect(() => {
     setMax(window?.visualViewport?.width);
@@ -166,8 +203,6 @@ const MainPage = () => {
   ];
 
   const ScrolltoSwiper = (element: string, top: number) => {
-    console.log(top);
-    console.log(max, 'max');
     window.scrollBy({ top: top, left: 0, behavior: 'smooth' });
 
     // elem?.scrollIntoView();
@@ -268,6 +303,65 @@ const MainPage = () => {
   return (
     <div>
       <Header />
+      <div className="main_title">
+        <img className="eagle" src="/images/eagle.png" alt="" />
+
+        <div id="trigger1" className="main_title_content">
+          <motion.h1 style={{ y: y1 }}>
+            Разработка и интеграция <br />
+            <span>IT-РеШеНИЙ. </span> <br />
+            Автоматизация бизнеса.
+            <br />
+            <span>аУТСТАФ.</span>
+          </motion.h1>{' '}
+        </div>
+      </div>
+      <div
+        onMouseOut={() =>
+          setTimeout(() => {
+            setVisibleCase(false);
+          }, 50)
+        }
+        onMouseMove={(e) =>
+          setTimeout(() => {
+            imageMove(e);
+          }, 50)
+        }
+        className="main_img"
+      >
+        <motion.div
+          style={viewportWidth > 768 ? { maxWidth } : { maxWidth: '100vw' }}
+          ref={ref}
+          className="main_img_box"
+        >
+          <AnimatePresence>
+            {isVisibleCase && (
+              <motion.div
+                initial={{
+                  scale: 0,
+                }}
+                animate={{
+                  scale: 1,
+                }}
+                transition={{ duration: 0.3 }}
+                exit={{
+                  scale: 0,
+                }}
+                className="main_img_green"
+              >
+                <motion.p
+                  initial={{ fontSize: 0 }}
+                  animate={{ fontSize: '14px' }}
+                  transition={{ duration: 0.3 }}
+                  exit={{ fontSize: 0 }}
+                >
+                  Новый <br /> кейс
+                </motion.p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </div>
       <section className="tabs">
         <div className="tabs_container">
           <div className="tabsNav"></div>
@@ -921,7 +1015,7 @@ const MainPage = () => {
                   <div className="team_slider-inner_bootom">
                     <div className="team_slider-inner_bootom_pagination">
                       <div
-                        onClick={() => ScrolltoSwiper('#img1', -max /2)}
+                        onClick={() => ScrolltoSwiper('#img1', -max / 2)}
                         className="team_slider-inner_bootom_pagination_item"
                       ></div>
                       <div className="team_slider-inner_bootom_pagination_item_active"></div>
@@ -962,11 +1056,11 @@ const MainPage = () => {
                   <div className="team_slider-inner_bootom">
                     <div className="team_slider-inner_bootom_pagination">
                       <div
-                        onClick={() => ScrolltoSwiper('#img1',-max)}
+                        onClick={() => ScrolltoSwiper('#img1', -max)}
                         className="team_slider-inner_bootom_pagination_item"
                       ></div>
                       <div
-                        onClick={() => ScrolltoSwiper('#img2', -max/2)}
+                        onClick={() => ScrolltoSwiper('#img2', -max / 2)}
                         className="team_slider-inner_bootom_pagination_item"
                       ></div>
                       <div className="team_slider-inner_bootom_pagination_item_active"></div>
