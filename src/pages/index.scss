@@ -19,6 +19,7 @@ h6 {
 }
 .container,
 .portfolio_container {
+  cursor: pointer;
   max-width: 1920px;
   width: 100%;
   margin: 0 auto;
@@ -75,13 +76,13 @@ h6 {
     background: #000000;
     position: relative;
     @include adaptive-value('height', 815, 263, 1);
- 
+
     background-image: url('../../public/images/1_main1920.png');
     background-repeat: no-repeat;
     background-position: bottom right;
- 
+
     background-size: 100% 100%;
-  
+
     cursor: none;
     img {
       float: right;
@@ -89,9 +90,6 @@ h6 {
     }
   }
 }
-
- 
- 
 
 .main_img_green {
   pointer-events: none;
@@ -110,11 +108,10 @@ h6 {
     font-family: 'Inter Tight';
     text-align: center;
     text-transform: uppercase;
-  
+
     color: #ffffff;
   }
 }
- 
 
 .eagle {
   width: max-content;
@@ -123,7 +120,6 @@ h6 {
   right: 0;
   top: 100px;
 }
-
 
 .tabs_container {
   max-width: 1920px;

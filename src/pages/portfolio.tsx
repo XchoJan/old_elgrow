@@ -8,6 +8,12 @@ import { Mousewheel, Pagination } from 'swiper';
 const Portfolio = () => {
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
 
+  const [max, setMax]: any = useState(0);
+
+  useEffect(() => {
+    setMax(window?.visualViewport?.width);
+  }, []);
+
   const navigation = [
     '2023',
     '2022',
@@ -22,14 +28,38 @@ const Portfolio = () => {
     <div>
       <Header />
       <Swiper
+        speed={1000}
         spaceBetween={45}
         slidesPerView={1.5}
-        onSlidePrevTransitionEnd={(swiper: any) => {
-          if (swiper.activeIndex === 0) {
+        breakpoints={{
+          320: {
+            slidesPerView: 1.5,
+            direction: 'vertical',
+            spaceBetween: 0,
+          },
+          561: {
+            slidesPerView: 1.5,
+            direction: 'horizontal',
+            spaceBetween: 45,
+          },
+        }}
+        onSlidePrevTransitionStart={(swiper: any) => {
+          if (swiper.activeIndex === 0 && max > 560) {
             let pagination: HTMLElement | null = document.querySelector(
-              '.portfolio_pagination',
+              '.portfolio_pagination_content',
             );
+            let slides: NodeList = document.querySelectorAll('.swiper-slide');
+            slides.forEach((slide: HTMLElement | any) => {
+              slide!.style.width = max / 1.5 - 15 + 'px';
+            });
 
+            let slide2 = swiper.slides[2];
+            let slide1 = swiper.slides[1];
+
+            slide2.children[0].children[1].style.width = '28%';
+            slide1.children[0].children[1].style.width = '54%';
+
+            swiper.slides[1].style.marginLeft = '0px';
             pagination!.style.marginLeft = '68vw';
             let el = swiper.slides[2];
             el.style.position = 'absolute';
@@ -39,18 +69,24 @@ const Portfolio = () => {
           }
         }}
         onSlideChangeTransitionStart={(swiper: any) => {
-          if (swiper.activeIndex === 1) {
+          if (swiper.activeIndex === 1 && max > 560) {
             let pagination: HTMLElement | null = document.querySelector(
-              '.portfolio_pagination',
+              '.portfolio_pagination_content',
             );
+            let slides: NodeList = document.querySelectorAll('.swiper-slide');
+            slides.forEach((slide: HTMLElement | any) => {
+              slide!.style.width = 'max-content';
+            });
 
-            pagination!.style.marginLeft = '25vw';
+            pagination!.style.marginLeft = '31%';
             let slide2 = swiper.slides[2];
+            let slide1 = swiper.slides[1];
             slide2.style.position = 'static';
             slide2.style.paddingTop = '0px';
             slide2.style.transition = '0.5s';
 
             slide2.children[0].children[1].style.width = '282px';
+            slide1.children[0].children[1].style.width = '282px';
             swiper.slides[1].style.width = 'max-content';
             swiper.slides[1].style.transition = '0.5s';
             swiper.slides[1].style.marginLeft = '10vw';
@@ -61,11 +97,11 @@ const Portfolio = () => {
           }
         }}
         pagination={{
-          el: '.portfolio_pagination',
+          el: '.portfolio_pagination_content',
           type: 'bullets',
           clickable: true,
-          bulletClass: 'portfolio_pagination_year',
-          bulletActiveClass: 'portfolio_pagination_year_active',
+          bulletClass: 'portfolio_pagination_content_year',
+          bulletActiveClass: 'portfolio_pagination_content_year_active',
           renderBullet: function (index, className) {
             console.log(index);
             return (
@@ -91,7 +127,7 @@ const Portfolio = () => {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide style={{ paddingLeft: '16vw' }}>
+        <SwiperSlide>
           <div className="portfolio_image">
             <img src="/images/portfolio1.png" alt="" />
             <span>
@@ -100,20 +136,22 @@ const Portfolio = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide
-          style={{
-            position: 'absolute',
-            left: '90%',
-            paddingTop: '64px',
-          }}
+          style={
+            max > 560
+              ? {
+                  position: 'absolute',
+                  left: '90%',
+                  paddingTop: '64px',
+                }
+              : {}
+          }
         >
           <div className="portfolio_image">
             <img src="/images/portfolio2.png" alt="" />
-            <span style={{ width: '279px' }}>
-              Интернет-магазин брендовой женской одежды
-            </span>
+            <span>Интернет-магазин брендовой женской одежды</span>
           </div>
         </SwiperSlide>
-        <SwiperSlide style={{ paddingLeft: '30vw' }}>
+        <SwiperSlide style={max > 560 ? { paddingLeft: '30vw' } : {}}>
           <div className="portfolio_image">
             <img src="/images/portfolio1.png" alt="" />
             <span>
@@ -154,8 +192,8 @@ const Portfolio = () => {
           </div>
         </SwiperSlide>
       </Swiper>
-      <div style={{ overflow: 'hidden' }}>
-        <div className="portfolio_pagination"></div>
+      <div className="portfolio_pagination_container">
+        <div className="portfolio_pagination_content"></div>
       </div>
 
       <motion.div

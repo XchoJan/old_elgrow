@@ -20,10 +20,12 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion';
+import { useRouter } from 'next/router'
 
 gsap.registerPlugin(ScrollTrigger);
 
 const MainPage = () => {
+  const router = useRouter()
   const [max, setMax]: any = useState(0);
   const [maxHeight, setMaxHeight]: any = useState(0);
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
@@ -1095,7 +1097,7 @@ const MainPage = () => {
         </div>
       </section>
       <div className="portfolio">
-        <div className="portfolio_container">
+        <div  onClick={() => router.push('/portfolio')} className="portfolio_container">
           <div className="portfolio_inner">
             <div className="portfolio_inner_title">
               <h1>Портфолио</h1>
