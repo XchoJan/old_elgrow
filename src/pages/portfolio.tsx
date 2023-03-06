@@ -9,8 +9,15 @@ const Portfolio = () => {
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
 
   const [max, setMax]: any = useState(0);
+  let firtImageRight: CSSStyleDeclaration | null = null;
 
   useEffect(() => {
+    let firstImage: any = document.querySelector('.portfolio_image_first');
+
+    if (firstImage) {
+      firtImageRight = window.getComputedStyle(firstImage);
+    }
+
     setMax(window?.visualViewport?.width);
   }, []);
 
@@ -28,72 +35,88 @@ const Portfolio = () => {
     <div>
       <Header />
       <Swiper
+        id="mainSlider"
         speed={1000}
         spaceBetween={45}
-        slidesPerView={1.5}
         breakpoints={{
           320: {
-            slidesPerView: 1.5,
+            slidesPerView: 1,
             direction: 'vertical',
-            spaceBetween: 0,
+            spaceBetween: 100,
           },
           561: {
-            slidesPerView: 1.5,
+            slidesPerView: 1,
             direction: 'horizontal',
             spaceBetween: 45,
           },
         }}
+        onSlideNextTransitionStart={(swiper: any) => {
+          if (max <= 560) {
+            let pagination: HTMLElement | null = document.querySelector(
+              '.portfolio_pagination_content',
+            );
+            pagination!.scrollLeft += 50;
+          }
+        }}
+        onSlidePrevTransitionEnd={(swiper: any) => {
+          if (swiper.activeIndex === 0 && max > 560) {
+            let firstImage: any = document.querySelector(
+              '.portfolio_image_first',
+            );
+            let secondImage: HTMLElement | null = document.querySelector(
+              '.portfolio_image_second',
+            );
+
+            firstImage!.style.right = firtImageRight;
+
+            secondImage!.style.left = '87vw';
+          }
+        }}
         onSlidePrevTransitionStart={(swiper: any) => {
+          if (max <= 560) {
+            let pagination: HTMLElement | null = document.querySelector(
+              '.portfolio_pagination_content',
+            );
+            pagination!.scrollLeft -= 50;
+          }
+
           if (swiper.activeIndex === 0 && max > 560) {
             let pagination: HTMLElement | null = document.querySelector(
               '.portfolio_pagination_content',
             );
-            let slides: NodeList = document.querySelectorAll('.swiper-slide');
-            slides.forEach((slide: HTMLElement | any) => {
-              slide!.style.width = max / 1.5 - 15 + 'px';
-            });
 
-            let slide2 = swiper.slides[2];
-            let slide1 = swiper.slides[1];
-
-            slide2.children[0].children[1].style.width = '28%';
-            slide1.children[0].children[1].style.width = '54%';
-
-            swiper.slides[1].style.marginLeft = '0px';
             pagination!.style.marginLeft = '68vw';
-            let el = swiper.slides[2];
-            el.style.position = 'absolute';
-            el.style.paddingTop = '64px';
-            el.style.left = '90%';
-            el.style.transition = '0.1s';
           }
         }}
         onSlideChangeTransitionStart={(swiper: any) => {
-          if (swiper.activeIndex === 1 && max > 560) {
+          if (swiper.activeIndex > 0 && max > 560) {
             let pagination: HTMLElement | null = document.querySelector(
               '.portfolio_pagination_content',
             );
-            let slides: NodeList = document.querySelectorAll('.swiper-slide');
-            slides.forEach((slide: HTMLElement | any) => {
-              slide!.style.width = 'max-content';
-            });
+
+            let firstImage: any = document.querySelector(
+              '.portfolio_image_first',
+            );
+
+            firstImage!.style.right = '-600px';
+
+            let secondImage: HTMLElement | null = document.querySelector(
+              '.portfolio_image_second',
+            );
+            secondImage!.style.left = '130vw';
+            let mainSlides = swiper.slides;
+            let activeMainSlide = mainSlides.filter(
+              (slide: HTMLElement | any) => slide.className.includes('active'),
+            );
+            let subSlides = activeMainSlide[0].children[0].children[0];
+
+            Array.from(subSlides.children).forEach(
+              (slide: HTMLElement | any) => {
+                slide!.style.width = 'max-content';
+              },
+            );
 
             pagination!.style.marginLeft = '31%';
-            let slide2 = swiper.slides[2];
-            let slide1 = swiper.slides[1];
-            slide2.style.position = 'static';
-            slide2.style.paddingTop = '0px';
-            slide2.style.transition = '0.5s';
-
-            slide2.children[0].children[1].style.width = '282px';
-            slide1.children[0].children[1].style.width = '282px';
-            swiper.slides[1].style.width = 'max-content';
-            swiper.slides[1].style.transition = '0.5s';
-            swiper.slides[1].style.marginLeft = '10vw';
-
-            let slide4 = swiper.slides[3];
-
-            slide4.style.paddingLeft = '0px';
           }
         }}
         pagination={{
@@ -103,7 +126,6 @@ const Portfolio = () => {
           bulletClass: 'portfolio_pagination_content_year',
           bulletActiveClass: 'portfolio_pagination_content_year_active',
           renderBullet: function (index, className) {
-            console.log(index);
             return (
               '<span class="' + className + '">' + navigation[index] + '</span>'
             );
@@ -114,44 +136,188 @@ const Portfolio = () => {
           invert: false,
         }}
       >
-        <SwiperSlide>
-          <div className="portfolio_main">
-            <div className="portfolio_main_title">
-              <h1>Портфолио</h1>
-            </div>
-            <div className="portfolio_main_content">
-              <h3>
-                Еще оформляем, но обо всех кейсах <br />
-                можем рассказать лично
-              </h3>
-            </div>
-          </div>
+        <SwiperSlide id="logoSlide">
+          {max > 560 ? (
+            <>
+              <div className="portfolio_main">
+                <div className="portfolio_main_title">
+                  <h1>Портфолио</h1>
+                </div>
+                <div className="portfolio_main_content">
+                  <h3>
+                    Еще оформляем, но обо всех кейсах <br />
+                    можем рассказать лично
+                  </h3>
+                </div>
+              </div>
+              <div className="portfolio_image_first">
+                <img src="/images/portfolio1.png" alt="" />
+                <span>
+                  Мобильное приложение по управлению <br /> парковками аэропорта
+                </span>
+              </div>
+              <div className="portfolio_image_second">
+                <img src="/images/portfolio2.png" alt="" />
+                <span>
+                  Интернет-магазин брендовой
+                  <br /> женской одежды
+                </span>
+              </div>
+            </>
+          ) : (
+            <>
+              <Swiper
+                id="firstSlideOnPhone"
+                breakpoints={{
+                  320: {
+                    slidesPerView: 2,
+                    direction: 'vertical',
+                    spaceBetween: 45,
+                  },
+                  561: {
+                    slidesPerView: 2,
+                    direction: 'horizontal',
+                    spaceBetween: 45,
+                  },
+                }}
+                spaceBetween={45}
+                slidesPerView={2}
+                modules={[Mousewheel]}
+                mousewheel={{
+                  invert: false,
+                }}
+              >
+                <SwiperSlide>
+                  {' '}
+                  <div className="portfolio_main">
+                    <div className="portfolio_main_title">
+                      <h1>Портфолио</h1>
+                    </div>
+                    <div className="portfolio_main_content">
+                      <h3>
+                        Еще оформляем, но обо всех кейсах <br />
+                        можем рассказать лично
+                      </h3>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  {' '}
+                  <div className="portfolio_image">
+                    <img src="/images/portfolio2.png" alt="" />
+                    <span>
+                      Интернет-магазин брендовой
+                      <br /> женской одежды
+                    </span>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  {' '}
+                  <div className="portfolio_image">
+                    <img src="/images/portfolio1.png" alt="" />
+                    <span>
+                      Мобильное приложение по управлению <br /> парковками
+                      аэропорта
+                    </span>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+            </>
+          )}
         </SwiperSlide>
         <SwiperSlide>
-          <div className="portfolio_image">
-            <img src="/images/portfolio1.png" alt="" />
-            <span>
-              Мобильное приложение по управлению <br /> парковками аэропорта
-            </span>
-          </div>
+          <Swiper
+            breakpoints={{
+              320: {
+                slidesPerView: 2,
+                direction: 'vertical',
+                spaceBetween: 45,
+              },
+              561: {
+                slidesPerView: 2,
+                direction: 'horizontal',
+                spaceBetween: 45,
+              },
+            }}
+            speed={1000}
+            nested={true}
+            spaceBetween={45}
+            slidesPerView={2}
+            modules={[Mousewheel]}
+            mousewheel={{
+              invert: false,
+            }}
+          >
+            <SwiperSlide>
+              <div className="portfolio_image">
+                <img src="/images/portfolio1.png" alt="" />
+                <span>
+                  Мобильное приложение по управлению <br /> парковками аэропорта
+                </span>
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide id="absoluteSlide">
+              <div className="portfolio_image">
+                <img src="/images/portfolio2.png" alt="" />
+                <span>
+                  Интернет-магазин брендовой
+                  <br /> женской одежды
+                </span>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="portfolio_image">
+                <img src="/images/portfolio1.png" alt="" />
+                <span>
+                  Мобильное приложение по управлению <br /> парковками аэропорта
+                </span>
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </SwiperSlide>
-        <SwiperSlide
-          style={
-            max > 560
-              ? {
-                  position: 'absolute',
-                  left: '90%',
-                  paddingTop: '64px',
-                }
-              : {}
-          }
-        >
-          <div className="portfolio_image">
-            <img src="/images/portfolio2.png" alt="" />
-            <span>Интернет-магазин брендовой женской одежды</span>
-          </div>
+
+        <SwiperSlide>
+          <Swiper
+            breakpoints={{
+              320: {
+                slidesPerView: 2,
+                direction: 'vertical',
+                spaceBetween: 92,
+              },
+              561: {
+                slidesPerView: 2,
+                direction: 'horizontal',
+                spaceBetween: 45,
+              },
+            }}
+            spaceBetween={45}
+            slidesPerView={2}
+            modules={[Mousewheel]}
+            mousewheel={{
+              invert: false,
+            }}
+          >
+            <SwiperSlide>
+              <div className="portfolio_image">
+                <img src="/images/portfolio1.png" alt="" />
+                <span>
+                  Мобильное приложение по управлению <br /> парковками аэропорта
+                </span>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="portfolio_image">
+                <img src="/images/portfolio1.png" alt="" />
+                <span>
+                  Мобильное приложение по управлению <br /> парковками аэропорта
+                </span>
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </SwiperSlide>
-        <SwiperSlide style={max > 560 ? { paddingLeft: '30vw' } : {}}>
+
+        <SwiperSlide>
           <div className="portfolio_image">
             <img src="/images/portfolio1.png" alt="" />
             <span>
