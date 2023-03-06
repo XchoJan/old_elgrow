@@ -1,31 +1,37 @@
 .portfolio_main {
-  //   position: absolute;
-  //   top: 312px;
+ 
   padding-top: 15vh;
   @media (max-height: 800px) {
     padding-top: 10vh;
   }
 
-  // padding-left: 13.5vw;
+ 
   @include adaptive-value('padding-left', 192, 19, 1);
 
   @media (max-width: 560px) {
+    width: 100vw;
     padding-left: 0px;
-    padding-top: 0px;
+    padding-top: 0px; 
+   padding-bottom: 10vh;
   }
   .portfolio_main_title {
     h1 {
       font-weight: 300;
       @include adaptive-value('font-size', 80, 45, 1);
       color: #000000;
+      @media (max-width: 560px) {
+        padding-left: 10vw;
+       
+      }
     }
   }
 
   .portfolio_main_content {
     display: flex;
     @include adaptive-value('padding-left', 180, 69, 1);
-    // padding-top: 59px;
+
     @media (max-width: 560px) {
+      padding-left: 25vw;
       padding-top: 0px;
     }
     h3 {
