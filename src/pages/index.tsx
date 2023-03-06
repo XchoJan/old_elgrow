@@ -20,12 +20,12 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const MainPage = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [max, setMax]: any = useState(0);
   const [maxHeight, setMaxHeight]: any = useState(0);
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
@@ -206,30 +206,8 @@ const MainPage = () => {
 
   const ScrolltoSwiper = (element: string, top: number) => {
     window.scrollBy({ top: top, left: 0, behavior: 'smooth' });
-
-    // elem?.scrollIntoView();
   };
 
-  // const testFc = useCallback(() => {
-  //   console.log('qwe');
-  // }, []);
-
-  // const handleScroll = () => {
-  //   let swiperPerson: any = document.querySelector('.swiperPerson');
-  //   const top = swiperPerson.getBoundingClientRect().top + window.scrollY;
-
-  //   setScroll(window.scrollY);
-  //   if(window.scrollY > top) {
-  //     ScrolltoSwiper('js-wrapperSlider');
-  //   }
-
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   return () => window.removeEventListener('scroll', handleScroll);
-  // }, []);
   const wrapperRef: any = useRef();
   const firstRef: any = useRef();
   const secondRef: any = useRef();
@@ -253,7 +231,7 @@ const MainPage = () => {
             inertia: false,
             duration: { min: 0.1, max: 0.1 },
           },
-          // markers: true,
+
           scrub: 0.5,
           end: () =>
             //@ts-ignore
@@ -968,7 +946,6 @@ const MainPage = () => {
               </div>
             </section>
           </div>
-          {/* <Element name="myScrollToElement" className="swiperPerson"> */}
           <div ref={wrapperRefImg} className="swiper-wrapper-person">
             <section ref={firstRefImg} className="swiper-slide-img">
               <div id="img1" className="team_slider">
@@ -997,7 +974,6 @@ const MainPage = () => {
                         </h1>
                       </div>
                     </div>
-
                     <div className="team_slider-inner_bootom_right">
                       <div className="team_slider-inner_bootom_right_nameAndPost">
                         <h1>Роман Адигезалов</h1>
@@ -1010,7 +986,6 @@ const MainPage = () => {
                 <img className="team-member" src="/images/Roman.jpg" alt="" />
               </div>
             </section>
-
             <section ref={secondRefImg} className="swiper-slide-img">
               <div id="img2" className="team_slider">
                 <div className="team_slider-inner">
@@ -1038,7 +1013,6 @@ const MainPage = () => {
                         </h1>
                       </div>
                     </div>
-
                     <div className="team_slider-inner_bootom_right">
                       <div className="team_slider-inner_bootom_right_nameAndPost">
                         <h1>Роман Адигезалов</h1>
@@ -1048,10 +1022,9 @@ const MainPage = () => {
                     </div>
                   </div>
                 </div>
-                <img className="team-member" src="/images/roma2.png" alt="" />
+                <img className="team-member" src="/images/roma3.png" alt="" />
               </div>
             </section>
-
             <section ref={thirdRefImg} className="swiper-slide-img">
               <div id="img3" className="team_slider">
                 <div className="team_slider-inner">
@@ -1089,15 +1062,17 @@ const MainPage = () => {
                     </div>
                   </div>
                 </div>
-                <img className="team-member" src="/images/roma3.png" alt="" />
+                <img className="team-member" src="/images/Roman.jpg" alt="" />
               </div>
             </section>
           </div>
-          {/* </Element> */}
         </div>
       </section>
       <div className="portfolio">
-        <div  onClick={() => router.push('/portfolio')} className="portfolio_container">
+        <div
+          onClick={() => router.push('/portfolio')}
+          className="portfolio_container"
+        >
           <div className="portfolio_inner">
             <div className="portfolio_inner_title">
               <h1>Портфолио</h1>

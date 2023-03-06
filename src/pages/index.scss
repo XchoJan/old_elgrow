@@ -129,30 +129,22 @@ h6 {
   .pin-spacer {
     overflow: hidden !important;
     width: 100% !important;
-
     .swiper-wrapper-person {
       width: 300% !important;
       height: 100vh !important;
       max-height: 100vh !important;
-      max-width: 10000px !important;
+      max-width: 300% !important;
       display: flex;
     }
   }
 
-  .pin-spacer {
-    overflow: hidden !important;
-    width: 100% !important;
-  }
   .tabs__content {
     @media (max-width: 560px) {
       height: 600px;
     }
   }
 }
-/*Header*/
 
-/*Header end*/
-/*Tabs start*/
 .tabsNav {
   @include adaptive-value('max-width', 1200, 540, 1);
   height: 40px;
@@ -163,7 +155,7 @@ h6 {
   @include adaptive-value('padding-right', 20, 40, 1);
   display: flex;
   justify-content: space-between;
-  // @include adaptive-value('gap', 126, 52, 1);
+
   @media (max-width: 560px) {
     white-space: pre;
     padding-left: 24px;
@@ -215,9 +207,7 @@ h6 {
 .website-mini_tab_content.active {
   display: block;
 }
-/*Tabs end*/
 
-/*Product start*/
 .info_box {
   @include adaptive-value('height', 437, 313, 1);
   display: flex;
@@ -421,7 +411,6 @@ h6 {
   }
 
   .tags_lattice {
-    // word-break: break-all;
     color: #3ece5d;
   }
 
@@ -487,7 +476,6 @@ h6 {
 
   flex-direction: column;
   @include adaptive-value('width', 1353, 350, 1);
-  // margin-bottom: 186px;
 
   .products_principles-center-logo {
     @include adaptive-value('font-size', 24, 20, 1);
@@ -533,8 +521,7 @@ h6 {
   border-right: 3px solid #3ece5d;
   right: 0px;
 }
-/*Product end*/
-/*website start*/
+
 .websites-content_inner {
   padding-top: 110px;
   @include adaptive-value('padding-left', 96, 20, 1);
@@ -660,18 +647,6 @@ h6 {
   border-bottom: 1px solid black;
   color: #000000;
 }
-/*website end*/
-
-/*scroll start */
-// .swiper {
-//   overflow: hidden;
-//   width: 100%;
-//   @include adaptive-value('height', 800, 254, 1);
-
-//   height: 100vh !important;
-
-//   overflow: hidden;
-// }
 
 .swiperPerson {
   transition: 0.5s;
@@ -724,7 +699,6 @@ h6 {
   height: 100vh !important;
   max-width: 10000px !important;
   display: flex;
-  // gap: 100vw;
 }
 .wrapper .scroll-title {
   font-size: 21px;
@@ -741,25 +715,12 @@ h6 {
   font-weight: 100;
 }
 
-// .wrapper .sections {
-//   width: 100%;
-//   height: 100vh !important;
-//   display: flex;
-// }
 .wrapper .section {
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  // height: 100%;
-  // width: 100%;
-  // float: left;
-  // position: relative;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  // overflow: hidden;
 }
 
 .wrapper .section .sectionTitle {
@@ -768,9 +729,6 @@ h6 {
   width: 100%;
 }
 
-/*scroll end*/
-
-/*TEAM START*/
 .section3 {
   height: 100vh;
   position: sticky;
@@ -944,9 +902,6 @@ h6 {
   @include adaptive-value('font-size', 20, 11, 1);
   color: #000000;
 }
-/*TEAM END*/
-
-/*Porfolio start*/
 
 .portfolio_inner {
   padding-top: 175px;
@@ -982,9 +937,7 @@ h6 {
   right: -15px;
   top: -14px;
 }
-/*Porfolio end*/
 
-/*Carusel start*/
 .carusel_inner {
   overflow: hidden;
   display: flex;
@@ -1023,12 +976,9 @@ h6 {
   }
 }
 .carusel_bottom_banner {
-  // margin-left: -127px;
   @include adaptive-value('margin-left', -87, -47, 1);
 
   .carusel_bottom_banner_image2 {
-    // @include adaptive-value('width', 724, 237, 1);
-    // @include adaptive-value('height', 830, 271, 1);
     img {
       @include adaptive-value('width', 724, 237, 1);
       @include adaptive-value('height', 830, 271, 1);
@@ -1044,8 +994,6 @@ h6 {
 }
 .carusel_top {
   .carusel_top_banner_image1 {
-    // @include adaptive-value('width', 724, 237, 1);
-    // @include adaptive-value('height', 841, 275, 1);
     img {
       @include adaptive-value('width', 724, 237, 1);
       @include adaptive-value('height', 841, 275, 1);
@@ -1160,10 +1108,6 @@ h6 {
   }
 }
 
-/*Carusel end*/
-
-/*tab*/
-
 .website-mini_tab_content {
   animation: scale 0.3s ease-in-out;
 }
@@ -1184,8 +1128,3 @@ h6 {
     opacity: 1;
   }
 }
-/*tab*/
-
-/*footer start*/
-
-/*footer end*/
