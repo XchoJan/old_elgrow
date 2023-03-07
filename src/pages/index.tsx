@@ -245,40 +245,40 @@ const MainPage = () => {
     return () => ctx.revert();
   }, []);
 
-  const wrapperRefImg: any = useRef();
-  const firstRefImg: any = useRef();
-  const secondRefImg: any = useRef();
-  const thirdRefImg: any = useRef();
+  // const wrapperRefImg: any = useRef();
+  // const firstRefImg: any = useRef();
+  // const secondRefImg: any = useRef();
+  // const thirdRefImg: any = useRef();
 
-  useEffect(() => {
-    const ctx = gsap.context((self: any) => {
-      const sections = self.selector('section');
+  // useEffect(() => {
+  //   const ctx = gsap.context((self: any) => {
+  //     const sections = self.selector('section');
 
-      const horizontalTween = gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: wrapperRefImg.current,
-          pin: true,
-          snap: {
-            delay: 0,
-            snapTo: 1 / (sections.length - 1),
-            inertia: false,
-            duration: { min: 0.1, max: 0.1 },
-          },
-          // markers: true,
-          scrub: 0.5,
-          end: () =>
-            //@ts-ignore
-            '+=' +
-            //@ts-ignore
-            document?.querySelector('.swiper-wrapper-person')?.offsetWidth -
-            innerWidth,
-        },
-      });
-    }, wrapperRefImg);
-    return () => ctx.revert();
-  }, []);
+  //     const horizontalTween = gsap.to(sections, {
+  //       xPercent: -100 * (sections.length - 1),
+  //       ease: 'none',
+  //       scrollTrigger: {
+  //         trigger: wrapperRefImg.current,
+  //         pin: true,
+  //         snap: {
+  //           delay: 0,
+  //           snapTo: 1 / (sections.length - 1),
+  //           inertia: false,
+  //           duration: { min: 0.1, max: 0.1 },
+  //         },
+  //         // markers: true,
+  //         scrub: 0.5,
+  //         end: () =>
+  //           //@ts-ignore
+  //           '+=' +
+  //           //@ts-ignore
+  //           document?.querySelector('.swiper-wrapper-person')?.offsetWidth -
+  //           innerWidth,
+  //       },
+  //     });
+  //   }, wrapperRefImg);
+  //   return () => ctx.revert();
+  // }, []);
 
   return (
     <div>
@@ -946,7 +946,7 @@ const MainPage = () => {
               </div>
             </section>
           </div>
-          <div ref={wrapperRefImg} className="swiper-wrapper-person">
+          {/* <div ref={wrapperRefImg} className="swiper-wrapper-person">
             <section ref={firstRefImg} className="swiper-slide-img">
               <div id="img1" className="team_slider">
                 <div className="team_slider-inner">
@@ -1065,7 +1065,7 @@ const MainPage = () => {
                 <img className="team-member" src="/images/Roman.jpg" alt="" />
               </div>
             </section>
-          </div>
+          </div> */}
         </div>
       </section>
       <div className="portfolio">
