@@ -25,6 +25,14 @@ import { useRouter } from 'next/router';
 gsap.registerPlugin(ScrollTrigger);
 
 const MainPage = () => {
+
+  let viewportWidth: any = 0;
+  let viewportHeight: any = 0;
+  
+  if (typeof window !== 'undefined') {
+    viewportWidth = window?.visualViewport?.width;
+    viewportHeight = window?.visualViewport?.height;
+  }
   const router = useRouter();
   const [max, setMax]: any = useState(0);
   const [maxHeight, setMaxHeight]: any = useState(0);
@@ -35,14 +43,13 @@ const MainPage = () => {
   const y1 = useTransform(
     scrollY,
     [0, 400],
-    [0, max > 560 ? 410 : maxHeight / 3],
+    [0, viewportWidth > 560 ? 410 : viewportHeight / 3],
   );
+ 
+ 
   const maxWidth = useTransform(scrollY, [0, 250], ['85vw', '100vw']);
-  let viewportWidth: any = 0;
-
-  if (typeof window !== 'undefined') {
-    viewportWidth = window?.visualViewport?.width;
-  }
+ 
+ 
   useEffect(() => {
     setMax(window?.visualViewport?.width);
     setMaxHeight(window?.visualViewport?.height);

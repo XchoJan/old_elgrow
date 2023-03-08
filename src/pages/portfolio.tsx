@@ -32,7 +32,7 @@ const Portfolio = () => {
     '2016',
   ];
   return (
-    <div>
+    <div id="mainContainer">
       <Header />
       <Swiper
         id="mainSlider"
@@ -84,12 +84,16 @@ const Portfolio = () => {
             let pagination: HTMLElement | null = document.querySelector(
               '.portfolio_pagination_content',
             );
-
             pagination!.style.marginLeft = '68vw';
           }
         }}
         onSlideChangeTransitionStart={(swiper: any) => {
           if (swiper.activeIndex > 0 && max > 560) {
+            let spanImage: any = document.querySelectorAll('.portfolio_image');
+
+            spanImage.forEach((span: HTMLElement | any) => {
+              span.children[1]!.style.width = 'auto';
+            });
             let pagination: HTMLElement | null = document.querySelector(
               '.portfolio_pagination_content',
             );

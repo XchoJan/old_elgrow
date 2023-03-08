@@ -11,7 +11,7 @@
   height: 100px;
   @include adaptive-value('padding-top', 32, 10, 1);
   @include adaptive-value('padding-right', 40, 20, 1);
-  @include adaptive-value('padding-left', 40, 20, 1);
+  @include adaptive-value('padding-left', 50, 20, 1);
 }
 .header_top .logo {
   padding-top: 8px;
