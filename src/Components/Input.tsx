@@ -10,7 +10,6 @@ interface InputProps {
 
 const Input: React.FC<InputProps> = ({
   placeholder,
-
   type,
   textarea,
   error,
@@ -21,7 +20,7 @@ const Input: React.FC<InputProps> = ({
       <label className="labelContainer">
         {textarea ? (
           <>
-            <textarea  required {...reactHookForm} className="textarea" />
+            <textarea required {...reactHookForm} className="textarea" />
             <span className="floatingLabel">{placeholder}</span>{' '}
           </>
         ) : (

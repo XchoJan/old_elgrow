@@ -9,29 +9,38 @@ body {
   font-weight: 400;
 }
 
-@mixin adaptive-value($property, $startSize, $minSize, $type) {
-  $addSize: $startSize - $minSize;
-  @if $type==1 {
-    #{$property}: $startSize + px;
+@mixin adaptive-value($property, $start_size, $min_size, $type) {
+  $add_size: $start_size - $min_size;
+
+  // если type равен 1
+  @if $type == 1 {
+    #{$property}: $start_size + px;
+
+    // применить значение для разрешения экрана меньше 1440px
     @media (max-width: #{1440 + px}) {
       #{$property}: calc(
-        #{$minSize + px} + #{$addSize} * ((100vw - 390px) / #{1440 - 390})
+        #{$min_size + px} + #{$add_size} * ((100vw - 390px) / #{1440 - 390})
       );
     }
-  } @else if $type==2 {
-    #{$property}: $startSize + px;
+
+    // если type равен 2
+  } @else if $type == 2 {
+    #{$property}: $start_size + px;
+
+    // применить значение для разрешения экрана больше или равно 1440px
     @media (min-width: #{1440 + px}) {
       #{$property}: calc(
-        #{$minSize + px} + #{$addSize} * ((100vw - 390px) / #{1920 - 390})
+        #{$min_size + px} + #{$add_size} * ((100vw - 390px) / #{1920 - 390})
       );
     }
+
+    // если type не равен 1 или 2
   } @else {
     #{$property}: calc(
-      #{$minSize + px} + #{$addSize} * ((100vw- 390px) / #{1920 - 390})
+      #{$min_size + px} + #{$add_size} * ((100vw - 390px) / #{1920 - 390})
     );
   }
 }
- 
 
 .letterL {
   color: #3ece5d;
