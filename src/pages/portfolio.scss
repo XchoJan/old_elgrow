@@ -78,6 +78,7 @@
 }
 
 .portfolio_image {
+  cursor: pointer;
   padding-top: 31vh;
   @include adaptive-value('width', 549, 150, 1);
   @include adaptive-value('height', 325, 120, 1);
@@ -129,8 +130,6 @@
     bottom: 11vh;
     height: 101px;
   }
-  // margin-top: 4vh;
-  // @include adaptive-value('margin-top', 140, 0, 1);
 }
 .portfolio_pagination_content {
   width: 67.7vw !important;
@@ -189,34 +188,34 @@
     }
     .swiper-wrapper {
       padding-left: 1vw;
-  
+
       @media (max-width: 560px) {
         flex-direction: column;
-  
+
         .swiper-slide {
           display: flex;
           justify-content: center;
           align-items: center;
-  
+
           flex-direction: column;
         }
       }
     }
   }
 }
- 
 
 #logoSlide {
   overflow: hidden;
   transition: 0.5s !important;
   .portfolio_image_first {
+    cursor: pointer;
     @include adaptive-value('width', 549, 150, 1);
     @include adaptive-value('height', 325, 120, 1);
     position: absolute;
     transition: 0.3s;
     @include adaptive-value('right', 5, -110, 1);
-    @media (max-width: 768px){
-      right: -77px
+    @media (max-width: 768px) {
+      right: -77px;
     }
     top: 11vh;
     display: flex;
@@ -230,7 +229,7 @@
     }
     span {
       @include adaptive-value('width', 354, 1, 1);
-      @media (max-width: 768px){
+      @media (max-width: 768px) {
         word-break: break-word;
       }
     }
@@ -254,14 +253,12 @@
     }
     span {
       width: 12vw;
-       
     }
   }
 }
 
 .swiper-slide {
   @media (max-width: 560px) {
-   
   }
 }
 

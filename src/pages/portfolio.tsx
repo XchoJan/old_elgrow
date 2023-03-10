@@ -4,9 +4,11 @@ import React, { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import CallBackMenu from 'src/Components/CallBackMenu';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Mousewheel, Pagination } from 'swiper';
+import { useRouter } from 'next/router';
 
 const Portfolio = () => {
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
+  const router = useRouter();
 
   const [max, setMax]: any = useState(0);
   let firtImageRight: CSSStyleDeclaration | null = null;
@@ -154,7 +156,10 @@ const Portfolio = () => {
                   </h3>
                 </div>
               </div>
-              <div className="portfolio_image_first">
+              <div
+                onClick={() => router.push('/aviationTrainingCenter')}
+                className="portfolio_image_first"
+              >
                 <img src="/images/portfolio1.png" alt="" />
                 <span>
                   Мобильное приложение по управлению <br /> парковками аэропорта
@@ -192,7 +197,6 @@ const Portfolio = () => {
                 }}
               >
                 <SwiperSlide>
-                  {' '}
                   <div className="portfolio_main">
                     <div className="portfolio_main_title">
                       <h1>Портфолио</h1>
@@ -206,7 +210,6 @@ const Portfolio = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  {' '}
                   <div className="portfolio_image">
                     <img src="/images/portfolio2.png" alt="" />
                     <span>
@@ -216,8 +219,10 @@ const Portfolio = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  {' '}
-                  <div className="portfolio_image">
+                  <div
+                    onClick={() => router.push('/aviationTrainingCenter')}
+                    className="portfolio_image"
+                  >
                     <img src="/images/portfolio1.png" alt="" />
                     <span>
                       Мобильное приложение по управлению <br /> парковками
@@ -253,7 +258,10 @@ const Portfolio = () => {
             }}
           >
             <SwiperSlide>
-              <div className="portfolio_image">
+              <div
+                onClick={() => router.push('/aviationTrainingCenter')}
+                className="portfolio_image"
+              >
                 <img src="/images/portfolio1.png" alt="" />
                 <span>
                   Мобильное приложение по управлению <br /> парковками аэропорта
@@ -271,7 +279,10 @@ const Portfolio = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="portfolio_image">
+              <div
+                onClick={() => router.push('/aviationTrainingCenter')}
+                className="portfolio_image"
+              >
                 <img src="/images/portfolio1.png" alt="" />
                 <span>
                   Мобильное приложение по управлению <br /> парковками аэропорта
@@ -303,7 +314,10 @@ const Portfolio = () => {
             }}
           >
             <SwiperSlide>
-              <div className="portfolio_image">
+              <div
+                onClick={() => router.push('/aviationTrainingCenter')}
+                className="portfolio_image"
+              >
                 <img src="/images/portfolio1.png" alt="" />
                 <span>
                   Мобильное приложение по управлению <br /> парковками аэропорта
@@ -311,7 +325,10 @@ const Portfolio = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="portfolio_image">
+              <div
+                onClick={() => router.push('/aviationTrainingCenter')}
+                className="portfolio_image"
+              >
                 <img src="/images/portfolio1.png" alt="" />
                 <span>
                   Мобильное приложение по управлению <br /> парковками аэропорта
@@ -322,7 +339,10 @@ const Portfolio = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="portfolio_image">
+          <div
+            onClick={() => router.push('/aviationTrainingCenter')}
+            className="portfolio_image"
+          >
             <img src="/images/portfolio1.png" alt="" />
             <span>
               Мобильное приложение по управлению <br /> парковками аэропорта
@@ -330,7 +350,10 @@ const Portfolio = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="portfolio_image">
+          <div
+            onClick={() => router.push('/aviationTrainingCenter')}
+            className="portfolio_image"
+          >
             <img src="/images/portfolio1.png" alt="" />
             <span>
               Мобильное приложение по управлению <br /> парковками аэропорта
@@ -338,7 +361,10 @@ const Portfolio = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="portfolio_image">
+          <div
+            onClick={() => router.push('/aviationTrainingCenter')}
+            className="portfolio_image"
+          >
             <img src="/images/portfolio1.png" alt="" />
             <span>
               Мобильное приложение по управлению <br /> парковками аэропорта
@@ -346,7 +372,10 @@ const Portfolio = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="portfolio_image">
+          <div
+            onClick={() => router.push('/aviationTrainingCenter')}
+            className="portfolio_image"
+          >
             <img src="/images/portfolio1.png" alt="" />
             <span>
               Мобильное приложение по управлению <br /> парковками аэропорта
@@ -354,7 +383,10 @@ const Portfolio = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="portfolio_image">
+          <div
+            onClick={() => router.push('/aviationTrainingCenter')}
+            className="portfolio_image"
+          >
             <img src="/images/portfolio1.png" alt="" />
             <span>
               Мобильное приложение по управлению <br /> парковками аэропорта
