@@ -27,6 +27,20 @@ const aviationTrainingCenter = () => {
       </div>
       <div className="aviationTrainingCenter_main_logo">
         <img src="/images/atcHeader.png" alt="" />
+        <div className="aviationTrainingCenter_main_logo_text">
+          <div className="aviationTrainingCenter_main_logo_yearAndLogo">
+            <div className="aviationTrainingCenter_main_logo_yearAndLogo_logo">
+              <img src="/images/utgLogo.svg" alt="" />
+              <span> UTG Group </span>
+            </div>
+             <span> 2022</span>
+          </div>
+          <span> Cистема обучения</span>
+          <span>сотрудников</span>
+          <br /> <span> оператора наземного </span>
+          <br />
+          <span>обслуживания воздушных судов </span>
+        </div>
       </div>
       <div className="aviationTrainingCenter_aboutProject">
         <div className="aviationTrainingCenter_aboutProject_text1">
@@ -373,7 +387,12 @@ const aviationTrainingCenter = () => {
             </div>
           )}
         </div>
-        <div className="aviationTrainingCenter_results_text3"> Собственными силами провели ручное и <br/>пользовательское тестирование. Автотесты<br/> заказчик выполнил своими силами. </div>
+        <div className="aviationTrainingCenter_results_text3">
+          {' '}
+          Собственными силами провели ручное и <br />
+          пользовательское тестирование. Автотесты
+          <br /> заказчик выполнил своими силами.{' '}
+        </div>
       </div>
     </div>
   );
