@@ -124,7 +124,7 @@ const aviationTrainingCenter = () => {
           Необходимо было <span>разобраться</span> в том, что
           <br /> наворочено сейчас, <span>оптимизировать</span> технические
           <br /> процессы, <span>предложить</span> решения и
-          <span>реализовать</span> их
+          <span>&nbsp;реализовать</span> их
           <br /> до промышленной эксплуатации. 
         </div>
         <div className="aviationTrainingCenter_problems_img">
