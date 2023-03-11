@@ -90,7 +90,6 @@
           }
         }
       }
-     
       position: absolute;
       font-family: 'Inter Tight';
       @include adaptive-value('top', 154, 41, 1);
@@ -1115,6 +1114,44 @@
         background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
         background-position: 0 0, 0 0, 100% 0, 0 100%;
         background-repeat: no-repeat;
+
+        @media (max-width: 560px) {
+          background-image: repeating-linear-gradient(
+              120deg,
+              rgba(236, 155, 87, 1),
+              rgba(236, 155, 87, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(236, 155, 87, 1) 11px
+            ),
+            repeating-linear-gradient(
+              210deg,
+              rgba(236, 155, 87, 1),
+              rgba(236, 155, 87, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(236, 155, 87, 1) 11px
+            ),
+            repeating-linear-gradient(
+              -60deg,
+              rgba(236, 155, 87, 1),
+              rgba(236, 155, 87, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(236, 155, 87, 1) 11px
+            ),
+            repeating-linear-gradient(
+              30deg,
+              rgba(236, 155, 87, 1),
+              rgba(236, 155, 87, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(236, 155, 87, 1) 11px
+            );
+          background-size: 1px 100%, 100% 1px, 1px 100%, 100% 1px;
+          background-position: 0 0, 0 0, 100% 0, 0 100%;
+          background-repeat: no-repeat;
+        }
       }
       :nth-child(2) {
         text-align: right;
@@ -1163,6 +1200,44 @@
         background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
         background-position: 0 0, 0 0, 100% 0, 0 100%;
         background-repeat: no-repeat;
+
+        @media (max-width: 560px) {
+          background-image: repeating-linear-gradient(
+              120deg,
+              rgba(62, 206, 93, 1),
+              rgba(62, 206, 93, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(62, 206, 93, 1) 11px
+            ),
+            repeating-linear-gradient(
+              210deg,
+              rgba(62, 206, 93, 1),
+              rgba(62, 206, 93, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(62, 206, 93, 1) 11px
+            ),
+            repeating-linear-gradient(
+              -60deg,
+              rgba(62, 206, 93, 1),
+              rgba(62, 206, 93, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(62, 206, 93, 1) 11px
+            ),
+            repeating-linear-gradient(
+              30deg,
+              rgba(62, 206, 93, 1),
+              rgba(62, 206, 93, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(62, 206, 93, 1) 11px
+            );
+          background-size: 1px 100%, 100% 1px, 1px 100%, 100% 1px;
+          background-position: 0 0, 0 0, 100% 0, 0 100%;
+          background-repeat: no-repeat;
+        }
       }
       :nth-child(3) {
         z-index: 3;
@@ -1210,6 +1285,43 @@
         background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
         background-position: 0 0, 0 0, 100% 0, 0 100%;
         background-repeat: no-repeat;
+        @media (max-width: 560px) {
+          background-image: repeating-linear-gradient(
+              120deg,
+              rgba(57, 100, 216, 1),
+              rgba(57, 100, 216, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(57, 100, 216, 1) 11px
+            ),
+            repeating-linear-gradient(
+              210deg,
+              rgba(57, 100, 216, 1),
+              rgba(57, 100, 216, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(57, 100, 216, 1) 11px
+            ),
+            repeating-linear-gradient(
+              -60deg,
+              rgba(57, 100, 216, 1),
+              rgba(57, 100, 216, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(57, 100, 216, 1) 11px
+            ),
+            repeating-linear-gradient(
+              30deg,
+              rgba(57, 100, 216, 1),
+              rgba(57, 100, 216, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(57, 100, 216, 1) 11px
+            );
+          background-size: 1px 100%, 100% 1px, 1px 100%, 100% 1px;
+          background-position: 0 0, 0 0, 100% 0, 0 100%;
+          background-repeat: no-repeat;
+        }
       }
       .aviationTrainingCenter_results_content_item {
         font-family: 'Inter Tight';
@@ -1221,6 +1333,9 @@
         @include adaptive-value('font-size', 24, 9, 1);
 
         border-radius: 40px;
+        @media (max-width: 560px) {
+          border-radius: 15px;
+        }
       }
     }
     .aviationTrainingCenter_results_text2 {
