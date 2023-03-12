@@ -33,7 +33,7 @@ const aviationTrainingCenter = () => {
               <img src="/images/utgLogo.svg" alt="" />
               <span> UTG Group </span>
             </div>
-             <span> 2022</span>
+            <span> 2022</span>
           </div>
           <span> Cистема обучения</span>
           <span>сотрудников</span>
@@ -80,7 +80,7 @@ const aviationTrainingCenter = () => {
           <span>
             &nbsp;“Работает — {max <= 560 && <br />} не трогай, у нас тут
             самолеты
-            {max >= 1024 || max >= (1440 && <br />)} садятся!”.
+            {max >= 1024 || max >= (1440 && <br />)} садятся!”.  &nbsp; 
             {max <= 560 && <br />}
           </span>
           Нововведения здесь приветствуются примерно как
@@ -98,7 +98,7 @@ const aviationTrainingCenter = () => {
           в общем-то техники, операторы багажа, инженеры по безопасности и
           {max <= 560 && <br />} вот они все получали свои корочки со словом
           {max <= 560 && <br />} “Авиация” с той же долей технических
-          {max <= 768 && max > 560 && <br />} новшеств,  <br /> 
+          {max <= 768 && max > 560 && <br />} новшеств, <br />
           что их деды и прадеды.
         </div>
         <img
@@ -205,11 +205,9 @@ const aviationTrainingCenter = () => {
         <div className="aviationTrainingCenter_development_text2">
           Авторизация и права{max <= 560 && <br />} доступа
         </div>
-        <img
-          className="aviationTrainingCenter_development_arrow1"
-          src="/images/atcArrow.svg"
-          alt=""
-        />
+        <div className="aviationTrainingCenter_development_arrow1">
+          <img src="/images/atcArrow.svg" alt="" />
+        </div>
         <div className="aviationTrainingCenter_development_atcProfile">
           <img src="/images/atcProfile.png" alt="" />
         </div>
