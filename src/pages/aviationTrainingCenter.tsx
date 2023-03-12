@@ -300,7 +300,7 @@ const aviationTrainingCenter = () => {
         <div className="aviationTrainingCenter_development_integration">
           <div className="aviationTrainingCenter_development_integration_history">
             {/* <img src="/images/editCourse.png" alt="" /> */}
-            <img src="/images/atcHistory.png" alt="" />
+            <img src="/images/atcHistory.jpg" alt="" />
           </div>
           <div className="aviationTrainingCenter_development_integration_text">
             Интеграция с системой
