@@ -235,6 +235,7 @@
     }
   }
   .portfolio_image_second {
+    cursor: pointer;
     transition: 0.3s;
     @include adaptive-value('width', 549, 150, 1);
     @include adaptive-value('height', 325, 120, 1);

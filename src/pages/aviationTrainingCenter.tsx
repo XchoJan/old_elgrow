@@ -80,7 +80,7 @@ const aviationTrainingCenter = () => {
           <span>
             &nbsp;“Работает — {max <= 560 && <br />} не трогай, у нас тут
             самолеты
-            {max >= 1024 || max >= (1440 && <br />)} садятся!”.  &nbsp; 
+            {max >= 1024 || max >= (1440 && <br />)} садятся!”. &nbsp;
             {max <= 560 && <br />}
           </span>
           Нововведения здесь приветствуются примерно как
@@ -299,7 +299,6 @@ const aviationTrainingCenter = () => {
         </div>
         <div className="aviationTrainingCenter_development_integration">
           <div className="aviationTrainingCenter_development_integration_history">
-            {/* <img src="/images/editCourse.png" alt="" /> */}
             <img src="/images/atcHistory.jpg" alt="" />
           </div>
           <div className="aviationTrainingCenter_development_integration_text">

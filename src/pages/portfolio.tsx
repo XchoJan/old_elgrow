@@ -165,7 +165,8 @@ const Portfolio = () => {
                   Мобильное приложение по управлению <br /> парковками аэропорта
                 </span>
               </div>
-              <div className="portfolio_image_second">
+              <div     onClick={() => router.push('/nouBrand')}
+              className="portfolio_image_second">
                 <img src="/images/portfolio2.png" alt="" />
                 <span>
                   Интернет-магазин брендовой
@@ -210,7 +211,7 @@ const Portfolio = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <div className="portfolio_image">
+                  <div onClick={() => router.push('/nouBrand')} className="portfolio_image">
                     <img src="/images/portfolio2.png" alt="" />
                     <span>
                       Интернет-магазин брендовой
@@ -270,7 +271,7 @@ const Portfolio = () => {
             </SwiperSlide>
 
             <SwiperSlide id="absoluteSlide">
-              <div className="portfolio_image">
+              <div  onClick={() => router.push('/nouBrand')} className="portfolio_image">
                 <img src="/images/portfolio2.png" alt="" />
                 <span>
                   Интернет-магазин брендовой
