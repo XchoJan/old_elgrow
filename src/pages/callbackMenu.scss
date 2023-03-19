@@ -139,6 +139,7 @@
 
     .callbackMenu_main_staff {
       .callbackMenu_main_staff_politics {
+        width: max-content;
         @include adaptive-value('margin-top', 153, 0, 1);
         color: white;
         font-family: 'Inter Tight';

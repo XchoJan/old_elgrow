@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 interface InputProps {
-  placeholder?: string;
+  placeholder?: ReactNode ;
   type?: string;
   textarea?: boolean;
   reactHookForm?: any;
   error?: string | null;
+  labelHeight?: string
+  marginTop?: string;
+  left?: string
+  marginTopLabel?: string
+  alignItems?: string
 }
 
 const Input: React.FC<InputProps> = ({
@@ -14,19 +19,28 @@ const Input: React.FC<InputProps> = ({
   textarea,
   error,
   reactHookForm,
+  labelHeight,
+  marginTop,
+  left,
+  marginTopLabel,
+  alignItems
 }) => {
   return (
     <>
-      <label className="labelContainer">
+      <label style={{
+        height: labelHeight,
+        marginTop: marginTopLabel,
+        alignItems: alignItems
+      }} className="labelContainer">
         {textarea ? (
           <>
-            <textarea required {...reactHookForm} className="textarea" />
-            <span className="floatingLabel">{placeholder}</span>{' '}
+            <textarea style={{marginTop: marginTop,}} required {...reactHookForm} className="textarea" />
+            <span style={{left: left}} className="floatingLabel">{placeholder}</span>
           </>
         ) : (
           <>
             <input {...reactHookForm} type={type} className="input" required />
-            <span className="floatingLabel">{placeholder}</span>
+            <span style={{left: left}} className="floatingLabel">{placeholder}</span>
           </>
         )}
       </label>

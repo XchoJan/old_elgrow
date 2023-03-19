@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import React, { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import Input from './Input';
+import { useRouter } from 'next/router';
 
 interface Props {
   isOpen: boolean;
@@ -20,6 +21,7 @@ const CallBackMenu: React.FC<Props> = ({
   inline,
 }) => {
   const [max, setMax]: any = useState(0);
+  const router = useRouter();
 
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');
@@ -150,6 +152,7 @@ const CallBackMenu: React.FC<Props> = ({
                 }}
               >
                 <Input
+                  alignItems="center"
                   textarea={idx === 3 ? true : false}
                   placeholder={input}
                 />
@@ -193,6 +196,7 @@ const CallBackMenu: React.FC<Props> = ({
 
           {max <= 768 && (
             <motion.div
+              onClick={() => router.push('/politic')}
               animate={isOpen ? 'open' : 'closed'}
               variants={{
                 open: { opacity: 1, transition: { delay: 1.5 } },
@@ -302,6 +306,7 @@ const CallBackMenu: React.FC<Props> = ({
                   transition: { delay: 0.4 },
                 },
               }}
+              onClick={() => router.push('/brief')}
               className="callbackMenu_main_brief_text2"
             >
               ЗАПОЛНИТЬ БРИФ

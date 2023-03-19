@@ -1,0 +1,52 @@
+.politicContainer {
+  font-family: 'Inter Tight';
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1440px;
+
+  .politicContent {
+    padding-left: 50px;
+    padding-right: 50px;
+    @media(max-width: 560px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    margin-top: 90px;
+    .mainTitle {
+      font-weight: 400;
+      @include adaptive-value('font-size', 80, 30, 1);
+      @include adaptive-value('line-height', 97, 36, 1);
+    }
+
+    .politicItems {
+      margin-top: 83px;
+
+      .politicItem {
+        margin-top: 60px;
+
+        .politicTitle {
+          font-weight: 400;
+          font-size: 24px;
+        }
+
+        .politicText {
+          width: 100%;
+          max-width: 1256px;
+          margin-top: 20px;
+          font-weight: 300;
+          font-size: 20px;
+          line-height: 30px;
+          span {
+            font-weight: 400;
+          }
+        }
+      }
+    }
+    .politicContacts {
+      font-size: 20px;
+      line-height: 32px;
+      margin-top: 60px;
+      font-weight: 400;
+    }
+  }
+}
