@@ -444,7 +444,7 @@ h6 {
   }
 }
 .products_principles {
-  margin-bottom: 30vw;
+  // margin-bottom: 30vw;
   @media (max-width: 560px) {
     margin-bottom: 30vh;
   }
@@ -452,7 +452,7 @@ h6 {
 }
 .products_principles-title {
   display: flex;
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
 
   h1 {
     font-weight: 300;
@@ -528,7 +528,7 @@ h6 {
 }
 
 .websites-content_inner {
-  padding-top: 110px;
+  // padding-top: 110px;
   @include adaptive-value('padding-left', 96, 20, 1);
 }
 
