@@ -177,7 +177,7 @@ const MainPage = () => {
         cash: '500 000 ₽',
         time: 'под ключ',
       },
-      images: ['OpenBank.png', 'Luxxy.png'],
+      images: ['OpenBank.png', 'Luxxy.png', 'nespresso.png'],
       tags: [
         'React native,',
         'Flutter,',
@@ -228,16 +228,15 @@ const MainPage = () => {
         scrollTrigger: {
           trigger: wrapperRef.current,
           pin: true,
-          scrub: 1,     
-      
-        
+          scrub: 1,
+
           end: () => {
             const wrapperWidth = wrapperRef.current.offsetWidth;
             const windowWidth = window.innerWidth;
-            return `+=${wrapperWidth - windowWidth}` 
-          }
-        }
-        }) 
+            return `+=${wrapperWidth - windowWidth}`;
+          },
+        },
+      });
     }, wrapperRef);
     return () => ctx.revert();
   }, []);
@@ -397,7 +396,7 @@ const MainPage = () => {
                               <div>
                                 <img
                                   style={
-                                    image === 'smile.svg'
+                                    image === 'smile.svg'  || image === 'OpenBank.png'
                                       ? { paddingTop: '10px' }
                                       : {}
                                   }
