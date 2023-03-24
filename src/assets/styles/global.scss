@@ -9,6 +9,42 @@ body {
   font-weight: 400;
 }
 
+$desktop: 1440px;
+$tablet: 1024px;
+$mobile: 768px;
+$small-mobile: 390px;
+
+@mixin responsive-size($property, $values...) {
+  $breakpoints: $small-mobile, $mobile, $tablet, $desktop;
+  $num-values: length($values);
+  $range: $desktop - $small-mobile;
+
+  @for $i from 1 through $num-values {
+    $value: nth($values, $i);
+
+    @if $i < $num-values {
+      $next-value: nth($values, $i + 1);
+      $next-breakpoint: nth($breakpoints, $i + 1);
+      $increment: ($next-value - $value) /
+        ($next-breakpoint - nth($breakpoints, $i));
+
+      @if $i == 1 {
+        @media only screen and (max-width: $small-mobile) {
+          #{$property}: $value;
+        }
+      }
+
+      @media only screen and (min-width: nth($breakpoints, $i)) and (max-width: $next-breakpoint - 1) {
+        #{$property}: calc(
+          #{$value} + #{$increment} * (100vw - #{nth($breakpoints, $i)})
+        );
+      }
+    } @else {
+      #{$property}: $value;
+    }
+  }
+}
+
 @mixin adaptive-value($property, $start_size, $min_size, $type) {
   $add_size: $start_size - $min_size;
 
@@ -41,8 +77,6 @@ body {
     );
   }
 }
-
- 
 
 .letterL {
   color: #3ece5d;

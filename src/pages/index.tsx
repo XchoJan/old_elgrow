@@ -25,10 +25,9 @@ import { useRouter } from 'next/router';
 gsap.registerPlugin(ScrollTrigger);
 
 const MainPage = () => {
-
   let viewportWidth: any = 0;
   let viewportHeight: any = 0;
-  
+
   if (typeof window !== 'undefined') {
     viewportWidth = window?.visualViewport?.width;
     viewportHeight = window?.visualViewport?.height;
@@ -45,11 +44,9 @@ const MainPage = () => {
     [0, 400],
     [0, viewportWidth > 560 ? 410 : viewportHeight / 3],
   );
- 
- 
+
   const maxWidth = useTransform(scrollY, [0, 250], ['85vw', '100vw']);
- 
- 
+
   useEffect(() => {
     setMax(window?.visualViewport?.width);
     setMaxHeight(window?.visualViewport?.height);
@@ -225,29 +222,22 @@ const MainPage = () => {
   useEffect(() => {
     const ctx = gsap.context((self: any) => {
       const sections = self.selector('section');
-
       const horizontalTween = gsap.to(sections, {
         xPercent: -100 * (sections.length - 1),
         ease: 'none',
         scrollTrigger: {
           trigger: wrapperRef.current,
           pin: true,
-          snap: {
-            delay: 0,
-            snapTo: 1 / (sections.length - 1),
-            inertia: false,
-            duration: { min: 0.1, max: 0.1 },
-          },
-
-          scrub: 0.5,
-          end: () =>
-            //@ts-ignore
-            '+=' +
-            //@ts-ignore
-            document?.querySelector('#js-wrapper')?.offsetWidth -
-            innerWidth,
-        },
-      });
+          scrub: 1,     
+      
+        
+          end: () => {
+            const wrapperWidth = wrapperRef.current.offsetWidth;
+            const windowWidth = window.innerWidth;
+            return `+=${wrapperWidth - windowWidth}` 
+          }
+        }
+        }) 
     }, wrapperRef);
     return () => ctx.revert();
   }, []);
@@ -317,6 +307,7 @@ const MainPage = () => {
         className="main_img"
       >
         <motion.div
+          onClick={() => router.push('/nouBrand')}
           style={viewportWidth > 768 ? { maxWidth } : { maxWidth: '100vw' }}
           ref={ref}
           className="main_img_box"
@@ -458,7 +449,13 @@ const MainPage = () => {
               })}
             </Swiper>
           </div>
-          <div ref={wrapperRef} id="js-wrapper" className="wrapper">
+          <div
+            ref={wrapperRef}
+            data-scroll
+            data-scroll-id="horizontal-slider"
+            id="js-wrapper"
+            className="wrapper"
+          >
             <section ref={firstRef} className="section horizontal_section">
               <div className="sectionTitle" id="title1">
                 <div className="products_principles">
@@ -1098,7 +1095,10 @@ const MainPage = () => {
           <div className="carusel_inner">
             <div className="carusel_top">
               <span>2023</span>
-              <div className="carusel_top_banner">
+              <div
+                onClick={() => router.push('/aviationTrainingCenter')}
+                className="carusel_top_banner"
+              >
                 <div className="carusel_banner_words">
                   <h1>
                     Найди свое идеальное место для парковки возле себя, не
@@ -1112,11 +1112,11 @@ const MainPage = () => {
                   <img src="/images/phone_banner.jpg" alt="" />{' '}
                 </div>
               </div>
-              <h3>
+              <h3 onClick={() => router.push('/aviationTrainingCenter')}>
                 Мобильное приложение по управлению {max > 560 && <br />}
                 парковками {max <= 560 && <br />} аэропорта
               </h3>
-              <a href="#">
+              <a onClick={() => router.push('/portfolio')}>
                 <p>Все кейсы</p>
 
                 <svg
@@ -1132,7 +1132,10 @@ const MainPage = () => {
             <div className="carusel_bottom">
               <span>2023</span>
 
-              <div className="carusel_bottom_banner">
+              <div
+                onClick={() => router.push('/nouBrand')}
+                className="carusel_bottom_banner"
+              >
                 <div className="carusel_bottom_banner_words">
                   <h1>
                     Интернет-магазин брендовой <br />

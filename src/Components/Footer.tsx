@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import CallBackMenu from './CallBackMenu';
-import Contacts from './Contacts';
+import Contacts from './Contacts';  import { useRouter } from 'next/router';
 
 const Footer = () => {
+  const router = useRouter();
+ 
   const [showMenu, setShowMenu] = useState(false);
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
 
@@ -41,7 +43,7 @@ const Footer = () => {
               <div className="footer_center-wrap_left">
                 <a href="#">Главная</a>
                 <a href="#">Цены</a>
-                <a href="#">Портфолио</a>
+                <a  onClick={() => router.push('/portfolio')}>Портфолио</a>
                 <a
                   style={{ cursor: 'pointer' }}
                   onClick={() => setShowMenu(true)}

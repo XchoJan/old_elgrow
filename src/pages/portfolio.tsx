@@ -1,423 +1,600 @@
 import Header from '../Components/Header';
-import { motion } from 'framer-motion';
+import Menu from '../Components/Menu';
 import React, { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import CallBackMenu from 'src/Components/CallBackMenu';
-import { SwiperSlide, Swiper } from 'swiper/react';
-import { Mousewheel, Pagination } from 'swiper';
+import { Link, animateScroll as scroll } from 'react-scroll';
 import { useRouter } from 'next/router';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Portfolio = () => {
-  const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const [topOffset, setTopOffset] = useState(0);
+  const [showMenu, setShowMenu] = useState(false);
+  const [activeNav, setActiveNav] = useState('');
   const router = useRouter();
 
   const [max, setMax]: any = useState(0);
-  let firtImageRight: CSSStyleDeclaration | null = null;
+
+  const navItems = [{ id: '2023' }, { id: '2022' }];
+
+  const navigation = ['2023', '2022', '2021', '2020', '2019'];
 
   useEffect(() => {
-    let firstImage: any = document.querySelector('.portfolio_image_first');
-
-    if (firstImage) {
-      firtImageRight = window.getComputedStyle(firstImage);
-    }
-
     setMax(window?.visualViewport?.width);
   }, []);
 
-  const navigation = [
-    '2023',
-    '2022',
-    '2021',
-    '2020',
-    '2019',
-    '2018',
-    '2017',
-    '2016',
-  ];
+  function getCurrentBlock() {
+    let currentBlock = navItems[0];
+    navItems.forEach((navItem) => {
+      const block = document.getElementById(navItem.id);
+      const blockTop = block!.getBoundingClientRect().top;
+      if (blockTop < window.innerHeight / 2) {
+        currentBlock = navItem;
+      }
+    });
+    return currentBlock;
+  }
+
+  function setActiveNavItem() {
+    const currentBlock = getCurrentBlock();
+    setActiveNav(currentBlock.id);
+  }
+
+  const handleScroll = () => {
+    const element: any = document.querySelector('#nav');
+    const { top } = element?.getBoundingClientRect();
+
+    setIsSticky(top <= topOffset);
+  };
+
+  useEffect(() => {
+    const element: any = document.querySelector('#nav');
+    const data = element?.getBoundingClientRect();
+    setTopOffset(element?.offsetTop);
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', setActiveNavItem);
+    return () => window.removeEventListener('scroll', setActiveNavItem);
+  }, []);
+
   return (
     <div id="mainContainer">
       <Header />
-      <Swiper
-        id="mainSlider"
-        speed={1000}
-        spaceBetween={45}
-        breakpoints={{
-          320: {
-            slidesPerView: 1,
-            direction: 'vertical',
-            spaceBetween: 100,
-          },
-          561: {
-            slidesPerView: 1,
-            direction: 'horizontal',
-            spaceBetween: 45,
-          },
-        }}
-        onSlideNextTransitionStart={(swiper: any) => {
-          if (max <= 560) {
-            let pagination: HTMLElement | null = document.querySelector(
-              '.portfolio_pagination_content',
-            );
-            pagination!.scrollLeft += 50;
-          }
-        }}
-        onSlidePrevTransitionEnd={(swiper: any) => {
-          if (swiper.activeIndex === 0 && max > 560) {
-            let firstImage: any = document.querySelector(
-              '.portfolio_image_first',
-            );
-            let secondImage: HTMLElement | null = document.querySelector(
-              '.portfolio_image_second',
-            );
-
-            firstImage!.style.right = firtImageRight;
-
-            secondImage!.style.left = '87vw';
-          }
-        }}
-        onSlidePrevTransitionStart={(swiper: any) => {
-          if (max <= 560) {
-            let pagination: HTMLElement | null = document.querySelector(
-              '.portfolio_pagination_content',
-            );
-            pagination!.scrollLeft -= 50;
-          }
-
-          if (swiper.activeIndex === 0 && max > 560) {
-            let pagination: HTMLElement | null = document.querySelector(
-              '.portfolio_pagination_content',
-            );
-            pagination!.style.marginLeft = '68vw';
-          }
-        }}
-        onSlideChangeTransitionStart={(swiper: any) => {
-          if (swiper.activeIndex > 0 && max > 560) {
-            let spanImage: any = document.querySelectorAll('.portfolio_image');
-
-            spanImage.forEach((span: HTMLElement | any) => {
-              span.children[1]!.style.width = 'auto';
-            });
-            let pagination: HTMLElement | null = document.querySelector(
-              '.portfolio_pagination_content',
-            );
-
-            let firstImage: any = document.querySelector(
-              '.portfolio_image_first',
-            );
-
-            firstImage!.style.right = '-600px';
-
-            let secondImage: HTMLElement | null = document.querySelector(
-              '.portfolio_image_second',
-            );
-            secondImage!.style.left = '130vw';
-            let mainSlides = swiper.slides;
-            let activeMainSlide = mainSlides.filter(
-              (slide: HTMLElement | any) => slide.className.includes('active'),
-            );
-            let subSlides = activeMainSlide[0].children[0].children[0];
-
-            Array.from(subSlides.children).forEach(
-              (slide: HTMLElement | any) => {
-                slide!.style.width = 'max-content';
-              },
-            );
-
-            pagination!.style.marginLeft = '31%';
-          }
-        }}
-        pagination={{
-          el: '.portfolio_pagination_content',
-          type: 'bullets',
-          clickable: true,
-          bulletClass: 'portfolio_pagination_content_year',
-          bulletActiveClass: 'portfolio_pagination_content_year_active',
-          renderBullet: function (index, className) {
-            return (
-              '<span class="' + className + '">' + navigation[index] + '</span>'
-            );
-          },
-        }}
-        modules={[Mousewheel, Pagination]}
-        mousewheel={{
-          invert: false,
-        }}
-      >
-        <SwiperSlide id="logoSlide">
-          {max > 560 ? (
-            <>
-              <div className="portfolio_main">
-                <div className="portfolio_main_title">
-                  <h1>Портфолио</h1>
-                </div>
-                <div className="portfolio_main_content">
-                  <h3>
-                    Еще оформляем, но обо всех кейсах <br />
-                    можем рассказать лично
-                  </h3>
-                </div>
-              </div>
-              <div
-                onClick={() => router.push('/aviationTrainingCenter')}
-                className="portfolio_image_first"
-              >
-                <img src="/images/portfolio1.png" alt="" />
-                <span>
-                  Мобильное приложение по управлению <br /> парковками аэропорта
-                </span>
-              </div>
-              <div     onClick={() => router.push('/nouBrand')}
-              className="portfolio_image_second">
-                <img src="/images/portfolio2.png" alt="" />
-                <span>
-                  Интернет-магазин брендовой
-                  <br /> женской одежды
-                </span>
-              </div>
-            </>
-          ) : (
-            <>
-              <Swiper
-                id="firstSlideOnPhone"
-                breakpoints={{
-                  320: {
-                    slidesPerView: 2,
-                    direction: 'vertical',
-                    spaceBetween: 45,
-                  },
-                  561: {
-                    slidesPerView: 2,
-                    direction: 'horizontal',
-                    spaceBetween: 45,
-                  },
-                }}
-                spaceBetween={45}
-                slidesPerView={2}
-                modules={[Mousewheel]}
-                mousewheel={{
-                  invert: false,
-                }}
-              >
-                <SwiperSlide>
-                  <div className="portfolio_main">
-                    <div className="portfolio_main_title">
-                      <h1>Портфолио</h1>
-                    </div>
-                    <div className="portfolio_main_content">
-                      <h3>
-                        Еще оформляем, но обо всех кейсах <br />
-                        можем рассказать лично
-                      </h3>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div onClick={() => router.push('/nouBrand')} className="portfolio_image">
-                    <img src="/images/portfolio2.png" alt="" />
-                    <span>
-                      Интернет-магазин брендовой
-                      <br /> женской одежды
+      <Menu isOpen={showMenu} close={setShowMenu} />
+      <div className="portfolio_main">
+        <div className="portfolio_main_title">
+          <h1>Портфолио</h1>
+        </div>
+        <div className="portfolio_main_text">
+          <h3>
+            Еще оформляем, но обо всех кейсах <br />
+            можем рассказать лично
+          </h3>
+        </div>
+        <div className="logoImage">
+          <img src="/images/portfolioLogo.png" alt="" />
+        </div>
+        <div id={navItems[0].id} className="projects2023">
+          <div    onClick={() => router.push('/nouBrand')} className="NOUproject">
+            {max > 560 ? (
+              <>
+                <LazyLoadImage
+                  placeholderSrc={'/images/NOULogo.png'}
+                  effect="blur"
+                  src={'/images/NOULogo.png'}
+                  alt=""
+                />
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> e-commerce сайт</span>
+                    <span className="projectTitle">
+                      Интернет-магазин брендовой женской
+                      <br /> одежды
                     </span>
                   </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div
-                    onClick={() => router.push('/aviationTrainingCenter')}
-                    className="portfolio_image"
-                  >
-                    <img src="/images/portfolio1.png" alt="" />
-                    <span>
-                      Мобильное приложение по управлению <br /> парковками
-                      аэропорта
+                  <span className="projectYear"> 2023</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> e-commerce сайт</span>
+                  </div>
+                  <span className="projectYear"> 2023</span>
+                </div>
+                <LazyLoadImage
+                  placeholderSrc={'/images/NOULogo.png'}
+                  effect="blur"
+                  src={'/images/NOULogo.png'}
+                  alt=""
+                />
+                <span className="projectTitle">
+                  Интернет-магазин брендовой женской
+                  <br /> одежды
+                </span>
+              </>
+            )}
+          </div>
+          <div    onClick={() => router.push('/nouBrand')} className="NOUproject">
+            {max > 560 ? (
+              <>
+                <LazyLoadImage
+                  placeholderSrc={'/images/NOULogo.png'}
+                  effect="blur"
+                  src={'/images/NOULogo.png'}
+                  alt=""
+                />
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> e-commerce сайт</span>
+                    <span className="projectTitle">
+                      Интернет-магазин брендовой женской
+                      <br /> одежды
                     </span>
                   </div>
-                </SwiperSlide>
-              </Swiper>
-            </>
+                  <span className="projectYear"> 2023</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> e-commerce сайт</span>
+                  </div>
+                  <span className="projectYear"> 2023</span>
+                </div>
+                <LazyLoadImage
+                  placeholderSrc={'/images/NOULogo.png'}
+                  effect="blur"
+                  src={'/images/NOULogo.png'}
+                  alt=""
+                />
+                <span className="projectTitle">
+                  Интернет-магазин брендовой женской
+                  <br /> одежды
+                </span>
+              </>
+            )}
+          </div>{' '}
+          <div    onClick={() => router.push('/nouBrand')} className="NOUproject">
+            {max > 560 ? (
+              <>
+                <LazyLoadImage
+                  placeholderSrc={'/images/NOULogo.png'}
+                  effect="blur"
+                  src={'/images/NOULogo.png'}
+                  alt=""
+                />
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> e-commerce сайт</span>
+                    <span className="projectTitle">
+                      Интернет-магазин брендовой женской
+                      <br /> одежды
+                    </span>
+                  </div>
+                  <span className="projectYear"> 2023</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> e-commerce сайт</span>
+                  </div>
+                  <span className="projectYear"> 2023</span>
+                </div>
+                <LazyLoadImage
+                  placeholderSrc={'/images/NOULogo.png'}
+                  effect="blur"
+                  src={'/images/NOULogo.png'}
+                  alt=""
+                />
+                <span className="projectTitle">
+                  Интернет-магазин брендовой женской
+                  <br /> одежды
+                </span>
+              </>
+            )}
+          </div>{' '}
+          <div    onClick={() => router.push('/nouBrand')} className="NOUproject">
+            {max > 560 ? (
+              <>
+                <LazyLoadImage
+                  placeholderSrc={'/images/NOULogo.png'}
+                  effect="blur"
+                  src={'/images/NOULogo.png'}
+                  alt=""
+                />
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> e-commerce сайт</span>
+                    <span className="projectTitle">
+                      Интернет-магазин брендовой женской
+                      <br /> одежды
+                    </span>
+                  </div>
+                  <span className="projectYear"> 2023</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> e-commerce сайт</span>
+                  </div>
+                  <span className="projectYear"> 2023</span>
+                </div>
+                <LazyLoadImage
+                  placeholderSrc={'/images/NOULogo.png'}
+                  effect="blur"
+                  src={'/images/NOULogo.png'}
+                  alt=""
+                />
+                <span className="projectTitle">
+                  Интернет-магазин брендовой женской
+                  <br /> одежды
+                </span>
+              </>
+            )}
+          </div>{' '}
+          <div    onClick={() => router.push('/nouBrand')} className="NOUproject">
+            {max > 560 ? (
+              <>
+                <LazyLoadImage
+                  placeholderSrc={'/images/NOULogo.png'}
+                  effect="blur"
+                  src={'/images/NOULogo.png'}
+                  alt=""
+                />
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> e-commerce сайт</span>
+                    <span className="projectTitle">
+                      Интернет-магазин брендовой женской
+                      <br /> одежды
+                    </span>
+                  </div>
+                  <span className="projectYear"> 2023</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> e-commerce сайт</span>
+                  </div>
+                  <span className="projectYear"> 2023</span>
+                </div>
+                <LazyLoadImage
+                  placeholderSrc={'/images/NOULogo.png'}
+                  effect="blur"
+                  src={'/images/NOULogo.png'}
+                  alt=""
+                />
+                <span className="projectTitle">
+                  Интернет-магазин брендовой женской
+                  <br /> одежды
+                </span>
+              </>
+            )}
+          </div>
+        </div>
+        <div id={navItems[1].id} className="projects2022">
+          <div       onClick={() => router.push('/aviationTrainingCenter')} className="AUZProject">
+            {max > 560 ? (
+              <>
+                <LazyLoadImage
+                  placeholderSrc={'/images/portfolioAUZ.png'}
+                  effect="blur"
+                  src={'/images/portfolioAUZ.png'}
+                  alt=""
+                />
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> веб-сервис</span>
+                    <span className="projectTitle">
+                      Система обучения сотрудников
+                      <br />
+                      оператора наземного обслуживания
+                      <br /> воздушных судов
+                    </span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType">веб-сервис</span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+                <LazyLoadImage
+                  placeholderSrc={'/images/portfolioAUZ.png'}
+                  effect="blur"
+                  src={'/images/portfolioAUZ.png'}
+                  alt=""
+                />
+                <span className="projectTitle">
+                  Система обучения сотрудников
+                  <br />
+                  оператора наземного обслуживания
+                  <br /> воздушных судов
+                </span>
+              </>
+            )}
+          </div>
+          <div       onClick={() => router.push('/aviationTrainingCenter')} className="AUZProject">
+            {max > 560 ? (
+              <>
+                <LazyLoadImage
+                  placeholderSrc={'/images/portfolioAUZ.png'}
+                  effect="blur"
+                  src={'/images/portfolioAUZ.png'}
+                  alt=""
+                />
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> веб-сервис</span>
+                    <span className="projectTitle">
+                      Система обучения сотрудников
+                      <br />
+                      оператора наземного обслуживания
+                      <br /> воздушных судов
+                    </span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType">веб-сервис</span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+                <LazyLoadImage
+                  placeholderSrc={'/images/portfolioAUZ.png'}
+                  effect="blur"
+                  src={'/images/portfolioAUZ.png'}
+                  alt=""
+                />
+                <span className="projectTitle">
+                  Система обучения сотрудников
+                  <br />
+                  оператора наземного обслуживания
+                  <br /> воздушных судов
+                </span>
+              </>
+            )}
+          </div>
+          <div       onClick={() => router.push('/aviationTrainingCenter')} className="AUZProject">
+            {max > 560 ? (
+              <>
+                <LazyLoadImage
+                  placeholderSrc={'/images/portfolioAUZ.png'}
+                  effect="blur"
+                  src={'/images/portfolioAUZ.png'}
+                  alt=""
+                />
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> веб-сервис</span>
+                    <span className="projectTitle">
+                      Система обучения сотрудников
+                      <br />
+                      оператора наземного обслуживания
+                      <br /> воздушных судов
+                    </span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType">веб-сервис</span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+                <LazyLoadImage
+                  placeholderSrc={'/images/portfolioAUZ.png'}
+                  effect="blur"
+                  src={'/images/portfolioAUZ.png'}
+                  alt=""
+                />
+                <span className="projectTitle">
+                  Система обучения сотрудников
+                  <br />
+                  оператора наземного обслуживания
+                  <br /> воздушных судов
+                </span>
+              </>
+            )}
+          </div>
+          <div       onClick={() => router.push('/aviationTrainingCenter')} className="AUZProject">
+            {max > 560 ? (
+              <>
+                <LazyLoadImage
+                  placeholderSrc={'/images/portfolioAUZ.png'}
+                  effect="blur"
+                  src={'/images/portfolioAUZ.png'}
+                  alt=""
+                />
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> веб-сервис</span>
+                    <span className="projectTitle">
+                      Система обучения сотрудников
+                      <br />
+                      оператора наземного обслуживания
+                      <br /> воздушных судов
+                    </span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType">веб-сервис</span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+                <LazyLoadImage
+                  placeholderSrc={'/images/portfolioAUZ.png'}
+                  effect="blur"
+                  src={'/images/portfolioAUZ.png'}
+                  alt=""
+                />
+                <span className="projectTitle">
+                  Система обучения сотрудников
+                  <br />
+                  оператора наземного обслуживания
+                  <br /> воздушных судов
+                </span>
+              </>
+            )}
+          </div>
+          <div        onClick={() => router.push('/aviationTrainingCenter')} className="AUZProject">
+            {max > 560 ? (
+              <>
+                <LazyLoadImage
+                  placeholderSrc={'/images/portfolioAUZ.png'}
+                  effect="blur"
+                  src={'/images/portfolioAUZ.png'}
+                  alt=""
+                />
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> веб-сервис</span>
+                    <span className="projectTitle">
+                      Система обучения сотрудников
+                      <br />
+                      оператора наземного обслуживания
+                      <br /> воздушных судов
+                    </span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType">веб-сервис</span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+                <LazyLoadImage
+                  placeholderSrc={'/images/portfolioAUZ.png'}
+                  effect="blur"
+                  src={'/images/portfolioAUZ.png'}
+                  alt=""
+                />
+                <span className="projectTitle">
+                  Система обучения сотрудников
+                  <br />
+                  оператора наземного обслуживания
+                  <br /> воздушных судов
+                </span>
+              </>
+            )}
+          </div>
+        </div>
+
+        <div id="nav" className="portfolio_pagination_container">
+          <div className="portfolio_pagination_content">
+            <Link
+              to="2023"
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-100}
+              className={
+                activeNav === '2023'
+                  ? 'portfolio_year_active'
+                  : 'portfolio_year'
+              }
+            >
+              2023{' '}
+            </Link>
+            <Link
+              to="2022"
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-100}
+              className={
+                activeNav === '2022'
+                  ? 'portfolio_year_active'
+                  : 'portfolio_year'
+              }
+            >
+              2022{' '}
+            </Link>
+            <span className="portfolio_year">2021</span>
+            <span className="portfolio_year">2020</span>
+          </div>
+
+          {isSticky && (
+            <div id="nav2" className="portfolio_pagination_container_fixed">
+              <div className="portfolio_pagination_content">
+                <Link
+                  to="2023"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  offset={-100}
+                  className={
+                    activeNav === '2023'
+                      ? 'portfolio_year_active'
+                      : 'portfolio_year'
+                  }
+                >
+                  2023{' '}
+                </Link>
+
+                <Link
+                  to="2022"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  offset={-100}
+                  className={
+                    activeNav === '2022'
+                      ? 'portfolio_year_active'
+                      : 'portfolio_year'
+                  }
+                >
+                  2022
+                </Link>
+                <span className="portfolio_year">2021</span>
+                <span className="portfolio_year">2020</span>
+                {max > 560 && (
+                  <div onClick={() => setShowMenu(true)} className="after_logo">
+                    <img id="burger2" src="/images/burger2.svg" alt="" />
+                    <img id="burger1" src="/images/burger.svg" alt="" />
+                  </div>
+                )}
+              </div>
+            </div>
           )}
-        </SwiperSlide>
-        <SwiperSlide>
-          <Swiper
-            breakpoints={{
-              320: {
-                slidesPerView: 2,
-                direction: 'vertical',
-                spaceBetween: 45,
-              },
-              561: {
-                slidesPerView: 2,
-                direction: 'horizontal',
-                spaceBetween: 45,
-              },
-            }}
-            speed={1000}
-            nested={true}
-            spaceBetween={45}
-            slidesPerView={2}
-            modules={[Mousewheel]}
-            mousewheel={{
-              invert: false,
-            }}
-          >
-            <SwiperSlide>
-              <div
-                onClick={() => router.push('/aviationTrainingCenter')}
-                className="portfolio_image"
-              >
-                <img src="/images/portfolio1.png" alt="" />
-                <span>
-                  Мобильное приложение по управлению <br /> парковками аэропорта
-                </span>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide id="absoluteSlide">
-              <div  onClick={() => router.push('/nouBrand')} className="portfolio_image">
-                <img src="/images/portfolio2.png" alt="" />
-                <span>
-                  Интернет-магазин брендовой
-                  <br /> женской одежды
-                </span>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div
-                onClick={() => router.push('/aviationTrainingCenter')}
-                className="portfolio_image"
-              >
-                <img src="/images/portfolio1.png" alt="" />
-                <span>
-                  Мобильное приложение по управлению <br /> парковками аэропорта
-                </span>
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Swiper
-            breakpoints={{
-              320: {
-                slidesPerView: 2,
-                direction: 'vertical',
-                spaceBetween: 92,
-              },
-              561: {
-                slidesPerView: 2,
-                direction: 'horizontal',
-                spaceBetween: 45,
-              },
-            }}
-            spaceBetween={45}
-            slidesPerView={2}
-            modules={[Mousewheel]}
-            mousewheel={{
-              invert: false,
-            }}
-          >
-            <SwiperSlide>
-              <div
-                onClick={() => router.push('/aviationTrainingCenter')}
-                className="portfolio_image"
-              >
-                <img src="/images/portfolio1.png" alt="" />
-                <span>
-                  Мобильное приложение по управлению <br /> парковками аэропорта
-                </span>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div
-                onClick={() => router.push('/aviationTrainingCenter')}
-                className="portfolio_image"
-              >
-                <img src="/images/portfolio1.png" alt="" />
-                <span>
-                  Мобильное приложение по управлению <br /> парковками аэропорта
-                </span>
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <div
-            onClick={() => router.push('/aviationTrainingCenter')}
-            className="portfolio_image"
-          >
-            <img src="/images/portfolio1.png" alt="" />
-            <span>
-              Мобильное приложение по управлению <br /> парковками аэропорта
-            </span>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            onClick={() => router.push('/aviationTrainingCenter')}
-            className="portfolio_image"
-          >
-            <img src="/images/portfolio1.png" alt="" />
-            <span>
-              Мобильное приложение по управлению <br /> парковками аэропорта
-            </span>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            onClick={() => router.push('/aviationTrainingCenter')}
-            className="portfolio_image"
-          >
-            <img src="/images/portfolio1.png" alt="" />
-            <span>
-              Мобильное приложение по управлению <br /> парковками аэропорта
-            </span>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            onClick={() => router.push('/aviationTrainingCenter')}
-            className="portfolio_image"
-          >
-            <img src="/images/portfolio1.png" alt="" />
-            <span>
-              Мобильное приложение по управлению <br /> парковками аэропорта
-            </span>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            onClick={() => router.push('/aviationTrainingCenter')}
-            className="portfolio_image"
-          >
-            <img src="/images/portfolio1.png" alt="" />
-            <span>
-              Мобильное приложение по управлению <br /> парковками аэропорта
-            </span>
-          </div>
-        </SwiperSlide>
-      </Swiper>
-      <div className="portfolio_pagination_container">
-        <div className="portfolio_pagination_content"></div>
+        </div>
       </div>
-
-      <motion.div
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-          transition: { duration: 0.8 },
-        }}
-        onClick={() => setVisibleCallbackMenu(true)}
-        className="portfolio_client"
-      >
-        <span> СТАТЬ КЛИЕНТОМ</span>
-      </motion.div>
-      <CallBackMenu
-        y="0"
-        x="0"
-        isOpen={isVisibleCallbackMenu}
-        close={setVisibleCallbackMenu}
-      />
     </div>
   );
 };

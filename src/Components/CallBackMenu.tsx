@@ -268,6 +268,7 @@ const CallBackMenu: React.FC<Props> = ({
             </motion.div>
             {max > 768 && (
               <motion.div
+              onClick={() => router.push('/politic')}
                 animate={isOpen ? 'open' : 'closed'}
                 variants={{
                   open: { opacity: 1, transition: { delay: 1.5 } },

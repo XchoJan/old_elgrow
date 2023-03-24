@@ -1,13 +1,14 @@
 .politicContainer {
   font-family: 'Inter Tight';
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1440px;
 
   .politicContent {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1440px;
     padding-left: 50px;
     padding-right: 50px;
-    @media(max-width: 560px) {
+    padding-bottom: 200px;
+    @media (max-width: 560px) {
       padding-left: 20px;
       padding-right: 20px;
     }

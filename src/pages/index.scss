@@ -13,7 +13,6 @@
 @import './politic.scss';
 @import './brief.scss';
 
-
 h1,
 h2,
 h3,
@@ -81,12 +80,13 @@ h6 {
     background: #000000;
     position: relative;
     @include adaptive-value('height', 815, 263, 1);
-
     background-image: url('../../public/images/1_main1920.png');
     background-repeat: no-repeat;
     background-position: bottom right;
-
-    background-size: 100% 100%;
+    background-size: 100% ;
+    @media(max-width: 1440px){
+      background-size: 100% 100% ;
+    }
 
     cursor: none;
     img {
@@ -528,6 +528,9 @@ h6 {
 }
 
 .websites-content_inner {
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
   // padding-top: 110px;
   @include adaptive-value('padding-left', 96, 20, 1);
 }
@@ -535,12 +538,13 @@ h6 {
 .websites-content_inner-title {
   display: flex;
   justify-content: flex-start;
+  h1 {
+    font-weight: 300;
+    @include adaptive-value('font-size', 80, 36, 1);
+    color: #000000;
+  }
 }
-.websites-content_inner-title h1 {
-  font-weight: 300;
-  @include adaptive-value('font-size', 80, 36, 1);
-  color: #000000;
-}
+
 .websites-content_inner-body {
   display: flex;
   padding-top: 34px;
@@ -729,7 +733,7 @@ h6 {
 }
 
 .wrapper .section .sectionTitle {
-  margin-top: 80px;
+   
   position: absolute;
   width: 100%;
 }

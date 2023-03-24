@@ -1,270 +1,257 @@
-.portfolio_main {
-  padding-top: 15vh;
-  @media (max-height: 800px) {
-    padding-top: 10vh;
-  }
-
-  @include adaptive-value('padding-left', 192, 19, 1);
-
-  @media (max-width: 560px) {
-    width: 100vw;
-    padding-left: 0px;
-    padding-top: 0px;
-    padding-bottom: 10vh;
-  }
-  .portfolio_main_title {
-    h1 {
-      font-weight: 300;
-      @include adaptive-value('font-size', 80, 45, 1);
-      color: #000000;
-      @media (max-width: 560px) {
-        padding-left: 10vw;
-      }
-    }
-  }
-
-  .portfolio_main_content {
-    display: flex;
-    @include adaptive-value('padding-left', 180, 69, 1);
-
-    @media (max-width: 560px) {
-      padding-left: 25vw;
-      padding-top: 0px;
-    }
-    h3 {
-      font-weight: 300;
-      @include adaptive-value('font-size', 20, 12, 1);
-      text-align: right;
-      color: #000000;
-      position: relative;
-
-      &::before {
-        content: '';
-        position: absolute;
-        @include adaptive-value('width', 22, 16, 1);
-        @include adaptive-value('height', 22, 16, 1);
-        border-top: 3px solid #3ece5d;
-        border-right: 3px solid #3ece5d;
-        right: -15px;
-        top: -14px;
-      }
-    }
-  }
-}
-.portfolio_client {
-  transition: 0.5s;
-  &:hover {
-    background: #1a9634;
-  }
-  cursor: pointer;
-  text-align: left;
-  border-radius: 0% 100% 0% 0%;
-  @include adaptive-value('width', 175, 95, 1);
-  @include adaptive-value('height', 132, 91, 1);
-  background-color: #3ece5d;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  font-family: 'Inter Tight';
-  font-weight: 400;
-  @include adaptive-value('font-size', 20, 12, 1);
-  color: white;
-  span {
-    width: 100px;
-    position: absolute;
-    @include adaptive-value('bottom', 28, 21, 1);
-    left: 15%;
-  }
-}
-
-.portfolio_image {
-  cursor: pointer;
-  padding-top: 31vh;
-  @include adaptive-value('width', 549, 150, 1);
-  @include adaptive-value('height', 325, 120, 1);
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  img {
-    object-fit: cover;
-  }
-
-  @media (max-width: 560px) {
-    width: max-content;
-    padding-top: 0px;
-    height: 25vh !important;
-    padding-bottom: 50px;
-    img {
-      padding-bottom: 20px;
-      object-fit: contain;
-      height: 25vh !important;
-    }
-  }
-
-  span {
-    width: 54%;
-    @media (max-width: 560px) {
-      margin-top: 0px;
-      width: auto;
-    }
-    transition: 0.2s;
-    margin-top: 20px;
+ 
+  .portfolio_main {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1920px;
+    @include responsive-size(padding-left, 20px, 54px, 54px, 54px);
+    @include responsive-size(padding-right, 20px, 54px, 54px, 54px);
     font-family: 'Inter Tight';
-    font-weight: 400;
-    @include adaptive-value('font-size', 16, 12, 1);
-    line-height: 140%;
-  }
-}
-
-.portfolio_pagination_container {
-  width: 100vw;
-  bottom: 5vh;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  justify-content: flex-end;
-  @media (max-width: 560px) {
-    padding-left: 33px;
-    padding-right: 33px;
-    bottom: 11vh;
-    height: 101px;
-  }
-}
-.portfolio_pagination_content {
-  width: 67.7vw !important;
-  transition: 0.5s;
-  display: flex;
-  justify-content: space-between;
-  @include adaptive-value('font-size', 24, 10, 1);
-  margin-left: 68%;
-  @media (max-width: 560px) {
-    width: 100% !important;
-    font-size: 16px;
-    margin-left: 0px;
-    gap: 50px;
-    overflow-x: auto;
-    &::-webkit-scrollbar {
-      height: 0px !important;
-    }
-  }
-  font-family: 'Inter Tight';
-
-  justify-content: space-between;
-  font-weight: 400;
-
-  padding-bottom: 18px;
-
-  border-bottom: 1px solid #dfdede;
-  &:nth-child(1n) {
-    padding-left: 10px;
-  }
-  .portfolio_pagination_content_year {
-    cursor: pointer;
-    padding-bottom: 10px;
-    font-family: 'Inter Tight';
-    font-weight: 300;
-  }
-  .portfolio_pagination_content_year_active {
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      width: 70px;
-      height: 1px;
-      left: -10px;
-      bottom: -18px;
-      background: green;
-    }
-  }
-}
-
-#mainContainer {
-  .swiper {
-    height: 66vh !important;
-    @media (max-width: 560px) {
-      height: 60vh !important;
-      // margin-left: 8px !important;
-    }
-    .swiper-wrapper {
-      padding-left: 1vw;
-
+    padding-bottom: 400px;
+    margin-top: 150px;
+    .projects2023 {
+      margin-top: 224px;
       @media (max-width: 560px) {
-        flex-direction: column;
-
-        .swiper-slide {
+        margin-top: 165px;
+      }
+      img {
+        @include responsive-size(width, 350px, 311px, 470px, 768px);
+        @include responsive-size(height, 205px, 183px, 277px, 454px);
+  
+        @media (max-width: 389px) {
+          width: 91vw;
+          height: 205px;
+        }
+        object-fit: cover;
+        @media (max-width: 560px) {
+          margin-bottom: 20px;
+        }
+      }
+      .NOUproject {
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #d9d9d9;
+        @media (max-width: 560px) {
+          flex-direction: column;
+        }
+        .description {
           display: flex;
-          justify-content: center;
-          align-items: center;
-
+          flex-direction: column;
+          justify-content: space-between;
+          @media (max-width: 560px) {
+            flex-direction: row;
+            align-items: center;
+            padding-bottom: 15px;
+          }
+  
+          .descriptionContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .projectType {
+              position: relative;
+              @include responsive-size(font-size, 16px, 16px, 20px, 20px);
+              font-weight: 300;
+              &::after {
+                content: '';
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: #3ece5d;
+                margin-left: 10px;
+              }
+            }
+            .projectTitle {
+              @include responsive-size(font-size, 18px, 18px, 20px, 24px);
+              font-weight: 400;
+            }
+          }
+          .projectYear {
+            @include responsive-size(font-size, 16px, 16px, 20px, 20px);
+            font-weight: 300;
+          }
+        }
+      }
+      .AUZProject {
+        @extend .NOUproject;
+        flex-direction: row-reverse;
+        @media (max-width: 560px) {
           flex-direction: column;
         }
       }
     }
-  }
-}
-
-#logoSlide {
-  overflow: hidden;
-  transition: 0.5s !important;
-  .portfolio_image_first {
-    cursor: pointer;
-    @include adaptive-value('width', 549, 150, 1);
-    @include adaptive-value('height', 325, 120, 1);
-    position: absolute;
-    transition: 0.3s;
-    @include adaptive-value('right', 5, -110, 1);
-    @media (max-width: 768px) {
-      right: -77px;
+    .projects2022 {
+      @extend .projects2023;
+      margin-top: 50px;
     }
-    top: 11vh;
-    display: flex;
-    flex-direction: column;
-    @include adaptive-value('gap', 20, 10, 1);
-    font-family: 'Inter Tight';
-    font-weight: 300;
-    @include adaptive-value('font-size', 16, 12, 1);
-    img {
-      object-fit: cover;
+  
+    .portfolio_main_title {
+      h1 {
+        font-weight: 300;
+        @include responsive-size(font-size, 32px, 45px, 60px, 80px);
+        color: #000000;
+      }
     }
-    span {
-      @include adaptive-value('width', 354, 1, 1);
-      @media (max-width: 768px) {
-        word-break: break-word;
+  
+    .portfolio_main_text {
+      display: flex;
+      @include responsive-size(padding-left, 59px, 118px, 183px, 334px);
+  
+      h3 {
+        font-weight: 300;
+        @include adaptive-value('font-size', 20, 12, 1);
+        text-align: right;
+        color: #000000;
+        position: relative;
+  
+        &::before {
+          content: '';
+          position: absolute;
+          @include adaptive-value('width', 22, 16, 1);
+          @include adaptive-value('height', 22, 16, 1);
+          border-top: 3px solid #3ece5d;
+          border-right: 3px solid #3ece5d;
+          right: -15px;
+          top: -14px;
+        }
+      }
+    }
+    .logoImage {
+      @include responsive-size(width, 160px, 202px, 308px, 308px);
+      @include responsive-size(height, 65px, 82px, 125px, 125px);
+      img {
+        @include responsive-size(width, 160px, 202px, 308px, 308px);
+        @include responsive-size(height, 71px, 82px, 125px, 125px);
+        @media (max-width: 560px) {
+          object-fit: cover;
+        }
+      }
+      margin-top: 80px;
+      @include responsive-size(padding-left, 174px, 400px, 514px, 835px);
+      @media (max-width: 389px) {
+        padding-left: 10vw;
+      }
+    }
+    .portfolio_pagination_container {
+      @include responsive-size(top, 593px, 693px, 768px, 840px);
+  
+      width: calc(100vw - 108px);
+      @media (max-width: 560px) {
+        width: calc(100vw - 40px);
+      }
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+  
+      .portfolio_pagination_content {
+        position: relative;
+        overflow: auto;
+        width: calc(100vw - 108px);
+        @media (max-width: 560px) {
+          &::-webkit-scrollbar {
+            height: 0px !important;
+          }
+          width: calc(100vw - 40px);
+        }
+        transition: 0.5s;
+        display: flex;
+        gap: 65px;
+        height: 50px;
+        font-family: 'Inter Tight';
+        font-weight: 400;
+        padding-bottom: 18px;
+        border-bottom: 1px solid #d9d9d9;
+  
+        .portfolio_year {
+          @include responsive-size(font-size, 14px, 16px, 18px, 20px);
+          cursor: pointer;
+          padding-bottom: 10px;
+          font-family: 'Inter Tight';
+          font-weight: 300;
+          transition: 0.5s;
+          position: relative;
+          &:hover {
+            font-size: 24px;
+            &::before {
+              content: '';
+              position: absolute;
+              width: 70px;
+              height: 1px;
+              left: -10px;
+              bottom: -18px;
+              background: #3ece5d;
+            }
+          }
+        }
+        .portfolio_year_active {
+          cursor: pointer;
+          @include responsive-size(font-size, 18px, 20px, 22px, 24px);
+          transition: 0.5s;
+          position: relative;
+          &::before {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 1px;
+            left: -10px;
+            bottom: -18px;
+            background: #3ece5d;
+          }
+        }
+      }
+    }
+    .portfolio_pagination_container_fixed {
+      @extend .portfolio_pagination_container;
+      padding-top: 36px;
+      position: fixed;
+      top: 0px;
+      background: white;
+      @media (max-width: 560px) {
+        padding-top: 18px;
+      }
+      .after_logo {
+        position: absolute;
+        cursor: pointer;
+        right: 1px;
+        top: 1px;
+        h2 {
+          opacity: 1;
+          transition: 0.3s;
+          font-weight: 400;
+          font-size: 12px;
+          text-align: right;
+          text-transform: uppercase;
+          color: #000000;
+        }
+  
+        img {
+          top: 15px;
+          transition: 0.3s;
+          opacity: 1;
+        }
+        #burger2 {
+          top: 0px;
+          position: absolute;
+          width: 52px;
+          opacity: 0;
+        }
+  
+        &:hover {
+          img {
+            transition: 0.3s;
+          }
+          #burger2 {
+            opacity: 1;
+          }
+          #burger1 {
+            opacity: 0;
+          }
+        }
       }
     }
   }
-  .portfolio_image_second {
-    cursor: pointer;
-    transition: 0.3s;
-    @include adaptive-value('width', 549, 150, 1);
-    @include adaptive-value('height', 325, 120, 1);
-    position: absolute;
+ 
 
-    left: 87vw;
-    top: 16vh;
-    display: flex;
-    flex-direction: column;
-    @include adaptive-value('gap', 20, 10, 1);
-    font-family: 'Inter Tight';
-    font-weight: 300;
-    @include adaptive-value('font-size', 16, 12, 1);
-    img {
-      object-fit: cover;
-    }
-    span {
-      width: 12vw;
-    }
-  }
-}
-
-.swiper-slide {
-  @media (max-width: 560px) {
-  }
-}
-
-#firstSlideOnPhone {
-  .swiper-wrapper {
-    padding-top: 0px !important;
-  }
-}
+ 
