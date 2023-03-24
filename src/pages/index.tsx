@@ -219,6 +219,7 @@ const MainPage = () => {
   const fourthRef: any = useRef();
   const fiveRef: any = useRef();
 
+  const horizontalTweenContext: any = useRef(null);
   useEffect(() => {
     const ctx = gsap.context((self: any) => {
       const sections = self.selector('section');
@@ -228,7 +229,7 @@ const MainPage = () => {
         scrollTrigger: {
           trigger: wrapperRef.current,
           pin: true,
-          scrub: 0.1,
+          scrub: 0.01,
 
           end: () => {
             const wrapperWidth = wrapperRef.current.offsetWidth;
@@ -238,7 +239,11 @@ const MainPage = () => {
         },
       });
     }, wrapperRef);
-    return () => ctx.revert();
+    horizontalTweenContext.current = ctx;
+    return () => {
+      horizontalTweenContext.current.revert();
+      console.log(horizontalTweenContext.current); // Should output null if the context is successfully removed
+    };
   }, []);
 
   const wrapperRefImg: any = useRef();
@@ -256,7 +261,7 @@ const MainPage = () => {
         scrollTrigger: {
           trigger: wrapperRefImg.current,
           pin: true,
-        
+
           scrub: 0.5,
           end: () =>
             //@ts-ignore
@@ -272,7 +277,17 @@ const MainPage = () => {
 
   return (
     <div>
-      <Header />
+      <div
+        style={{
+          zIndex: '100',
+          background: 'white',
+          top: '0',
+          width: '100vw',
+          position: 'fixed',
+        }}
+      >
+        <Header />
+      </div>
       <div className="main_title">
         <img className="eagle" src="/images/eagle.png" alt="" />
 
@@ -390,7 +405,8 @@ const MainPage = () => {
                               <div>
                                 <img
                                   style={
-                                    image === 'smile.svg'  || image === 'OpenBank.png'
+                                    image === 'smile.svg' ||
+                                    image === 'OpenBank.png'
                                       ? { paddingTop: '10px' }
                                       : {}
                                   }

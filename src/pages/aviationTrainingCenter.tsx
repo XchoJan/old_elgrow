@@ -10,7 +10,13 @@ const aviationTrainingCenter = () => {
   }, []);
   return (
     <div className="aviationTrainingCenter">
-      <Header />
+    <div style={{
+        zIndex: '100',
+        background: 'white',
+        top: '0', width: '100vw',
+        position:'fixed'}}> 
+          <Header />
+      </div>
       <div className="aviationTrainingCenter_main_title">
         Авиационный учебный <br /> центр
       </div>

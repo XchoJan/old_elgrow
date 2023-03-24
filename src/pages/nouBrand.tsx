@@ -9,7 +9,13 @@ const nouBrand = () => {
   }, []);
   return (
     <div className="nouBrand">
-      <Header />
+  <div style={{
+        zIndex: '100',
+        background: 'white',
+        top: '0', width: '100vw',
+        position:'fixed'}}> 
+          <Header />
+      </div>
       <div className="headerContainer">
         <div className="logoTitle"> NOU</div>
         <div className="infoContainer">

@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 67px;
   // @include adaptive-value('padding-top', 32, 10, 1);
   @include adaptive-value('padding-right', 40, 20, 1);
   @include adaptive-value('padding-left', 50, 20, 1);
@@ -39,7 +39,7 @@
     }
     #burger2 {
       height: 46px;
-      top: 29px;
+      top: 16px;
       position: absolute;
       width: 52px;
       opacity: 0;

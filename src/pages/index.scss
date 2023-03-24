@@ -506,22 +506,17 @@ h6 {
   }
 }
 
-.products_principles-center { 
- position: relative;
+.products_principles-center {
+  position: relative;
 
   h4 {
-    
-  
-    
     font-family: 'ALS Alumna';
     font-weight: 400;
     display: flex;
     color: #898989;
     justify-content: flex-end;
     @include adaptive-value('margin-left', 247, 160, 1);
-  
-  
-    
+
     text-align: left;
     margin-top: -5px;
     @include adaptive-value('font-size', 20, 14, 1);
@@ -529,25 +524,20 @@ h6 {
       margin-left: 140px;
     }
   }
-  p{
+  p {
     ::before {
-    content: "";
-    top: 97px;
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    border-bottom: 3px solid #3ece5d;
-    border-right: 3px solid #3ece5d;
-    right: -42px;
+      content: '';
+      top: 97px;
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border-bottom: 3px solid #3ece5d;
+      border-right: 3px solid #3ece5d;
+      right: -42px;
     }
   }
- 
-  
 }
 
-
- 
- 
 .websites-content_inner {
   // display: flex;
   // flex-direction: column;
@@ -936,8 +926,14 @@ h6 {
 }
 
 .portfolio_inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   padding-top: 175px;
   @include adaptive-value('padding-left', 50, 20, 1);
+  padding-right: 98px;
+  width: 95vw;
 }
 .portfolio_inner_title h1 {
   font-weight: 300;
@@ -953,7 +949,7 @@ h6 {
 }
 .portfolio_inner_content {
   display: flex;
-  @include adaptive-value('padding-left', 311, 69, 1);
+  @include adaptive-value('padding-left', 511, 69, 1);
   padding-top: 59px;
   @media (max-width: 560px) {
     padding-top: 0px;
@@ -1000,6 +996,9 @@ h6 {
 .carusel_bottom_banner {
   position: relative;
   width: 100%;
+  &:hover {
+    filter: brightness(50%);
+  }
 }
 .carusel_bottom {
   margin-top: 106px;

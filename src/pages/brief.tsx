@@ -12,7 +12,13 @@ const brief = () => {
 
   return (
     <div className="briefContainer">
-      <Header />
+    <div style={{
+        zIndex: '100',
+        background: 'white',
+        top: '0', width: '100vw',
+        position:'fixed'}}> 
+          <Header />
+      </div>
       <div className="briefContent">
         <div className="mainTitle">Бриф</div>
         <div className="blockName"> Обработка запроса </div>

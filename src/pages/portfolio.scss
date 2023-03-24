@@ -12,28 +12,68 @@
     @media (max-width: 560px) {
       margin-top: 165px;
     }
-    img {
+    .imgContainer {
+      position: relative;
       @include responsive-size(width, 350px, 311px, 470px, 768px);
       @include responsive-size(height, 205px, 183px, 277px, 454px);
+      .nda {
+        width: 100%;
+        color: white;
+        left: 0;
+        right: 0;
+        top: 50%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        font-weight: 400;
+        font-size: 24px;
+      }
 
-      @media (max-width: 389px) {
-        width: 91vw;
-        height: 205px;
+      .processing {
+        @extend .nda;
       }
-      object-fit: cover;
-      @media (max-width: 560px) {
-        margin-bottom: 20px;
+
+      &:hover {
+        .nda {
+          pointer-events: none;
+          opacity: 1;
+        }
       }
-    }
-    .NOUproject {
+
+      .processing {
+        pointer-events: none;
+        opacity: 1;
+      }
+
       span {
         img {
           transition: all 0.3s ease-in-out;
           &:hover {
+            .nda {
+              opacity: 1;
+            }
             filter: brightness(50%);
           }
         }
       }
+      img {
+        @include responsive-size(width, 350px, 311px, 470px, 768px);
+        @include responsive-size(height, 205px, 183px, 277px, 454px);
+
+        @media (max-width: 389px) {
+          width: 91vw;
+          height: 205px;
+        }
+        object-fit: cover;
+        @media (max-width: 560px) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+    .NOUproject {
       margin-top: 50px;
       display: flex;
       gap: 25px;
@@ -96,7 +136,7 @@
 
   .portfolio_main_title {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     h1 {
       font-weight: 300;
       @include responsive-size(font-size, 32px, 45px, 60px, 80px);
@@ -107,7 +147,6 @@
   .portfolio_main_text {
     display: flex;
     padding-left: 624px;
-    justify-content: space-around;
     display: flex;
     @include responsive-size(padding-left, 59px, 118px, 183px, 590px);
 
@@ -141,7 +180,7 @@
       }
     }
     margin-top: 80px;
-    @include responsive-size(padding-left, 174px, 400px, 514px, 1335px);
+    @include responsive-size(padding-left, 174px, 400px, 514px, 1235px);
     @media (max-width: 389px) {
       padding-left: 10vw;
     }
