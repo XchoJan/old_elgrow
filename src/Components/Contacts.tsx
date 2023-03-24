@@ -12,6 +12,12 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
   const [max, setMax]: any  = useState(0);
 
+ 
+  const openAdress = (event:any, address:string) => {
+    event.preventDefault();
+    window.open(`https://yandex.ru/maps/?text=${encodeURIComponent(address)}`, '_blank');
+  };
+ 
   useEffect(() => {
     setMax(window?.visualViewport?.width);
   }, []);
@@ -138,7 +144,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
               }}
               className="contacts_addresses_adress_howToGet"
             >
-              <span> Как добраться? </span>
+              <span onClick={(e)=> openAdress(e, 'Москва, ул. Складочная, д. 3 строение 4, оф. 103')}> Как добраться? </span>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -195,7 +201,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
               }}
               className="contacts_addresses_adress_howToGet"
             >
-              <span> Как добраться? </span>
+              <span onClick={(e)=> openAdress(e, 'Екатеринбург, ул. Мамина-Сибиряка, строение 145, оф. 2112')}> Как добраться? </span>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -252,7 +258,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
               }}
               className="contacts_addresses_adress_howToGet"
             >
-              <span> Как добраться? </span>
+              <span onClick={(e)=> openAdress(e, 'Санкт-Петербург, ул. Зеленогорская, д. 4а')}> Как добраться? </span>
             </motion.div>
           </motion.div>
         </motion.div>

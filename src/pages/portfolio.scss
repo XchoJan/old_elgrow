@@ -1,195 +1,191 @@
- 
-  .portfolio_main {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1920px;
-    @include responsive-size(padding-left, 20px, 54px, 54px, 54px);
-    @include responsive-size(padding-right, 20px, 54px, 54px, 54px);
-    font-family: 'Inter Tight';
-    padding-bottom: 400px;
-    margin-top: 150px;
-    .projects2023 {
-      margin-top: 224px;
+.portfolio_main {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+  @include responsive-size(padding-left, 20px, 54px, 54px, 54px);
+  @include responsive-size(padding-right, 20px, 54px, 54px, 54px);
+  font-family: 'Inter Tight';
+  padding-bottom: 400px;
+  margin-top: 150px;
+  .projects2023 {
+    margin-top: 224px;
+    @media (max-width: 560px) {
+      margin-top: 165px;
+    }
+    img {
+      @include responsive-size(width, 350px, 311px, 470px, 768px);
+      @include responsive-size(height, 205px, 183px, 277px, 454px);
+
+      @media (max-width: 389px) {
+        width: 91vw;
+        height: 205px;
+      }
+      object-fit: cover;
       @media (max-width: 560px) {
-        margin-top: 165px;
+        margin-bottom: 20px;
       }
-      img {
-        @include responsive-size(width, 350px, 311px, 470px, 768px);
-        @include responsive-size(height, 205px, 183px, 277px, 454px);
-  
-        @media (max-width: 389px) {
-          width: 91vw;
-          height: 205px;
-        }
-        object-fit: cover;
-        @media (max-width: 560px) {
-          margin-bottom: 20px;
+    }
+    .NOUproject {
+      span {
+        img {
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            filter: brightness(50%);
+          }
         }
       }
-      .NOUproject {
-        margin-top: 50px;
+      margin-top: 50px;
+      display: flex;
+      gap: 25px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #d9d9d9;
+      @media (max-width: 560px) {
+        flex-direction: column;
+      }
+      .description {
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
-        padding-bottom: 30px;
-        border-bottom: 1px solid #d9d9d9;
         @media (max-width: 560px) {
-          flex-direction: column;
+          flex-direction: row;
+          align-items: center;
+          padding-bottom: 15px;
         }
-        .description {
+
+        .descriptionContainer {
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
-          @media (max-width: 560px) {
-            flex-direction: row;
-            align-items: center;
-            padding-bottom: 15px;
-          }
-  
-          .descriptionContainer {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            .projectType {
-              position: relative;
-              @include responsive-size(font-size, 16px, 16px, 20px, 20px);
-              font-weight: 300;
-              &::after {
-                content: '';
-                display: inline-block;
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background-color: #3ece5d;
-                margin-left: 10px;
-              }
-            }
-            .projectTitle {
-              @include responsive-size(font-size, 18px, 18px, 20px, 24px);
-              font-weight: 400;
-            }
-          }
-          .projectYear {
+          gap: 20px;
+          .projectType {
+            position: relative;
             @include responsive-size(font-size, 16px, 16px, 20px, 20px);
             font-weight: 300;
-          }
-        }
-      }
-      .AUZProject {
-        @extend .NOUproject;
-        flex-direction: row-reverse;
-        @media (max-width: 560px) {
-          flex-direction: column;
-        }
-      }
-    }
-    .projects2022 {
-      @extend .projects2023;
-      margin-top: 50px;
-    }
-  
-    .portfolio_main_title {
-      h1 {
-        font-weight: 300;
-        @include responsive-size(font-size, 32px, 45px, 60px, 80px);
-        color: #000000;
-      }
-    }
-  
-    .portfolio_main_text {
-      display: flex;
-      @include responsive-size(padding-left, 59px, 118px, 183px, 334px);
-  
-      h3 {
-        font-weight: 300;
-        @include adaptive-value('font-size', 20, 12, 1);
-        text-align: right;
-        color: #000000;
-        position: relative;
-  
-        &::before {
-          content: '';
-          position: absolute;
-          @include adaptive-value('width', 22, 16, 1);
-          @include adaptive-value('height', 22, 16, 1);
-          border-top: 3px solid #3ece5d;
-          border-right: 3px solid #3ece5d;
-          right: -15px;
-          top: -14px;
-        }
-      }
-    }
-    .logoImage {
-      @include responsive-size(width, 160px, 202px, 308px, 308px);
-      @include responsive-size(height, 65px, 82px, 125px, 125px);
-      img {
-        @include responsive-size(width, 160px, 202px, 308px, 308px);
-        @include responsive-size(height, 71px, 82px, 125px, 125px);
-        @media (max-width: 560px) {
-          object-fit: cover;
-        }
-      }
-      margin-top: 80px;
-      @include responsive-size(padding-left, 174px, 400px, 514px, 835px);
-      @media (max-width: 389px) {
-        padding-left: 10vw;
-      }
-    }
-    .portfolio_pagination_container {
-      @include responsive-size(top, 593px, 693px, 768px, 840px);
-  
-      width: calc(100vw - 108px);
-      @media (max-width: 560px) {
-        width: calc(100vw - 40px);
-      }
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-  
-      .portfolio_pagination_content {
-        position: relative;
-        overflow: auto;
-        width: calc(100vw - 108px);
-        @media (max-width: 560px) {
-          &::-webkit-scrollbar {
-            height: 0px !important;
-          }
-          width: calc(100vw - 40px);
-        }
-        transition: 0.5s;
-        display: flex;
-        gap: 65px;
-        height: 50px;
-        font-family: 'Inter Tight';
-        font-weight: 400;
-        padding-bottom: 18px;
-        border-bottom: 1px solid #d9d9d9;
-  
-        .portfolio_year {
-          @include responsive-size(font-size, 14px, 16px, 18px, 20px);
-          cursor: pointer;
-          padding-bottom: 10px;
-          font-family: 'Inter Tight';
-          font-weight: 300;
-          transition: 0.5s;
-          position: relative;
-          &:hover {
-            font-size: 24px;
-            &::before {
+            &::after {
               content: '';
-              position: absolute;
-              width: 70px;
-              height: 1px;
-              left: -10px;
-              bottom: -18px;
-              background: #3ece5d;
+              display: inline-block;
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+              background-color: #3ece5d;
+              margin-left: 10px;
             }
           }
+          .projectTitle {
+            @include responsive-size(font-size, 18px, 18px, 20px, 24px);
+            font-weight: 400;
+          }
         }
-        .portfolio_year_active {
-          cursor: pointer;
-          @include responsive-size(font-size, 18px, 20px, 22px, 24px);
-          transition: 0.5s;
-          position: relative;
+        .projectYear {
+          @include responsive-size(font-size, 16px, 16px, 20px, 20px);
+          font-weight: 300;
+        }
+      }
+    }
+    .AUZProject {
+      @extend .NOUproject;
+      flex-direction: row-reverse;
+      @media (max-width: 560px) {
+        flex-direction: column;
+      }
+    }
+  }
+  .projects2022 {
+    @extend .projects2023;
+    margin-top: 50px;
+  }
+
+  .portfolio_main_title {
+    display: flex;
+    justify-content: center;
+    h1 {
+      font-weight: 300;
+      @include responsive-size(font-size, 32px, 45px, 60px, 80px);
+      color: #000000;
+    }
+  }
+
+  .portfolio_main_text {
+    display: flex;
+    padding-left: 624px;
+    justify-content: space-around;
+    display: flex;
+    @include responsive-size(padding-left, 59px, 118px, 183px, 590px);
+
+    h3 {
+      font-weight: 300;
+      @include adaptive-value('font-size', 20, 12, 1);
+      text-align: right;
+      color: #000000;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        @include adaptive-value('width', 22, 16, 1);
+        @include adaptive-value('height', 22, 16, 1);
+        border-top: 3px solid #3ece5d;
+        border-right: 3px solid #3ece5d;
+        right: -15px;
+        top: -14px;
+      }
+    }
+  }
+  .logoImage {
+    @include responsive-size(width, 160px, 202px, 308px, 308px);
+    @include responsive-size(height, 65px, 82px, 125px, 125px);
+    img {
+      @include responsive-size(width, 160px, 202px, 308px, 308px);
+      @include responsive-size(height, 71px, 82px, 125px, 125px);
+      @media (max-width: 560px) {
+        object-fit: cover;
+      }
+    }
+    margin-top: 80px;
+    @include responsive-size(padding-left, 174px, 400px, 514px, 1335px);
+    @media (max-width: 389px) {
+      padding-left: 10vw;
+    }
+  }
+  .portfolio_pagination_container {
+    @include responsive-size(top, 593px, 693px, 768px, 840px);
+
+    width: calc(100vw - 108px);
+    @media (max-width: 560px) {
+      width: calc(100vw - 40px);
+    }
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+
+    .portfolio_pagination_content {
+      position: relative;
+      overflow: auto;
+      width: calc(100vw - 108px);
+      @media (max-width: 560px) {
+        &::-webkit-scrollbar {
+          height: 0px !important;
+        }
+        width: calc(100vw - 40px);
+      }
+      transition: 0.5s;
+      display: flex;
+      gap: 65px;
+      height: 50px;
+      font-family: 'Inter Tight';
+      font-weight: 400;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #d9d9d9;
+
+      .portfolio_year {
+        @include responsive-size(font-size, 14px, 16px, 18px, 20px);
+        cursor: pointer;
+        padding-bottom: 10px;
+        font-family: 'Inter Tight';
+        font-weight: 300;
+        transition: 0.5s;
+        position: relative;
+        &:hover {
+          font-size: 24px;
           &::before {
             content: '';
             position: absolute;
@@ -201,57 +197,70 @@
           }
         }
       }
-    }
-    .portfolio_pagination_container_fixed {
-      @extend .portfolio_pagination_container;
-      padding-top: 36px;
-      position: fixed;
-      top: 0px;
-      background: white;
-      @media (max-width: 560px) {
-        padding-top: 18px;
-      }
-      .after_logo {
-        position: absolute;
+      .portfolio_year_active {
         cursor: pointer;
-        right: 1px;
-        top: 1px;
-        h2 {
-          opacity: 1;
-          transition: 0.3s;
-          font-weight: 400;
-          font-size: 12px;
-          text-align: right;
-          text-transform: uppercase;
-          color: #000000;
-        }
-  
-        img {
-          top: 15px;
-          transition: 0.3s;
-          opacity: 1;
-        }
-        #burger2 {
-          top: 0px;
+        @include responsive-size(font-size, 18px, 20px, 22px, 24px);
+        transition: 0.5s;
+        position: relative;
+        &::before {
+          content: '';
           position: absolute;
-          width: 52px;
-          opacity: 0;
-        }
-  
-        &:hover {
-          img {
-            transition: 0.3s;
-          }
-          #burger2 {
-            opacity: 1;
-          }
-          #burger1 {
-            opacity: 0;
-          }
+          width: 70px;
+          height: 1px;
+          left: -10px;
+          bottom: -18px;
+          background: #3ece5d;
         }
       }
     }
   }
- 
+  .portfolio_pagination_container_fixed {
+    @extend .portfolio_pagination_container;
+    padding-top: 36px;
+    position: fixed;
+    top: 0px;
+    background: white;
+    @media (max-width: 560px) {
+      padding-top: 18px;
+    }
+    .after_logo {
+      position: absolute;
+      cursor: pointer;
+      right: 1px;
+      top: 1px;
+      h2 {
+        opacity: 1;
+        transition: 0.3s;
+        font-weight: 400;
+        font-size: 12px;
+        text-align: right;
+        text-transform: uppercase;
+        color: #000000;
+      }
 
- 
+      img {
+        top: 15px;
+        transition: 0.3s;
+        opacity: 1;
+      }
+      #burger2 {
+        top: 0px;
+        position: absolute;
+        width: 52px;
+        opacity: 0;
+      }
+
+      &:hover {
+        img {
+          transition: 0.3s;
+        }
+        #burger2 {
+          opacity: 1;
+        }
+        #burger1 {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

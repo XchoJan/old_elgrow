@@ -137,6 +137,10 @@
         font-weight: 700;
         font-size: 16px;
         line-height: 22px;
+
+        :hover {
+          color: #1A9634;
+        }
         span {
           border-bottom: 1px solid #3ece5d;
         }
@@ -178,6 +182,12 @@
 
     .contacts_logo_close {
       cursor: pointer;
+      &:hover {
+        img {
+          transition: 0.5s;
+          opacity: 0.5;
+        }
+      }
     }
     img {
       @include adaptive-value('width', 50, 40, 1);

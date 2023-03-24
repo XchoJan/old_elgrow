@@ -17,8 +17,8 @@
   .after_logo {
     // position: absolute;
     cursor: pointer;
-     right:100px;
-     top: 38px;
+    right: 100px;
+    top: 38px;
     h2 {
       opacity: 1;
       transition: 0.3s;
@@ -28,7 +28,7 @@
       text-transform: uppercase;
       color: #000000;
     }
-  
+
     img {
       top: 15px;
       // position: absolute;
@@ -38,29 +38,26 @@
       opacity: 1;
     }
     #burger2 {
-      top: 35px;
+      height: 46px;
+      top: 29px;
       position: absolute;
       width: 52px;
-      opacity: 0
+      opacity: 0;
     }
-  
+
     &:hover {
-      
       img {
         transition: 0.3s;
-        
       }
       #burger2 {
-        opacity: 1
+        opacity: 1;
       }
       #burger1 {
-        opacity: 0
+        opacity: 0;
       }
     }
   }
-  
 }
 .header_top .logo {
   padding-top: 8px;
 }
- 

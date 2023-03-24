@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion';
 import CallBackMenu from './CallBackMenu';
 import Contacts from './Contacts';
+import { useRouter } from 'next/router';
 
 interface Props {
   isOpen: boolean;
@@ -13,16 +14,8 @@ interface Props {
 const Menu: React.FC<Props> = ({ isOpen, close }) => {
   const [CallBackFromMenu, setCallBackFromMenu] = useState(true);
   const [ContactsFromMenu, setContactsFromMenu] = useState(true);
-
-  // if (typeof window !== 'undefined' && isOpen) {
-  //   let body: any = document.querySelector('body');
-  //   body.style.overflowY = 'hidden';
-  // }
-
-  // if (typeof window !== 'undefined' && !isOpen) {
-  //   let body: any = document.querySelector('body');
-  //   body.style.overflowY = 'auto';
-  // }
+  const router = useRouter();
+ 
 
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
   const [showContacts, setShowContacts] = useState(false);
@@ -101,7 +94,7 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
         </motion.div>
       </div>
       <div className="menu_navigate_container">
-        <motion.span
+        <motion.span  onClick={() => router.push('/')}
           animate={isOpen ? 'open' : 'closed'}
           variants={{
             open: { x: 0, transition: { delay: 0.5 } },

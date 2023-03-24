@@ -65,8 +65,12 @@
     font-weight: 300;
     color: #ffffff;
     text-align: center;
+    transition: 0.5s;
     border-bottom: 1px solid #c9c9c9;
     &:hover {
+    
+        color: #9c9c9c;
+      
       border-bottom: 1px solid white;
     }
   }
@@ -157,6 +161,10 @@
   margin-right: 12.5px;
 }
 .footer_bottom_item {
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    filter: brightness(50%);
+  }
   display: flex;
   align-items: center;
   a {
