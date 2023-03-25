@@ -13,7 +13,7 @@ const brief = () => {
   return (
     <div className="briefContainer">
     <div style={{
-        zIndex: '100',
+        zIndex: '10',
         background: 'white',
         top: '0', width: '100vw',
         position:'fixed'}}> 

@@ -4,12 +4,16 @@ import Header from '../Components/Header';
 const politic = () => {
   return (
     <div className="politicContainer">
-     <div style={{
-        zIndex: '100',
-        background: 'white',
-        top: '0', width: '100vw',
-        position:'fixed'}}> 
-          <Header />
+      <div
+        style={{
+          zIndex: '10',
+          background: 'white',
+          top: '0',
+          width: '100vw',
+          position: 'fixed',
+        }}
+      >
+        <Header />
       </div>
       <div className="politicContent">
         <div className="mainTitle">

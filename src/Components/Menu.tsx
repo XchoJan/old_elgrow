@@ -15,6 +15,7 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
   const [CallBackFromMenu, setCallBackFromMenu] = useState(true);
   const [ContactsFromMenu, setContactsFromMenu] = useState(true);
   const router = useRouter();
+
  
 
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
@@ -110,6 +111,10 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
         <div className="menu_navigate_nav">
           <Link href='/'>  
           <motion.span
+            onClick={()=> {router.pathname === '/' &&  
+            setContactsFromMenu(false);
+            setCallBackFromMenu(false);
+            close(false);} }
             initial={false}
             animate={isOpen ? 'open' : 'closed'}
             variants={{
@@ -125,6 +130,10 @@ const Menu: React.FC<Props> = ({ isOpen, close }) => {
           </Link> 
           <Link href='/portfolio'>
           <motion.span
+          onClick={() => {router.pathname === '/portfolio' &&  
+          setContactsFromMenu(false);
+          setCallBackFromMenu(false);
+          close(false)  }}
             initial={false}
             animate={isOpen ? 'open' : 'closed'}
             variants={{

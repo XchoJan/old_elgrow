@@ -82,18 +82,19 @@ const Portfolio = () => {
           <img src="/images/portfolioLogo.png" alt="" />
         </div>
         <div id={navItems[0].id} className="projects2023">
+          
           <div className="NOUproject">
             {max > 560 ? (
               <>
                 <div className="imgContainer">
                   <LazyLoadImage
+                    className="available"
                     onClick={() => router.push('/nouBrand')}
                     placeholderSrc={'/images/NOULogo.png'}
                     effect="blur"
                     src={'/images/NOULogo.png'}
                     alt=""
                   />
-                  <span className="nda"> NDA 😞 </span>
                 </div>
                 <div className="description">
                   <div className="descriptionContainer">
@@ -121,7 +122,6 @@ const Portfolio = () => {
                     src={'/images/NOULogo.png'}
                     alt=""
                   />
-                   <span className="nda"> NDA 😞 </span>
                 </div>
                 <span className="projectTitle">
                   Интернет-магазин брендовой женской
@@ -130,412 +130,107 @@ const Portfolio = () => {
               </>
             )}
           </div>
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/aviationTrainingCenter')}
-                    placeholderSrc={'/images/portfolioAUZ.png'}
-                    effect="blur"
-                    src={'/images/portfolioAUZ.png'}
-                    alt=""
-                  />
-                  <span className="processing"> Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType"> веб-сервис</span>
-                    <span className="projectTitle">
-                      Система обучения сотрудников
-                      <br />
-                      оператора наземного обслуживания
-                      <br /> воздушных судов
-                    </span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">веб-сервис</span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/aviationTrainingCenter')}
-                    placeholderSrc={'/images/portfolioAUZ.png'}
-                    effect="blur"
-                    src={'/images/portfolioAUZ.png'}
-                    alt=""
-                  />
-                  <span className="processing"> Еще заполняем </span>
-                </div>
-                <span className="projectTitle">
-                  Система обучения сотрудников
-                  <br />
-                  оператора наземного обслуживания
-                  <br /> воздушных судов
-                </span>
-              </>
-            )}
-          </div>
-          <div onClick={() => router.push('/nouBrand')} className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/nouBrand')}
-                    placeholderSrc={'/images/NOULogo.png'}
-                    effect="blur"
-                    src={'/images/NOULogo.png'}
-                    alt=""
-                  />
-                  <span className="nda"> NDA 😞 </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType"> e-commerce сайт</span>
-                    <span className="projectTitle">
-                      Интернет-магазин брендовой женской
-                      <br /> одежды
-                    </span>
-                  </div>
-                  <span className="projectYear"> 2023</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType"> e-commerce сайт</span>
-                  </div>
-                  <span className="projectYear"> 2023</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/nouBrand')}
-                    placeholderSrc={'/images/NOULogo.png'}
-                    effect="blur"
-                    src={'/images/NOULogo.png'}
-                    alt=""
-                  />
-                  <span className="nda"> NDA 😞 </span>
-                </div>
-                <span className="projectTitle">
-                  Интернет-магазин брендовой женской
-                  <br /> одежды
-                </span>
-              </>
-            )}
-          </div>
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/aviationTrainingCenter')}
-                    placeholderSrc={'/images/portfolioAUZ.png'}
-                    effect="blur"
-                    src={'/images/portfolioAUZ.png'}
-                    alt=""
-                  />
-                  <span className="processing"> Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType"> веб-сервис</span>
-                    <span className="projectTitle">
-                      Система обучения сотрудников
-                      <br />
-                      оператора наземного обслуживания
-                      <br /> воздушных судов
-                    </span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">веб-сервис</span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/aviationTrainingCenter')}
-                    placeholderSrc={'/images/portfolioAUZ.png'}
-                    effect="blur"
-                    src={'/images/portfolioAUZ.png'}
-                    alt=""
-                  />
-                  <span className="processing"> Еще заполняем </span>
-                </div>
-                <span className="projectTitle">
-                  Система обучения сотрудников
-                  <br />
-                  оператора наземного обслуживания
-                  <br /> воздушных судов
-                </span>
-              </>
-            )}
-          </div>
-          <div onClick={() => router.push('/nouBrand')} className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/nouBrand')}
-                    placeholderSrc={'/images/NOULogo.png'}
-                    effect="blur"
-                    src={'/images/NOULogo.png'}
-                    alt=""
-                  />
-                     <span className="nda"> NDA 😞 </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType"> e-commerce сайт</span>
-                    <span className="projectTitle">
-                      Интернет-магазин брендовой женской
-                      <br /> одежды
-                    </span>
-                  </div>
-                  <span className="projectYear"> 2023</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType"> e-commerce сайт</span>
-                  </div>
-                  <span className="projectYear"> 2023</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/nouBrand')}
-                    placeholderSrc={'/images/NOULogo.png'}
-                    effect="blur"
-                    src={'/images/NOULogo.png'}
-                    alt=""
-                  />
-                     <span className="nda"> NDA 😞 </span>
-                </div>
-                <span className="projectTitle">
-                  Интернет-магазин брендовой женской
-                  <br /> одежды
-                </span>
-              </>
-            )}
-          </div>
+           
+           
         </div>
         <div id={navItems[1].id} className="projects2022">
-          <div className="AUZProject">
+         
+        <div className="AUZProject">
             {max > 560 ? (
               <>
                 <div className="imgContainer">
                   <LazyLoadImage
-                    onClick={() => router.push('/aviationTrainingCenter')}
-                    placeholderSrc={'/images/portfolioAUZ.png'}
+                    className="ndaImg"
+                    placeholderSrc={'/images/parking.png'}
                     effect="blur"
-                    src={'/images/portfolioAUZ.png'}
-                    alt=""
-                  />
-                  <span className="processing"> Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType"> веб-сервис</span>
-                    <span className="projectTitle">
-                      Система обучения сотрудников
-                      <br />
-                      оператора наземного обслуживания
-                      <br /> воздушных судов
-                    </span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">веб-сервис</span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/aviationTrainingCenter')}
-                    placeholderSrc={'/images/portfolioAUZ.png'}
-                    effect="blur"
-                    src={'/images/portfolioAUZ.png'}
-                    alt=""
-                  />
-                  <span className="processing"> Еще заполняем </span>
-                </div>
-                <span className="projectTitle">
-                  Система обучения сотрудников
-                  <br />
-                  оператора наземного обслуживания
-                  <br /> воздушных судов
-                </span>
-              </>
-            )}
-          </div>
-          <div onClick={() => router.push('/nouBrand')} className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/nouBrand')}
-                    placeholderSrc={'/images/NOULogo.png'}
-                    effect="blur"
-                    src={'/images/NOULogo.png'}
-                    alt=""
-                  />
-                   <span className="nda"> NDA 😞 </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType"> e-commerce сайт</span>
-                    <span className="projectTitle">
-                      Интернет-магазин брендовой женской
-                      <br /> одежды
-                    </span>
-                  </div>
-                  <span className="projectYear"> 2023</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType"> e-commerce сайт</span>
-                  </div>
-                  <span className="projectYear"> 2023</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/nouBrand')}
-                    placeholderSrc={'/images/NOULogo.png'}
-                    effect="blur"
-                    src={'/images/NOULogo.png'}
-                    alt=""
-                  />
-                   <span className="nda"> NDA 😞 </span>
-                </div>
-                <span className="projectTitle">
-                  Интернет-магазин брендовой женской
-                  <br /> одежды
-                </span>
-              </>
-            )}
-          </div>
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/aviationTrainingCenter')}
-                    placeholderSrc={'/images/portfolioAUZ.png'}
-                    effect="blur"
-                    src={'/images/portfolioAUZ.png'}
-                    alt=""
-                  />
-                  <span className="processing"> Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType"> веб-сервис</span>
-                    <span className="projectTitle">
-                      Система обучения сотрудников
-                      <br />
-                      оператора наземного обслуживания
-                      <br /> воздушных судов
-                    </span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">веб-сервис</span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/aviationTrainingCenter')}
-                    placeholderSrc={'/images/portfolioAUZ.png'}
-                    effect="blur"
-                    src={'/images/portfolioAUZ.png'}
-                    alt=""
-                  />
-                  <span className="processing"> Еще заполняем </span>
-                </div>
-                <span className="projectTitle">
-                  Система обучения сотрудников
-                  <br />
-                  оператора наземного обслуживания
-                  <br /> воздушных судов
-                </span>
-              </>
-            )}
-          </div>
-          <div onClick={() => router.push('/nouBrand')} className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/nouBrand')}
-                    placeholderSrc={'/images/NOULogo.png'}
-                    effect="blur"
-                    src={'/images/NOULogo.png'}
-                    alt=""
-                  />
-                      <span className="nda"> NDA 😞 </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType"> e-commerce сайт</span>
-                    <span className="projectTitle">
-                      Интернет-магазин брендовой женской
-                      <br /> одежды
-                    </span>
-                  </div>
-                  <span className="projectYear"> 2023</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType"> e-commerce сайт</span>
-                  </div>
-                  <span className="projectYear"> 2023</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/nouBrand')}
-                    placeholderSrc={'/images/NOULogo.png'}
-                    effect="blur"
-                    src={'/images/NOULogo.png'}
+                    src={'/images/parking.png'}
                     alt=""
                   />
                   <span className="nda"> NDA 😞 </span>
                 </div>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType">мобильное приложение</span>
+                    <span className="projectTitle">
+                      Мобильное приложение по управлению
+                      <br /> парковками аэропорта
+                    </span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType">мобильное приложение</span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+                <div className="imgContainer">
+                  <LazyLoadImage
+                    placeholderSrc={'/images/parking.png.png'}
+                    effect="blur"
+                    src={'/images/parking.png.png'}
+                    alt=""
+                  />
+                </div>
                 <span className="projectTitle">
-                  Интернет-магазин брендовой женской
-                  <br /> одежды
+                  Мобильное приложение по управлению
+                  <br /> парковками аэропорта
+                </span>
+              </>
+            )}
+          </div>
+          <div className="NOUproject">
+            {max > 560 ? (
+              <>
+                <div className="imgContainer">
+                  <LazyLoadImage
+                    className="ndaImg"
+                    onClick={() => router.push('/aviationTrainingCenter')}
+                    placeholderSrc={'/images/portfolioAUZ.png'}
+                    effect="blur"
+                    src={'/images/portfolioAUZ.png'}
+                    alt=""
+                  />
+                  <span className="processing">Еще заполняем </span>
+                </div>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType"> веб-сервис</span>
+                    <span className="projectTitle">
+                      Система обучения сотрудников
+                      <br />
+                      оператора наземного обслуживания
+                      <br /> воздушных судов
+                    </span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType">веб-сервис</span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+                <div className="imgContainer">
+                  <LazyLoadImage
+                    onClick={() => router.push('/aviationTrainingCenter')}
+                    placeholderSrc={'/images/portfolioAUZ.png'}
+                    effect="blur"
+                    src={'/images/portfolioAUZ.png'}
+                    alt=""
+                  />
+                </div>
+                <span className="projectTitle">
+                  Система обучения сотрудников
+                  <br />
+                  оператора наземного обслуживания
+                  <br /> воздушных судов
                 </span>
               </>
             )}

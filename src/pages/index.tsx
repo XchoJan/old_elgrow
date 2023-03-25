@@ -14,6 +14,7 @@ import CallBackMenu from '../Components/CallBackMenu';
 import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import ScrollTriggerInstanceVars from 'gsap/ScrollTrigger';
 import {
   motion,
   AnimatePresence,
@@ -221,28 +222,40 @@ const MainPage = () => {
 
   const horizontalTweenContext: any = useRef(null);
   useEffect(() => {
-    const ctx = gsap.context((self: any) => {
-      const sections = self.selector('section');
-      const horizontalTween = gsap.to(sections, {
+    const timeoutId = setTimeout(() => {
+      const sections = wrapperRef.current.querySelectorAll('section');
+      const horizontalTween: gsap.core.Tween = gsap.to(sections, {
         xPercent: -100 * (sections.length - 1),
         ease: 'none',
         scrollTrigger: {
           trigger: wrapperRef.current,
           pin: true,
           scrub: 0.01,
-
+          invalidateOnRefresh: false,
+          startAt: () => ({
+            xPercent: 0,
+          }),
           end: () => {
-            const wrapperWidth = wrapperRef.current.offsetWidth;
-            const windowWidth = window.innerWidth;
+            const wrapperWidth: number = wrapperRef.current.offsetWidth;
+            const windowWidth: number = window.innerWidth;
             return `+=${wrapperWidth - windowWidth}`;
           },
-        },
+        } as any,
       });
-    }, wrapperRef);
-    horizontalTweenContext.current = ctx;
+      horizontalTweenContext.current = horizontalTween;
+    }, 100);
+
     return () => {
-      horizontalTweenContext.current.revert();
-      console.log(horizontalTweenContext.current); // Should output null if the context is successfully removed
+      clearTimeout(timeoutId);
+      if (horizontalTweenContext.current) {
+        horizontalTweenContext.current.kill();
+        horizontalTweenContext.current = null;
+      }
+    };
+  }, []);
+  useEffect(() => {
+    return () => {
+      horizontalTweenContext.current = null;
     };
   }, []);
 
@@ -250,36 +263,40 @@ const MainPage = () => {
   const firstRefImg: any = useRef();
   const secondRefImg: any = useRef();
   const thirdRefImg: any = useRef();
-
   useEffect(() => {
-    const ctx = gsap.context((self: any) => {
-      const sections = self.selector('section');
-
-      const horizontalTween = gsap.to(sections, {
+    const timeoutId = setTimeout(() => {
+      const sections = wrapperRefImg.current.querySelectorAll('section');
+      const horizontalTween: gsap.core.Tween = gsap.to(sections, {
         xPercent: -100 * (sections.length - 1),
         ease: 'none',
         scrollTrigger: {
           trigger: wrapperRefImg.current,
           pin: true,
-
-          scrub: 0.5,
+          scrub: 0.01,
+          invalidateOnRefresh: false,
+          startAt: () => ({
+            xPercent: 0,
+          }),
           end: () =>
             //@ts-ignore
             '+=' +
             //@ts-ignore
             document?.querySelector('.swiper-wrapper-person')?.offsetWidth -
             innerWidth,
-        },
+        } as any,
       });
-    }, wrapperRefImg);
-    return () => ctx.revert();
+  
+    }, 100);
+
+ 
   }, []);
+ 
 
   return (
     <div>
       <div
         style={{
-          zIndex: '100',
+          zIndex: '10',
           background: 'white',
           top: '0',
           width: '100vw',
@@ -964,7 +981,7 @@ const MainPage = () => {
               <div id="img1" className="team_slider">
                 <div className="team_slider-inner">
                   <div className="team_slider-inner_bootom">
-                    <div className="team_slider-inner_bootom_pagination">
+                    {/* <div className="team_slider-inner_bootom_pagination">
                       <div className="team_slider-inner_bootom_pagination_item_active"></div>
                       <div
                         onClick={() => ScrolltoSwiper('#img2', max / 2)}
@@ -974,7 +991,7 @@ const MainPage = () => {
                         onClick={() => ScrolltoSwiper('#img3', max)}
                         className="team_slider-inner_bootom_pagination_item"
                       ></div>
-                    </div>
+                    </div> */}
                     <div className="team_slider-inner_bootom_left">
                       <div className="team_slider-inner_bottom_left_slogan">
                         <h1>
@@ -1003,7 +1020,7 @@ const MainPage = () => {
               <div id="img2" className="team_slider">
                 <div className="team_slider-inner">
                   <div className="team_slider-inner_bootom">
-                    <div className="team_slider-inner_bootom_pagination">
+                    {/* <div className="team_slider-inner_bootom_pagination">
                       <div
                         onClick={() => ScrolltoSwiper('#img1', -max / 2)}
                         className="team_slider-inner_bootom_pagination_item"
@@ -1013,7 +1030,7 @@ const MainPage = () => {
                         onClick={() => ScrolltoSwiper('#img3', max / 2)}
                         className="team_slider-inner_bootom_pagination_item"
                       ></div>
-                    </div>
+                    </div> */}
                     <div className="team_slider-inner_bootom_left">
                       <div className="team_slider-inner_bottom_left_slogan">
                         <h1>
@@ -1042,7 +1059,7 @@ const MainPage = () => {
               <div id="img3" className="team_slider">
                 <div className="team_slider-inner">
                   <div className="team_slider-inner_bootom">
-                    <div className="team_slider-inner_bootom_pagination">
+                    {/* <div className="team_slider-inner_bootom_pagination">
                       <div
                         onClick={() => ScrolltoSwiper('#img1', -max)}
                         className="team_slider-inner_bootom_pagination_item"
@@ -1052,7 +1069,7 @@ const MainPage = () => {
                         className="team_slider-inner_bootom_pagination_item"
                       ></div>
                       <div className="team_slider-inner_bootom_pagination_item_active"></div>
-                    </div>
+                    </div> */}
                     <div className="team_slider-inner_bootom_left">
                       <div className="team_slider-inner_bottom_left_slogan">
                         <h1>

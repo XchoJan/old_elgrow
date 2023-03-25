@@ -16,6 +16,11 @@
       position: relative;
       @include responsive-size(width, 350px, 311px, 470px, 768px);
       @include responsive-size(height, 205px, 183px, 277px, 454px);
+
+      @media (max-width: 389px) {
+        width: 91vw;
+        height: 205px;
+      }
       .nda {
         width: 100%;
         color: white;
@@ -42,10 +47,17 @@
         }
       }
 
-      .processing {
-        pointer-events: none;
-        opacity: 1;
+     .available {
+      &:hover  {
+        filter: brightness(70%);
       }
+     }
+
+     .ndaImg {
+      &:hover  {
+        filter: brightness(30%);
+      }
+     }
 
       span {
         img {
@@ -54,7 +66,7 @@
             .nda {
               opacity: 1;
             }
-            filter: brightness(50%);
+            // filter: brightness(70%);
           }
         }
       }
@@ -191,6 +203,9 @@
     width: calc(100vw - 108px);
     @media (max-width: 560px) {
       width: calc(100vw - 40px);
+    }
+    @media (max-width: 389px) {
+      width: calc(105vw - 40px);
     }
     position: absolute;
     display: flex;

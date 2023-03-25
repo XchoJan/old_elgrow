@@ -11,7 +11,7 @@ const aviationTrainingCenter = () => {
   return (
     <div className="aviationTrainingCenter">
     <div style={{
-        zIndex: '100',
+        zIndex: '10',
         background: 'white',
         top: '0', width: '100vw',
         position:'fixed'}}> 
