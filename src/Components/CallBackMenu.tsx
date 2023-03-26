@@ -26,7 +26,7 @@ const CallBackMenu: React.FC<Props> = ({
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');
     let callbackMenu: any = document.querySelectorAll('.contacts');
-    // callbackMenu[0].style.overflowY = 'hidden';
+
     setTimeout(() => {
       if (max <= 560) {
         console.log(callbackMenu);
@@ -40,15 +40,13 @@ const CallBackMenu: React.FC<Props> = ({
     body.style.overflowY = 'hidden';
   } else if (typeof window !== 'undefined' && !isOpen) {
     let body: any = document.querySelector('body');
-    // let callbackMenu: any = document.querySelectorAll('.contacts');
-    // callbackMenu[0].style.overflowY = 'auto';
+
 
     body.style.overflowY = 'auto';
   }
 
   if (typeof window !== 'undefined' && childFromMenu && isOpen) {
-    // let body: any = document.querySelector('body');
-    // body.style.overflowY = 'hidden';
+
   }
 
   useEffect(() => {
@@ -84,28 +82,28 @@ const CallBackMenu: React.FC<Props> = ({
       <motion.div className="callbackMenu_contacts_container">
         <motion.div className="callbackMenu_contacts">
           <motion.div
-            animate={isOpen ? 'open' : 'closed'}
-            variants={{
-              open: { opacity: 1, transition: { delay: 0.8 } },
-              closed: {
-                opacity: 0,
-                transition: { delay: 0.4 },
-              },
-            }}
+            // animate={isOpen ? 'open' : 'closed'}
+            // variants={{
+            //   open: { opacity: 1, transition: { delay: 0.8 } },
+            //   closed: {
+            //     opacity: 0,
+            //     transition: { delay: 0.4 },
+            //   },
+            // }}
             className="callbackMenu_contacts_item"
           >
             <img src="/images/telegram.svg" alt="" />
             <a href="https://t.me/Elgrow_dev">Написать в Telegram</a>
           </motion.div>
           <motion.div
-            animate={isOpen ? 'open' : 'closed'}
-            variants={{
-              open: { opacity: 1, transition: { delay: 1 } },
-              closed: {
-                opacity: 0,
-                transition: { delay: 0.4 },
-              },
-            }}
+            // animate={isOpen ? 'open' : 'closed'}
+            // variants={{
+            //   open: { opacity: 1, transition: { delay: 1 } },
+            //   closed: {
+            //     opacity: 0,
+            //     transition: { delay: 0.4 },
+            //   },
+            // }}
             className="callbackMenu_contacts_item"
           >
             <img src="/images/email.svg" alt="" />
@@ -114,14 +112,14 @@ const CallBackMenu: React.FC<Props> = ({
         </motion.div>
         <motion.div
           onClick={() => close(false)}
-          animate={isOpen ? 'open' : 'closed'}
-          variants={{
-            open: { opacity: 1, transition: { delay: 1.1 } },
-            closed: {
-              opacity: 0,
-              transition: { delay: 0.4 },
-            },
-          }}
+          // animate={isOpen ? 'open' : 'closed'}
+          // variants={{
+          //   open: { opacity: 1, transition: { delay: 1.1 } },
+          //   closed: {
+          //     opacity: 0,
+          //     transition: { delay: 0.4 },
+          //   },
+          // }}
           className="callbackMenu_close"
         >
           <img src="/images/close.svg" alt="" />
@@ -131,25 +129,25 @@ const CallBackMenu: React.FC<Props> = ({
         <motion.div className="callbackMenu_main_form">
           <motion.div
             animate={isOpen ? 'open' : 'closed'}
-            variants={{
-              open: { opacity: 1, transition: { delay: 1 } },
-              closed: {
-                opacity: 0,
-                transition: { delay: 0.4 },
-              },
-            }}
+            // variants={{
+            //   open: { opacity: 1, transition: { delay: 1 } },
+            //   closed: {
+            //     opacity: 0,
+            //     transition: { delay: 0.4 },
+            //   },
+            // }}
             className="callbackMenu_main_form_fill"
           >
             {inputs.map((input: string, idx: number) => (
               <motion.div
                 animate={isOpen ? 'open' : 'closed'}
-                variants={{
-                  open: { opacity: 1, transition: { delay: 0.2 * idx + 1 } },
-                  closed: {
-                    opacity: 0,
-                    transition: { delay: 0.4 },
-                  },
-                }}
+                // variants={{
+                //   open: { opacity: 1, transition: { delay: 0.2 * idx + 1 } },
+                //   closed: {
+                //     opacity: 0,
+                //     transition: { delay: 0.4 },
+                //   },
+                // }}
               >
                 <Input
                   alignItems="center"
@@ -164,16 +162,16 @@ const CallBackMenu: React.FC<Props> = ({
               {budgets.map((budget: string, idx: number) => (
                 <motion.div
                   animate={isOpen ? 'open' : 'closed'}
-                  variants={{
-                    open: {
-                      opacity: 1,
-                      transition: { delaпоy: 0.2 * idx + 1 },
-                    },
-                    closed: {
-                      opacity: 0,
-                      transition: { delay: 0.4 },
-                    },
-                  }}
+                  // variants={{
+                  //   open: {
+                  //     opacity: 1,
+                  //     transition: { delaпоy: 0.2 * idx + 1 },
+                  //   },
+                  //   closed: {
+                  //     opacity: 0,
+                  //     transition: { delay: 0.4 },
+                  //   },
+                  // }}
                   className="callbackMenu_main_form_fill_budget"
                 >
                   {budget}
@@ -182,14 +180,14 @@ const CallBackMenu: React.FC<Props> = ({
             </motion.div>
           </motion.div>
           <motion.button
-            animate={isOpen ? 'open' : 'closed'}
-            variants={{
-              open: { opacity: 1, transition: { delay: 1.8 } },
-              closed: {
-                opacity: 0,
-                transition: { delay: 0.4 },
-              },
-            }}
+            // animate={isOpen ? 'open' : 'closed'}
+            // variants={{
+            //   open: { opacity: 1, transition: { delay: 1.8 } },
+            //   closed: {
+            //     opacity: 0,
+            //     transition: { delay: 0.4 },
+            //   },
+            // }}
           >
             Отправить
           </motion.button>
@@ -197,14 +195,14 @@ const CallBackMenu: React.FC<Props> = ({
           {max <= 768 && (
             <motion.div
               onClick={() => router.push('/politic')}
-              animate={isOpen ? 'open' : 'closed'}
-              variants={{
-                open: { opacity: 1, transition: { delay: 1.5 } },
-                closed: {
-                  opacity: 0,
-                  transition: { delay: 0.4 },
-                },
-              }}
+              // animate={isOpen ? 'open' : 'closed'}
+              // variants={{
+              //   open: { opacity: 1, transition: { delay: 1.5 } },
+              //   closed: {
+              //     opacity: 0,
+              //     transition: { delay: 0.4 },
+              //   },
+              // }}
               className="callbackMenu_main_form_politics"
             >
               <span> Политика обработки персональных данных </span>
@@ -214,14 +212,14 @@ const CallBackMenu: React.FC<Props> = ({
         <motion.div className="callbackMenu_main_container">
           <motion.div className="callbackMenu_main_staff">
             <motion.div
-              animate={isOpen ? 'open' : 'closed'}
-              variants={{
-                open: { opacity: 1, transition: { delay: 0.9 } },
-                closed: {
-                  opacity: 0,
-                  transition: { delay: 0.4 },
-                },
-              }}
+              // animate={isOpen ? 'open' : 'closed'}
+              // variants={{
+              //   open: { opacity: 1, transition: { delay: 0.9 } },
+              //   closed: {
+              //     opacity: 0,
+              //     transition: { delay: 0.4 },
+              //   },
+              // }}
               className="callbackMenu_main_staff_slogan"
             >
               <h1>
@@ -230,14 +228,14 @@ const CallBackMenu: React.FC<Props> = ({
             </motion.div>
             <motion.div className="callbackMenu_main_staff_personnel">
               <motion.div
-                animate={isOpen ? 'open' : 'closed'}
-                variants={{
-                  open: { opacity: 1, transition: { delay: 1.4 } },
-                  closed: {
-                    opacity: 0,
-                    transition: { delay: 0.4 },
-                  },
-                }}
+                // animate={isOpen ? 'open' : 'closed'}
+                // variants={{
+                //   open: { opacity: 1, transition: { delay: 1.4 } },
+                //   closed: {
+                //     opacity: 0,
+                //     transition: { delay: 0.4 },
+                //   },
+                // }}
                 className="callbackMenu_main_staff_personnel_person"
               >
                 <img src="/images/miniPerson.png" alt="" />
@@ -248,14 +246,14 @@ const CallBackMenu: React.FC<Props> = ({
                 </span>
               </motion.div>
               <motion.div
-                animate={isOpen ? 'open' : 'closed'}
-                variants={{
-                  open: { opacity: 1, transition: { delay: 1.2 } },
-                  closed: {
-                    opacity: 0,
-                    transition: { delay: 0.4 },
-                  },
-                }}
+                // animate={isOpen ? 'open' : 'closed'}
+                // variants={{
+                //   open: { opacity: 1, transition: { delay: 1.2 } },
+                //   closed: {
+                //     opacity: 0,
+                //     transition: { delay: 0.4 },
+                //   },
+                // }}
                 className="callbackMenu_main_staff_personnel_person"
               >
                 <img src="/images/miniPerson.png" alt="" />
@@ -269,14 +267,14 @@ const CallBackMenu: React.FC<Props> = ({
             {max > 768 && (
               <motion.div
               onClick={() => router.push('/politic')}
-                animate={isOpen ? 'open' : 'closed'}
-                variants={{
-                  open: { opacity: 1, transition: { delay: 1.5 } },
-                  closed: {
-                    opacity: 0,
-                    transition: { delay: 0.4 },
-                  },
-                }}
+                // animate={isOpen ? 'open' : 'closed'}
+                // variants={{
+                //   open: { opacity: 1, transition: { delay: 1.5 } },
+                //   closed: {
+                //     opacity: 0,
+                //     transition: { delay: 0.4 },
+                //   },
+                // }}
                 className="callbackMenu_main_staff_politics"
               >
                 <span> Политика обработки </span> <br />{' '}
@@ -287,26 +285,26 @@ const CallBackMenu: React.FC<Props> = ({
           <motion.div className="callbackMenu_main_brief">
             <motion.div
               className="callbackMenu_main_brief_text1"
-              animate={isOpen ? 'open' : 'closed'}
-              variants={{
-                open: { opacity: 1, transition: { delay: 1 } },
-                closed: {
-                  opacity: 0,
-                  transition: { delay: 0.4 },
-                },
-              }}
+              // animate={isOpen ? 'open' : 'closed'}
+              // variants={{
+              //   open: { opacity: 1, transition: { delay: 1 } },
+              //   closed: {
+              //     opacity: 0,
+              //     transition: { delay: 0.4 },
+              //   },
+              // }}
             >
               или
             </motion.div>
             <motion.div
-              animate={isOpen ? 'open' : 'closed'}
-              variants={{
-                open: { opacity: 1, transition: { delay: 0.8 } },
-                closed: {
-                  opacity: 0,
-                  transition: { delay: 0.4 },
-                },
-              }}
+              // animate={isOpen ? 'open' : 'closed'}
+              // variants={{
+              //   open: { opacity: 1, transition: { delay: 0.8 } },
+              //   closed: {
+              //     opacity: 0,
+              //     transition: { delay: 0.4 },
+              //   },
+              // }}
               onClick={() => router.push('/brief')}
               className="callbackMenu_main_brief_text2"
             >

@@ -3,23 +3,32 @@ import React, { useState, useEffect } from 'react';
 
 const nouBrand = () => {
   const [max, setMax]: any = useState(0);
-  console.log(max);
   useEffect(() => {
     setMax(window?.visualViewport?.width);
   }, []);
+
+  const openNouSite = () => {
+    window.open('https://noubrand.store/', '_blank');
+  };
   return (
     <div className="nouBrand">
-  <div style={{
-        zIndex: '10',
-        background: 'white',
-        top: '0', width: '100vw',
-        position:'fixed'}}> 
-          <Header />
+      <div
+        style={{
+          zIndex: '10',
+          background: 'white',
+          top: '0',
+          width: '100vw',
+          position: 'fixed',
+        }}
+      >
+        <Header />
       </div>
       <div className="headerContainer">
         <div className="logoTitle"> NOU</div>
         <div className="infoContainer">
-          <div className="store">noubrand.store </div>
+          <div onClick={openNouSite} className="store">
+            noubrand.store
+          </div>
           <div className="infoWrapper">
             <div className="infoItem">
               Клиент
@@ -456,12 +465,14 @@ const nouBrand = () => {
             />
           </div>
           <div className="socialMediaText3">
-            Ну и как оказалось… Это только начало…{' '}
+            Ну и как оказалось… Это только начало…
           </div>
           <div className="socialMediaText4">
-            <div> 
-            <span>NOU</span>&nbsp; для нас теперь не проект, а процесс!{max <= 560 && <br />} Работы
-            продолжаются,{max > 560 && <br />} впереди много{max <= 560 && <br />} интересного. </div>
+            <div>
+              <span>NOU</span>&nbsp; для нас теперь не проект, а процесс!
+              {max <= 560 && <br />} Работы продолжаются,{max > 560 && <br />}
+              впереди много{max <= 560 && <br />} интересного.
+            </div>
           </div>
         </div>
       </div>

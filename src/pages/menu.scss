@@ -1,4 +1,5 @@
 .menu {
+  cursor: auto;
   top: 0;
   position: fixed;
   z-index: 10;
@@ -11,12 +12,11 @@
   background-color: black;
   display: flex;
 
-  .menu_client {
+  .menu_client {  cursor: pointer;
     transition: 0.5s;
     &:hover {
       background: #1a9634;
     }
-    cursor: pointer;
     text-align: right;
     border-radius: 100% 0% 0% 0%;
     @include adaptive-value('width', 145, 95, 1);
@@ -90,6 +90,7 @@
     }
 
     .menu_navigate_logo {
+      cursor: pointer;
       font-family: 'Inter Tight';
       @include adaptive-value('font-size', 35, 20, 1);
       font-weight: 500;
@@ -113,12 +114,16 @@
       display: flex;
       align-items: center;
       gap: 9px;
-      a {
+      
+      a {  transition: 0.5s;
         text-decoration: none;
         color: #ffffff;
         font-family: 'Inter Tight';
         font-weight: 300;
         width: max-content;
+        &:hover {
+          color: #9c9c9c;
+        }
       }
     }
   }

@@ -47,17 +47,17 @@
         }
       }
 
-     .available {
-      &:hover  {
-        filter: brightness(70%);
+      .available {
+        &:hover {
+          filter: brightness(70%);
+        }
       }
-     }
 
-     .ndaImg {
-      &:hover  {
-        filter: brightness(30%);
+      .ndaImg {
+        &:hover {
+          filter: brightness(30%);
+        }
       }
-     }
 
       span {
         img {
@@ -147,8 +147,9 @@
   }
 
   .portfolio_main_title {
+    @include responsive-size(padding-right, 138px, 238px, 238px, 238px);
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     h1 {
       font-weight: 300;
       @include responsive-size(font-size, 32px, 45px, 60px, 80px);
@@ -158,9 +159,9 @@
 
   .portfolio_main_text {
     display: flex;
-    padding-left: 624px;
-    display: flex;
-    @include responsive-size(padding-left, 59px, 118px, 183px, 590px);
+
+  justify-content: center;
+    // @include responsive-size(padding-left, 59px, 118px, 183px, 590px);
 
     h3 {
       font-weight: 300;
@@ -182,9 +183,10 @@
     }
   }
   .logoImage {
-    @include responsive-size(width, 160px, 202px, 308px, 308px);
-    @include responsive-size(height, 65px, 82px, 125px, 125px);
+    // @include responsive-size(width, 160px, 202px, 308px, 308px);
+    // @include responsive-size(height, 65px, 82px, 125px, 125px);
     img {
+      // object-fit:cover;
       @include responsive-size(width, 160px, 202px, 308px, 308px);
       @include responsive-size(height, 71px, 82px, 125px, 125px);
       @media (max-width: 560px) {
@@ -192,7 +194,10 @@
       }
     }
     margin-top: 80px;
-    @include responsive-size(padding-left, 174px, 400px, 514px, 1235px);
+    @include responsive-size(padding-left, 132px, 410px, 410px, 410px);
+    display: flex;
+    justify-content: center;
+    // @include responsive-size(padding-left, 174px, 400px, 514px, 1235px);
     @media (max-width: 389px) {
       padding-left: 10vw;
     }

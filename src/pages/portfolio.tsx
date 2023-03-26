@@ -130,33 +130,27 @@ const Portfolio = () => {
               </>
             )}
           </div>
-           
-           
-        </div>
-        <div id={navItems[1].id} className="projects2022">
-         
-        <div className="AUZProject">
+          <div className="AUZProject">
             {max > 560 ? (
               <>
                 <div className="imgContainer">
                   <LazyLoadImage
                     className="ndaImg"
-                    placeholderSrc={'/images/parking.png'}
+                    placeholderSrc={'/images/statusStroy.png'}
                     effect="blur"
-                    src={'/images/parking.png'}
+                    src={'/images/statusStroy.png'}
                     alt=""
                   />
-                  <span className="nda"> NDA 😞 </span>
+                 <span className="processing">Еще заполняем </span>
                 </div>
                 <div className="description">
                   <div className="descriptionContainer">
                     <span className="projectType">мобильное приложение</span>
                     <span className="projectTitle">
-                      Мобильное приложение по управлению
-                      <br /> парковками аэропорта
+                    Мобильное приложение по покупке<br/>  товаров для стройки и ремонта
                     </span>
                   </div>
-                  <span className="projectYear"> 2022</span>
+                  <span className="projectYear"> 2023</span>
                 </div>
               </>
             ) : (
@@ -165,24 +159,27 @@ const Portfolio = () => {
                   <div className="descriptionContainer">
                     <span className="projectType">мобильное приложение</span>
                   </div>
-                  <span className="projectYear"> 2022</span>
+                  <span className="projectYear"> 2023</span>
                 </div>
                 <div className="imgContainer">
                   <LazyLoadImage
-                    placeholderSrc={'/images/parking.png.png'}
+                    placeholderSrc={'/images/statusStroy.png'}
                     effect="blur"
-                    src={'/images/parking.png.png'}
+                    src={'/images/statusStroy.png'}
                     alt=""
                   />
                 </div>
                 <span className="projectTitle">
-                  Мобильное приложение по управлению
-                  <br /> парковками аэропорта
+                Мобильное приложение по покупке<br/> товаров для стройки и ремонта
                 </span>
               </>
             )}
           </div>
-          <div className="NOUproject">
+           
+           
+        </div>
+        <div id={navItems[1].id} className="projects2022">
+        <div className="NOUproject">
             {max > 560 ? (
               <>
                 <div className="imgContainer">
@@ -235,6 +232,55 @@ const Portfolio = () => {
               </>
             )}
           </div>
+        <div className="AUZProject">
+            {max > 560 ? (
+              <>
+                <div className="imgContainer">
+                  <LazyLoadImage
+                    className="ndaImg"
+                    placeholderSrc={'/images/parking.png'}
+                    effect="blur"
+                    src={'/images/parking.png'}
+                    alt=""
+                  />
+                  <span className="nda"> NDA 😞 </span>
+                </div>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType">мобильное приложение</span>
+                    <span className="projectTitle">
+                      Мобильное приложение по управлению
+                      <br /> парковками аэропорта
+                    </span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="description">
+                  <div className="descriptionContainer">
+                    <span className="projectType">мобильное приложение</span>
+                  </div>
+                  <span className="projectYear"> 2022</span>
+                </div>
+                <div className="imgContainer">
+                  <LazyLoadImage
+                    placeholderSrc={'/images/parking.png'}
+                    effect="blur"
+                    src={'/images/parking.png'}
+                    alt=""
+                  />
+                </div>
+                <span className="projectTitle">
+                  Мобильное приложение по управлению
+                  <br /> парковками аэропорта
+                </span>
+              </>
+            )}
+          </div>
+        
+         
         </div>
 
         <div id="nav" className="portfolio_pagination_container">
