@@ -63,6 +63,7 @@
         img {
           transition: all 0.3s ease-in-out;
           &:hover {
+            cursor: pointer;
             .nda {
               opacity: 1;
             }
@@ -160,7 +161,7 @@
   .portfolio_main_text {
     display: flex;
 
-  justify-content: center;
+    justify-content: center;
     // @include responsive-size(padding-left, 59px, 118px, 183px, 590px);
 
     h3 {
