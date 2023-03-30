@@ -287,7 +287,7 @@ const Portfolio = () => {
                     src={'/images/portfolioAUZ.png'}
                     alt=""
                   />
-                  <span className="processing">Еще заполняем </span>
+                 <span className="nda"> NDA 😞 </span>
                 </div>
                 <div className="description">
                   <div className="descriptionContainer">
@@ -339,7 +339,7 @@ const Portfolio = () => {
                     src={'/images/parking.png'}
                     alt=""
                   />
-                  <span className="nda"> NDA 😞 </span>
+                 <span className="processing">Еще заполняем </span>
                 </div>
                 <div className="description">
                   <div className="descriptionContainer">
