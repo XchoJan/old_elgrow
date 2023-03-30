@@ -37,6 +37,7 @@
       }
 
       .processing {
+        font-weight: 300;
         @extend .nda;
       }
 
@@ -137,6 +138,9 @@
     }
     .AUZProject {
       @extend .NOUproject;
+      @media (max-width: 1440px) {
+        justify-content: space-between;
+      }
       flex-direction: row-reverse;
       @media (max-width: 560px) {
         flex-direction: column;
