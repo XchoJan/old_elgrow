@@ -124,6 +124,7 @@
             }
           }
           .projectTitle {
+            @include responsive-size(line-height, 25px, 25px, 30px, 36px);
             @include responsive-size(font-size, 18px, 18px, 20px, 24px);
             font-weight: 400;
           }
