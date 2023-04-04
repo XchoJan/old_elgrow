@@ -191,7 +191,6 @@ const Portfolio = () => {
                     src={'/images/NOULogo.png'}
                     alt=""
                   />
-                  <span className="nda"> NDA 😞 </span>
                 </div>
                 <div className="description">
                   <div className="descriptionContainer">
@@ -280,14 +279,13 @@ const Portfolio = () => {
               <>
                 <div className="imgContainer">
                   <LazyLoadImage
-                    className="ndaImg"
+                    className="available"
                     onClick={() => router.push('/aviationTrainingCenter')}
                     placeholderSrc={'/images/portfolioAUZ.png'}
                     effect="blur"
                     src={'/images/portfolioAUZ.png'}
                     alt=""
                   />
-                 <span className="nda"> NDA 😞 </span>
                 </div>
                 <div className="description">
                   <div className="descriptionContainer">
@@ -339,7 +337,7 @@ const Portfolio = () => {
                     src={'/images/parking.png'}
                     alt=""
                   />
-                 <span className="processing">Еще заполняем </span>
+                  <span className="processing">Еще заполняем </span>
                 </div>
                 <div className="description">
                   <div className="descriptionContainer">
@@ -805,7 +803,7 @@ const Portfolio = () => {
                     src={'/images/federal.png'}
                     alt=""
                   />
-                  <span className="nda"> NDA 😞 </span>
+                  <span className="processing">Еще заполняем </span>
                 </div>
                 <div className="description">
                   <div className="descriptionContainer">
