@@ -5,19 +5,21 @@ import Input from '../Components/Input';
 const brief = () => {
   const [max, setMax]: any = useState(0);
   useEffect(() => {
- 
-
     setMax(window?.visualViewport?.width);
   }, []);
 
   return (
     <div className="briefContainer">
-    <div style={{
-        zIndex: '10',
-        background: 'white',
-        top: '0', width: '100vw',
-        position:'fixed'}}> 
-          <Header />
+      <div
+        style={{
+          zIndex: '10',
+          background: 'white',
+          top: '0',
+          width: '100vw',
+          position: 'fixed',
+        }}
+      >
+        <Header />
       </div>
       <div className="briefContent">
         <div className="mainTitle">Бриф</div>
@@ -25,8 +27,10 @@ const brief = () => {
         <div className="blockDescr">
           <span>оперативно</span>
           <div className="descrText">
-            pазберемся в проблеме и сориентируем по бюджетам и срокам, ее {max> 560 &&<br />}
-            срочность. Расскажем о вилках по типам работ. Если не  {max> 560 &&<br />}
+            pазберемся в проблеме и сориентируем по бюджетам и срокам, ее{' '}
+            {max > 560 && <br />}
+            срочность. Расскажем о вилках по типам работ. Если не{' '}
+            {max > 560 && <br />}
             вписываемся в бюджет или сроки, сразу это подсветим.
           </div>
         </div>
@@ -142,7 +146,7 @@ const brief = () => {
           />
           <Input
             textarea={false}
-            labelHeight={ max > 560 ?'120px' : '160px'}
+            labelHeight={max > 560 ? '120px' : '160px'}
             left={'0px'}
             marginTopLabel={'62px'}
             placeholder={
@@ -210,13 +214,42 @@ const brief = () => {
           />
           <Input
             textarea={false}
-            labelHeight={ max > 560 ?'120px' : '140px'}
+            labelHeight={'100px'}
+            left={'0px'}
+            marginTopLabel={'73px'}
+            placeholder={
+              <div className="inputText">
+                <span className="paragraph">2.</span>
+                <span className="contentText">
+                  Как устроен ваш продукт? Благодаря чему он развивается?
+                </span>
+              </div>
+            }
+          />
+
+          <Input
+            textarea={false}
+            labelHeight={'100px'}
+            left={'0px'}
+            marginTopLabel={'73px'}
+            placeholder={
+              <div className="inputText">
+                <span className="paragraph">3.</span>
+                <span className="contentText">
+                  Какая ближайшая задача сейчас стоит перед продуктом ?
+                </span>
+              </div>
+            }
+          />
+          <Input
+            textarea={false}
+            labelHeight={max > 560 ? '120px' : '140px'}
             left={'0px'}
             marginTop={'0px'}
             marginTopLabel={'73px'}
             placeholder={
               <div className="inputText">
-                <span className="paragraph">2.</span>
+                <span className="paragraph">4.</span>
                 <span className="contentText">
                   Откуда появилась потребность в сайте / приложении / внутренне{' '}
                   <br /> системе / другом…
@@ -227,12 +260,12 @@ const brief = () => {
 
           <Input
             textarea={false}
-            labelHeight={ max > 560 ?'120px' : '160px'}
+            labelHeight={max > 560 ? '120px' : '160px'}
             marginTopLabel={'73px'}
             left={'0px'}
             placeholder={
               <div className="inputText">
-                <span className="paragraph">3.</span>
+                <span className="paragraph">5.</span>
                 <span className="contentText">
                   Какую цель для бизнеса преследуем? Например: привлечение
                   клиентов, регистрации, удержание,
@@ -248,7 +281,7 @@ const brief = () => {
             marginTopLabel={'73px'}
             placeholder={
               <div className="inputText">
-                <span className="paragraph">4.</span>
+                <span className="paragraph">6.</span>
                 <span className="contentText">
                   Какие ключевые метрики (KPI)? 
                 </span>
@@ -257,42 +290,28 @@ const brief = () => {
           />
           <Input
             textarea={false}
-            labelHeight={ max > 560 ?'100px' : '130px'}
-            marginTopLabel={'73px'}
-            left={'0px'}
-            placeholder={
-              <div className="inputText">
-                <span className="paragraph">5.</span>
-                <span className="contentText">
-                  Есть ли какие-то ограничения (технологические, связанные с
-                  бизнесом и т.п.)? 
-                </span>
-              </div>
-            }
-          />
-          <Input
-            textarea={false}
-            labelHeight={ max > 560 ?'100px' : '130px'}
-            marginTopLabel={'73px'}
-            left={'0px'}
-            placeholder={
-              <div className="inputText">
-                <span className="paragraph">6.</span>
-                <span className="contentText">
-                  Есть ли какие-то ограничения (технологические, связанные с
-                  бизнесом и т.п.)? 
-                </span>
-              </div>
-            }
-          />
-          <Input
-            textarea={false}
-            labelHeight={ max > 560 ?'120px' : '160px'}
+            labelHeight={max > 560 ? '100px' : '130px'}
             marginTopLabel={'73px'}
             left={'0px'}
             placeholder={
               <div className="inputText">
                 <span className="paragraph">7.</span>
+                <span className="contentText">
+                  Есть ли какие-то ограничения (технологические, связанные с
+                  бизнесом и т.п.)? 
+                </span>
+              </div>
+            }
+          />
+
+          <Input
+            textarea={false}
+            labelHeight={max > 560 ? '120px' : '160px'}
+            marginTopLabel={'73px'}
+            left={'0px'}
+            placeholder={
+              <div className="inputText">
+                <span className="paragraph">8.</span>
                 <span className="contentText">
                   Есть ли какие-то продукты, на которые можно ориентироваться?
                   (у конкурентов, из других сфер или другие ваши продукты) 
@@ -378,7 +397,6 @@ const brief = () => {
             labelHeight={'150px'}
             marginTopLabel={'53px'}
             left={'0px'}
-            
             placeholder={
               <div className="inputText">
                 <span className="paragraph">5.</span>
