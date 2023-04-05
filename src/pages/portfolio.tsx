@@ -44,26 +44,28 @@ const Portfolio = () => {
   }
 
   function setActiveNavItem() {
-    const navContainerForScroll = document?.querySelector('#nav3');
-
     const currentBlock = getCurrentBlock();
     setActiveNav(currentBlock.id);
-
+    const navContainerForScroll = document?.querySelector('#nav3');
     if (max <= 560) {
-      const containerRect: any = document
-      ?.querySelector('#nav3')
-      ?.getBoundingClientRect();
-    const elementRect: any = document
-      ?.querySelector('.portfolio_year_active')
-      ?.getBoundingClientRect();
+      const containerRect: any = navContainerForScroll?.getBoundingClientRect();
+      const elementRect: any = document
+        ?.querySelector('.portfolio_year_active')
+        ?.getBoundingClientRect();
 
-    if (elementRect?.right > containerRect?.right) {
-      navContainerForScroll!.scrollLeft += 50;
-    } else if (elementRect?.right < containerRect?.right) {
-      navContainerForScroll!.scrollLeft -= 50;
+      if (elementRect?.right < containerRect?.right) {
+        navContainerForScroll!.scrollLeft =
+          elementRect.right -
+          containerRect.right +
+          navContainerForScroll!.scrollLeft;
+      } else if (elementRect?.left > containerRect?.left) {
+        navContainerForScroll!.scrollLeft =
+          elementRect.left -
+          containerRect.left +
+          navContainerForScroll!.scrollLeft;
+        console.log(navContainerForScroll!.scrollLeft);
+      }
     }
-    }
-    
   }
 
   const handleScroll = () => {
