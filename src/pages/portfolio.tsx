@@ -1,6 +1,6 @@
 import Header from '../Components/Header';
 import Menu from '../Components/Menu';
-import React, { Dispatch, SetStateAction, useState, useEffect } from 'react';
+import React, { useRef, SetStateAction, useState, useEffect } from 'react';
 import CallBackMenu from 'src/Components/CallBackMenu';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import { useRouter } from 'next/router';
@@ -13,6 +13,7 @@ const Portfolio = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [activeNav, setActiveNav] = useState('');
   const router = useRouter();
+  const navContainer = useRef(null);
 
   const [max, setMax]: any = useState(0);
 
@@ -25,8 +26,6 @@ const Portfolio = () => {
     { id: '2018' },
     { id: '2017' },
   ];
-
-  // const navigation = ['2023', '2022', '2021', '2020', '2019'];
 
   useEffect(() => {
     setMax(window?.visualViewport?.width);
@@ -45,8 +44,26 @@ const Portfolio = () => {
   }
 
   function setActiveNavItem() {
+    const navContainerForScroll = document?.querySelector('#nav3');
+
     const currentBlock = getCurrentBlock();
     setActiveNav(currentBlock.id);
+
+    if (max <= 560) {
+      const containerRect: any = document
+      ?.querySelector('#nav3')
+      ?.getBoundingClientRect();
+    const elementRect: any = document
+      ?.querySelector('.portfolio_year_active')
+      ?.getBoundingClientRect();
+
+    if (elementRect?.right > containerRect?.right) {
+      navContainerForScroll!.scrollLeft += 50;
+    } else if (elementRect?.right < containerRect?.right) {
+      navContainerForScroll!.scrollLeft -= 50;
+    }
+    }
+    
   }
 
   const handleScroll = () => {
@@ -1406,7 +1423,7 @@ const Portfolio = () => {
 
           {isSticky && (
             <div id="nav2" className="portfolio_pagination_container_fixed">
-              <div className="portfolio_pagination_content">
+              <div id="nav3" className="portfolio_pagination_content">
                 <Link
                   to="2023"
                   spy={true}
