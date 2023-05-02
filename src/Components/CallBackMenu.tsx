@@ -2,6 +2,9 @@ import { motion } from 'framer-motion';
 import React, { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import Input from './Input';
 import { useRouter } from 'next/router';
+import { useForm, useWatch } from 'react-hook-form';
+import { Store as notification } from 'react-notifications-component';
+import axios from 'axios';
 
 interface Props {
   isOpen: boolean;
@@ -21,7 +24,26 @@ const CallBackMenu: React.FC<Props> = ({
   inline,
 }) => {
   const [max, setMax]: any = useState(0);
+
   const router = useRouter();
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    control,
+    formState: { errors },
+  } = useForm<any>({
+    defaultValues: {
+      name: '',
+      money: '',
+    },
+  });
+
+  const budgetWatcher = useWatch({
+    control,
+    name: `money`,
+  });
 
   if (typeof window !== 'undefined' && isOpen) {
     let body: any = document.querySelector('body');
@@ -41,12 +63,10 @@ const CallBackMenu: React.FC<Props> = ({
   } else if (typeof window !== 'undefined' && !isOpen) {
     let body: any = document.querySelector('body');
 
-
     body.style.overflowY = 'auto';
   }
 
   if (typeof window !== 'undefined' && childFromMenu && isOpen) {
-
   }
 
   useEffect(() => {
@@ -64,12 +84,46 @@ const CallBackMenu: React.FC<Props> = ({
     },
   };
 
-  const inputs = [
-    'Ваше имя',
-    'Компания',
-    'Номер телефона',
-    'Расскажите кратко о задаче',
-  ];
+  const notificationOptionsSuccess: any = {
+    title: 'Заявка отправлена',
+    type: 'success',
+    animationIn: ['animate__animated', 'animate__fadeIn'],
+    animationOut: ['animate__animated', 'animate__fadeOut'],
+    container: 'top-right',
+    dismiss: {
+      duration: 5000,
+    },
+  };
+  const notificationOptionsError: any = {
+    title: 'Произошла ошибка отправки, попробуйте еще раз',
+    type: 'error',
+    animationIn: ['animate__animated', 'animate__fadeIn'],
+    animationOut: ['animate__animated', 'animate__fadeOut'],
+    container: 'top-right',
+    dismiss: {
+      duration: 5000,
+    },
+  };
+
+  const sendForm = handleSubmit(async (dataForm) => {
+    const response = await axios.post(
+      'https://outstaff-server.elgrow.ru/api/elgrow', dataForm,      
+    );
+    if (response.status !== 200) {
+      notification.addNotification({
+        ...notificationOptionsError,
+      });
+    } else {
+      notification.addNotification({
+        ...notificationOptionsSuccess,
+      });
+      setValue('money', ''),
+        setValue('name', ''),
+        setValue('company', ''),
+        setValue('phone', ''),
+        setValue('comment', '');
+    }
+  });
 
   return (
     <motion.div
@@ -81,163 +135,99 @@ const CallBackMenu: React.FC<Props> = ({
     >
       <motion.div className="callbackMenu_contacts_container">
         <motion.div className="callbackMenu_contacts">
-          <motion.div
-            // animate={isOpen ? 'open' : 'closed'}
-            // variants={{
-            //   open: { opacity: 1, transition: { delay: 0.8 } },
-            //   closed: {
-            //     opacity: 0,
-            //     transition: { delay: 0.4 },
-            //   },
-            // }}
-            className="callbackMenu_contacts_item"
-          >
+          <motion.div className="callbackMenu_contacts_item">
             <img src="/images/telegram.svg" alt="" />
             <a href="https://t.me/Elgrow_dev">Написать в Telegram</a>
           </motion.div>
-          <motion.div
-            // animate={isOpen ? 'open' : 'closed'}
-            // variants={{
-            //   open: { opacity: 1, transition: { delay: 1 } },
-            //   closed: {
-            //     opacity: 0,
-            //     transition: { delay: 0.4 },
-            //   },
-            // }}
-            className="callbackMenu_contacts_item"
-          >
+          <motion.div className="callbackMenu_contacts_item">
             <img src="/images/email.svg" alt="" />
             <a href="mailto:info@elgrow.ru">info@elgrow.ru</a>
           </motion.div>
         </motion.div>
-        <motion.div
-          onClick={() => close(false)}
-          // animate={isOpen ? 'open' : 'closed'}
-          // variants={{
-          //   open: { opacity: 1, transition: { delay: 1.1 } },
-          //   closed: {
-          //     opacity: 0,
-          //     transition: { delay: 0.4 },
-          //   },
-          // }}
-          className="callbackMenu_close"
-        >
+        <motion.div onClick={() => close(false)} className="callbackMenu_close">
           <img src="/images/close.svg" alt="" />
         </motion.div>
       </motion.div>
       <motion.div className="callbackMenu_main">
-        <motion.div className="callbackMenu_main_form">
-          <motion.div
-            animate={isOpen ? 'open' : 'closed'}
-            // variants={{
-            //   open: { opacity: 1, transition: { delay: 1 } },
-            //   closed: {
-            //     opacity: 0,
-            //     transition: { delay: 0.4 },
-            //   },
-            // }}
-            className="callbackMenu_main_form_fill"
-          >
-            {inputs.map((input: string, idx: number) => (
-              <motion.div
-                animate={isOpen ? 'open' : 'closed'}
-                // variants={{
-                //   open: { opacity: 1, transition: { delay: 0.2 * idx + 1 } },
-                //   closed: {
-                //     opacity: 0,
-                //     transition: { delay: 0.4 },
-                //   },
-                // }}
-              >
+        <form onSubmit={sendForm}>
+          <motion.div className="callbackMenu_main_form">
+            <motion.div
+              animate={isOpen ? 'open' : 'closed'}
+              className="callbackMenu_main_form_fill"
+            >
+              <motion.div animate={isOpen ? 'open' : 'closed'}>
                 <Input
+                  reactHookForm={{ ...register('name', { required: true }) }}
                   alignItems="center"
-                  textarea={idx === 3 ? true : false}
-                  placeholder={input}
+                  textarea={false}
+                  placeholder="Ваше имя"
                 />
               </motion.div>
-            ))}
+              <motion.div animate={isOpen ? 'open' : 'closed'}>
+                <Input
+                  reactHookForm={{
+                    ...register('company', { required: true }),
+                  }}
+                  alignItems="center"
+                  textarea={false}
+                  placeholder="Компания"
+                />
+              </motion.div>
+              <motion.div animate={isOpen ? 'open' : 'closed'}>
+                <Input
+                  reactHookForm={{ ...register('phone', { required: true }) }}
+                  alignItems="center"
+                  textarea={false}
+                  placeholder="Номер телефона"
+                />
+              </motion.div>
+              <motion.div animate={isOpen ? 'open' : 'closed'}>
+                <Input
+                  reactHookForm={{ ...register('comment', { required: true }) }}
+                  alignItems="center"
+                  textarea={true}
+                  placeholder="Расскажите кратко о задаче"
+                />
+              </motion.div>
 
-            <h4> Бюджет </h4>
-            <motion.div className="callbackMenu_main_form_fill_budget_container">
-              {budgets.map((budget: string, idx: number) => (
-                <motion.div
-                  animate={isOpen ? 'open' : 'closed'}
-                  // variants={{
-                  //   open: {
-                  //     opacity: 1,
-                  //     transition: { delaпоy: 0.2 * idx + 1 },
-                  //   },
-                  //   closed: {
-                  //     opacity: 0,
-                  //     transition: { delay: 0.4 },
-                  //   },
-                  // }}
-                  className="callbackMenu_main_form_fill_budget"
-                >
-                  {budget}
-                </motion.div>
-              ))}
+              <h4> Бюджет </h4>
+              <motion.div className="callbackMenu_main_form_fill_budget_container">
+                {budgets.map((budget: string, idx: number) => (
+                  <motion.div
+                    onClick={() => setValue('money', budget)}
+                    animate={isOpen ? 'open' : 'closed'}
+                    className={
+                      budgetWatcher === budget
+                        ? 'callbackMenu_main_form_fill_budget_selected'
+                        : 'is callbackMenu_main_form_fill_budget'
+                    }
+                  >
+                    {budget}
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
+            <motion.button type="submit">Отправить</motion.button>
+
+            {max <= 768 && (
+              <motion.div
+                onClick={() => router.push('/politic')}
+                className="callbackMenu_main_form_politics"
+              >
+                <span> Политика обработки персональных данных </span>
+              </motion.div>
+            )}
           </motion.div>
-          <motion.button
-            // animate={isOpen ? 'open' : 'closed'}
-            // variants={{
-            //   open: { opacity: 1, transition: { delay: 1.8 } },
-            //   closed: {
-            //     opacity: 0,
-            //     transition: { delay: 0.4 },
-            //   },
-            // }}
-          >
-            Отправить
-          </motion.button>
-
-          {max <= 768 && (
-            <motion.div
-              onClick={() => router.push('/politic')}
-              // animate={isOpen ? 'open' : 'closed'}
-              // variants={{
-              //   open: { opacity: 1, transition: { delay: 1.5 } },
-              //   closed: {
-              //     opacity: 0,
-              //     transition: { delay: 0.4 },
-              //   },
-              // }}
-              className="callbackMenu_main_form_politics"
-            >
-              <span> Политика обработки персональных данных </span>
-            </motion.div>
-          )}
-        </motion.div>
+        </form>
         <motion.div className="callbackMenu_main_container">
           <motion.div className="callbackMenu_main_staff">
-            <motion.div
-              // animate={isOpen ? 'open' : 'closed'}
-              // variants={{
-              //   open: { opacity: 1, transition: { delay: 0.9 } },
-              //   closed: {
-              //     opacity: 0,
-              //     transition: { delay: 0.4 },
-              //   },
-              // }}
-              className="callbackMenu_main_staff_slogan"
-            >
+            <motion.div className="callbackMenu_main_staff_slogan">
               <h1>
                 С вами на связи <br /> <span> самые отзвывчивые : </span>
               </h1>
             </motion.div>
             <motion.div className="callbackMenu_main_staff_personnel">
-              <motion.div
-                // animate={isOpen ? 'open' : 'closed'}
-                // variants={{
-                //   open: { opacity: 1, transition: { delay: 1.4 } },
-                //   closed: {
-                //     opacity: 0,
-                //     transition: { delay: 0.4 },
-                //   },
-                // }}
-                className="callbackMenu_main_staff_personnel_person"
-              >
+              <motion.div className="callbackMenu_main_staff_personnel_person">
                 <img src="/images/miniPerson.png" alt="" />
                 <h2>Михаил Посошнов</h2>
                 <span>
@@ -245,17 +235,7 @@ const CallBackMenu: React.FC<Props> = ({
                   встречу )
                 </span>
               </motion.div>
-              <motion.div
-                // animate={isOpen ? 'open' : 'closed'}
-                // variants={{
-                //   open: { opacity: 1, transition: { delay: 1.2 } },
-                //   closed: {
-                //     opacity: 0,
-                //     transition: { delay: 0.4 },
-                //   },
-                // }}
-                className="callbackMenu_main_staff_personnel_person"
-              >
+              <motion.div className="callbackMenu_main_staff_personnel_person">
                 <img src="/images/miniPerson.png" alt="" />
                 <h2>Максим Макаров</h2>
                 <span>
@@ -266,15 +246,7 @@ const CallBackMenu: React.FC<Props> = ({
             </motion.div>
             {max > 768 && (
               <motion.div
-              onClick={() => router.push('/politic')}
-                // animate={isOpen ? 'open' : 'closed'}
-                // variants={{
-                //   open: { opacity: 1, transition: { delay: 1.5 } },
-                //   closed: {
-                //     opacity: 0,
-                //     transition: { delay: 0.4 },
-                //   },
-                // }}
+                onClick={() => router.push('/politic')}
                 className="callbackMenu_main_staff_politics"
               >
                 <span> Политика обработки </span> <br />{' '}
@@ -283,28 +255,10 @@ const CallBackMenu: React.FC<Props> = ({
             )}
           </motion.div>
           <motion.div className="callbackMenu_main_brief">
-            <motion.div
-              className="callbackMenu_main_brief_text1"
-              // animate={isOpen ? 'open' : 'closed'}
-              // variants={{
-              //   open: { opacity: 1, transition: { delay: 1 } },
-              //   closed: {
-              //     opacity: 0,
-              //     transition: { delay: 0.4 },
-              //   },
-              // }}
-            >
+            <motion.div className="callbackMenu_main_brief_text1">
               или
             </motion.div>
             <motion.div
-              // animate={isOpen ? 'open' : 'closed'}
-              // variants={{
-              //   open: { opacity: 1, transition: { delay: 0.8 } },
-              //   closed: {
-              //     opacity: 0,
-              //     transition: { delay: 0.4 },
-              //   },
-              // }}
               onClick={() => router.push('/brief')}
               className="callbackMenu_main_brief_text2"
             >

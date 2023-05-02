@@ -237,6 +237,7 @@
           background: #1a9634;
         }
       }
+
       .callbackMenu_main_form_fill {
         color: white;
         display: flex;
@@ -278,6 +279,34 @@
             display: flex;
             justify-content: center;
             background: rgba(92, 92, 92, 0.46);
+            border-radius: 5px;
+            font-size: 11px;
+            font-family: 'Inter Tight';
+            font-weight: 300;
+            transition: 0.5s;
+
+            @media (max-width: 428px) {
+              padding: 6px;
+              width: max-content;
+              height: max-content;
+              // padding: 10px;
+            }
+
+            &:hover {
+              background: #5c5c5c;
+            }
+          }
+          .callbackMenu_main_form_fill_budget_selected {
+            height: 27px;
+            cursor: pointer;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            color: white;
+            width: 100%;
+            max-width: 102px;
+            display: flex;
+            justify-content: center;
+            background: #5c5c5c;
             border-radius: 5px;
             font-size: 11px;
             font-family: 'Inter Tight';
