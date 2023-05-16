@@ -962,7 +962,7 @@ const MainPage = () => {
               </div>
             </section>
           </div>
-          <div className="personSlider">
+          {/* <div className="personSlider">
             <Swiper
               effect={'fade'}
               speed={400}
@@ -992,7 +992,7 @@ const MainPage = () => {
                             </h1>
                           </div>
                         </div>
-                        {/* <div className="team_sliderScrollContainer"> </div> */}
+                      
                         <div className="team_slider-inner_bootom_right">
                           <div className="team_slider-inner_bootom_right_nameAndPost">
                             <h1>Роман Адигезалов</h1>
@@ -1027,7 +1027,7 @@ const MainPage = () => {
                             </h1>
                           </div>
                         </div>
-                        {/* <div className="team_sliderScrollContainer"> </div> */}
+                      
                         <div className="team_slider-inner_bootom_right">
                           <div className="team_slider-inner_bootom_right_nameAndPost">
                             <h1>Роман Адигезалов</h1>
@@ -1062,7 +1062,7 @@ const MainPage = () => {
                             </h1>
                           </div>
                         </div>
-                        {/* <div className="team_sliderScrollContainer"> </div> */}
+                     
                         <div className="team_slider-inner_bootom_right">
                           <div className="team_slider-inner_bootom_right_nameAndPost">
                             <h1>Роман Адигезалов</h1>
@@ -1082,7 +1082,7 @@ const MainPage = () => {
               </SwiperSlide>
               <div className="swiper-pagination"></div>
             </Swiper>
-          </div>
+          </div> */}
         </div>
       </section>
       <div className="portfolio">

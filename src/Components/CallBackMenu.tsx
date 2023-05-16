@@ -221,12 +221,12 @@ const CallBackMenu: React.FC<Props> = ({
         </form>
         <motion.div className="callbackMenu_main_container">
           <motion.div className="callbackMenu_main_staff">
-            <motion.div className="callbackMenu_main_staff_slogan">
+            {/* <motion.div className="callbackMenu_main_staff_slogan">
               <h1>
                 С вами на связи <br /> <span> самые отзвывчивые : </span>
               </h1>
-            </motion.div>
-            <motion.div className="callbackMenu_main_staff_personnel">
+            </motion.div> */}
+            {/* <motion.div className="callbackMenu_main_staff_personnel">
               <motion.div className="callbackMenu_main_staff_personnel_person">
                 <img src="/images/miniPerson.png" alt="" />
                 <h2>Михаил Посошнов</h2>
@@ -243,7 +243,7 @@ const CallBackMenu: React.FC<Props> = ({
                   и предложит решение )
                 </span>
               </motion.div>
-            </motion.div>
+            </motion.div> */}
             {max > 768 && (
               <motion.div
                 onClick={() => router.push('/politic')}
@@ -255,9 +255,9 @@ const CallBackMenu: React.FC<Props> = ({
             )}
           </motion.div>
           <motion.div className="callbackMenu_main_brief">
-            <motion.div className="callbackMenu_main_brief_text1">
+            {/* <motion.div className="callbackMenu_main_brief_text1">
               или
-            </motion.div>
+            </motion.div> */}
             <motion.div
               onClick={() => router.push('/brief')}
               className="callbackMenu_main_brief_text2"
