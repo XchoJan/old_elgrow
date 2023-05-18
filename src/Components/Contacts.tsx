@@ -54,14 +54,14 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
     >
       <motion.div className="contacts_logo">
         <motion.div
-          // animate={isOpen ? 'open' : 'closed'}
-          // variants={{
-          //   open: { x: 0, transition: { delay: 0.6 } },
-          //   closed: {
-          //     x: -1000,
-          //     transition: { delay: 0.2 },
-          //   },
-          // }}
+        // animate={isOpen ? 'open' : 'closed'}
+        // variants={{
+        //   open: { x: 0, transition: { delay: 0.6 } },
+        //   closed: {
+        //     x: -1000,
+        //     transition: { delay: 0.2 },
+        //   },
+        // }}
         >
           e<span className="contacts_logo_letterL">l</span>grow.
         </motion.div>
@@ -141,8 +141,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
                   )
                 }
               >
-                
-                Как добраться? 
+                Как добраться?
               </span>
             </motion.div>
           </motion.div>
@@ -208,8 +207,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
                   )
                 }
               >
-             
-                Как добраться? 
+                Как добраться?
               </span>
             </motion.div>
           </motion.div>
@@ -254,7 +252,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
               // }}
               className="contacts_addresses_adress_phone"
             >
-              +7 495 109 90 49
+              +7 812 209 90 49
             </motion.div>
             <motion.div
               // animate={isOpen ? 'open' : 'closed'}
@@ -272,8 +270,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
                   openAdress(e, 'Санкт-Петербург, ул. Зеленогорская, д. 4а')
                 }
               >
-               
-                Как добраться? 
+                Как добраться?
               </span>
             </motion.div>
           </motion.div>
