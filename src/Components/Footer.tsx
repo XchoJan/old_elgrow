@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
 import CallBackMenu from './CallBackMenu';
-import Contacts from './Contacts';  import { useRouter } from 'next/router';
+import Contacts from './Contacts';
+import { useRouter } from 'next/router';
 
 const Footer = () => {
   const router = useRouter();
- 
+
   const [showMenu, setShowMenu] = useState(false);
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
 
-  const [max, setMax]: any   = useState(0);
+  const [max, setMax]: any = useState(0);
+
+  const openPresentaion = () => window.open('/presentation1.pdf', '_blank');
 
   useEffect(() => {
     setMax(window?.visualViewport?.width);
@@ -19,7 +22,7 @@ const Footer = () => {
         <Contacts isOpen={showMenu} close={setShowMenu} />
         <CallBackMenu
           y="0"
-          x='0'
+          x="0"
           isOpen={isVisibleCallbackMenu}
           close={setVisibleCallbackMenu}
         />
@@ -43,7 +46,7 @@ const Footer = () => {
               <div className="footer_center-wrap_left">
                 <a href="#">Главная</a>
                 <a href="#">Цены</a>
-                <a  onClick={() => router.push('/portfolio')}>Портфолио</a>
+                <a onClick={() => router.push('/portfolio')}>Портфолио</a>
                 <a
                   style={{ cursor: 'pointer' }}
                   onClick={() => setShowMenu(true)}
@@ -52,7 +55,7 @@ const Footer = () => {
                 </a>
               </div>
               <div className="footer_center-wrap_right">
-                <a className="presentation" href="#">
+                <a onClick={openPresentaion} className="presentation" href="#">
                   презентация
                 </a>
               </div>
