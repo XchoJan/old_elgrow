@@ -83,7 +83,8 @@ h6 {
     background: #000000;
     position: relative;
     @include adaptive-value('height', 1080, 263, 1);
-    background-image: url('../../public/images/main1920.png');
+    background-image: url('../../public/images/АУЦ1920.png');
+    // background-image: url('../../public/images/main1920.png');
     background-repeat: no-repeat;
     background-position: bottom right;
     background-size: cover;

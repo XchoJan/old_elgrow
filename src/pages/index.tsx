@@ -318,7 +318,7 @@ const MainPage = () => {
         className="main_img"
       >
         <motion.div
-          onClick={() => router.push('/nouBrand')}
+          onClick={() => router.push('/aviationTrainingCenter')}
           style={viewportWidth > 768 ? { maxWidth } : { maxWidth: '100vw' }}
           ref={ref}
           className="main_img_box"
