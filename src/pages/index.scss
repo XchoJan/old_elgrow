@@ -436,13 +436,14 @@ h6 {
 }
 
 .products_principles-inner {
+  @include adaptive-value('margin-left', 50, 20, 1);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 95vw;
+  align-items: flex-start;
+  width: 100%;
   position: relative;
-  padding-right: 98px;
+  // padding-right: 98px;
 }
 .products_principles_border {
   position: relative;
@@ -454,7 +455,6 @@ h6 {
   @include responsive-size(padding-bottom, 406px, 260px, 260px, 250px);
   // margin-bottom: 30vw;
   @media (max-width: 560px) {
- 
   }
   // @include adaptive-value('padding-left', 86, 20, 1);
 }
@@ -486,7 +486,7 @@ h6 {
 
 .products_principles-center {
   display: flex;
-
+  align-items: center;
   flex-direction: column;
   @include adaptive-value('width', 1353, 350, 1);
 
@@ -675,7 +675,7 @@ h6 {
     overflow: hidden;
     width: 100%;
     @include adaptive-value('height', 800, 254, 1);
-    @media(max-width:768px) {
+    @media (max-width: 768px) {
       height: 100vh !important;
     }
     @media (min-width: 1024px) {
@@ -692,7 +692,7 @@ h6 {
     overflow: hidden;
     width: 100%;
 
-    @media(max-width:768px) {
+    @media (max-width: 768px) {
       height: 100%;
     }
     @media (min-width: 1024px) {
@@ -893,7 +893,7 @@ h6 {
   width: 100%;
   @include adaptive-value('height', 800, 254, 1);
   position: relative;
-  @media(max-width:768px) {
+  @media (max-width: 768px) {
     height: 100%;
   }
 }
@@ -1007,11 +1007,11 @@ h6 {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   padding-top: 175px;
-  @include adaptive-value('padding-left', 50, 20, 1);
+  @include responsive-size(padding-left, 20px, 50px, 100px, 250px);
   padding-right: 98px;
-  width: 95vw;
+  width: 100%;
 }
 .portfolio_inner_title h1 {
   font-weight: 300;
@@ -1027,7 +1027,7 @@ h6 {
 }
 .portfolio_inner_content {
   display: flex;
-  @include adaptive-value('padding-left', 511, 69, 1);
+  @include adaptive-value('padding-left', 300, 69, 1);
   padding-top: 59px;
   @media (max-width: 560px) {
     padding-top: 0px;
