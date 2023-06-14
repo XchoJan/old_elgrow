@@ -83,8 +83,8 @@ h6 {
     background: #000000;
     position: relative;
     @include adaptive-value('height', 1080, 263, 1);
-    background-image: url('../../public/images/АУЦ1920.png');
-    // background-image: url('../../public/images/main1920.png');
+    // background-image: url('../../public/images/АУЦ1920.png');
+    background-image: url('../../public/images/main1920.png');
     background-repeat: no-repeat;
     background-position: bottom right;
     background-size: cover;
@@ -819,10 +819,9 @@ h6 {
 
 .wrapper .section .sectionTitle {
   .websites-content {
-    @include responsive-size(padding-left, 20px, 50px, 100px, 250px);
+    // @include responsive-size(padding-left, 20px, 50px, 100px, 250px);
+    @include adaptive-value('margin-left', 50, 20, 1);
   }
-  // padding-left: 20%;
-  // position: absolute;
   width: 100%;
 }
 
@@ -1009,7 +1008,7 @@ h6 {
   justify-content: flex-start;
   align-items: flex-start;
   padding-top: 175px;
-  @include responsive-size(padding-left, 20px, 50px, 100px, 250px);
+  @include adaptive-value('margin-left', 50, 20, 1);
   padding-right: 98px;
   width: 100%;
 }
