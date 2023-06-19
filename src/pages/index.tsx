@@ -48,6 +48,24 @@ const MainPage = () => {
 
   const maxWidth = useTransform(scrollY, [0, 250], ['85vw', '100vw']);
 
+  useEffect(() => {
+    if (router.asPath === '/brief') {
+      router.push('/brief');
+    }
+    if (router.asPath === '/politic') {
+      router.push('/politic');
+    }
+    if (router.asPath === '/nouBrand') {
+      router.push('/nouBrand');
+    }
+    if (router.asPath === '/portfolio') {
+      router.push('/portfolio');
+    }
+    if (router.asPath === '/aviationTrainingCenter') {
+      router.push('/aviationTrainingCenter');
+    }
+  }, []);
+
   const hideHeader = () => {
     const personSlider = document.querySelector('.personSlider');
     if (personSlider) {
@@ -544,9 +562,7 @@ const MainPage = () => {
                                       бизнес-цели и переведем их на технический
                                       язык.
                                     </p>
-                                    <a
-                                      onClick={() => router.push('/brief')}
-                                    >
+                                    <a onClick={() => router.push('/brief')}>
                                       Заполнить бриф
                                     </a>
                                   </div>
