@@ -544,7 +544,11 @@ const MainPage = () => {
                                       бизнес-цели и переведем их на технический
                                       язык.
                                     </p>
-                                    <a href="#">Скачать бриф</a>
+                                    <a
+                                      onClick={() => router.push('/brief')}
+                                    >
+                                      Заполнить бриф
+                                    </a>
                                   </div>
                                   <div className="border_green"></div>
                                 </div>
