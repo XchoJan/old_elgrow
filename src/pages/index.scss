@@ -13,8 +13,6 @@
 @import './politic.scss';
 @import './brief.scss';
 
-
-
 .loadingContainer {
   display: flex;
   justify-content: center;
@@ -55,9 +53,6 @@
     }
   }
 }
-
- 
-
 
 h1,
 h2,
@@ -129,8 +124,8 @@ h6 {
     background: #000000;
     position: relative;
     @include adaptive-value('height', 1080, 263, 1);
-    // background-image: url('../../public/images/АУЦ1920.png');
-    background-image: url('../../public/images/main1920.png');
+    background-image: url('../../public/images/newMain1920.png');
+    // background-image: url('../../public/images/main1920.png');
     background-repeat: no-repeat;
     background-position: bottom right;
     background-size: cover;
@@ -584,7 +579,7 @@ h6 {
       height: 22px;
       border-bottom: 3px solid #3ece5d;
       border-right: 3px solid #3ece5d;
-      right: -42px;
+      right: 0px;
     }
   }
 }
@@ -692,7 +687,7 @@ h6 {
     padding-bottom: 0px;
   }
 }
- 
+
 .border_green::before {
   content: '';
   position: absolute;
@@ -1060,7 +1055,7 @@ h6 {
   padding-top: 175px;
   @include adaptive-value('margin-left', 50, 20, 1);
   padding-right: 98px;
-  width: 100%;
+  width: 90%;
 }
 .portfolio_inner_title h1 {
   font-weight: 300;
