@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
- 
+
 import HeaderOutstaff from '../Components/HeaderOutstaff';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
@@ -19,7 +19,6 @@ const outstaff = () => {
   ];
   const swiperRef: any = useRef(null);
   const swiperRefParent: any = useRef(null);
- 
 
   const handleNextSlide = () => {
     if (swiperRef.current) {
@@ -32,7 +31,6 @@ const outstaff = () => {
       swiperRefParent?.current?.slideNext();
     }
   };
- 
 
   // useEffect(() => {
   //   document.body.style.backgroundColor = 'black';
@@ -66,7 +64,7 @@ const outstaff = () => {
 
   const getPrice = (prof: string, time: number) => {
     if (prof === 'Системный аналитик') {
-      if (sliderValue === 0) {
+      if (sliderValue <= 33) {
         return {
           middle: {
             hour: '2 200',
@@ -82,7 +80,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 1) {
+      if (sliderValue <= 70) {
         return {
           middle: {
             hour: '1 980',
@@ -98,7 +96,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 2) {
+      if (sliderValue <= 100 ) {
         return {
           middle: {
             hour: '1 760',
@@ -116,7 +114,7 @@ const outstaff = () => {
       }
     }
     if (prof === 'Бизнес аналитик') {
-      if (sliderValue === 0) {
+      if (sliderValue <= 33) {
         return {
           middle: {
             hour: '1 900',
@@ -132,7 +130,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 1) {
+      if (sliderValue <= 70) {
         return {
           middle: {
             hour: '1 710',
@@ -148,7 +146,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 2) {
+      if (sliderValue <= 100) {
         return {
           middle: {
             hour: '1 520',
@@ -166,7 +164,7 @@ const outstaff = () => {
       }
     }
     if (prof === 'UI|UX') {
-      if (sliderValue === 0) {
+      if (sliderValue <= 33) {
         return {
           middle: {
             hour: '2 000',
@@ -182,7 +180,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 1) {
+      if (sliderValue <= 70) {
         return {
           middle: {
             hour: '1 800',
@@ -198,7 +196,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 2) {
+      if (sliderValue <= 100) {
         return {
           middle: {
             hour: '1 600',
@@ -216,7 +214,7 @@ const outstaff = () => {
       }
     }
     if (prof === 'React JS') {
-      if (sliderValue === 0) {
+      if (sliderValue <= 33) {
         return {
           middle: {
             hour: '2 000',
@@ -232,7 +230,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 1) {
+      if (sliderValue <= 70) {
         return {
           middle: {
             hour: '1 800',
@@ -248,7 +246,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 2) {
+      if (sliderValue <= 100) {
         return {
           middle: {
             hour: '1 600',
@@ -266,7 +264,7 @@ const outstaff = () => {
       }
     }
     if (prof === 'React Native') {
-      if (sliderValue === 0) {
+      if (sliderValue <= 33) {
         return {
           middle: {
             hour: '2 000',
@@ -282,7 +280,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 1) {
+      if (sliderValue <= 70) {
         return {
           middle: {
             hour: '1 980',
@@ -298,7 +296,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 2) {
+      if (sliderValue <= 100) {
         return {
           middle: {
             hour: '1 760',
@@ -316,7 +314,7 @@ const outstaff = () => {
       }
     }
     if (prof === 'Node JS') {
-      if (sliderValue === 0) {
+      if (sliderValue <= 33) {
         return {
           middle: {
             hour: '2 000',
@@ -332,7 +330,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 1) {
+      if (sliderValue <= 70) {
         return {
           middle: {
             hour: '1 800',
@@ -348,7 +346,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 2) {
+      if (sliderValue <= 100) {
         return {
           middle: {
             hour: '1 600',
@@ -366,7 +364,7 @@ const outstaff = () => {
       }
     }
     if (prof === 'C# (.net)') {
-      if (sliderValue === 0) {
+      if (sliderValue <= 33) {
         return {
           middle: {
             hour: '2 000',
@@ -382,7 +380,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 1) {
+      if (sliderValue <= 70) {
         return {
           middle: {
             hour: '1 800',
@@ -398,7 +396,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 2) {
+      if (sliderValue <= 100) {
         return {
           middle: {
             hour: '1 600',
@@ -416,7 +414,7 @@ const outstaff = () => {
       }
     }
     if (prof === 'PHP (Laravel|Битрикс)') {
-      if (sliderValue === 0) {
+      if (sliderValue <= 33) {
         return {
           middle: {
             hour: '1 800',
@@ -432,7 +430,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 1) {
+      if (sliderValue <= 70) {
         return {
           middle: {
             hour: '1 620',
@@ -448,7 +446,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 2) {
+      if (sliderValue <= 100) {
         return {
           middle: {
             hour: '1 440',
@@ -466,7 +464,7 @@ const outstaff = () => {
       }
     }
     if (prof === 'Flutter') {
-      if (sliderValue === 0) {
+      if (sliderValue <= 33) {
         return {
           middle: {
             hour: '2 400',
@@ -482,7 +480,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 1) {
+      if (sliderValue <= 70) {
         return {
           middle: {
             hour: '2 160',
@@ -498,7 +496,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 2) {
+      if (sliderValue <= 100) {
         return {
           middle: {
             hour: '1 920',
@@ -516,7 +514,7 @@ const outstaff = () => {
       }
     }
     if (prof === 'iOS (Swift)') {
-      if (sliderValue === 0) {
+      if (sliderValue <= 33) {
         return {
           middle: {
             hour: '3 000',
@@ -532,7 +530,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 1) {
+      if (sliderValue <= 70) {
         return {
           middle: {
             hour: '2 700',
@@ -548,7 +546,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 2) {
+      if (sliderValue <= 100) {
         return {
           middle: {
             hour: '2 400',
@@ -566,7 +564,7 @@ const outstaff = () => {
       }
     }
     if (prof === 'Android (Kotlin)') {
-      if (sliderValue === 0) {
+      if (sliderValue <= 33) {
         return {
           middle: {
             hour: '2 800',
@@ -582,7 +580,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 1) {
+      if (sliderValue <= 70) {
         return {
           middle: {
             hour: '2 520',
@@ -598,7 +596,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 2) {
+      if (sliderValue <= 100) {
         return {
           middle: {
             hour: '2 240',
@@ -616,7 +614,7 @@ const outstaff = () => {
       }
     }
     if (prof === 'Vue JS') {
-      if (sliderValue === 0) {
+      if (sliderValue <= 33) {
         return {
           middle: {
             hour: '1 800',
@@ -632,7 +630,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 1) {
+      if (sliderValue <= 70) {
         return {
           middle: {
             hour: '1 620',
@@ -648,7 +646,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue === 2) {
+      if (sliderValue <= 100) {
         return {
           middle: {
             hour: '1 440',
@@ -722,8 +720,10 @@ const outstaff = () => {
         close={setVisibleCallbackOutstaff}
       />
       <div className="outstaff_title">
-        {max > 560 &&     <img className="eagleOutstaff" src="/images/sova.png" alt="" />}
-      
+        {max > 560 && (
+          <img className="eagleOutstaff" src="/images/sova.png" alt="" />
+        )}
+
         <div id="trigger1" className="outstaff_title_content">
           <h1>
             Аутстаффинг разработки
@@ -739,20 +739,26 @@ const outstaff = () => {
             <img src={`/images/${image}`} />
           ))}
         </div>
-   {   max <560 &&  <div>
-            <button  onClick={() => {
-                    setCallBackMenuOutstaffState(true);
-                    setVisibleCallbackOutstaff(true);
-                  }}> Стать клиентом </button>
-          </div>}
+        {max < 560 && (
+          <div>
+            <button
+              onClick={() => {
+                setCallBackMenuOutstaffState(true);
+                setVisibleCallbackOutstaff(true);
+              }}
+            >
+              
+              Стать клиентом
+            </button>
+          </div>
+        )}
       </div>
       <div className="advantages">
         {/* <img className="eagleOutstaff" src="/images/sova.png" alt="" /> */}
         <div className="advantagesTitle">
-          <h1> Преимущества</h1> 
-          
-          {max > 560 &&  <span>elgrow </span>  }
-          
+          <h1> Преимущества</h1>
+
+          {max > 560 && <span>elgrow </span>}
         </div>
         <div className="advantagesList">
           <div className="advantagesItem">
@@ -780,7 +786,7 @@ const outstaff = () => {
               </span>
             </div>
           </div>
-          <div style={{border:'none'}} className="advantagesItem">
+          <div style={{ border: 'none' }} className="advantagesItem">
             <div className="advantagesNum">03</div>
             <div className="advantagesContent">
               <span className="advantagesContentTitle">
@@ -796,10 +802,8 @@ const outstaff = () => {
       </div>
       <div className="moreAdvantages">
         <div className="advantagesTitle">
-          <h1> Еще преимущества</h1> 
-          {max > 560 && <span>elgrow </span> }
-          
-          
+          <h1> Еще преимущества</h1>
+          {max > 560 && <span>elgrow </span>}
         </div>
         <div className="advantagesList">
           <div className="advantagesItem">
@@ -871,7 +875,7 @@ const outstaff = () => {
         <div className="pricesContent">
           <div className="pricesList">
             <div className="pricesTime">
-            { max> 560 &&  <div></div>}
+              {max > 560 && <div></div>}
               <div>Час </div>
               <div>Месяц </div>
             </div>
@@ -909,7 +913,7 @@ const outstaff = () => {
             <Slider
               className="pricesSlider"
               onChange={handleSliderChange}
-              max={2}
+              max={100}
               railStyle={{
                 height: '10px',
                 background: '#F6F6F6',
@@ -927,7 +931,7 @@ const outstaff = () => {
               }}
             />
             <div className="timeWorkContainer">
-              <div>
+              <div style={max <560 ?  {display: 'flex'}: {}}>
                 <span>&lt;</span>
                 <span className="timeWork">3 мес.</span>
               </div>
@@ -949,7 +953,7 @@ const outstaff = () => {
 
       <div className="becomeClient">
         <Swiper
-        allowTouchMove={false}
+          allowTouchMove={false}
           modules={[Pagination]}
           spaceBetween={50}
           slidesPerView={1}
@@ -996,10 +1000,9 @@ const outstaff = () => {
                   <img src="/images/greenArrowRight.svg" alt="" />
                 </div>
 
-               
                 <div className="logoText">
                   e<span className="letterL">l</span>grow.
-                </div> 
+                </div>
               </div>
             </div>
           </SwiperSlide>
@@ -1076,7 +1079,7 @@ const outstaff = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <div   className="getPriceContent">
+                  <div className="getPriceContent">
                     <div className="getPriceContentTitle">
                       Продолжительность (примерно)
                     </div>
@@ -1085,7 +1088,7 @@ const outstaff = () => {
                         <Slider
                           className="SliderTimer"
                           onChange={handleSliderTimer}
-                          max={3}
+                          max={100}
                           railStyle={{
                             height: '10px',
                             background: '#F6F6F6',

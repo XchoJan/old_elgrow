@@ -1,9 +1,7 @@
 .HeaderOutstaff {
   background: black;
-  position: fixed;
-  top: 0;
-  z-index: 2;
-  @include responsive-size(padding-top, 10px, 10px, 10px, 10px);
+
+  @include responsive-size(padding-top, 29px, 32px, 52px, 52px);
   padding-bottom: 10px;
   max-width: 1920px;
   width: 100%;
@@ -28,11 +26,11 @@
       display: flex;
       gap: 40px;
       @media (max-width: 560px) {
-       gap: 8px;
+        gap: 8px;
       }
       .headerText {
         font-family: 'Inter Tight';
-        font-weight: 400;
+        font-weight: 300;
         cursor: pointer;
       }
     }

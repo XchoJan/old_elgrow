@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import OutstaffCallback from './OutstaffCallback';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import { useRouter } from 'next/router';
@@ -9,9 +9,9 @@ interface Props {
 
 const HeaderOutstaff: React.FC<Props> = ({ main }) => {
   const [CallBackMenuOutstaffState, setCallBackMenuOutstaffState] =
-  useState(true);
-const [isVisibleCallbackOutstaff, setVisibleCallbackOutstaff] =
-  useState(false);
+    useState(true);
+  const [isVisibleCallbackOutstaff, setVisibleCallbackOutstaff] =
+    useState(false);
   const router = useRouter();
 
   const [max, setMax]: any = useState(0);
@@ -19,8 +19,7 @@ const [isVisibleCallbackOutstaff, setVisibleCallbackOutstaff] =
     setMax(window?.visualViewport?.width);
   }, []);
 
-
-  console.log(max)
+  console.log(max);
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
@@ -43,14 +42,17 @@ const [isVisibleCallbackOutstaff, setVisibleCallbackOutstaff] =
   }, []);
   return (
     <header>
-      <div           style={{ background: !isSticky ? 'black' : 'white' }} className="HeaderOutstaff">
-      <OutstaffCallback
-                childFromMenu={CallBackMenuOutstaffState}
-                y="-0"
-                x="0"
-                isOpen={isVisibleCallbackOutstaff}
-                close={setVisibleCallbackOutstaff}
-              />
+      <div
+        style={{ background: !isSticky ? 'black' : 'white' }}
+        className="HeaderOutstaff"
+      >
+        <OutstaffCallback
+          childFromMenu={CallBackMenuOutstaffState}
+          y="-0"
+          x="0"
+          isOpen={isVisibleCallbackOutstaff}
+          close={setVisibleCallbackOutstaff}
+        />
         <div className="headerOutstaff_top">
           <div onClick={() => router.push('/')}>
             <span
@@ -61,51 +63,51 @@ const [isVisibleCallbackOutstaff, setVisibleCallbackOutstaff] =
             </span>
           </div>
           <div className="headerTextContainer">
-          <Link
-           style={{ color: !isSticky ? 'white' : 'black' }}
+            <Link
+              style={{ color: !isSticky ? 'white' : 'black' }}
               to="advantages"
               spy={true}
               smooth={true}
               duration={500}
-              offset={-70}
               className="headerText"
             >
-                
-                Преимущества
-                  </Link>
-    
-                  <Link
-           style={{ color: !isSticky ? 'white' : 'black' }}
+              Преимущества
+            </Link>
+
+            <Link
+              style={{ color: !isSticky ? 'white' : 'black' }}
               to="moreAdvantages"
               spy={true}
               smooth={true}
               duration={500}
               className="headerText"
             >
-                
-                Еще преимущества
-                  </Link>
-                  <Link
-           style={{ color: !isSticky ? 'white' : 'black' }}
+              Еще преимущества
+            </Link>
+            <Link
+              style={{ color: !isSticky ? 'white' : 'black' }}
               to="pricesMain"
               spy={true}
               smooth={true}
-              offset={-30}
               duration={500}
               className="headerText"
             >
-                
-                Цены
-                  </Link>
+              Цены
+            </Link>
           </div>
-          {max > 560 &&  
-          <div>
-            <button  onClick={() => {
-                    setCallBackMenuOutstaffState(true);
-                    setVisibleCallbackOutstaff(true);
-                  }}> Стать клиентом </button>
-          </div>
-          }
+          {max > 560 && (
+            <div>
+              <button
+                onClick={() => {
+                  setCallBackMenuOutstaffState(true);
+                  setVisibleCallbackOutstaff(true);
+                }}
+              >
+                {' '}
+                Стать клиентом{' '}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </header>

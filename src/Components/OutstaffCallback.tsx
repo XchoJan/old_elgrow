@@ -175,7 +175,7 @@ const OutstaffCallback: React.FC<Props> = ({
                 onClick={() => router.push('/politic')}
                 className="callbackMenu_main_form_politics"
               >
-                <span> Политика обработки персональных данных </span>
+                <span style={{cursor: 'pointer'}}> Политика обработки персональных данных </span>
               </motion.div>
             )}
           </motion.div>
