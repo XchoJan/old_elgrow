@@ -1,5 +1,5 @@
 .aviationTrainingCenter {
-@include responsive-size(margin-top, 128px, 164px, 147px, 147px);
+ @include responsive-size(margin-top, 128px, 164px, 147px, 147px);
   .aviationTrainingCenter_main_title {
     @include adaptive-value('padding-left', 50, 20, 1);
     @include responsive-size(font-size, 30px, 50px, 60px, 80px);

@@ -12,6 +12,23 @@
 @import './nouBrand.scss';
 @import './politic.scss';
 @import './brief.scss';
+@import './outstaffMain.scss';
+@import './headerOustaff.scss';
+@import './prices.scss';
+@import './callbackMenuOutstaff.scss';
+@import './CustomRadioButton.scss';
+
+.eagleOutstaff {
+  pointer-events: none;
+  width: max-content;
+  z-index: 0;
+  position: fixed;
+  right: 0;
+  @include responsive-size(top, 0px, 0px, 0px, 100px);
+  @media (max-width: 560px) {
+    z-index: -14;
+  }
+}
 
 .loadingContainer {
   display: flex;

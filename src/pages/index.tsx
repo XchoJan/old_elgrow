@@ -327,15 +327,14 @@ const MainPage: NextPage = () => {
           </div>
           <div className="main_title">
             <img className="eagle" src="/images/eagle.png" alt="" />
-
             <div id="trigger1" className="main_title_content">
               <motion.h1 style={{ y: y1 }}>
                 Разработка и интеграция <br />
                 <span>IT-РеШеНИЙ. </span> <br />
-                Автоматизация бизнеса.
+                Автоматизация бизнеса
                 <br />
                 <span>аУТСТАФ.</span>
-              </motion.h1>{' '}
+              </motion.h1> 
             </div>
           </div>
           <div
