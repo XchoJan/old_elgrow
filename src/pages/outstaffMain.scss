@@ -434,7 +434,11 @@
           .skill {
             font-weight: 400;
             text-align: left;
-            color: #3ece5d;
+            color: black;
+
+            span {
+              border-bottom: 1px solid black;
+            }
 
             @include responsive-size(width, 59px, 100px, 150px, 269px);
           }
@@ -451,21 +455,15 @@
     }
 
     .detail {
+      position: relative;
       width: 50vw;
-      padding-bottom: 60px;
+
       color: black;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
 
-      @include responsive-size(padding-top, 16px, 58px, 139px, 139px);
-      @media (max-width: 560px) {
-        padding-top: 16px;
-      }
-
-      .emptyBlock {
-        height: 140px;
-      }
+      @include responsive-size(padding-top, 2px, 36px, 105px, 102px);
 
       .detailText {
         cursor: pointer;
@@ -480,13 +478,17 @@
 
         font-weight: 300;
       }
+
       .logoText {
+        position: absolute;
+        @include responsive-size(right, 20px, 50px, 50px, 50px);
+        bottom: 60px;
         display: flex;
         justify-content: flex-end;
         color: #424d5e;
         font-size: 24px;
         font-family: 'Inter Tight';
-        @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
+      
         font-weight: 500;
       }
     }
@@ -501,8 +503,12 @@
       justify-content: space-between;
       @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
       @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
-      padding-top: 139px;
+      padding-top: 54px;
       background: #000;
+
+      @media (max-width: 560px) {
+        padding-top: 69px;
+      }
 
       .brieflyText {
         @include responsive-size(font-size, 28px, 48px, 80px, 80px);

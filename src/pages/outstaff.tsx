@@ -96,7 +96,7 @@ const outstaff = () => {
           },
         };
       }
-      if (sliderValue <= 100 ) {
+      if (sliderValue <= 100) {
         return {
           middle: {
             hour: '1 760',
@@ -747,7 +747,6 @@ const outstaff = () => {
                 setVisibleCallbackOutstaff(true);
               }}
             >
-              
               Стать клиентом
             </button>
           </div>
@@ -880,7 +879,7 @@ const outstaff = () => {
               <div>Месяц </div>
             </div>
             <div className="pricesContentItem">
-              <div className="skill"> Middle</div>
+              <div className="skill"> <span>Middle </span> </div>
               <div className="hour">
                 <span> {price?.middle.hour}</span>
               </div>
@@ -890,7 +889,7 @@ const outstaff = () => {
             </div>
 
             <div className="pricesContentItem">
-              <div className="skill">Middle+</div>
+              <div className="skill"> <span>Middle+</span></div>
               <div className="hour">
                 <span> {price?.middlePlus.hour} </span>
               </div>
@@ -900,7 +899,7 @@ const outstaff = () => {
             </div>
 
             <div className="pricesContentItem">
-              <div className="skill">Senior</div>
+              <div className="skill"><span> Senior</span></div>
               <div className="hour">
                 <span>{price?.senior.hour}</span>
               </div>
@@ -931,7 +930,7 @@ const outstaff = () => {
               }}
             />
             <div className="timeWorkContainer">
-              <div style={max <560 ?  {display: 'flex'}: {}}>
+              <div style={max < 560 ? { display: 'flex' } : {}}>
                 <span>&lt;</span>
                 <span className="timeWork">3 мес.</span>
               </div>
@@ -994,7 +993,6 @@ const outstaff = () => {
                 </div>
               </div>
               <div className="detail">
-                <div className="emptyBlock"></div>
                 <div onClick={handleNextSlideParent} className="detailText">
                   Подробно
                   <img src="/images/greenArrowRight.svg" alt="" />
