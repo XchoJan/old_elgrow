@@ -61,10 +61,10 @@ const mobile = () => {
         </div>
         <div className="mainScreenContent">
           <div className="mainScreenTitle">
-            <div id='mainMobileTitle' className="titleHeading">
+            <div id="mainMobileTitle" className="titleHeading">
               Разработка
               <br /> мобильных <span>приложений </span>
-              <div className='greenCheck'>  </div>
+              <div className="greenCheck"> </div>
             </div>
           </div>
           <div className="ourClients">
@@ -87,7 +87,9 @@ const mobile = () => {
         <div className="parking3">
           <img src={`/images/parking3.png`} />
         </div>
-        <div id='aboutNumbersTitleHeading' className="titleHeading">О нас в цифрах</div>
+        <div id="aboutNumbersTitleHeading" className="titleHeading">
+          О нас в цифрах
+        </div>
         <div className="aboutNumbersContent">
           <div className="containerNum">
             <div className="num">15</div>
@@ -259,13 +261,13 @@ const mobile = () => {
         </div>
         <div style={{ background: '#88CB6B' }} className="portfolioCard">
           <div className="luxxy1">
-            <img src={`/images/luxxy1.png`} />
+            <img src={`/images/Luxxy1.png`} />
           </div>
           <div className="luxxy2">
-            <img src={`/images/luxxy2.png`} />
+            <img src={`/images/Luxxy2.png`} />
           </div>
           <div className="luxxy3">
-            <img src={`/images/luxxy3.png`} />
+            <img src={`/images/Luxxy3.png`} />
           </div>
           <div className="cardName"> Luxxy </div>
           <div className="tags" style={{ maxWidth: '270px' }}>
@@ -515,73 +517,69 @@ const mobile = () => {
           </div>
         </div>
       </div>
-      <div className='mobileFooter'>  <footer className="footer">
-      <div className="container">
-     
-        <div className="footer_inner">
-          <div className="footer_title">
-            <div className="footer_title_left">
-              e<span className="letterL">l</span>grow
-            </div>
-         
-          </div>
-          <div className="footer_center">
-            <div
-         
-              className="footer_center-title"
-            >
-              <h1>Стать клиентом</h1>
-            </div>
-            <div className="footer_center-wrap">  
-              <div className="footer_center-wrap_left">
-                <a href="https://elgrow.ru/">Основной сайт</a>
-            
-             
+      <div className="mobileFooter">
+        {' '}
+        <footer className="footer">
+          <div className="container">
+            <div className="footer_inner">
+              <div className="footer_title">
+                <div className="footer_title_left">
+                  e<span className="letterL">l</span>grow
+                </div>
               </div>
-              <div className="footer_center-wrap_right">
-                <a  className="presentation" href="#">
-                  презентация
-                </a>
+              <div className="footer_center">
+                <div className="footer_center-title">
+                  <h1>Стать клиентом</h1>
+                </div>
+                <div className="footer_center-wrap">
+                  <div className="footer_center-wrap_left">
+                    <a href="https://elgrow.ru/">Основной сайт</a>
+                  </div>
+                  <div className="footer_center-wrap_right">
+                    <a className="presentation" href="#">
+                      презентация
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="footer_bottom">
-            {max > 560 && (
-              <div className="footer_bottom_item">
-                <h2>
-                  <img src="/images/Copyright.svg" alt="" />
-                  Все права защищены 2023
-                </h2>
-              </div>
-            )}
+              <div className="footer_bottom">
+                {max > 560 && (
+                  <div className="footer_bottom_item">
+                    <h2>
+                      <img src="/images/Copyright.svg" alt="" />
+                      Все права защищены 2023
+                    </h2>
+                  </div>
+                )}
 
-            <div className="footer_bottom_item">
-              <a href="https://t.me/Elgrow_dev">
-                <img src="/images/telegram-small1440.svg" alt="" />
-                Elgrow_dev
-              </a>
-            </div>
-            <div className="footer_bottom_item">
-              <a href="mailto:info@elgrow.ru">
-                <img src="/images/fluent_mail-20-filled.svg" alt="" />
-                info@elgrow.ru
-              </a>
+                <div className="footer_bottom_item">
+                  <a href="https://t.me/Elgrow_dev">
+                    <img src="/images/telegram-small1440.svg" alt="" />
+                    Elgrow_dev
+                  </a>
+                </div>
+                <div className="footer_bottom_item">
+                  <a href="mailto:info@elgrow.ru">
+                    <img src="/images/fluent_mail-20-filled.svg" alt="" />
+                    info@elgrow.ru
+                  </a>
+                </div>
+              </div>
+              {max <= 560 && (
+                <div
+                  style={{ paddingTop: '19px', paddingBottom: '29px' }}
+                  className="footer_bottom_item"
+                >
+                  <h2>
+                    <img src="/images/Copyright.svg" alt="" />
+                    Все права защищены 2023
+                  </h2>
+                </div>
+              )}
             </div>
           </div>
-          {max <= 560 && (
-            <div
-              style={{ paddingTop: '19px', paddingBottom: '29px' }}
-              className="footer_bottom_item"
-            >
-              <h2>
-                <img src="/images/Copyright.svg" alt="" />
-                Все права защищены 2023
-              </h2>
-            </div>
-          )}
-        </div>
+        </footer>{' '}
       </div>
-    </footer> </div>
     </div>
   );
 };
