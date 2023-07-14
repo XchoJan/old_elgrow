@@ -1,0 +1,176 @@
+.MobileMenu {
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 11;
+  height: 100vh;
+  width: 100vw;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Inter Tight';
+  @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
+  @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
+  @include responsive-size(padding-top, 20px, 40px, 40px, 40px);
+  @include responsive-size(padding-bottom, 50px, 50px, 50px, 80px);
+
+  .logoText {
+    color: #424d5e;
+    @include responsive-size(font-size, 18px, 18px, 22px, 24px);
+    font-weight: 500;
+  }
+
+  .headerMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      width: 49px;
+      height: 49px;
+    }
+  }
+  .menuContent {
+    a {
+      cursor: pointer;
+    }
+    position: relative;
+    @include responsive-size(font-size, 28px, 36px, 48px, 48px);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-weight: 300;
+
+    .button-rainbowMenu {
+      $size: 320px;
+      $color-main: #00f0c0;
+      $color-1: #00ccff;
+      $color-2: #d8ff99;
+      $color-3: #00ffaa;
+      $color-4: #0cf;
+      $color-5: #ff00bb;
+
+      position: fixed;
+      z-index: 4;
+      bottom: 14%;
+      right: 50%;
+      @media (max-width: 1024px) {
+        right: 35%;
+      }
+
+      @media (max-width: 768px) {
+        bottom: -276px;
+        right: 74px;
+      }
+      @media (max-width: 560px) {
+        bottom: -314px;
+        right: 26px;
+      }
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+      background-color: $color-main;
+      background: linear-gradient(195deg, $color-main 0%, $color-1 50%);
+      transform: translate3d(50%, -50%, 0);
+      opacity: 0;
+      animation: visualButtonCircleShow 0.4s ease-in 0.1s both;
+
+      @keyframes visualButtonCircleShow {
+        to {
+          opacity: 1;
+        }
+      }
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+      &:before {
+        z-index: 1;
+        background: linear-gradient(195deg, $color-2 0%, $color-3 50%);
+        animation: fadeIn-decor 4s linear infinite forwards;
+      }
+      &:after {
+        z-index: 2;
+        background: linear-gradient(180deg, $color-4 0%, $color-5 50%);
+        opacity: 0;
+        animation: fadeIn-decor 4s linear 1.3s infinite forwards;
+      }
+      @keyframes fadeIn-decor {
+        0% {
+          opacity: 0;
+        }
+        30% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      &-circle {
+        transition: all 0.3s;
+        position: relative;
+        z-index: 3;
+        width: 72%;
+        height: 72%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        color: black;
+        border-radius: 50%;
+        box-shadow: 0 4px 100px rgba(0, 0, 0, 0.25);
+
+        text-align: center;
+        line-height: 1.2;
+        font-size: 18px;
+
+        @media (max-width: 560px) {
+          span {
+            text-align: right;
+            max-width: 79px;
+            left: 44px;
+            position: absolute;
+            top: 25%;
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+          transition: all 0.3s;
+          width: 80%;
+          height: 80%;
+        }
+      }
+    }
+  }
+
+  .contactsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include responsive-size(font-size, 14px, 16px, 16px, 16px);
+    a {
+      color: black;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid black;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}

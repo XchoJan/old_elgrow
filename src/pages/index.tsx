@@ -334,7 +334,7 @@ const MainPage: NextPage = () => {
                 Автоматизация бизнеса
                 <br />
                 <span>аУТСТАФ.</span>
-              </motion.h1> 
+              </motion.h1>
             </div>
           </div>
           <div

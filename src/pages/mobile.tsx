@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import HeaderMobile from '../Components/HeaderMobile';
+import MobileMenu from '../Components/MobileMenu';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,33 +12,54 @@ const mobile = () => {
   useEffect(() => {
     setMax(window?.visualViewport?.width);
   }, []);
+  const [showMenu, setShowMenu] = useState(false);
 
   const wrapperRef: any = useRef();
-  const sectionsRef: any = useRef([]);
+  const silderRef: any = useRef();
+  const firstRef: any = useRef();
+  const secondRef: any = useRef();
+  const thirdRef: any = useRef();
+  const sections = useRef([]);
+  const verticalTweenContext: any = useRef(null);
 
-  // useEffect(() => {
-  //   const wrapper: any = wrapperRef.current;
-  //   const sections: any = Array.from(sectionsRef.current);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      sections.current = wrapperRef.current.querySelectorAll('section');
+      const verticalTween = gsap.to(sections.current, {
+        yPercent: -100 * (sections.current.length - 1),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: wrapperRef.current,
+          pin: true,
+          scrub: 0.01,
+          invalidateOnRefresh: false,
+          startAt: () => ({
+            yPercent: 0,
+          }),
+          end: () => {
+            const wrapperHeight = wrapperRef.current.offsetHeight;
+            const windowHeight = silderRef?.current?.offsetHeight;
+            return `+=${wrapperHeight - windowHeight / 100}`;
+          },
+        } as any,
+      });
+      verticalTweenContext.current = verticalTween;
+    }, 100);
 
-  //   gsap.set(sections, { yPercent: 100 * (sections.length - 1) });
+    return () => {
+      clearTimeout(timeoutId);
+      if (verticalTweenContext.current) {
+        verticalTweenContext.current.kill();
+        verticalTweenContext.current = null;
+      }
+    };
+  }, []);
 
-  //   const verticalTween = gsap.to(sections, {
-  //     yPercent: 0,
-  //     ease: 'none',
-  //     scrollTrigger: {
-  //       trigger: wrapper,
-  //       pin: true,
-  //       scrub: 0.01,
-
-  //       start: 'top top',
-  //       end: () => `+=${wrapper?.offsetHeight + 100}`,
-  //     },
-  //   });
-
-  //   return () => {
-  //     verticalTween.kill();
-  //   };
-  // }, []);
+  useEffect(() => {
+    return () => {
+      verticalTweenContext.current = null;
+    };
+  }, []);
 
   const images = [
     'nespresso.png',
@@ -49,7 +72,11 @@ const mobile = () => {
   ];
   return (
     <div className="mobileMain">
-      <HeaderMobile />
+      <HeaderMobile setShowMenu={setShowMenu} />
+      <MobileMenu
+        isOpen={showMenu}
+        close={setShowMenu}
+      />
       {max > 560 && (
         <img className="eagleOutstaff" src="/images/sova.png" alt="" />
       )}
@@ -158,7 +185,7 @@ const mobile = () => {
           </div>
         </div>
       </div>
-      <div className="aboutLetters" ref={wrapperRef}>
+      <div ref={wrapperRef} className="aboutLetters">
         <div className="titleHeading">О нас в буквах</div>
         <div className="aboutLettersContent">
           <div className="button-rainbowSecond">
@@ -168,38 +195,71 @@ const mobile = () => {
               </span>
             </div>
           </div>
-          <div id="sliderContainer">
-            <section
-              ref={(el) => (sectionsRef.current[0] = el)}
-              className="mainText"
-            >
-              Профессионализм
-            </section>
-            <section
-              ref={(el) => (sectionsRef.current[1] = el)}
-              className="secondatyText"
-            >
-              Опыт в финтехе, авиации, телекоммуникациях, логистике и гос.
-              секторе
-              <br />
-              <div>
-                Экспертиза в различных сферах среднего и крупного бизнеса наших
-                специалистов поможет грамотно реализовать ваш проект.
+
+          <div ref={silderRef} id="sliderContainer">
+            <section ref={firstRef}>
+              <div className="mainText">Профессионализм</div>
+              <div className="secondatyText">
+                Опыт в финтехе, авиации, телекоммуникациях, логистике и гос.
+                секторе
+                <br />
+                <div>
+                  Экспертиза в различных сферах среднего и крупного бизнеса
+                  наших специалистов поможет грамотно реализовать ваш проект.
+                </div>
+              </div>
+              <div className="secondatyText">
+                Минимальный опыт специалиста — 4 года <br />
+                <div> Не допускаем к проекту стажеров и jun`ов.</div>
+              </div>
+              <div className="secondatyText">
+                Контроль и ревью <br />
+                <div> Jira, тимлиды, регулярные проверки качества.</div>
               </div>
             </section>
-            <section
-              ref={(el) => (sectionsRef.current[2] = el)}
-              className="secondatyText"
-            >
-              Минимальный опыт специалиста — 4 года <br />
-              <div> Не допускаем к проекту стажеров и jun`ов.</div>
+
+            <section style={{ paddingTop: '100px' }} ref={secondRef}>
+              <div className="mainText">Прозрачность</div>
+              <div className="secondatyText">
+                Полный контроль на всех этапах разработки
+                <br />
+                <div>Отчетность, ежедневные обновления репозитория.</div>
+              </div>
+              <div className="secondatyText">
+                Минимальный опыт специалиста — 4 года <br />
+                <div> CV всей команды, выделенный менеджер.</div>
+              </div>
+              <div className="secondatyText">
+                Точные цены
+                <br />
+                <div> Если не попали, работаем за свой счет.</div>
+              </div>
             </section>
-            <section
-              ref={(el) => (sectionsRef.current[3] = el)}
-              className="secondatyText"
-            >
-              Контроль и ревью <br />
-              <div> Jira, тимлиды, регулярные проверки качества.</div>
+            <section ref={thirdRef}>
+              <div className="mainText">Гарантии</div>
+              <div className="secondatyText">
+                Четкие сроки по договору
+                <br />
+                <div>После истечения срока работаем бесплатно.</div>
+              </div>
+              <div className="secondatyText">
+                Сроки выполнения задач
+                <br />
+                не зависят от человеческого фактора
+                <div>
+                  {' '}
+                  Дублирующий и страхующий специалист на каждого участника вашей
+                  команды.
+                </div>
+              </div>
+              <div className="secondatyText">
+                100% соответствие ожиданиям <br />
+                <div>
+                  {' '}
+                  Документация на программный код и продукт, готовность к
+                  внешнему аудиту
+                </div>
+              </div>
             </section>
           </div>
         </div>
@@ -233,7 +293,7 @@ const mobile = () => {
           <div className="content">
             Разработали приложение для наземного обслуживания воздушных судов
             крупнейшему росссийскому игроку
-            <br /> UTG Group.
+            {max > 768 && <br />} UTG Group.
           </div>
         </div>
         <div style={{ background: '#05846F' }} className="portfolioCard">
@@ -270,7 +330,7 @@ const mobile = () => {
             <img src={`/images/Luxxy3.png`} />
           </div>
           <div className="cardName"> Luxxy </div>
-          <div className="tags" style={{ maxWidth: '270px' }}>
+          <div className="tags">
             <span># e-commerce </span> <span># люкс </span>
             <span># бренды </span> <span># совместная работа </span>
           </div>

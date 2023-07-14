@@ -15,16 +15,16 @@
       border-top: 3px solid #3ece5d;
       border-right: 3px solid #3ece5d;
       right: -17px;
-      top: 10px;
-      @media (max-width: 560px) {
-        right: 5px;
-      }
+      @include responsive-size(top, 5px, 5px, 10px, 10px);
     }
-    font-size: 80px;
+    @include responsive-size(font-size, 36px, 48px, 80px, 80px);
     font-weight: 300;
   }
 
   #mainMobileTitle {
+    @media (max-width: 760px) {
+      max-width: 350px;
+    }
     &::after {
       content: '';
       position: absolute;
@@ -32,15 +32,17 @@
       @include adaptive-value('height', 18, 16, 1);
       border-top: 3px solid #3ece5d;
       border-right: 3px solid #3ece5d;
-      right: -17px;
-      top: 90px;
-      @media (max-width: 560px) {
-        right: 5px;
+      @include responsive-size(top, 79px, 55px, 90px, 90px);
+      @include responsive-size(right, 106px, -17px, -17px, -17px);
+      @media (max-width: 760px) {
+        @include responsive-size(top, 79px, 108px, 90px, 90px);
+        @include responsive-size(right, 127px, 64px, -17px, -17px);
       }
     }
   }
 
   #aboutNumbersTitleHeading {
+    @include responsive-size(max-width, 180px, 511px, 511px, 570px);
     &::after {
       border-top: none;
       border-right: none;
@@ -55,6 +57,10 @@
     $color-3: #00ffaa;
     $color-4: #0cf;
     $color-5: #ff00bb;
+
+    @media (max-width: 900px) {
+      display: none;
+    }
 
     position: absolute;
     z-index: 0;
@@ -138,14 +144,24 @@
   }
   .button-rainbowSecond {
     $size: 320px;
+
     $color-main: #00f0c0;
     $color-1: #00ccff;
     $color-2: #d8ff99;
     $color-3: #00ffaa;
     $color-4: #0cf;
     $color-5: #ff00bb;
+    @media (max-width: 560px) {
+      $size: 240px;
+    }
     position: absolute;
-    left: 0;
+    @include responsive-size(left, 10px, -167px, -40px, 0);
+    @media (max-width: 652px) {
+      @include responsive-size(left, 80px, 250px, -40px, 0);
+    }
+    @media (max-width: 560px) {
+      top: 95%;
+    }
     top: 58%;
     display: flex;
     align-items: center;
@@ -247,15 +263,13 @@
       max-width: 911px;
     }
     .ourClients {
-      // @include responsive-size(padding-top, 172px, 62px, 233px, 215px);
-
       h1 {
-        font-size: 28px;
+        @include responsive-size(font-size, 16px, 28px, 28px, 28px);
 
         font-weight: 300;
       }
       .containerImages {
-        @include responsive-size(max-width, 80px, 109px, 468px, 940px);
+        @include responsive-size(max-width, 280px, 468px, 468px, 940px);
         display: flex;
         gap: 24px;
         flex-wrap: wrap;
@@ -267,24 +281,51 @@
     padding-bottom: 48px;
     position: relative;
     padding-top: 100px;
-    @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
+    @include responsive-size(padding-right, 8px, 8px, 36px, 50px);
     @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
     background: #07b7f9;
     color: white;
     .parking1 {
+      @include responsive-size(width, 20px, 160px, 240px, 320px);
+      @include responsive-size(height, 20px, 346px, 519px, 692px);
+      @include responsive-size(right, 20px, 145px, 220px, 312px);
+      @include responsive-size(top, 20px, 88px, 79px, 83px);
+      img {
+        width: 100%;
+        height: 100%;
+      }
       z-index: 3;
-      right: 312px;
-      top: 83px;
       position: absolute;
+      @media (max-width: 560px) {
+        display: none;
+      }
     }
     .parking2 {
+      @media (max-width: 560px) {
+        display: none;
+      }
+      @include responsive-size(width, 20px, 160px, 240px, 320px);
+      @include responsive-size(height, 20px, 357px, 535px, 714px);
+      @include responsive-size(right, 20px, 40px, 58px, 118px);
+      @include responsive-size(top, 20px, -27px, -36px, -32px);
+      img {
+        width: 100%;
+        height: 100%;
+      }
       z-index: 2;
-      top: -32px;
-      right: 118px;
       position: absolute;
     }
     .parking3 {
-      top: 87px;
+      @include responsive-size(width, 20px, 112px, 120px, 180px);
+      @include responsive-size(height, 20px, 346px, 519px, 688px);
+      @media (max-width: 560px) {
+        display: none;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      @include responsive-size(top, 20px, 82px, 73px, 87px);
       position: absolute;
       right: 0px;
     }
@@ -294,7 +335,10 @@
       display: flex;
       flex-wrap: wrap;
       max-width: 500px;
-      gap: 75px;
+      @include responsive-size(gap, 0, 75px, 75px, 75px);
+      @media (max-width: 560px) {
+        gap: 0px;
+      }
       .containerNum {
         min-width: 158px;
         display: flex;
@@ -302,11 +346,11 @@
         gap: 21px;
 
         .num {
-          font-size: 72px;
+          @include responsive-size(font-size, 36px, 48px, 72px, 72px);
           font-weight: 500;
         }
         .content {
-          font-size: 22px;
+          @include responsive-size(font-size, 14px, 14px, 22px, 22px);
           font-weight: 300;
         }
       }
@@ -315,20 +359,29 @@
       padding-top: 270px;
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      @media (max-width: 560px) {
+        justify-content: initial;
+        gap: 1vw;
+      }
       .stackItem {
-        font-size: 22px;
+        @include responsive-size(font-size, 12px, 14px, 16px, 22px);
         font-weight: 500;
         display: flex;
-        gap: 10px;
+        @include responsive-size(gap, 10px, 5px, 10px, 10px);
       }
     }
   }
   .aboutLetters {
+ 
+
     @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
     @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
     padding-top: 100px;
 
-    .aboutLettersContent {
+    .aboutLettersContent {    
+      height: 600px;
+ 
       max-width: 1340px;
       position: relative;
       gap: 188px;
@@ -336,19 +389,35 @@
       display: flex;
       justify-content: flex-end;
 
-      #sliderContainer {
+      @media (max-width: 652px) {
+        justify-content: flex-start;
+      }
+      @media (max-width: 560px) {
+        max-width: 400px;
+      }
+
+      #sliderContainer {   
+
+        @include responsive-size(max-width, 240px, 320px, 417px, 625px);
         overflow: hidden;
       }
       .mainText {
         font-weight: 400;
-        font-size: 36px;
+        @include responsive-size(font-size, 16px, 28px, 36px, 36px);
+        @media (max-width: 560px) {
+          font-weight: 500;
+        }
       }
       .secondatyText {
         max-width: 625px;
-        font-size: 28px;
+        @include responsive-size(font-size, 14px, 14px, 28px, 28px);
 
         font-weight: 400;
         padding-top: 48px;
+        @media (max-width: 560px) {
+          max-width: 200px;
+          font-weight: 500;
+        }
         div {
           padding-top: 10px;
           font-weight: 300;
@@ -362,7 +431,7 @@
   .mobilePortfolio {
     @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
     @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
-    margin-top: 243px;
+    padding-top: 243px;
 
     .allProjects {
       display: flex;
@@ -373,7 +442,7 @@
         gap: 16px;
         align-items: center;
         span {
-          font-size: 28px;
+          @include responsive-size(font-size, 28px, 28px, 28px, 28px);
 
           font-weight: 300;
           border-bottom: 1px solid black;
@@ -385,140 +454,275 @@
       overflow: hidden;
 
       .utg1 {
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        width: 100%;
+        height: 100%;
+        @include responsive-size(max-width, 72px, 120px, 160px, 160px);
+        @include responsive-size(max-height, 160px, 267px, 356px, 356px);
+        @include responsive-size(right, 96px, 169px, 234px, 494px);
+        @include responsive-size(top, 186px, 94px, 136px, 156px);
         z-index: 3;
         position: absolute;
-        top: 156px;
-        right: 494px;
       }
       .utg2 {
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        @include responsive-size(right, 51px, 98px, 127px, 390px);
+        @include responsive-size(top, 140px, 15px, 64px, 33px);
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
         z-index: 2;
-        top: 33px;
-        right: 390px;
+
         position: absolute;
       }
       .utg3 {
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
         z-index: 1;
-        top: 211px;
-        right: 283px;
+        @include responsive-size(right, 8px, 23px, 26px, 283px);
+        @include responsive-size(top, 186px, 119px, 214px, 211px);
 
         position: absolute;
       }
       .utg4 {
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
         z-index: 0;
-        top: 88px;
-        right: 203px;
+        @include responsive-size(right, -36px, -58px, -59px, 203px);
+        @include responsive-size(top, 146px, 40px, 100px, 88px);
         position: absolute;
       }
       .nespresso1 {
+        transform: rotate(35.622deg);
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
         position: absolute;
-        top: 324px;
-        right: 565px;
+        @include responsive-size(right, 69px, 215px, 187px, 648px);
+        @include responsive-size(top, 40px, 22px, -173px, 310px);
       }
       .nespresso2 {
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
         position: absolute;
-        top: 257px;
-        right: 280px;
+        transform: rotate(35.622deg);
+        @include responsive-size(right, 110px, 192px, 387px, 363px);
+        @include responsive-size(top, 272px, 255px, 314px, 257px);
       }
       .nespresso3 {
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
         position: absolute;
-        top: 0px;
-        right: 53px;
+
+        transform: rotate(35.622deg);
+        @include responsive-size(right, 44px, 48px, 118px, 136px);
+        @include responsive-size(top, 127px, 18px, 45px, -58px);
       }
       .nespresso4 {
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
         position: absolute;
-        top: 108px;
-        right: 0px;
+        @include responsive-size(right, -3px, -32px, 83px, -9px);
+        @include responsive-size(top, 237px, 160px, 300px, 108px);
+        transform: rotate(35.622deg);
       }
       .luxxy1 {
-        top: 13px;
-        right: 450px;
+        transform: rotate(-20.217deg);
         position: absolute;
+        @include responsive-size(right, 97px, 214px, 253px, 514px);
+        @include responsive-size(top, 60px, 37px, 47px, 40px);
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
       }
       .luxxy2 {
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
+        @include responsive-size(right, 39px, 89px, 99px, 324px);
+        @include responsive-size(top, 121px, 81px, 139px, 152px);
         z-index: 2;
-        top: 152px;
-        right: 324px;
-
         position: absolute;
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
       }
       .luxxy3 {
-        top: 199px;
-        right: 55px;
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
+        @include responsive-size(right, -41px, 6px, -73px, 143px);
+        @include responsive-size(top, 95px, 38px, 95px, 199px);
         position: absolute;
+        transform: rotate(30.17deg);
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
       }
       .statusStroy1 {
         z-index: 4;
-        top: 128px;
-        right: 458px;
+        @include responsive-size(right, 111px, 192px, 272px, 458px);
+        @include responsive-size(top, 193px, 80px, 173px, 128px);
+
+        @include responsive-size(width, 72px, 120px, 160px, 200px);
+        @include responsive-size(height, 160px, 267px, 356px, 446px);
         position: absolute;
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
       }
       .statusStroy2 {
-        top: 0;
-        right: 315px;
-
+        @include responsive-size(right, 58px, 94px, 155px, 315px);
+        @include responsive-size(top, 131px, 29px, 66px, -51px);
+        @include responsive-size(width, 72px, 120px, 160px, 200px);
+        @include responsive-size(height, 160px, 267px, 356px, 446px);
         position: absolute;
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
       }
       .statusStroy3 {
         z-index: 3;
-        top: 287px;
-        right: 194px;
-
+        @include responsive-size(right, 17px, 34px, 64px, 194px);
+        @include responsive-size(top, 245px, 214px, 300px, 287px);
+        @include responsive-size(width, 72px, 120px, 160px, 200px);
+        @include responsive-size(height, 160px, 267px, 356px, 446px);
         position: absolute;
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
       }
       .statusStroy4 {
         z-index: 4;
-        top: 96px;
-        right: 51px;
+        @include responsive-size(right, -29px, -60px, -63px, 51px);
+        @include responsive-size(top, 200px, 55px, 159px, 96px);
+        @include responsive-size(width, 72px, 120px, 160px, 200px);
+        @include responsive-size(height, 160px, 267px, 356px, 446px);
         position: absolute;
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
       }
       .parking4 {
         z-index: 2;
-        top: 30px;
-        right: 424px;
-
+        @include responsive-size(right, 98px, 178px, 275px, 424px);
+        @include responsive-size(top, 93px, 25px, 34px, 30px);
+        @include responsive-size(width, 72px, 120px, 200px, 200px);
+        @include responsive-size(height, 160px, 267px, 446px, 446px);
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
         position: absolute;
       }
       .parking5 {
-        top: 115px;
-        right: 253px;
-
+        @include responsive-size(right, 32px, 80px, 121px, 253px);
+        @include responsive-size(top, 159px, 95px, 120px, 115px);
+        @include responsive-size(width, 72px, 120px, 200px, 200px);
+        @include responsive-size(height, 160px, 267px, 446px, 446px);
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
         position: absolute;
       }
       .parking6 {
-        right: 86px;
-        top: 54px;
+        @include responsive-size(right, -11px, -24px, -52px, 86px);
+        @include responsive-size(top, 114px, 54px, 56px, 54px);
+        @include responsive-size(width, 72px, 120px, 200px, 200px);
+        @include responsive-size(height, 160px, 267px, 446px, 446px);
         z-index: 2;
         position: absolute;
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
       }
       position: relative;
       margin-top: 40px;
 
-      padding-top: 100px;
+      @include responsive-size(padding-top, 40px, 60px, 100px, 100px);
       color: white;
       width: 100%;
       border-radius: 24px;
-      height: 600px;
+      @include responsive-size(height, 400px, 400px, 600px, 600px);
       @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
 
       .cardName {
-        font-size: 36px;
-
+        @include responsive-size(font-size, 18px, 28px, 36px, 36px);
+        @include responsive-size(max-width, 160px, 320px, 400px, 425px);
         font-weight: 500;
       }
       .tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 16px;
-        max-width: 424px;
-        padding-top: 64px;
+        @include responsive-size(gap, 8px, 8px, 16px, 16px);
+        @include responsive-size(max-width, 140px, 326px, 424px, 424px);
+        @include responsive-size(padding-top, 32px, 48px, 64px, 64px);
 
-        font-size: 18px;
+        @include responsive-size(font-size, 14px, 14px, 16px, 18px);
         font-weight: 400;
       }
       .content {
-        padding-top: 24px;
-        max-width: 455px;
-        font-size: 22px;
+        @media (max-width: 560px) {
+          line-height: 16.8px;
+        }
+        @include responsive-size(padding-top, 16px, 16px, 24px, 24px);
+        @include responsive-size(max-width, 130px, 259px, 455px, 455px);
+        @include responsive-size(font-size, 14px, 14px, 22px, 22px);
         font-weight: 300;
         line-height: 26.4px;
         letter-spacing: 0.22px;
@@ -528,22 +732,22 @@
   .workingProcess {
     @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
     @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
-    margin-top: 179px;
+    padding-top: 179px;
     .workingProcessContent {
       max-width: 1160px;
       display: flex;
       flex-wrap: wrap;
       margin-top: 63px;
-      gap: 80px;
+      @include responsive-size(gap, 20px, 20px, 40px, 80px);
       .workingStep {
-        width: 540px;
+        @include responsive-size(width, 310px, 324px, 426px, 540px);
         display: flex;
         flex-direction: column;
 
         .num {
           color: #07b7f9;
 
-          font-size: 72px;
+          @include responsive-size(font-size, 72px, 72px, 72px, 72px);
 
           font-weight: 300;
         }
@@ -552,7 +756,7 @@
           padding-top: 56px;
           max-width: 540px;
           .title {
-            font-size: 36px;
+            @include responsive-size(font-size, 28px, 28px, 36px, 36px);
             color: black;
             font-weight: 300;
           }
@@ -571,7 +775,7 @@
               }
               .text {
                 max-width: 466px;
-                font-size: 16px;
+                @include responsive-size(font-size, 14px, 16px, 16px, 16px);
 
                 font-weight: 300;
               }
@@ -593,31 +797,40 @@
   .pricesBlock {
     @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
     @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
-    margin-top: 332px;
+    padding-top: 332px;
     .pricesContent {
       display: flex;
       justify-content: center;
       margin-top: 110px;
-      gap: 80px;
+      @include responsive-size(gap, 32px, 40px, 80px, 80px);
+
+      @media (max-width: 560px) {
+        flex-direction: column;
+        align-items: center;
+      }
 
       .stick {
         width: 1px;
         height: 245px;
         background: #05846f;
+        @media (max-width: 560px) {
+          height: 1px;
+          width: 185px;
+        }
       }
       .priceItem {
         .budget {
-          font-size: 28px;
+          @include responsive-size(font-size, 22px, 22px, 28px, 28px);
           font-weight: 300;
         }
         .price {
           padding-top: 8px;
           color: #007c68;
 
-          font-size: 72px;
+          @include responsive-size(font-size, 36px, 48px, 72px, 72px);
           font-weight: 300;
           .minimum {
-            font-size: 22px;
+            @include responsive-size(font-size, 22px, 22px, 22px, 22px);
             color: black;
             font-weight: 300;
           }
@@ -627,10 +840,14 @@
           display: flex;
           justify-content: flex-end;
           align-items: center;
-          font-size: 36px;
+          @include responsive-size(font-size, 22px, 28px, 36px, 36px);
           color: #007c68;
           font-weight: 300;
           margin-top: 35px;
+          @media (max-width: 560px) {
+            margin-top: 8px;
+          }
+
           .minimum {
             font-size: 22px;
             color: black;
@@ -660,7 +877,7 @@
       align-items: center;
 
       .footer_title_left {
-        font-size: 24px;
+        @include responsive-size(font-size, 16px, 18px, 22px, 24px);
 
         font-weight: 500;
 
@@ -701,7 +918,7 @@
       justify-content: center;
       h1 {
         width: max-content;
-        @include adaptive-value('font-size', 80, 36, 1);
+        @include responsive-size(font-size, 36px, 60px, 60px, 80px);
         margin: 0;
         font-weight: 300;
         color: #ffffff;
@@ -722,7 +939,7 @@
     .footer_center-wrap_left a {
       font-family: 'Inter Tight';
       font-weight: 200;
-      @include adaptive-value('font-size', 20, 14, 1);
+      @include responsive-size(font-size, 14px, 16px, 20px, 20px);
       text-transform: uppercase;
       color: #ffffff;
       text-decoration: none;
@@ -735,7 +952,7 @@
     .presentation {
       font-family: 'Inter Tight';
       font-weight: 300;
-      @include adaptive-value('font-size', 20, 14, 1);
+      @include responsive-size(font-size, 16px, 16px, 20px, 20px);
       text-align: right;
       text-decoration-line: none;
       text-transform: uppercase;
@@ -792,7 +1009,7 @@
     }
     .footer_bottom_item h2 {
       font-weight: 300;
-      font-size: 20px;
+      @include responsive-size(font-size, 12px, 14px, 16px, 20px);
       display: flex;
       align-items: center;
       color: #ffffff;
@@ -813,7 +1030,7 @@
         display: flex;
         align-items: center;
         font-weight: 200;
-        @include adaptive-value('font-size', 20, 14, 1);
+        @include responsive-size(font-size, 14px, 14px, 16px, 20px);
         color: #ffffff;
       }
     }

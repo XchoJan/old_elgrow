@@ -19,7 +19,6 @@ const HeaderOutstaff: React.FC<Props> = ({ main }) => {
     setMax(window?.visualViewport?.width);
   }, []);
 
-  console.log(max);
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {

@@ -32,6 +32,8 @@
     "react-scroll": "^1.8.9",
     "redux": "^4.2.0",
     "redux-saga": "^1.2.1",
+    "smooth-scrollbar": "^8.8.4",
+    "smooth-scrollbar-react": "^2.4.1",
     "swiper": "^8.4.6"
   },
   "devDependencies": {
