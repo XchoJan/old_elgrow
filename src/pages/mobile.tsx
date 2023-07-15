@@ -4,6 +4,8 @@ import MobileMenu from '../Components/MobileMenu';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
+import { Scrollbar } from 'smooth-scrollbar-react';
+import type { Scrollbar as BaseScrollbar } from 'smooth-scrollbar/scrollbar';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,8 +16,11 @@ const mobile = () => {
   }, []);
   const [showMenu, setShowMenu] = useState(false);
 
+  const scrollbarRef = useRef<BaseScrollbar | null>(null);
+  const scrollbar2 = useRef<BaseScrollbar | null>(null);
+
   const wrapperRef: any = useRef();
-  const silderRef: any = useRef();
+  const sliderRef: any = useRef();
   const firstRef: any = useRef();
   const secondRef: any = useRef();
   const thirdRef: any = useRef();
@@ -24,25 +29,27 @@ const mobile = () => {
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      sections.current = wrapperRef.current.querySelectorAll('section');
-      const verticalTween = gsap.to(sections.current, {
-        yPercent: -100 * (sections.current.length - 1),
+      sections.current = wrapperRef?.current?.querySelectorAll('section');
+      const verticalTween = gsap.to(sections?.current, {
+        yPercent: -100 * (sections?.current?.length - 1),
         ease: 'none',
         scrollTrigger: {
-          trigger: wrapperRef.current,
+          trigger: wrapperRef?.current,
           pin: true,
           scrub: 0.01,
           invalidateOnRefresh: false,
+          // scroller: wrapperRef.current,
           startAt: () => ({
             yPercent: 0,
           }),
           end: () => {
-            const wrapperHeight = wrapperRef.current.offsetHeight;
-            const windowHeight = silderRef?.current?.offsetHeight;
-            return `+=${wrapperHeight - windowHeight / 100}`;
+            const wrapperHeight = wrapperRef?.current?.offsetHeight;
+            const windowHeight = sliderRef?.current?.offsetHeight;
+            return `+=${1500}`;
           },
         } as any,
       });
+
       verticalTweenContext.current = verticalTween;
     }, 100);
 
@@ -72,11 +79,20 @@ const mobile = () => {
   ];
   return (
     <div className="mobileMain">
+      {/* <div
+        className="sample-container"
+        style={{ maxHeight: '100vh', display: 'flex' }}
+      >
+        <Scrollbar
+          ref={scrollbarRef}
+          plugins={{
+            overscroll: {
+              effect: 'bounce',
+            } as any,
+          }}
+        > */}
       <HeaderMobile setShowMenu={setShowMenu} />
-      <MobileMenu
-        isOpen={showMenu}
-        close={setShowMenu}
-      />
+      <MobileMenu isOpen={showMenu} close={setShowMenu} />
       {max > 560 && (
         <img className="eagleOutstaff" src="/images/sova.png" alt="" />
       )}
@@ -185,6 +201,7 @@ const mobile = () => {
           </div>
         </div>
       </div>
+
       <div ref={wrapperRef} className="aboutLetters">
         <div className="titleHeading">О нас в буквах</div>
         <div className="aboutLettersContent">
@@ -195,8 +212,12 @@ const mobile = () => {
               </span>
             </div>
           </div>
-
-          <div ref={silderRef} id="sliderContainer">
+          {/* <div style={{ maxHeight: '100vh', display: 'flex' }}>
+                <Scrollbar
+                  ref={scrollbar2}
+               
+                > */}
+          <div ref={sliderRef} id="sliderContainer">
             <section ref={firstRef}>
               <div className="mainText">Профессионализм</div>
               <div className="secondatyText">
@@ -247,7 +268,6 @@ const mobile = () => {
                 <br />
                 не зависят от человеческого фактора
                 <div>
-                  {' '}
                   Дублирующий и страхующий специалист на каждого участника вашей
                   команды.
                 </div>
@@ -255,15 +275,17 @@ const mobile = () => {
               <div className="secondatyText">
                 100% соответствие ожиданиям <br />
                 <div>
-                  {' '}
                   Документация на программный код и продукт, готовность к
                   внешнему аудиту
                 </div>
               </div>
             </section>
+            {/* </div>
+              </Scrollbar> */}
           </div>
         </div>
       </div>
+
       <div className="mobilePortfolio">
         <div>
           <div className="titleHeading">Портфолио</div>
@@ -578,7 +600,6 @@ const mobile = () => {
         </div>
       </div>
       <div className="mobileFooter">
-        {' '}
         <footer className="footer">
           <div className="container">
             <div className="footer_inner">
@@ -639,6 +660,8 @@ const mobile = () => {
             </div>
           </div>
         </footer>{' '}
+        {/* </div>
+        </Scrollbar> */}
       </div>
     </div>
   );

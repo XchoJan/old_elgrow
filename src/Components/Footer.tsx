@@ -3,19 +3,22 @@ import CallBackMenu from './CallBackMenu';
 import Contacts from './Contacts';
 import { useRouter } from 'next/router';
 
-const Footer = () => {
+interface Props {
+max: number
+}
+
+const Footer: React.FC<Props>  = ({max}) => {
   const router = useRouter();
 
   const [showMenu, setShowMenu] = useState(false);
   const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
 
-  const [max, setMax]: any = useState(0);
 
   const openPresentaion = () => window.open('/presentation1.pdf', '_blank');
 
-  useEffect(() => {
-    setMax(window?.visualViewport?.width);
-  }, []);
+  console.log(max)
+
+ 
   return (
     <footer className="footer">
       <div className="container">

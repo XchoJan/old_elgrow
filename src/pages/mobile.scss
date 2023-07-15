@@ -373,15 +373,13 @@
     }
   }
   .aboutLetters {
- 
-
     @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
     @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
     padding-top: 100px;
 
-    .aboutLettersContent {    
+    .aboutLettersContent {
       height: 600px;
- 
+
       max-width: 1340px;
       position: relative;
       gap: 188px;
@@ -396,8 +394,8 @@
         max-width: 400px;
       }
 
-      #sliderContainer {   
-
+      #sliderContainer {
+  
         @include responsive-size(max-width, 240px, 320px, 417px, 625px);
         overflow: hidden;
       }

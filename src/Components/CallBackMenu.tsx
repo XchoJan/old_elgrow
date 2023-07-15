@@ -51,7 +51,7 @@ const CallBackMenu: React.FC<Props> = ({
 
     setTimeout(() => {
       if (max <= 560) {
-        console.log(callbackMenu);
+      
         callbackMenu[0].scrollTop = 0;
         if (callbackMenu[1]) {
           callbackMenu[1].scrollTop = 0;

@@ -85,7 +85,7 @@ h6 {
 .container,
 .portfolio_container {
   cursor: pointer;
-  max-width: 1920px;
+  // max-width: 1920px;
   width: 100%;
   margin: 0 auto;
 }
@@ -192,7 +192,7 @@ h6 {
 }
 
 .tabs_container {
-  max-width: 1920px;
+  // max-width: 1920px;
   width: 100%;
   margin: 0 auto;
 
@@ -858,6 +858,12 @@ h6 {
   height: 100vh !important;
   max-width: 10000px !important;
   display: flex;
+
+ 
+
+  @media(min-width: 2100px) {
+    max-width: 1000000px !important;
+  }
 }
 .wrapper .scroll-title {
   font-size: 21px;

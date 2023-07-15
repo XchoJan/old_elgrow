@@ -1,7 +1,7 @@
 .portfolio_main {
   margin: 0 auto;
   width: 100%;
-  max-width: 1920px;
+  // max-width: 1920px;
   @include responsive-size(padding-left, 20px, 54px, 54px, 54px);
   @include responsive-size(padding-right, 20px, 54px, 54px, 54px);
   font-family: 'Inter Tight';

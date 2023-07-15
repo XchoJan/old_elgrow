@@ -104,11 +104,8 @@ const MainPage: NextPage = () => {
       image[0].style.top = `${y - 50}px`;
     }
   };
-
-  useEffect(() => {
-    setMax(window?.visualViewport?.width);
-  }, []);
-
+ 
+ 
   const engineering = [
     {
       num: '01',
@@ -311,7 +308,7 @@ const MainPage: NextPage = () => {
           </div>
         </div>
       ) : (
-        <div>
+        <div style ={{   margin: '0 auto'}}>
           <div
             style={{
               transition: 'opacity 0.3s ease-in-out',
@@ -321,6 +318,7 @@ const MainPage: NextPage = () => {
               top: '0',
               width: '100vw',
               position: 'fixed',
+              // maxWidth: '1920px'
             }}
           >
             <Header />
@@ -1212,7 +1210,7 @@ const MainPage: NextPage = () => {
               </div>
             </div>
           </div>
-          <Footer />
+          <Footer max={max} />
         </div>
       )}
     </>
