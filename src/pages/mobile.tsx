@@ -38,7 +38,6 @@ const mobile = () => {
           pin: true,
           scrub: 0.01,
           invalidateOnRefresh: false,
-          // scroller: wrapperRef.current,
           startAt: () => ({
             yPercent: 0,
           }),
