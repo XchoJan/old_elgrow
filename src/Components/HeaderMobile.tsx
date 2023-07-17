@@ -7,8 +7,10 @@ interface Props {
 
 const HeaderMobile: React.FC<Props> = ({ setShowMenu }) => {
   const [max, setMax]: any = useState(0);
+
   useEffect(() => {
-    setMax(window?.visualViewport?.width);
+    const screenWidth = window?.visualViewport?.width
+    setMax(screenWidth);
   }, []);
 
   return (

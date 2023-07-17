@@ -1,0 +1,71 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  position: fixed;
+  z-index: 1;
+  width: 90%;
+}
+
+.logo {
+  color: #424D5E;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.letterL {
+  color: #3ece5d;
+}
+
+.navMenu {
+  display: flex;
+  gap: 24px;
+}
+
+.navBtn {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.08px;
+  cursor: pointer;
+}
+
+.navBtnUnderline {
+  text-decoration-line: underline;
+}
+
+.contactsBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.tgBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.tgIcon {}
+
+.tgLink {}
+
+.phoneBlock {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%;
+  text-decoration-line: underline;
+  cursor: pointer;
+}

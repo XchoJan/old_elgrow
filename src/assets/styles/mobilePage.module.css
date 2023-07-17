@@ -1,0 +1,18 @@
+.mobilePage {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  font-family: Inter Tight;
+}
+
+.container {
+  width: 90%;
+}
+
+.eagleOutstaff {
+  pointer-events: none;
+  width: max-content;
+  z-index: 0;
+  position: fixed;
+  right: 0;
+}

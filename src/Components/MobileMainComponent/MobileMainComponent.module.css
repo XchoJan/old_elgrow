@@ -1,0 +1,98 @@
+.mobileMainComponent {
+  width: 100%;
+  min-height: 100vh;
+  font-family: Inter Tight;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.title {
+  color: #000;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 96px;
+  letter-spacing: 0.8px;
+  max-width: 911px;
+}
+
+.title:after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-top: 2px solid #3ece5d;
+  border-right: 2px solid #3ece5d;
+}
+
+.clientsBlock {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  gap: 70px;
+  bottom: 61.5px;
+  left: 0;
+}
+
+.clients {
+  display: flex;
+  flex-direction: column;
+}
+
+.clientTitle {
+  color: #000;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  margin-bottom: 16px;
+}
+
+.clientsImages {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.clientIcon {}
+
+.becomeClient {
+  display: flex;
+  width: 283px;
+  height: 154px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #000;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26.4px;
+  letter-spacing: -0.11px;
+}
+
+.becomeClient:before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-bottom: 2px solid #9B4EFE;
+  border-left: 2px solid #9B4EFE;
+  left: 0;
+  bottom: 0;
+}
+
+.becomeClient:after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-top: 2px solid #DB418C;
+  border-right: 2px solid #DB418C;
+  right: 0;
+  top: 0;
+}
+
