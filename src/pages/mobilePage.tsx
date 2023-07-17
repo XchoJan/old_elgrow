@@ -11,8 +11,9 @@ const mobilePage = () => {
           <HeaderMobileComponent/>
           <img className={styles.eagleOutstaff} src="/images/sova.png" alt="" />
           <MobileMainComponent/>
-          <AboutUsNumbersComponent/>
         </div>
+        <AboutUsNumbersComponent/>
+        <div className={styles.container}>Hello</div>
       </div>
   );
 };
