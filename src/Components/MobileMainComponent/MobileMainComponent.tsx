@@ -16,8 +16,7 @@ const images = [
 const MobileMainComponent = () => {
   return (
       <div className={styles.mobileMainComponent}>
-        <TitleText text="Разработка
-мобильных приложений"/>
+        <TitleText text="Разработка мобильных приложений"/>
         <div className={styles.clientsBlock}>
           <div className={styles.clients}>
             <h3 className={styles.clientTitle}>Наши клиенты:</h3>

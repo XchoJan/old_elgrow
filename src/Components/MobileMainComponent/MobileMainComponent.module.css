@@ -9,8 +9,10 @@
 }
 
 .clientsBlock {
+  width: 100%;
   position: absolute;
   display: flex;
+  justify-content: space-between;
   align-items: flex-end;
   gap: 70px;
   bottom: 61.5px;

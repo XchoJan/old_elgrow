@@ -11,6 +11,208 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   position: relative;
+
+}
+
+.title {
+  padding-top: 100px;
+  margin-bottom: 60px;
+}
+
+.portfolioCards {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.images {
+  width: 60%;
+  display: flex;
+  position: relative;
+  right: 0;
+}
+
+.utg1,
+.utg2,
+.utg3,
+.utg4,
+.nespresso1,
+.nespresso2,
+.nespresso3,
+.nespresso4,
+.luxxy1,
+.luxxy2,
+.luxxy3,
+.luxxy4,
+.statusStroy1,
+.statusStroy2,
+.statusStroy3,
+.statusStroy4,
+.parking4,
+.parking5,
+.parking6 {
+  position: absolute;
+  border-radius: 16px;
+}
+
+.utg1 {
+  top: 150px;
+  right: 494px;
+  z-index: 3;
+}
+
+.utg2 {
+  top: 33px;
+  right: 390px;
+  z-index: 2;
+}
+
+.utg3 {
+  top: 211px;
+  right: 283px;
+  z-index: 1;
+}
+
+.utg4 {
+  top: 88px;
+  right: 203px;
+}
+
+.nespresso1 {
+  top: 310px;
+  right: 661.05px;
+}
+
+.nespresso2 {
+  top: 257px;
+  right: 360.16px;
+}
+
+.nespresso3 {
+  top: -58px;
+  right: 133.85px;;
+}
+
+.nespresso4 {
+  top: 108px;
+  right: -12.95px;
+}
+
+.luxxy1 {
+  top: 23px;
+  right: 493.52px;
+  transform: rotate(-20.217deg);
+  z-index: 2;
+}
+
+.luxxy2 {
+  top: 152px;
+  right: 324px;
+  z-index: 3;
+}
+
+.luxxy3 {
+  top: 199px;
+  right: 138.3px;
+  transform: rotate(30.17deg);
+  z-index: 1;
+}
+
+.statusStroy1 {
+  top: 128px;
+  right: 395px;
+  z-index: 3;
+}
+
+.statusStroy2 {
+  top: -40px;
+  right: 274px;
+}
+
+.statusStroy3 {
+  top: 254px;
+  right: 167px;
+}
+
+.statusStroy4 {
+  top: 96px;
+  right: 51px;
+}
+
+.parking4 {
+  top: 30px;
+  right: 358px;
+  z-index: 3;
+}
+
+.parking5 {
+  top: 115px;
+  right: 222px;
+}
+
+.parking6 {
+  top: 54px;
+  right: 86px;
+}
+
+.utg1Image,
+.utg2Image,
+.utg3Image,
+.utg4Image,
+.nespresso1Image,
+.nespresso2Image,
+.nespresso3Image,
+.nespresso4Image,
+.luxxy1Image,
+.luxxy2Image,
+.luxxy3Image,
+.luxxy4Image,
+.statusStroy1Image,
+.statusStroy2Image,
+.statusStroy3Image,
+.statusStroy4Image,
+.parking4Image,
+.parking5Image,
+.parking6Image {
+  width: 160px;
+  height: 356.923px;
+  border-radius: 16px;
+}
+
+.nespresso1,
+.nespresso2,
+.nespresso3,
+.nespresso4 {
+  transform: rotate(35.622deg);
+}
+
+.allProject {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.allProjectContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 58px;
+}
+
+.allProjectText {
+  color: #000;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.14px;
+  text-decoration-line: underline;
+}
+
+.allProjectIcon {
+  width: 40px;
 }
