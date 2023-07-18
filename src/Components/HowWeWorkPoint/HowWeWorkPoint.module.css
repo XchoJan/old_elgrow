@@ -1,0 +1,64 @@
+.howWeWorkPoint {
+  font-family: Inter Tight;
+  display: flex;
+  flex-direction: column;
+  width: 540px;
+}
+
+.title {
+  color: #07B7F9;
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 145.496%;
+  text-transform: uppercase;
+  margin-bottom: 48px;
+}
+
+.subTitle {
+  color: #000;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  letter-spacing: 0.36px;
+  margin-bottom: 24px;
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.pointBlock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  color: #07B7F9;
+  font-size: 24px;
+  border-radius: 50%;
+}
+
+.point {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 19.2px;
+  letter-spacing: 0.16px;
+}
+
+.description {
+  color: #05846F;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  letter-spacing: 0.16px;
+  padding-left: 18px;
+}

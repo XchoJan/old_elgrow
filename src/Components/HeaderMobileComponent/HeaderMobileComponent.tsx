@@ -7,7 +7,7 @@ const navButtons = [
   {title: "О нас в цифрах", value: "aboutUsNumbersComponent"}, {
     title: "О нас в буквах",
     value: "aboutUsLetterComponent"
-  }, {title: "Портфолио", value: "portfolioComponent"}, {title: "Как мы работаем", value: ""}, {
+  }, {title: "Портфолио", value: "portfolioComponent"}, {title: "Как мы работаем", value: "howWeWorkComponent"}, {
     title: "Цены",
     value: ""
   }];

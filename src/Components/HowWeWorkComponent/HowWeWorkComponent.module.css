@@ -1,0 +1,21 @@
+.howWeWorkComponent {
+  width: 100%;
+  min-height: 100vh;
+  font-family: Inter Tight;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.title {
+  padding-top: 100px;
+  margin-bottom: 60px;
+}
+
+.pointsBlock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  margin-bottom: 230px;
+}

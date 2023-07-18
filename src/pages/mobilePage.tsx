@@ -6,6 +6,7 @@ import AboutUsNumbersComponent from "../Components/AboutUsNumbersComponent/About
 import AboutUsLetterComponent
   from "../Components/AboutUsLetterComponent/AboutUsLetterComponent";
 import PortfolioComponent from "../Components/PortfolioComponent/PortfolioComponent";
+import HowWeWorkComponent from "../Components/HowWeWorkComponent/HowWeWorkComponent";
 
 const mobilePage = () => {
   return (
@@ -19,6 +20,7 @@ const mobilePage = () => {
         <div className={styles.container}>
           <AboutUsLetterComponent/>
           <PortfolioComponent/>
+          <HowWeWorkComponent/>
         </div>
       </div>
   );
