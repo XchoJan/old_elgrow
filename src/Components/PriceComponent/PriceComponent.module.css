@@ -67,8 +67,6 @@
 }
 
 .line {
-  /*width: 1px;*/
   height: 245px;
-  /*background: #007C68;*/
   border: 0.5px solid #23bba1;
 }

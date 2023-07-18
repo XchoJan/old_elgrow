@@ -8,6 +8,7 @@ import AboutUsLetterComponent
 import PortfolioComponent from "../Components/PortfolioComponent/PortfolioComponent";
 import HowWeWorkComponent from "../Components/HowWeWorkComponent/HowWeWorkComponent";
 import PriceComponent from "../Components/PriceComponent/PriceComponent";
+import BecomeClientComponent from "@components/BecomeClientComponent/BecomeClientComponent";
 
 const mobilePage = () => {
   return (
@@ -24,6 +25,7 @@ const mobilePage = () => {
           <HowWeWorkComponent/>
           <PriceComponent/>
         </div>
+        <BecomeClientComponent/>
       </div>
   );
 };

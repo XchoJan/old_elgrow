@@ -39,7 +39,7 @@ const HeaderMobileComponent = () => {
           })}
           <Link
               offset={0}
-              to="becomeClient"
+              to="becomeClientComponent"
               spy={true}
               smooth={true}
               duration={150}

@@ -16,7 +16,7 @@ const PortfolioCard:FC<PortfolioCardPropsType> = ({backgroundColor, title, tags,
           <div className={styles.title}>{title}</div>
           <div className={styles.tags}>
             {tags.map((tag, index) => {
-              return <div className={styles.tag}>{tag}</div>
+              return <div key={index} className={styles.tag}>{tag}</div>
             })}
           </div>
           <div className={styles.description}>{description}</div>
