@@ -1,0 +1,37 @@
+.animateButton {
+  display: flex;
+  width: 283px;
+  height: 154px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #000;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26.4px;
+  letter-spacing: -0.11px;
+}
+
+.animateButton:before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-bottom: 2px solid #9B4EFE;
+  border-left: 2px solid #9B4EFE;
+  left: 0;
+  bottom: 0;
+}
+
+.animateButton:after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-top: 2px solid #DB418C;
+  border-right: 2px solid #DB418C;
+  right: 0;
+  top: 0;
+}

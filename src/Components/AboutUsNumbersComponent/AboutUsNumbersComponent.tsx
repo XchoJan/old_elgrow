@@ -1,12 +1,16 @@
 import React from "react";
 import styles
   from "@components/AboutUsNumbersComponent/AboutUsNumbersComponent.module.css";
+import Scroll from 'react-scroll'
+
+const Element = Scroll.Element;
 
 const stacks = ["React Native", "NodeJS", "Adobe AI", "PHP", "Swift", "Jira", "C#", ".net", "React", "Flutter", "Kotlin", "Битрикс", "Figma"];
 
 const AboutUsNumbersComponent = () => {
   return (
       <div className={styles.aboutUsNumbersComponent}>
+        <Element name="aboutUsNumbersComponent"></Element>
         <div className={styles.container}>
           <div className={styles.mainContent}>
             <div className={styles.leftBlock}>

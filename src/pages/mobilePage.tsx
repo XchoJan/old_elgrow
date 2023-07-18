@@ -3,6 +3,9 @@ import styles from "../assets/styles/mobilePage.module.css";
 import HeaderMobileComponent from "../Components/HeaderMobileComponent/HeaderMobileComponent";
 import MobileMainComponent from "../Components/MobileMainComponent/MobileMainComponent";
 import AboutUsNumbersComponent from "../Components/AboutUsNumbersComponent/AboutUsNumbersComponent";
+import AboutUsLetterComponent
+  from "../Components/AboutUsLetterComponent/AboutUsLetterComponent";
+import PortfolioComponent from "../Components/PortfolioComponent/PortfolioComponent";
 
 const mobilePage = () => {
   return (
@@ -13,7 +16,10 @@ const mobilePage = () => {
           <MobileMainComponent/>
         </div>
         <AboutUsNumbersComponent/>
-        <div className={styles.container}>Hello</div>
+        <div className={styles.container}>
+          <AboutUsLetterComponent/>
+          <PortfolioComponent/>
+        </div>
       </div>
   );
 };

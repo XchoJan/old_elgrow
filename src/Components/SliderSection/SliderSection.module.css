@@ -1,0 +1,40 @@
+.section {
+  min-height: 100%;
+  width: 100%;
+  font-family: Inter Tight;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sectionTitle {
+  color: #000;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  margin-bottom: 56px;
+}
+
+.sectionPoint {
+  margin-bottom: 48px;
+}
+
+.mainText {
+  color: #000;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 33.6px;
+  letter-spacing: 0.28px;
+  margin-bottom: 10px;
+}
+
+.secondaryText {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 19.2px;
+  letter-spacing: 0.16px;
+}

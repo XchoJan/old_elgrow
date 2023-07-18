@@ -1,42 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { Link, animateScroll as scroll } from 'react-scroll';
+import React, {useEffect, useState} from "react";
+import {Link} from "react-scroll";
 import styles from "./HeaderMobileComponent.module.css";
+import Logo from "../Logo/Logo";
 
-const navButtons = ['О нас в цифрах', 'О нас в буквах', 'Портфолио', 'Как мы работаем', 'Цены']
+const navButtons = [
+  {title: "О нас в цифрах", value: "aboutUsNumbersComponent"}, {
+    title: "О нас в буквах",
+    value: "aboutUsLetterComponent"
+  }, {title: "Портфолио", value: "portfolioComponent"}, {title: "Как мы работаем", value: ""}, {
+    title: "Цены",
+    value: ""
+  }];
 
 const HeaderMobileComponent = () => {
   const [max, setMax]: any = useState(0);
 
   useEffect(() => {
-    const screenWidth = window?.visualViewport?.width
+    const screenWidth = window?.visualViewport?.width;
     setMax(screenWidth);
   }, []);
 
   return (
       <div className={styles.header}>
-        <div className={styles.logo}>
-          e<span className={`${styles.logo} ${styles.letterL}`}>l</span>grow.
-        </div>
+        <Logo/>
         <div className={styles.navMenu}>
           {navButtons.map((btn, index) => {
             return <Link
                 key={index}
-                offset={150}
-                to="mobilePortfolio"
+                offset={0}
+                to={btn.value}
                 spy={true}
                 smooth={true}
-                duration={500}
+                duration={150}
                 className={styles.navBtn}
             >
-              {btn}
-            </Link>
+              {btn.title}
+            </Link>;
           })}
           <Link
-              offset={150}
-              to="mobilePortfolio"
+              offset={0}
+              to="becomeClient"
               spy={true}
               smooth={true}
-              duration={500}
+              duration={150}
               className={`${styles.navBtn} ${styles.navBtnUnderline}`}
           >
             Стать клиентом
@@ -44,7 +50,7 @@ const HeaderMobileComponent = () => {
         </div>
         <div className={styles.contactsBlock}>
           <div className={styles.tgBlock}>
-            <img className={styles.tgIcon} src="/images/telegram-small1440.svg" alt="" />
+            <img className={styles.tgIcon} src="/images/telegram-small1440.svg" alt=""/>
             <a className={styles.tgLink} href="https://t.me/Elgrow_dev"> Elgrow_dev</a>
           </div>
           <div className={styles.phoneBlock}>+7 495 109 90 49</div>
