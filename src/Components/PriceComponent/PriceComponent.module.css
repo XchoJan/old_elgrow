@@ -1,0 +1,74 @@
+.priceComponent {
+  width: 100%;
+  min-height: 100vh;
+  font-family: Inter Tight;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.title {
+  padding-top: 100px;
+  margin-bottom: 110px;
+}
+
+.pricesBlock {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+}
+
+.priceItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.priceTitle {
+  color: #000;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26.4px;
+  letter-spacing: -0.14px;
+}
+
+.priceCount {
+  color: #007C68;
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%;
+  letter-spacing: -0.36px;
+}
+
+.pricePretext {
+  color: #000;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26.4px;
+  letter-spacing: -0.11px;
+  margin-right: 8px;
+}
+
+.priceTerm {
+  color: #007C68;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%;
+  letter-spacing: -0.18px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.line {
+  /*width: 1px;*/
+  height: 245px;
+  /*background: #007C68;*/
+  border: 0.5px solid #23bba1;
+}

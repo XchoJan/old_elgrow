@@ -7,6 +7,7 @@ import AboutUsLetterComponent
   from "../Components/AboutUsLetterComponent/AboutUsLetterComponent";
 import PortfolioComponent from "../Components/PortfolioComponent/PortfolioComponent";
 import HowWeWorkComponent from "../Components/HowWeWorkComponent/HowWeWorkComponent";
+import PriceComponent from "../Components/PriceComponent/PriceComponent";
 
 const mobilePage = () => {
   return (
@@ -21,6 +22,7 @@ const mobilePage = () => {
           <AboutUsLetterComponent/>
           <PortfolioComponent/>
           <HowWeWorkComponent/>
+          <PriceComponent/>
         </div>
       </div>
   );

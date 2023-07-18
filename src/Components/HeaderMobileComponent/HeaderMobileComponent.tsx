@@ -9,7 +9,7 @@ const navButtons = [
     value: "aboutUsLetterComponent"
   }, {title: "Портфолио", value: "portfolioComponent"}, {title: "Как мы работаем", value: "howWeWorkComponent"}, {
     title: "Цены",
-    value: ""
+    value: "priceComponent"
   }];
 
 const HeaderMobileComponent = () => {
