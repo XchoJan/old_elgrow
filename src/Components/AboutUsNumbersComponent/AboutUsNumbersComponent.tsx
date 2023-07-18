@@ -12,24 +12,24 @@ const AboutUsNumbersComponent = () => {
             <div className={styles.leftBlock}>
               <h2 className={styles.leftBlockTitle}>О нас в цифрах</h2>
               <div className={styles.aboutNumbersContent}>
-                <div className={styles.aboutNumbersTopContent}>
+                <div className={styles.aboutNumbersLeftContent}>
                   <div className={styles.containerNum}>
                     <div className={styles.num}>15</div>
                     <div className={styles.content}>Лет опыта</div>
                   </div>
                   <div className={styles.containerNum}>
-                    <div className={styles.num}>15</div>
-                    <div className={styles.content}>Лет опыта</div>
+                    <div className={styles.num}>100+</div>
+                    <div className={styles.content}>Проектов</div>
                   </div>
                 </div>
-                <div className={styles.aboutNumbersBottomContent}>
+                <div className={styles.aboutNumbersRightContent}>
                   <div className={styles.containerNum}>
-                    <div className={styles.num}>15</div>
-                    <div className={styles.content}>Лет опыта</div>
+                    <div className={styles.num}>36</div>
+                    <div className={styles.content}>Человек штата</div>
                   </div>
                   <div className={styles.containerNum}>
-                    <div className={styles.num}>15</div>
-                    <div className={styles.content}>Лет опыта</div>
+                    <div className={styles.num}>1 млн+</div>
+                    <div className={styles.content}>Часов разработки</div>
                   </div>
                 </div>
               </div>

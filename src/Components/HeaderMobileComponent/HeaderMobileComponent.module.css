@@ -56,9 +56,22 @@
   cursor: pointer;
 }
 
-.tgIcon {}
+.tgIcon {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
 
-.tgLink {}
+.tgLink {
+  color: #000;
+  font-family: Inter Tight;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.08px;
+  text-decoration-line: underline;
+}
 
 .phoneBlock {
   color: #000;

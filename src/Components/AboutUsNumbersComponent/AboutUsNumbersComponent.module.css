@@ -5,6 +5,7 @@
   position: relative;
   justify-content: center;
   display: flex;
+  font-family: Inter Tight;
 }
 
 .container {
@@ -14,7 +15,7 @@
 .mainContent {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  padding-top: 100px;
 }
 
 .leftBlock {
@@ -22,34 +23,52 @@
 }
 
 .leftBlockTitle {
-
+  color: #FFF;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 145.496%;
+  margin-bottom: 40px ;
 }
 
 .aboutNumbersContent {
-
+  display: flex;
+  gap: 75px;
 }
 
-.aboutNumbersTopContent,
-.aboutNumbersBottomContent {
-
+.aboutNumbersLeftContent,
+.aboutNumbersRightContent {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
 }
 
 .containerNum {
 
 }
 
-.num {}
+.num {
+  color: #FFF;
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: 0.72px;
+}
 
 .content {
-
+  color: #FFF;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26.4px;
+  letter-spacing: 0.22px;
 }
 
 .rightBlock {
   width: 50%;
   display: flex;
-  padding-bottom: 48px;
   position: relative;
-  padding-top: 100px;
 }
 
 .parking1,
@@ -62,7 +81,7 @@
   width: 320px;
   height: 692px;
   right: 116px;
-  top: 25px;
+  top: -11px;
   z-index: 3;
   position: absolute;
 }
@@ -70,8 +89,8 @@
 .parking2 {
   width: 320px;
   height: 714px;
-  right: -83px;
-  top: -32px;
+  right: 18px;
+  top: -68px;
   z-index: 2;
   position: absolute;
 }
@@ -79,7 +98,7 @@
 .parking3 {
   width: 180px;
   height: 688px;
-  top: 25px;
+  top: -11px;
   position: absolute;
   right: -10%;
 }
@@ -90,16 +109,22 @@
   justify-content: space-between;
   position: absolute;
   bottom: 48px;
+  gap: 8px;
+  width: 100%;
 }
 
 .stackBlock {
-
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.dot {
-
-}
-
+.dot,
 .stackText {
-
+  color: #FFF;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+  letter-spacing: 0.22px;
 }
