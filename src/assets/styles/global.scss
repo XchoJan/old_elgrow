@@ -95,7 +95,7 @@ $small-mobile: 390px;
 }
 
 * {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   ::-webkit-scrollbar {
     width: 10px;
   }

@@ -5,7 +5,7 @@
   height: 73px;
   position: fixed;
   z-index: 10;
-  width: 100%;
+  width: 100vw;
   background: #ffffff;
 }
 
