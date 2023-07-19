@@ -15,7 +15,7 @@ export default function MyApp({ Component, pageProps }) {
         <title>Elgrow</title>
         <link rel="icon" type="image/png" href="/images/favicon.png" />
       </Head>
-      <SmoothScroll />
+      {/*<SmoothScroll />*/}
       <Component {...pageProps} />
     </>
   );
