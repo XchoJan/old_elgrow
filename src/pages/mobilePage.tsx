@@ -22,7 +22,7 @@ const mobilePage = () => {
         <div className={styles.container}>
           <AboutUsLetterComponent/>
           <PortfolioComponent/>
-        {/*  <HowWeWorkComponent/>*/}
+          <HowWeWorkComponent/>
         {/*  <PriceComponent/>*/}
         </div>
         {/*<BecomeClientComponent/>*/}

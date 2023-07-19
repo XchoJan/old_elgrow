@@ -2,7 +2,7 @@
   font-family: Inter Tight;
   display: flex;
   flex-direction: column;
-  width: 540px;
+  width: 45%;
 }
 
 .title {
@@ -62,3 +62,30 @@
   letter-spacing: 0.16px;
   padding-left: 18px;
 }
+
+@media screen and (max-width: 1023px) {
+  .title {
+    margin-bottom: 32px;
+  }
+  .subTitle {
+    font-size: 28px;
+    line-height: 33.6px;
+    letter-spacing: 0.28px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .howWeWorkPoint {
+    width: 100%;
+  }
+  .points {
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .point {
+    font-size: 14px;
+    line-height: 16.8px;
+    letter-spacing: 0.14px;
+  }
+}
+
