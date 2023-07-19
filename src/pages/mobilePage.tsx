@@ -23,7 +23,7 @@ const mobilePage = () => {
           <AboutUsLetterComponent/>
           <PortfolioComponent/>
           <HowWeWorkComponent/>
-        {/*  <PriceComponent/>*/}
+          <PriceComponent/>
         </div>
         {/*<BecomeClientComponent/>*/}
       </div>
