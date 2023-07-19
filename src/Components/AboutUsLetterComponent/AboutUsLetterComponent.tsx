@@ -74,7 +74,7 @@ const AboutUsLetterComponent = () => {
       <div ref={wrapperRef} className={styles.aboutUsLetterComponent}>
         <Element name="aboutUsLetterComponent"></Element>
         {!hideOnMobile && <div className={styles.animateButtonBlock}>
-          <AnimateButton>
+          <AnimateButton onClick={() => {}}>
             <Logo/>
           </AnimateButton>
         </div>}
@@ -84,7 +84,7 @@ const AboutUsLetterComponent = () => {
           </div>
           <div className={styles.mainContent}>
             {hideOnMobile && <div className={styles.leftBlock}>
-              <AnimateButton>
+              <AnimateButton onClick={() => {}}>
                 <Logo/>
               </AnimateButton>
             </div>}

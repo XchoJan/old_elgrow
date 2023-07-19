@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import HeaderMobile from '../Components/HeaderMobile';
-import MobileMenu from '../Components/MobileMenu';
+import MobileMenu from '@components/MobileMenu/MobileMenu';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
@@ -214,7 +214,7 @@ const mobile = () => {
           {/* <div style={{ maxHeight: '100vh', display: 'flex' }}>
                 <Scrollbar
                   ref={scrollbar2}
-               
+
                 > */}
           <div ref={sliderRef} id="sliderContainer">
             <section ref={firstRef}>

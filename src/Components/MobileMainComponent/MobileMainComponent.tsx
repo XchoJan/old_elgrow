@@ -26,7 +26,7 @@ const MobileMainComponent = () => {
   return (
       <div className={styles.mobileMainComponent}>
         <div className={styles.title}>
-          <TitleText text="Разработка мобильных приложений"/>
+          <h1 className={styles.titleText}>Разработка <br/>мобильных приложений</h1>
         </div>
         <div className={styles.clientsBlock}>
           <div className={styles.clients}>
@@ -44,7 +44,7 @@ const MobileMainComponent = () => {
               <img className={styles.KFC} src={`/images/KFC.svg`} alt={`KFC`}/>
             </div>
           </div>
-          {hideOnSmallDesktop && <AnimateButton>
+          {hideOnSmallDesktop && <AnimateButton onClick={() => {}}>
             <div>Стать клиентом</div>
           </AnimateButton>}
         </div>

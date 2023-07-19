@@ -34,6 +34,7 @@
     flex-direction: column;
   }
   .title {
+    padding-top: 0px;
     width: 70%;
     margin-bottom: 20px;
   }

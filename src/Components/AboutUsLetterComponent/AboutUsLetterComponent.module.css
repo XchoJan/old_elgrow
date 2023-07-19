@@ -44,7 +44,7 @@
 
 .rightBlock {
   width: 50%;
-  height: 500px;
+  height: 600px;
 }
 
 .sliderContainer {
@@ -92,7 +92,7 @@
   }
   .animateButtonBlock {
     position: absolute;
-    bottom: 300px;
+    bottom: 50%;
     right: -60px;
   }
 }
