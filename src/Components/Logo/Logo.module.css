@@ -10,3 +10,27 @@
 .letterL {
   color: #3ece5d;
 }
+
+@media screen and (max-width: 1439px) {
+  .logo {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .logo {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .logo {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+

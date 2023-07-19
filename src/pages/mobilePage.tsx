@@ -25,7 +25,7 @@ const mobilePage = () => {
           <HowWeWorkComponent/>
           <PriceComponent/>
         </div>
-        {/*<BecomeClientComponent/>*/}
+        <BecomeClientComponent/>
       </div>
   );
 };
