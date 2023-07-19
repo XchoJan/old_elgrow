@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import styles from "./AboutUsLetterComponent.module.css";
 import Scroll from 'react-scroll'
 import AnimateButton from "../AnimateButton/AnimateButton";
@@ -7,12 +7,15 @@ import TitleText from "../TitleText/TitleText";
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import SliderSection from "../SliderSection/SliderSection";
+import {useMediaQuery} from "react-responsive";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Element = Scroll.Element;
 
 const AboutUsLetterComponent = () => {
+  const [hideOnMobile, setHideOnMobile] = useState(false);
+  const isMobile = useMediaQuery({query: "(min-width: 768px)"});
 
   const wrapperRef: any = useRef();
   const sliderRef: any = useRef();
@@ -62,20 +65,29 @@ const AboutUsLetterComponent = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setHideOnMobile(isMobile);
+  }, [isMobile]);
+
 
   return (
       <div ref={wrapperRef} className={styles.aboutUsLetterComponent}>
         <Element name="aboutUsLetterComponent"></Element>
+        {!hideOnMobile && <div className={styles.animateButtonBlock}>
+          <AnimateButton>
+            <Logo/>
+          </AnimateButton>
+        </div>}
         <div className={styles.container}>
           <div className={styles.title}>
             <TitleText text='О нас в буквах'/>
           </div>
           <div className={styles.mainContent}>
-            <div className={styles.leftBlock}>
+            {hideOnMobile && <div className={styles.leftBlock}>
               <AnimateButton>
                 <Logo/>
               </AnimateButton>
-            </div>
+            </div>}
             <div className={styles.rightBlock}>
               <div ref={sliderRef} id="sliderContainer" className={styles.sliderContainer}>
                 <SliderSection ref={firstRef} title='Профессионализм' points={[

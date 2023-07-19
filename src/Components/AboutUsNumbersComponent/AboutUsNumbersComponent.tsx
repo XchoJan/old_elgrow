@@ -1,13 +1,26 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styles
   from "@components/AboutUsNumbersComponent/AboutUsNumbersComponent.module.css";
 import Scroll from 'react-scroll'
+import {useMediaQuery} from "react-responsive";
 
 const Element = Scroll.Element;
 
 const stacks = ["React Native", "NodeJS", "Adobe AI", "PHP", "Swift", "Jira", "C#", ".net", "React", "Flutter", "Kotlin", "Битрикс", "Figma"];
+const stacksMobile = ["React Native", "NodeJS", "Adobe AI", "PHP", "Swift", "Jira", "C#", ".net", "React", "Flutter"];
 
 const AboutUsNumbersComponent = () => {
+  const [hideOnSmallDesktop, setHideOnSmallDesktop] = useState(false);
+  const [hideOnMobile, setHideOnMobile] = useState(false);
+
+  const isSmallDesktop = useMediaQuery({query: "(min-width: 1223px)"});
+  const isMobile = useMediaQuery({query: "(min-width: 767px)"});
+
+  useEffect(() => {
+    setHideOnSmallDesktop(isSmallDesktop);
+    setHideOnMobile(isMobile);
+  }, [isSmallDesktop, isMobile]);
+
   return (
       <div className={styles.aboutUsNumbersComponent}>
         <Element name="aboutUsNumbersComponent"></Element>
@@ -38,29 +51,36 @@ const AboutUsNumbersComponent = () => {
                 </div>
               </div>
             </div>
-            <div className={styles.rightBlock}>
+            {hideOnMobile && <div className={styles.rightBlock}>
               <div className={styles.parking1}>
-                <img className={styles.parking1} src={`/images/parking1.png`}
+                <img className={styles.parking1Image} src={`/images/parking1.png`}
                      alt="parking1"/>
               </div>
               <div className={styles.parking2}>
-                <img className={styles.parking2} src={`/images/parking2.png`}
+                <img className={styles.parking2Image} src={`/images/parking2.png`}
                      alt="parking2"/>
               </div>
               <div className={styles.parking3}>
-                <img className={styles.parking3} src={`/images/parking3.png`}
+                <img className={styles.parking3Image} src={`/images/parking3.png`}
                      alt="parking3"/>
               </div>
-            </div>
+            </div>}
           </div>
-          <div className={styles.stacksBlock}>
+          {!hideOnSmallDesktop ? <div className={styles.stacksBlock}>
+            {stacksMobile.map((stack, index) => {
+              return <div key={index} className={styles.stackBlock}>
+                <span className={styles.dot}>•</span>
+                <span className={styles.stackText}> {stack}</span>
+              </div>;
+            })}
+          </div> : <div className={styles.stacksBlock}>
             {stacks.map((stack, index) => {
               return <div key={index} className={styles.stackBlock}>
                 <span className={styles.dot}>•</span>
                 <span className={styles.stackText}> {stack}</span>
               </div>;
             })}
-          </div>
+          </div>}
         </div>
       </div>
   );

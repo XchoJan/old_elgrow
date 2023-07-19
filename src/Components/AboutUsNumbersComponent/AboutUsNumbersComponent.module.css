@@ -10,6 +10,9 @@
 
 .container {
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .mainContent {
@@ -20,6 +23,7 @@
 
 .leftBlock {
   width: 50%;
+  margin-bottom: 172px;
 }
 
 .leftBlockTitle {
@@ -68,7 +72,6 @@
 .rightBlock {
   width: 50%;
   display: flex;
-  position: relative;
 }
 
 .parking1,
@@ -78,39 +81,44 @@
 }
 
 .parking1 {
-  width: 320px;
-  height: 692px;
-  right: 116px;
-  top: -11px;
+  height: 519.216px;
+  right: 312px;
+  top: 83px;
   z-index: 3;
   position: absolute;
 }
 
 .parking2 {
-  width: 320px;
-  height: 714px;
-  right: 18px;
-  top: -68px;
+  height: 519.216px;
+  right: 118px;
+  top: -32px;
   z-index: 2;
   position: absolute;
 }
 
 .parking3 {
-  width: 180px;
-  height: 688px;
-  top: -11px;
+  overflow: hidden;
+  height: 519.216px;
+  right: 0;
+  top: 83px;
   position: absolute;
-  right: -10%;
+}
+
+.parking1Image,
+.parking2Image,
+.parking3Image {
+  width: 100%;
+  height: 100%;
 }
 
 .stacksBlock {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: absolute;
-  bottom: 48px;
   gap: 8px;
   width: 100%;
+  margin-bottom: 23px;
+  flex-wrap: wrap;
 }
 
 .stackBlock {
@@ -128,3 +136,129 @@
   line-height: 26.4px;
   letter-spacing: 0.22px;
 }
+
+@media screen and (max-width: 1800px) {
+  .parking1,
+  .parking2,
+  .parking3 {
+    height: 519.216px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .parking1 {
+    height: 519.216px;
+    right: 284px;
+  }
+
+  .parking2 {
+    height: 519.216px;
+    right: 94px;
+  }
+
+  .parking3 {
+    height: 519.216px;
+  }
+  .stackText {
+    font-size: 16px;
+    line-height: 19.2px;
+    letter-spacing: 0.16px;
+  }
+}
+
+@media screen and (max-width: 1223px) {
+  .aboutNumbersContent {
+    gap: 50px;
+  }
+  .parking1 {
+    height: 519.216px;
+    right: 228px;
+  }
+
+  .parking2 {
+    height: 519.216px;
+    right: 60px;
+  }
+
+  .parking3 {
+    height: 519.216px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .leftBlockTitle {
+    font-size: 48px;
+    line-height: 145.496%;
+    margin-bottom: 24px;
+  }
+  .num {
+    font-size: 48px;
+    line-height: 140%;
+    letter-spacing: 0.48px;
+  }
+  .parking1 {
+    height: 346.144px;
+    right: 161px;
+  }
+
+  .parking2 {
+    height: 346.144px;
+  }
+
+  .parking3 {
+    height: 346.144px;
+  }
+  .mainContent {
+    padding-top: 40px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .stackText {
+    font-size: 14px;
+    line-height: 16.8px;
+    letter-spacing: 0.14px;
+  }
+  .content {
+    font-size: 14px;
+    line-height: 16.8px;
+    letter-spacing: 0.14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .leftBlock {
+    width: 100%;
+  }
+  .leftBlockTitle {
+    font-size: 36px;
+    line-height: 43.2px;
+    width: 164px;
+    margin-bottom: 20px;
+  }
+  .num {
+    font-size: 36px;
+    line-height: 33.6px;
+    letter-spacing: 0.36px;
+    margin-bottom: 8px;
+  }
+  .stackText {
+    font-size: 8px;
+    line-height: 9.6px;
+    letter-spacing: 0.08px;
+  }
+  .dot {
+    font-size: 8px;
+  }
+  .aboutNumbersLeftContent,
+  .aboutNumbersRightContent {
+    gap: 24px;
+  }
+  .stacksBlock {
+    gap: 4px;
+  }
+  .stackBlock {
+    gap: 4px;
+  }
+}
+

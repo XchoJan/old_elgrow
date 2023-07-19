@@ -4,8 +4,15 @@
   font-family: Inter Tight;
   position: relative;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: space-between;
+  margin-bottom: 51px;
+}
+
+.title {
+  padding-top: 100px;
+  width: 100%;
+  justify-content: flex-start;
 }
 
 .clientsBlock {
@@ -20,6 +27,7 @@
 }
 
 .clients {
+  width: 80%;
   display: flex;
   flex-direction: column;
 }
@@ -35,11 +43,52 @@
 
 .clientsImages {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 24px;
 }
 
-.clientIcon {}
+.nespressoIcon {
+  width: 150px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.LuxxyIcon {
+  width: 110px;
+  height: 37px;
+  object-fit: contain;
+}
+
+.OpenBank {
+  width: 140.231px;
+  height: 36.46px;
+  object-fit: contain;
+}
+
+.vtb {
+  width: 83.332px;
+  height: 26.777px;
+  object-fit: contain;
+}
+
+.utg {
+  width: 80.378px;
+  height: 32.02px;
+  object-fit: contain;
+}
+
+.megafon {
+  width: 133px;
+  height: 23px;
+  object-fit: contain;
+}
+
+.KFC {
+  width: 53px;
+  height: 16.597px;
+  object-fit: contain;
+}
 
 .becomeClient {
   display: flex;
@@ -77,5 +126,85 @@
   border-right: 2px solid #DB418C;
   right: 0;
   top: 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .mobileMainComponent {
+    align-items: normal;
+    flex-direction: column;
+  }
+  .clientsBlock {
+    position: static;
+    margin-top: 62px;
+    width: 80%;
+  }
+  .clientsImages {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  .clientTitle {
+    font-size: 28px;
+    line-height: 120%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+ .clientsImages {
+   flex-wrap: wrap;
+ }
+  .clientsBlock {
+    width: 100%;
+  }
+  .clients {
+    width: 100%;
+  }
+  .clientTitle {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19.2px;
+  }
+  .mobileMainComponent {
+    align-items: normal;
+  }
+
+  .nespressoIcon {
+    width: 78.013px;
+    height: 20.804px;
+  }
+
+  .LuxxyIcon {
+    width: 87px;
+    height: 24.518px;
+  }
+
+  .OpenBank {
+    width: 116px;
+    height: 30.161px;
+  }
+
+  .vtb {
+    width: 59px;
+    height: 20.966px;
+  }
+
+  .utg {
+    width: 62px;
+    height: 24px;
+  }
+
+  .megafon {
+    width: 123.227px;
+    height: 21.31px;
+  }
+
+  .KFC {
+    width: 40.227px;
+    height: 12.597px;
+  }
+
+}
+
+@media screen and (max-width: 374px) {
+
 }
 

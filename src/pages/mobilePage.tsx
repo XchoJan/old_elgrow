@@ -21,11 +21,11 @@ const mobilePage = () => {
         <AboutUsNumbersComponent/>
         <div className={styles.container}>
           <AboutUsLetterComponent/>
-          <PortfolioComponent/>
-          <HowWeWorkComponent/>
-          <PriceComponent/>
+        {/*  <PortfolioComponent/>*/}
+        {/*  <HowWeWorkComponent/>*/}
+        {/*  <PriceComponent/>*/}
         </div>
-        <BecomeClientComponent/>
+        {/*<BecomeClientComponent/>*/}
       </div>
   );
 };

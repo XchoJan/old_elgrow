@@ -38,3 +38,35 @@
   line-height: 19.2px;
   letter-spacing: 0.16px;
 }
+
+@media screen and (max-width: 1023px) {
+  .sectionTitle {
+    font-size: 28px;
+    line-height: 33.6px;
+    margin-bottom: 24px;
+  }
+  .mainText {
+    font-size: 14px;
+    line-height: 16.8px;
+    letter-spacing: 0.14px;
+    margin-bottom: 8px;
+  }
+  .secondaryText {
+    font-size: 14px;
+    line-height: 16.8px;
+    letter-spacing: 0.14px;
+  }
+  .sectionPoint {
+    margin-bottom: 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section {
+    justify-content: normal;
+  }
+  .sectionTitle {
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+}

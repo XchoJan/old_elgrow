@@ -5,6 +5,13 @@
   justify-content: center;
   display: flex;
   font-family: Inter Tight;
+  overflow: hidden;
+}
+
+.animateButtonBlock {
+  position: absolute;
+  bottom: 100px;
+  right: -60px;
 }
 
 .container {
@@ -16,9 +23,9 @@
 }
 
 .title {
-  position: absolute;
-  top: 100px;
-  left: 0;
+  padding-top: 100px;
+  width: 100%;
+  justify-content: flex-start;
 }
 
 .mainContent {
@@ -27,6 +34,7 @@
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  gap: 57px;
 }
 
 .leftBlock {
@@ -54,3 +62,36 @@
 }
 
 .secondaryText {}
+
+
+@media screen and (max-width: 1023px) {
+  .mainContent {
+    gap: 43px;
+  }
+  .title {
+    padding-top: 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    margin-bottom: 20px;
+    width: 80%;
+  }
+  .container {
+    align-items: normal;
+  }
+  .mainContent {
+    width: 100%;
+    align-items: normal;
+  }
+  .rightBlock {
+    width: 80%;
+    height: 40%;
+  }
+  .animateButtonBlock {
+    position: absolute;
+    bottom: 200px;
+    right: -60px;
+  }
+}
