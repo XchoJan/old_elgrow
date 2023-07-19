@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import HeaderMobile from '../Components/HeaderMobile';
-import MobileMenu from '@components/MobileMenu/MobileMenu';
+import MobileMenu from '../Components/MobileMenu/MobileMenu';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 

@@ -145,7 +145,6 @@
 @media screen and (max-width: 1439px) {
   .logo {
     margin-top: 50px;
-    /*margin-bottom: 228px;*/
   }
   .title {
     width: 438px;
@@ -175,7 +174,6 @@
 @media screen and (max-width: 1023px) {
   .logo {
     margin-top: 20px;
-    /*margin-bottom: 145px;*/
   }
   .title {
     margin-bottom: 64px;
@@ -195,9 +193,6 @@
 }
 
 @media screen and (max-width: 767px) {
-  /*.logo {*/
-  /*  margin-bottom: 115px;*/
-  /*}*/
   .title {
     width: 273px;
     font-size: 36px;

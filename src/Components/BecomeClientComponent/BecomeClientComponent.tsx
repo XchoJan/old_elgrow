@@ -56,16 +56,16 @@ const BecomeClientComponent = () => {
                      alt="Copyright"/>
                 Все права защищены 2023
               </div>
-              <div className={styles.footerItem}>
+              <a href="https://t.me/Elgrow_dev" className={styles.footerItem}>
                 <img className={styles.footerTGIcon} src="/images/telegram-small1440.svg"
                      alt="telegram-small1440"/>
                 Elgrow_dev
-              </div>
-              <div className={styles.footerItem}>
+              </a>
+              <a href="mailto:info@elgrow.ru" className={styles.footerItem}>
                 <img className={styles.footerEmailIcon}
                      src="/images/fluent_mail-20-filled.svg" alt="fluent_mail-20-filled"/>
                 info@elgrow.ru
-              </div>
+              </a>
             </div>
           </div>}
         </div>
