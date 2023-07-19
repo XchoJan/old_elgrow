@@ -30,7 +30,6 @@
 .images {
   width: 60%;
   display: flex;
-  position: relative;
   right: 0;
 }
 
@@ -172,12 +171,15 @@
 .statusStroy1Image,
 .statusStroy2Image,
 .statusStroy3Image,
-.statusStroy4Image,
+.statusStroy4Image {
+  height: 356.923px;
+  border-radius: 16px;
+}
+
 .parking4Image,
 .parking5Image,
 .parking6Image {
-  width: 160px;
-  height: 356.923px;
+  height: 446px;
   border-radius: 16px;
 }
 
@@ -216,3 +218,406 @@
 .allProjectIcon {
   width: 40px;
 }
+
+
+@media screen and (max-width: 1439px) {
+  .utg1 {
+    right: 444px;
+  }
+
+  .utg2 {
+    right: 340px;
+  }
+
+  .utg3 {
+    right: 233px;
+  }
+
+  .utg4 {
+    right: 153px;
+  }
+
+  .nespresso1 {
+    top: -173px;
+    right: 318px;
+  }
+
+  .nespresso2 {
+    top: 267px;
+    right: 365.16px;
+  }
+
+  .nespresso3 {
+
+  }
+
+  .nespresso4 {
+    top: 200px;
+    right: 48.05px;
+  }
+
+  .luxxy1 {
+    right: 463.52px;
+  }
+
+  .luxxy2 {
+    right: 294px;
+  }
+
+  .luxxy3 {
+    right: 108.3px;
+  }
+
+  .parking4 {
+    top: 30px;
+    right: 358px;
+  }
+
+  .parking5 {
+    top: 115px;
+    right: 222px;
+  }
+
+  .parking6 {
+    top: 54px;
+    right: 86px;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .utg1 {
+    right: 234px;
+  }
+
+  .utg2 {
+    right: 127px;
+  }
+
+  .utg3 {
+    right: 26px;
+  }
+
+  .utg4 {
+    right: -59px;
+  }
+
+  .nespresso1,
+  .nespresso2,
+  .nespresso3,
+  .nespresso4 {
+    transform: rotate(45deg);
+  }
+
+  .nespresso1 {
+    top: -173px;
+    right: 228px;
+  }
+
+  .nespresso2 {
+    top: 314px;
+    right: 400.16px;
+  }
+
+  .nespresso3 {
+    top: 45px;
+  }
+
+  .nespresso4 {
+    top: 300px;
+    right: 85.05px;
+  }
+
+  .luxxy1 {
+    right: 279.52px;
+  }
+
+  .luxxy2 {
+    right: 110px;
+  }
+
+  .luxxy3 {
+    right: -73.7px;
+  }
+
+  .statusStroy1 {
+    right: 272px;
+  }
+
+  .statusStroy2 {
+    right: 155px;
+  }
+
+  .statusStroy3 {
+    right: 64px;
+  }
+
+  .statusStroy4 {
+    right: -63px;
+  }
+
+  .parking4 {
+    right: 275px;
+  }
+
+  .parking5 {
+    right: 121px;
+  }
+
+  .parking6 {
+    right: -52px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .title {
+    padding-top: 40px;
+  }
+
+  .utg1Image,
+  .utg2Image,
+  .utg3Image,
+  .utg4Image,
+  .nespresso1Image,
+  .nespresso2Image,
+  .nespresso3Image,
+  .nespresso4Image,
+  .luxxy1Image,
+  .luxxy2Image,
+  .luxxy3Image,
+  .statusStroy1Image,
+  .statusStroy2Image,
+  .statusStroy3Image,
+  .statusStroy4Image,
+  .parking4Image,
+  .parking5Image,
+  .parking6Image {
+    height: 267.692px;
+  }
+
+  .nespresso1,
+  .nespresso2,
+  .nespresso3,
+  .nespresso4 {
+    transform: rotate(33.523deg);
+  }
+
+  .utg1 {
+    right: 169px;
+  }
+
+  .utg2 {
+    right: 98px;
+  }
+
+  .utg3 {
+    right: 23px;
+  }
+
+  .utg4 {
+    right: -58px;
+  }
+
+  .nespresso1 {
+    top: 22px;
+    right: 197px
+  }
+
+  .nespresso2 {
+    top: 255.22px;
+    right: 183.16px;
+  }
+
+  .nespresso3 {
+    top: 18.42px;
+    right: 25.85px;
+  }
+
+  .nespresso4 {
+    top: 160px;
+    right: -47.95px;
+  }
+
+  .luxxy1 {
+    top: 20px;
+    right: 237.52px;
+    transform: rotate(-25.895deg);
+  }
+
+  .luxxy2 {
+    top: 81px;
+    right: 104px;
+  }
+
+  .luxxy3 {
+    top: 38px;
+    right: -36.7px;
+    transform: rotate(15.895deg);
+  }
+
+  .statusStroy1 {
+    top: 80px;
+    right: 192px;
+  }
+
+  .statusStroy2 {
+    top: 29px;
+    right: 94px;
+  }
+
+  .statusStroy3 {
+    top: 213px;
+    right: 34px;
+  }
+
+  .statusStroy4 {
+    right: -60px;
+    top: 55px;
+  }
+
+  .parking4 {
+    top: 25px;
+    right: 178px;
+  }
+
+  .parking5 {
+    top: 95px;
+    right: 80px;
+  }
+
+  .parking6 {
+    top: 54px;
+    right: -24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    margin-bottom: 20px;
+    width: 80%;
+  }
+
+  .utg1Image,
+  .utg2Image,
+  .utg3Image,
+  .utg4Image,
+  .nespresso1Image,
+  .nespresso2Image,
+  .nespresso3Image,
+  .nespresso4Image,
+  .luxxy1Image,
+  .luxxy2Image,
+  .luxxy3Image,
+  .statusStroy1Image,
+  .statusStroy2Image,
+  .statusStroy3Image,
+  .statusStroy4Image,
+  .parking4Image,
+  .parking5Image,
+  .parking6Image {
+    height: 160.615px;
+  }
+
+  .nespresso1,
+  .nespresso2,
+  .nespresso3,
+  .nespresso4 {
+    transform: rotate(33.523deg);
+  }
+
+  .utg1 {
+    top: 186px;
+    right: 96px;
+  }
+
+  .utg2 {
+    top: 140px;
+    right: 51px;
+  }
+
+  .utg3 {
+    top: 186px;
+    right: 8px;
+  }
+
+  .utg4 {
+    top: 146px;
+    right: -36px;
+  }
+
+  .nespresso1 {
+    top: 40px;
+    right: 21px;
+  }
+
+  .nespresso2 {
+    top: 272.02px;
+    right: 74.16px;
+  }
+
+  .nespresso3 {
+    top: 127.57px;
+    right: -21.15px;
+  }
+
+  .nespresso4 {
+    top: 237.42px;
+    right: -47.95px;
+  }
+
+  .luxxy1 {
+    top: 34px;
+    right: 92.52px;
+    transform: rotate(-17.437deg);
+  }
+
+  .luxxy2 {
+    top: 121px;
+    right: 29px;
+  }
+
+  .luxxy3 {
+    top: 95px;
+    right: -59.7px;
+    transform: rotate(36.869deg);
+  }
+
+  .statusStroy1 {
+    top: 193px;
+    right: 111px;
+  }
+
+  .statusStroy2 {
+    top: 131px;
+    right: 58px;
+  }
+
+  .statusStroy3 {
+    top: 245px;
+    right: 17px;
+  }
+
+  .statusStroy4 {
+    right: -29px;
+    top: 200px;
+  }
+
+  .parking4 {
+    top: 93px;
+    right: 98px;
+  }
+
+  .parking5 {
+    top: 159px;
+    right: 32px;
+  }
+
+  .parking6 {
+    top: 114px;
+    right: -11px;
+  }
+
+  .portfolioCards {
+    margin-bottom: 26px;
+  }
+}
+

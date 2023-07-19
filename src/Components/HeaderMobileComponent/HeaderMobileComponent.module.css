@@ -1,10 +1,18 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 73px;
   position: fixed;
   z-index: 10;
+  width: 100%;
+  background: #ffffff;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 90%;
 }
 

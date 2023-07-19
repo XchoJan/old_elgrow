@@ -10,7 +10,6 @@
 }
 
 .title {
-  padding-top: 100px;
   width: 100%;
   justify-content: flex-start;
 }
@@ -132,6 +131,7 @@
   .mobileMainComponent {
     align-items: normal;
     flex-direction: column;
+    padding-top: 100px;
   }
   .clientsBlock {
     position: static;

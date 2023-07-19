@@ -12,6 +12,7 @@
   position: absolute;
   bottom: 100px;
   right: -60px;
+  z-index: 10;
 }
 
 .container {
@@ -87,11 +88,11 @@
   }
   .rightBlock {
     width: 80%;
-    height: 40%;
+    height: 80%;
   }
   .animateButtonBlock {
     position: absolute;
-    bottom: 200px;
+    bottom: 300px;
     right: -60px;
   }
 }

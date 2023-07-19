@@ -13,15 +13,15 @@ import BecomeClientComponent from "../Components/BecomeClientComponent/BecomeCli
 const mobilePage = () => {
   return (
       <div className={styles.mobilePage}>
+        <HeaderMobileComponent/>
         <div className={styles.container}>
-          <HeaderMobileComponent/>
           <img className={styles.eagleOutstaff} src="/images/sova.png" alt="" />
           <MobileMainComponent/>
         </div>
         <AboutUsNumbersComponent/>
         <div className={styles.container}>
           <AboutUsLetterComponent/>
-        {/*  <PortfolioComponent/>*/}
+          <PortfolioComponent/>
         {/*  <HowWeWorkComponent/>*/}
         {/*  <PriceComponent/>*/}
         </div>

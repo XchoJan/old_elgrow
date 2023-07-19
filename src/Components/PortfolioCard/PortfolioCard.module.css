@@ -49,3 +49,50 @@
   line-height: 26.4px;
   letter-spacing: 0.22px;
 }
+
+@media screen and (max-width: 1023px) {
+  .portfolioCard {
+    min-height: 500px;
+  }
+  .textContainer {
+    padding-top: 60px;
+    width: 40%;
+  }
+  .title {
+    font-size: 28px;
+    line-height: 33.6px;
+    letter-spacing: 0.28px;
+    margin-bottom: 48px;
+  }
+  .tags {
+    margin-bottom: 16px;
+  }
+  .tag {
+    font-size: 14px;
+    line-height: 16.8px;
+  }
+  .description {
+    font-size: 14px;
+    line-height: 16.8px;
+    letter-spacing: 0.14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    margin-bottom: 32px;
+    width: 80%;
+    font-size: 18px;
+    line-height: 21.6px;
+    letter-spacing: 0.18px;
+  }
+  .portfolioCard {
+    padding-left: 20px;
+    min-height: 400px;
+  }
+  .textContainer {
+    padding-top: 40px;
+    width: 70%;
+  }
+}
+

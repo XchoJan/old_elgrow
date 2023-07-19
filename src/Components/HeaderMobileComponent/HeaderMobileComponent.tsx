@@ -32,54 +32,59 @@ const HeaderMobileComponent = () => {
 
   return (
       <div className={styles.header}>
-        <MobileMenu isOpen={showMenu} close={setShowMenu}/>
-        <Logo/>
-        {hideOnSmallDesktop && <div className={styles.navMenu}>
-          {navButtons.map((btn, index) => {
-            return <Link
-                key={index}
-                offset={0}
-                to={btn.value}
+        <div className={styles.container}>
+          <MobileMenu isOpen={showMenu} close={setShowMenu}/>
+          <Logo/>
+          {hideOnSmallDesktop && <div className={styles.navMenu}>
+            {navButtons.map((btn, index) => {
+              return <Link
+                  key={index}
+                  offset={-70}
+                  to={btn.value}
+                  spy={true}
+                  smooth={true}
+                  duration={150}
+                  className={styles.navBtn}
+              >
+                {btn.title}
+              </Link>;
+            })}
+            <Link
+                offset={-70}
+                to="becomeClientComponent"
                 spy={true}
                 smooth={true}
                 duration={150}
-                className={styles.navBtn}
+                className={`${styles.navBtn} ${styles.navBtnUnderline}`}
             >
-              {btn.title}
-            </Link>;
-          })}
-          <Link
-              offset={0}
-              to="becomeClientComponent"
-              spy={true}
-              smooth={true}
-              duration={150}
-              className={`${styles.navBtn} ${styles.navBtnUnderline}`}
-          >
-            Стать клиентом
-          </Link>
-        </div>}
-        <div className={styles.contactsBlock}>
-          {hideOnMobile ? <>
-            <div className={styles.tgBlock}>
-              <img className={styles.tgIcon} src="/images/telegram-small1440.svg" alt=""/>
-              <a className={styles.tgLink} href="https://t.me/Elgrow_dev"> Elgrow_dev</a>
-            </div>
-            <div className={styles.phoneBlock}>+7 495 109 90 49</div>
-          </> : <Link
-              offset={0}
-              to="becomeClientComponent"
-              spy={true}
-              smooth={true}
-              duration={150}
-              className={`${styles.navBtn} ${styles.navBtnUnderline}`}
-          >
-            Стать клиентом
-          </Link>}
-          {!hideOnSmallDesktop &&
-              <div onClick={() => setShowMenu(true)} className={styles.burgerBtn}>
-                <img className={styles.burgerBtnIcon} src="/images/burgerMobile.svg" alt="burgerMobile"/>
-              </div>}
+              Стать клиентом
+            </Link>
+          </div>}
+          <div className={styles.contactsBlock}>
+            {hideOnMobile ? <>
+              <div className={styles.tgBlock}>
+                <img className={styles.tgIcon} src="/images/telegram-small1440.svg"
+                     alt=""/>
+                <a className={styles.tgLink}
+                   href="https://t.me/Elgrow_dev"> Elgrow_dev</a>
+              </div>
+              <div className={styles.phoneBlock}>+7 495 109 90 49</div>
+            </> : <Link
+                offset={0}
+                to="becomeClientComponent"
+                spy={true}
+                smooth={true}
+                duration={150}
+                className={`${styles.navBtn} ${styles.navBtnUnderline}`}
+            >
+              Стать клиентом
+            </Link>}
+            {!hideOnSmallDesktop &&
+                <div onClick={() => setShowMenu(true)} className={styles.burgerBtn}>
+                  <img className={styles.burgerBtnIcon} src="/images/burgerMobile.svg"
+                       alt="burgerMobile"/>
+                </div>}
+          </div>
         </div>
       </div>
   );
