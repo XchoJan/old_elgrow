@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styles
-  from "@components/AboutUsNumbersComponent/AboutUsNumbersComponent.module.css";
+  from "../AboutUsNumbersComponent/AboutUsNumbersComponent.module.css";
 import Scroll from 'react-scroll'
 import {useMediaQuery} from "react-responsive";
 

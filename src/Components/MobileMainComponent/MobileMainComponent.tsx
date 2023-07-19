@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styles from "./MobileMainComponent.module.css";
 import AnimateButton from "../AnimateButton/AnimateButton";
-import TitleText from "../TitleText/TitleText";
 import {useMediaQuery} from "react-responsive";
 
 const images = [
@@ -44,7 +43,8 @@ const MobileMainComponent = () => {
               <img className={styles.KFC} src={`/images/KFC.svg`} alt={`KFC`}/>
             </div>
           </div>
-          {hideOnSmallDesktop && <AnimateButton onClick={() => {}}>
+          {hideOnSmallDesktop && <AnimateButton onClick={() => {
+          }}>
             <div>Стать клиентом</div>
           </AnimateButton>}
         </div>
