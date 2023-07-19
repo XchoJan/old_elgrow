@@ -3,7 +3,7 @@ import {Link} from "react-scroll";
 import styles from "./HeaderMobileComponent.module.css";
 import Logo from "../Logo/Logo";
 import {useMediaQuery} from "react-responsive";
-import MobileMenu from "@components/MobileMenu/MobileMenu";
+import MobileMenu from "../MobileMenu/MobileMenu";
 
 const navButtons = [
   {title: "О нас в цифрах", value: "aboutUsNumbersComponent"}, {
