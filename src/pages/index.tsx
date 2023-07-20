@@ -53,21 +53,18 @@ const MainPage: NextPage = () => {
   useEffect(() => {
     if (router.asPath === '/brief') {
       router.push('/brief').then(() => setIsLoading(false));
-    }
-    if (router.asPath === '/politic') {
+    } else if (router.asPath === '/politic') {
       router.push('/politic').then(() => setIsLoading(false));
-    }
-    if (router.asPath === '/nouBrand') {
+    } else if (router.asPath === '/nouBrand') {
       router.push('/nouBrand').then(() => setIsLoading(false));
-    }
-    if (router.asPath === '/portfolio') {
+    } else if (router.asPath === '/portfolio') {
       router.push('/portfolio').then(() => setIsLoading(false));
-    }
-    if (router.asPath === '/aviationTrainingCenter') {
+    } else if (router.asPath === '/aviationTrainingCenter') {
       router.push('/aviationTrainingCenter').then(() => setIsLoading(false));
-    }
-    if (router.asPath === '/') {
+    } else if (router.asPath === '/') {
       setIsLoading(false);
+    } else {
+      router.push('/').then(() => setIsLoading(false));
     }
   }, []);
 
@@ -104,8 +101,7 @@ const MainPage: NextPage = () => {
       image[0].style.top = `${y - 50}px`;
     }
   };
- 
- 
+
   const engineering = [
     {
       num: '01',
@@ -299,7 +295,7 @@ const MainPage: NextPage = () => {
   return (
     <>
       {isLoading ? (
-        <div className="loadingContainer">
+        <div style={{ height: '100vh' }} className="loadingContainer">
           <div className="lds-ring">
             <div></div>
             <div></div>
@@ -308,7 +304,7 @@ const MainPage: NextPage = () => {
           </div>
         </div>
       ) : (
-        <div style ={{   margin: '0 auto'}}>
+        <div style={{ margin: '0 auto' }}>
           <div
             style={{
               transition: 'opacity 0.3s ease-in-out',
