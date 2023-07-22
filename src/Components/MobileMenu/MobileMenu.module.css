@@ -20,6 +20,17 @@
   letter-spacing: -0.11px;
 }
 
+/*.animateButton:before {*/
+/*  content: "";*/
+/*  position: absolute;*/
+/*  width: 18px;*/
+/*  height: 18px;*/
+/*  border-top: 2px solid #9B4EFE;*/
+/*  border-left: 2px solid #9B4EFE;*/
+/*  left: 0;*/
+/*  top: 0;*/
+/*}*/
+
 .animateButton:before {
   content: "";
   position: absolute;
@@ -29,6 +40,12 @@
   border-left: 2px solid #9B4EFE;
   left: 0;
   top: 0;
+  bottom: auto;
+  right: auto;
+  animation-name: before;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
 }
 
 .animateButton:after {
@@ -40,6 +57,70 @@
   border-right: 2px solid #DB418C;
   right: 0;
   bottom: 0;
+  animation-name: after;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+
+@keyframes before {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  25% {
+    left: 264px;
+    top: 0;
+    transform: rotate(90deg);
+  }
+  50% {
+    left: 264px;
+    top: 135px;
+    transform: rotate(180deg);
+  }
+  75% {
+    left: 0;
+    top: 135px;
+    transform: rotate(270deg);
+  }
+  100% {
+    left: 0;
+    top: 0;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes after {
+  0% {
+    bottom: 0;
+    right: 0;
+    transition: all 0.8s ease 0s;
+  }
+  25% {
+    bottom: 0;
+    right: 264px;
+    transform: rotate(90deg);
+    transition: all 0.8s ease 0s;
+  }
+  50% {
+    bottom: 135px;
+    right: 264px;
+    transform: rotate(180deg);
+    transition: all 0.8s ease 0s;
+  }
+  75% {
+    bottom: 135px;
+    right: 0;
+    transform: rotate(270deg);
+    transition: all 0.8s ease 0s;
+  }
+  100% {
+    bottom: 0;
+    right: 0;
+    transform: rotate(360deg);
+    transition: all 0.8s ease 0s;
+  }
 }
 
 .animateButtonText {
@@ -49,6 +130,38 @@
 
 .closeBtn {
   cursor: pointer;
+}
+
+
+.navBtn {
+  width: fit-content;
+  color: #000;
+  cursor: pointer;
+  position: relative;
+}
+
+.navBtn:before {
+  position: absolute;
+  content: '';
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #3ece5d;
+  opacity: 0;
+  transition: all 0.8s ease 0s;
+}
+
+.navBtn:hover:before {
+  position: absolute;
+  content: '';
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #3ece5d;
+  opacity: 1;
+  transition: all 0.8s ease 0s;
 }
 
 
@@ -63,13 +176,78 @@
 @media screen and (max-width: 767px) {
   .animateButtonBlock {
     position: absolute;
-    right: -1%;
-    top: 90%;
+    right: 1%;
+    top: 80%;
   }
 
   .animateButton {
     width: 160px;
     height: 86px;
   }
+  .animateButton:before {
+    animation-name: beforeMobile;
+  }
+  .animateButton:after {
+    animation-name: afterMobile;
+  }
+}
 
+
+@keyframes beforeMobile {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  25% {
+    left: 141px;
+    top: 0;
+    transform: rotate(90deg);
+  }
+  50% {
+    left: 141px;
+    top: 69px;
+    transform: rotate(180deg);
+  }
+  75% {
+    left: 0;
+    top: 69px;
+    transform: rotate(270deg);
+  }
+  100% {
+    left: 0;
+    top: 0;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes afterMobile {
+  0% {
+    bottom: 0;
+    right: 0;
+    transition: all 0.8s ease 0s;
+  }
+  25% {
+    bottom: 0;
+    right: 141px;
+    transform: rotate(90deg);
+    transition: all 0.8s ease 0s;
+  }
+  50% {
+    bottom: 69px;
+    right: 141px;
+    transform: rotate(180deg);
+    transition: all 0.8s ease 0s;
+  }
+  75% {
+    bottom: 69px;
+    right: 0;
+    transform: rotate(270deg);
+    transition: all 0.8s ease 0s;
+  }
+  100% {
+    bottom: 0;
+    right: 0;
+    transform: rotate(360deg);
+    transition: all 0.8s ease 0s;
+  }
 }

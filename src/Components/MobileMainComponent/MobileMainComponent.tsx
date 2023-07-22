@@ -43,10 +43,10 @@ const MobileMainComponent = () => {
               <img className={styles.KFC} src={`/images/KFC.svg`} alt={`KFC`}/>
             </div>
           </div>
-          {hideOnSmallDesktop && <AnimateButton onClick={() => {
+          {hideOnSmallDesktop && <div style={{width: '30%'}}><AnimateButton onClick={() => {
           }}>
             <div>Стать клиентом</div>
-          </AnimateButton>}
+          </AnimateButton></div>}
         </div>
       </div>
   );

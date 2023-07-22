@@ -9,7 +9,6 @@ interface Props {
 }
 
 const MobileMenu: React.FC<Props> = ({isOpen, close}) => {
-  const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
   const [max, setMax]: any = useState(0);
 
   useEffect(() => {
@@ -48,55 +47,60 @@ const MobileMenu: React.FC<Props> = ({isOpen, close}) => {
           </motion.div>
         </motion.div>
         <motion.div className="menuContent">
-          <Link delay={900}
+          <Link delay={700}
                 onClick={() => close(false)}
                 to="aboutUsNumbersComponent"
                 spy={true}
                 smooth={true}
                 duration={500} offset={-70}
+                className={styles.navBtn}
           >
             О нас в цифрах
           </Link>
-          <Link delay={900}
+          <Link delay={700}
                 onClick={() => close(false)}
                 to="aboutUsLetterComponent"
                 spy={true}
                 smooth={true}
                 duration={500}
                 offset={-50}
+                className={styles.navBtn}
           >
             О нас в буквах
           </Link>
           <Link
-              delay={900}
+              delay={700}
               onClick={() => close(false)}
               to="portfolioComponent"
               spy={true}
               smooth={true}
               duration={500}
               offset={-70}
+              className={styles.navBtn}
           >
             Портфолио
           </Link>
 
-          <Link delay={900}
+          <Link delay={700}
                 onClick={() => close(false)}
                 to="howWeWorkComponent"
                 spy={true}
                 smooth={true}
                 duration={500}
                 offset={-70}
+                className={styles.navBtn}
           >
             Как мы работаем
           </Link>
 
-          <Link delay={900}
+          <Link delay={700}
                 onClick={() => close(false)}
                 to="priceComponent"
                 spy={true}
                 smooth={true}
                 duration={500}
                 offset={-70}
+                className={styles.navBtn}
           >
             Цены
           </Link>
@@ -112,7 +116,7 @@ const MobileMenu: React.FC<Props> = ({isOpen, close}) => {
           </div>
         </motion.div>
         <div className={styles.animateButtonBlock}>
-          <Link delay={900}
+          <Link delay={700}
                 onClick={() => close(false)}
                 to="becomeClientComponent"
                 spy={true}
