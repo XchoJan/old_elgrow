@@ -13,7 +13,7 @@ export default function MyApp({Component, pageProps}) {
           <meta name="viewport" content="width=device-width"/>
           <title>Elgrow</title>
           <link rel="icon" type="image/png" href="/images/favicon.png"/>
-          <SmoothScroll/>
+          {/*<SmoothScroll/>*/}
         </Head>
         <Component {...pageProps} />
       </>

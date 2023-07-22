@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, useState} from "react";
 import styles from "./HowWeWorkPoint.module.css";
 
 export type HowWeWorkPointPropsType = {
@@ -8,17 +8,37 @@ export type HowWeWorkPointPropsType = {
   description?: string
 }
 
-const HowWeWorkPoint:FC<HowWeWorkPointPropsType> = ({title, subTitle, points, description}) => {
+const HowWeWorkPoint: FC<HowWeWorkPointPropsType> = ({
+                                                       title,
+                                                       subTitle,
+                                                       points,
+                                                       description
+                                                     }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-      <div className={styles.howWeWorkPoint}>
-        <div className={styles.title}>{title}</div>
+      <div className={styles.howWeWorkPoint}
+           onMouseEnter={() => setIsHovered(true)}
+           onMouseLeave={() => setIsHovered(false)}
+      >
+
+        <div className={styles.titleBlock}>
+          <div
+               className={isHovered ? `${styles.whiteTitle} ${styles.title}` : styles.title}>
+            {title}
+            <div
+                className={isHovered ? styles.hoveredTitleContainer : styles.titleContainer}>
+            </div>
+          </div>
+
+        </div>
         <div className={styles.subTitle}>{subTitle}</div>
         <div className={styles.points}>
           {points.map((point, index) => {
             return <div key={index} className={styles.pointBlock}>
               <div className={styles.dot}>•</div>
               <div className={styles.point}>{point}</div>
-            </div>
+            </div>;
           })}
         </div>
         {description && <div className={styles.description}>{description}</div>}

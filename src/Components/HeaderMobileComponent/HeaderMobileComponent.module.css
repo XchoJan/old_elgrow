@@ -19,7 +19,22 @@
 .navMenu {
   display: flex;
   gap: 24px;
+
+  transform: scale(1);
+  opacity: 1;
+  transition: all 0.8s ease 0s;
 }
+
+.active {
+  display: flex;
+  gap: 24px;
+
+  transform: scale(0.5);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
+}
+
+
 
 .navBtn {
   color: #000;
@@ -40,6 +55,18 @@
   justify-content: space-between;
   align-items: center;
   gap: 24px;
+  transform: translate(60px, 0px);
+  transition: all 0.8s ease 0s;
+}
+
+.activeContactsBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  transform: translate(0px, 0px);
+  opacity: 1;
+  transition: all 0.8s ease 0s;
 }
 
 .tgBlock {
@@ -82,12 +109,42 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .burgerBtnIcon {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transition: all 0.8s ease 0s;
+  scale: 1;
+}
+
+.burgerBtnIcon:hover {
+  transition: all 0.8s ease 0s;
+  scale: 0.8;
+}
+
+.burgerDesktopBtn {
+  margin-left: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(200%, 0px);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
+  cursor: pointer;
+}
+
+.burgerDesktopActive {
+  margin-left: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(0px, 0px);
+  opacity: 1;
+  transition: all 0.8s ease 0s;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1023px) {

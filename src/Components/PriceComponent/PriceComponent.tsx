@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./PriceComponent.module.css";
 import TitleText from "../TitleText/TitleText";
 import Scroll from "react-scroll";
+import {Roll} from "react-awesome-reveal";
 
 const Element = Scroll.Element;
 
@@ -13,6 +14,7 @@ const PriceComponent = () => {
           <TitleText text="Цены"/>
         </div>
         <div className={styles.pricesBlock}>
+          <Roll>
           <div className={styles.priceItem}>
             <div className={styles.priceTitle}>Минимально</div>
             <div className={styles.priceCount}>
@@ -26,7 +28,9 @@ const PriceComponent = () => {
               <span className={styles.pricePretext}>недель</span>
             </div>
           </div>
+        </Roll>
           <div className={styles.line}></div>
+          <Roll>
           <div className={styles.priceItem}>
             <div className={styles.priceTitle}>В среднем</div>
             <div className={styles.priceCount}>
@@ -38,6 +42,7 @@ const PriceComponent = () => {
               <span className={styles.pricePretext}>месяца</span>
             </div>
           </div>
+          </Roll>
         </div>
       </div>
   );

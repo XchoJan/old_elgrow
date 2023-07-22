@@ -18,12 +18,27 @@ const navButtons = [
   }];
 
 const HeaderMobileComponent = () => {
+  const [showNavbar, setShowNavbar] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
   const [hideOnSmallDesktop, setHideOnSmallDesktop] = useState(false);
   const [hideOnMobile, setHideOnMobile] = useState(false);
 
+
   const isSmallDesktop = useMediaQuery({query: "(min-width: 1223px)"});
   const isMobile = useMediaQuery({query: "(min-width: 1024px)"});
+
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
+    setShowNavbar(scrollPosition < 100);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     setHideOnSmallDesktop(isSmallDesktop);
@@ -34,8 +49,8 @@ const HeaderMobileComponent = () => {
       <div className={styles.header}>
         <div className={styles.container}>
           <MobileMenu isOpen={showMenu} close={setShowMenu}/>
-          <Logo/>
-          {hideOnSmallDesktop && <div className={styles.navMenu}>
+          <Logo showLogo={showNavbar}/>
+          {hideOnSmallDesktop && <div className={!showNavbar ? styles.active : styles.navMenu}>
             {navButtons.map((btn, index) => {
               return <Link
                   key={index}
@@ -60,7 +75,7 @@ const HeaderMobileComponent = () => {
               Стать клиентом
             </Link>
           </div>}
-          <div className={styles.contactsBlock}>
+          <div className={!showNavbar ? styles.activeContactsBlock:  styles.contactsBlock}>
             {hideOnMobile ? <>
               <div className={styles.tgBlock}>
                 <img className={styles.tgIcon} src="/images/telegram-small1440.svg"
@@ -79,11 +94,10 @@ const HeaderMobileComponent = () => {
             >
               Стать клиентом
             </Link>}
-            {!hideOnSmallDesktop &&
-                <div onClick={() => setShowMenu(true)} className={styles.burgerBtn}>
-                  <img className={styles.burgerBtnIcon} src="/images/burgerMobile.svg"
-                       alt="burgerMobile"/>
-                </div>}
+            <div onClick={() => setShowMenu(true)} className={!showNavbar ? styles.burgerDesktopActive : styles.burgerDesktopBtn}>
+              <img className={styles.burgerBtnIcon} src="/images/burgerMobile.svg"
+                   alt="burgerMobile"/>
+            </div>
           </div>
         </div>
       </div>

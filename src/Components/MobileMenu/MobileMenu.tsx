@@ -44,7 +44,7 @@ const MobileMenu: React.FC<Props> = ({isOpen, close}) => {
           e<span className="letterL">l</span>grow.
         </span>
           <motion.div onClick={() => close(false)}>
-            <img src="/images/closeBlack.svg" alt=""/>
+            <img className={styles.closeBtn} src="/images/closeBlack.svg" alt=""/>
           </motion.div>
         </motion.div>
         <motion.div className="menuContent">

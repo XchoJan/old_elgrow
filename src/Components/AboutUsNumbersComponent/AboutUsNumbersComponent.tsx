@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import styles
-  from "../AboutUsNumbersComponent/AboutUsNumbersComponent.module.css";
-import Scroll from 'react-scroll'
+import styles from "../AboutUsNumbersComponent/AboutUsNumbersComponent.module.css";
+import Scroll from "react-scroll";
 import {useMediaQuery} from "react-responsive";
+import {Fade} from "react-awesome-reveal";
 
 const Element = Scroll.Element;
 
@@ -15,6 +15,7 @@ const AboutUsNumbersComponent = () => {
 
   const isSmallDesktop = useMediaQuery({query: "(min-width: 1223px)"});
   const isMobile = useMediaQuery({query: "(min-width: 767px)"});
+
 
   useEffect(() => {
     setHideOnSmallDesktop(isSmallDesktop);
@@ -52,17 +53,28 @@ const AboutUsNumbersComponent = () => {
               </div>
             </div>
             {hideOnMobile && <div className={styles.rightBlock}>
+
               <div className={styles.parking1}>
-                <img className={styles.parking1Image} src={`/images/parking1.png`}
-                     alt="parking1"/>
+                <Fade duration={1500} className={styles.parking1Image} direction={"down"} cascade={true}
+                      triggerOnce={false} damping={0.1}>
+                  <img className={styles.parking1Image} src={`/images/parking1.png`}
+                       alt="parking1"/>
+                </Fade>
               </div>
+
               <div className={styles.parking2}>
-                <img className={styles.parking2Image} src={`/images/parking2.png`}
-                     alt="parking2"/>
+                <Fade duration={1500} className={styles.parking1Image} direction={"up"} cascade={true}
+                      triggerOnce={false} damping={0.1}>
+                  <img className={styles.parking2Image} src={`/images/parking2.png`}
+                       alt="parking2"/>
+                </Fade>
               </div>
               <div className={styles.parking3}>
-                <img className={styles.parking3Image} src={`/images/parking3.png`}
-                     alt="parking3"/>
+                <Fade duration={1500} className={styles.parking1Image} direction={"down"} cascade={true}
+                      triggerOnce={false} damping={0.1}>
+                  <img className={styles.parking3Image} src={`/images/parking3.png`}
+                       alt="parking3"/>
+                </Fade>
               </div>
             </div>}
           </div>
