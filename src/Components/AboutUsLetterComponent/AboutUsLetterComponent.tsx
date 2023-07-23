@@ -21,7 +21,7 @@ const AboutUsLetterComponent = () => {
   const isMobile = useMediaQuery({query: "(min-width: 767px)"});
   const is1024px = useMediaQuery({query: "(min-width: 1024px)"});
   const is769px = useMediaQuery({query: "(min-width: 769px)"});
-  const is390px = useMediaQuery({query: "(min-width: 390px)"});
+  const is390px = useMediaQuery({query: "(max-width: 390px)"});
 
   const wrapperRef: any = useRef();
   const sliderRef: any = useRef();
@@ -203,7 +203,7 @@ const AboutUsLetterComponent = () => {
                                points={!hide390px ?
                                    [
                                      {
-                                       title: `Опыт в финтехе\n, авиации, телекоммуникациях,\nлогистике и гос. секторе`,
+                                       title: `Опыт в финтехе, авиации, телекоммуникациях,\nлогистике и гос. секторе`,
                                        text: "Экспертиза в различных сферах среднего\nи крупного бизнеса" +
                                            "наших специалистов поможет грамотно\n" +
                                            "реализовать ваш проект."
@@ -221,7 +221,7 @@ const AboutUsLetterComponent = () => {
                                    ] :
                                    [
                                      {
-                                       title: `Опыт в финтехе, авиации,\nтелекоммуникация,логистике\nи гос. секторе`,
+                                       title: `Опыт в финтехе, авиации,\nтелекоммуникация, логистике и гос. секторе`,
                                        text: "Экспертиза в различных сферах среднего\nи крупного бизнеса" +
                                            "наших специалистов\nпоможет грамотно" +
                                            "реализовать\nваш проект."

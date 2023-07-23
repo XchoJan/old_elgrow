@@ -60,7 +60,8 @@
   }
   .textContainer {
     padding-top: 60px;
-    width: 40%;
+    /*width: 40%;*/
+    width: 52%;
   }
   .title {
     font-size: 28px;
@@ -73,7 +74,7 @@
   }
   .tag {
     font-size: 14px;
-    line-height: 16.8px;
+    line-height: 160%;
   }
   .description {
     font-size: 14px;
@@ -96,7 +97,7 @@
   }
   .textContainer {
     padding-top: 40px;
-    width: 70%;
+    width: 75%;
   }
 }
 
