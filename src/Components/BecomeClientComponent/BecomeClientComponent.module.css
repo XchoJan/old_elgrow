@@ -192,6 +192,13 @@
   }
 }
 
+
+@media screen and (max-width: 769px) {
+  .textBlock {
+  margin-bottom: 244px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .title {
     width: 273px;

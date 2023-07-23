@@ -36,7 +36,8 @@ const HowWeWorkPoint: FC<HowWeWorkPointPropsType> = ({
         <div className={styles.points}>
           {points.map((point, index) => {
             return <div key={index} className={styles.pointBlock}>
-              <div className={styles.point}><span className={styles.dotText}>•</span>{point}</div>
+              <div className={styles.dotText}></div>
+              <div className={styles.point}>{point}</div>
             </div>;
           })}
         </div>

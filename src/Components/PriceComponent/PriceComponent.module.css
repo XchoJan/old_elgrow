@@ -96,6 +96,12 @@
   }
 }
 
+@media screen and (max-width: 769px) {
+  .pricesBlock {
+    margin-bottom: 182px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .title {
     margin-bottom: 48px;

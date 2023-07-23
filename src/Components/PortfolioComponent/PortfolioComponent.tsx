@@ -10,11 +10,11 @@ import {useMediaQuery} from "react-responsive";
 const Element = Scroll.Element;
 
 const PortfolioComponent = () => {
-  const [hide1024px, setHide1024px] = useState(false);
+  const [hide1025px, setHide1025px] = useState(false);
   const [hide769px, setHide769px] = useState(false);
   const [hide391px, setHide391px] = useState(false);
 
-  const is1024px = useMediaQuery({query: "(min-width: 1024px)"});
+  const is1025px = useMediaQuery({query: "(max-width: 1025px)"});
   const is769px = useMediaQuery({query: "(min-width: 769px)"});
   const is391px = useMediaQuery({query: "(max-width: 391px)"});
 
@@ -92,10 +92,10 @@ const PortfolioComponent = () => {
   `;
 
   useEffect(() => {
-    setHide1024px(is1024px);
+    setHide1025px(is1025px);
     setHide769px(is769px)
     setHide391px(is391px)
-  }, [is1024px, is769px, is391px]);
+  }, [is1025px, is769px, is391px]);
 
   return (
       <div className={styles.portfolioComponent}>
@@ -107,8 +107,8 @@ const PortfolioComponent = () => {
           {hide769px && <div className={styles.portfolioCards}>
             <PortfolioCard backgroundColor="#9B4EFE"
                            title="Наземное обслуживание"
-                           tags={!hide1024px ? `# гражданская авиация  # аэропорты\n# наземное обслуживание  # Внуково  # Пулково` : `# гражданская авиация  # аэропорты  # наземное обслуживание\n# Внуково  # Пулково`}
-                           description={!hide1024px ? `Разработали приложение для наземного\nобслуживания воздушных судов\nкрупнейшему росссийскому игроку\nUTG Group.` : `Разработали приложение для наземного\nобслуживания воздушных судов\nкрупнейшему росссийскому игроку\nUTG Group.`}>
+                           tags={!hide1025px ? `# гражданская авиация  # аэропорты\n# наземное обслуживание  # Внуково  # Пулково` : `# гражданская авиация  # аэропорты  # наземное обслуживание\n# Внуково  # Пулково`}
+                           description={!hide1025px ? `Разработали приложение для наземного\nобслуживания воздушных судов\nкрупнейшему росссийскому игроку\nUTG Group.` : `Разработали приложение для наземного\nобслуживания воздушных судов\nкрупнейшему росссийскому игроку\nUTG Group.`}>
               <div className={styles.images}>
                 <div className={styles.utg1}>
                   <Reveal duration={1500} keyframes={customAnimationLeftTop}>
@@ -138,7 +138,7 @@ const PortfolioComponent = () => {
             </PortfolioCard>
             <PortfolioCard backgroundColor="#05846F"
                            title="Nespresso"
-                           tags={!hide1024px ? `# кофе  # капуслы  # США\n# международная разработка` : `# кофе  # капуслы  # США  # международная разработка`}
+                           tags={!hide1025px ? `# кофе  # капуслы  # США\n# международная разработка` : `# кофе  # капуслы  # США  # международная разработка`}
                            description={`Мобильное приложение для федерального\nдистрибьютора Nespresso в Америке.`}>
               <div className={styles.images}>
                 <div className={styles.nespresso1}>
@@ -169,7 +169,7 @@ const PortfolioComponent = () => {
             </PortfolioCard>
             <PortfolioCard backgroundColor="#88CB6B"
                            title="Luxxy"
-                           tags={!hide1024px ? `# e-commerce  # люкс\n# бренды  # совместная работа` : `# e-commerce  # люкс  # бренды  # совместная работа`}
+                           tags={!hide1025px ? `# e-commerce  # люкс\n# бренды  # совместная работа` : `# e-commerce  # люкс  # бренды  # совместная работа`}
                            description={`Разработка ряда сервисов федерального\ne-commerce. Кооперация с несколькими\nразработчиками в РФ.`}>
               <div className={styles.images}>
                 <div className={styles.luxxy1}>
@@ -192,8 +192,8 @@ const PortfolioComponent = () => {
             </PortfolioCard>
             <PortfolioCard backgroundColor="#07B7F9"
                            title="Статус строй"
-                           tags={!hide1024px ? `# стартап  # сервисы\n# интеграции` : `# стартап  # сервисы  # интеграции`}
-                           description={!hide1024px ? `Разработка MVP для федерального стартапа\nпо строительству и ремонту.` : `Разработка MVP для федерального\nстартапа по строительству и ремонту.`}>
+                           tags={!hide1025px ? `# стартап  # сервисы\n# интеграции` : `# стартап  # сервисы  # интеграции`}
+                           description={!hide1025px ? `Разработка MVP для федерального стартапа\nпо строительству и ремонту.` : `Разработка MVP для федерального\nстартапа по строительству и ремонту.`}>
               <div className={styles.images}>
                 <div className={styles.statusStroy1}>
                   <Slide duration={1500} direction={"left"}>
@@ -222,9 +222,9 @@ const PortfolioComponent = () => {
               </div>
             </PortfolioCard>
             <PortfolioCard backgroundColor="#DB418C"
-                           title={!hide1024px ? `Управление\nпарковками аэропортов` : `Управление\nпарковками\nаэропортов`}
-                           tags={!hide1024px ? `# стартап  # сервисы\n# интеграции` : `# стартап  # сервисы  # интеграции`}
-                           description={!hide1024px ? `Разработка MVP для федерального стартапа\nпо строительству и ремонту.` : `Разработка MVP для федерального\nстартапа по строительству и\nремонту.`}>
+                           title={!hide1025px ? `Управление\nпарковками аэропортов` : `Управление\nпарковками\nаэропортов`}
+                           tags={!hide1025px ? `# стартап  # сервисы\n# интеграции` : `# стартап  # сервисы  # интеграции`}
+                           description={!hide1025px ? `Разработка MVP для федерального стартапа\nпо строительству и ремонту.` : `Разработка MVP для федерального\nстартапа по строительству и\nремонту.`}>
               <div className={styles.images}>
                 <div className={styles.parking4}>
                   <Reveal duration={1500} keyframes={customAnimationRightTop}>

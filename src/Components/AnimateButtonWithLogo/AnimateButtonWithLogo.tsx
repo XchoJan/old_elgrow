@@ -1,11 +1,17 @@
-import React, {FC} from "react";
+import React from "react";
 import styles from "./AnimateButtonWithLogo.module.css";
-import Logo from "../Logo/Logo";
 
 
 const AnimateButtonWithLogo = () => {
   return (
-      <div className={styles.animateButton}><Logo showLogo={true}/></div>
+      <div className={styles.animateButton}>
+        <div className={styles.logoContainer}>
+          <div className={styles.logo}
+               style={{color: "#424D5E"}}>
+            e<span className={`${styles.logo} ${styles.letterL}`}>l</span>grow.
+          </div>
+        </div>
+      </div>
   );
 };
 

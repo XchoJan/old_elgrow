@@ -79,13 +79,17 @@
 .pointBlock {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .dotText {
-  color: #07B7F9;
-  font-size: 24px;
-  padding-right: 8px;
-  text-align: center;
+  top: 5px;
+  left: 0;
+  position: absolute;
+  background: #07B7F9;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
 }
 
 .point {
@@ -96,6 +100,7 @@
   line-height: 19.2px;
   letter-spacing: 0.16px;
   white-space: pre-wrap;
+  margin-left: 16px;
 }
 
 .description {
@@ -120,6 +125,14 @@
   }
 }
 
+@media screen and (max-width: 769px) {
+  .point {
+    font-size: 14px;
+    line-height: 16.8px;
+    letter-spacing: 0.14px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .howWeWorkPoint {
     width: 100%;
@@ -127,11 +140,6 @@
   .points {
     gap: 8px;
     margin-bottom: 24px;
-  }
-  .point {
-    font-size: 14px;
-    line-height: 16.8px;
-    letter-spacing: 0.14px;
   }
 }
 

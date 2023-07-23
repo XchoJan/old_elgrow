@@ -14,12 +14,12 @@ const Element = Scroll.Element;
 
 const AboutUsLetterComponent = () => {
   const [hideOnMobile, setHideOnMobile] = useState(false);
-  const [hide1024px, setHide1024px] = useState(false);
+  const [hide1025px, setHide1025px] = useState(false);
   const [hide769px, setHide769px] = useState(false);
   const [hide391px, setHide391px] = useState(false);
 
   const isMobile = useMediaQuery({query: "(min-width: 767px)"});
-  const is1024px = useMediaQuery({query: "(min-width: 1024px)"});
+  const is1025px = useMediaQuery({query: "(max-width: 1025px)"});
   const is769px = useMediaQuery({query: "(min-width: 769px)"});
   const is391px = useMediaQuery({query: "(max-width: 391px)"});
 
@@ -73,10 +73,10 @@ const AboutUsLetterComponent = () => {
 
   useEffect(() => {
     setHideOnMobile(isMobile);
-    setHide1024px(is1024px);
+    setHide1025px(is1025px);
     setHide769px(is769px)
     setHide391px(is391px)
-  }, [isMobile, is1024px, is769px, is391px]);
+  }, [isMobile, is1025px, is769px, is391px]);
 
 
   return (
@@ -97,11 +97,12 @@ const AboutUsLetterComponent = () => {
               <div ref={sliderRef} id="sliderContainer"
                    className={styles.sliderContainer}>
                 <SliderSection ref={firstRef} title="Профессионализм"
-                               points={!hide1024px ?
+                               points={!hide1025px ?
                                    [
                                      {
-                                       title: `Опыт в финтехе, авиации, телекоммуникациях,\nлогистике и гос. секторе`,
-                                       text: "Экспертиза в различных сферах среднего\nи крупного бизнеса" +
+                                       title: `Опыт в финтехе, авиации, телекоммуникация,\nлогистике и гос. секторе`,
+                                       text: "Экспертиза в различных сферах среднего и" +
+                                           " крупного\nбизнеса" +
                                            "наших специалистов поможет грамотно\n" +
                                            "реализовать ваш проект."
                                      },
@@ -118,7 +119,7 @@ const AboutUsLetterComponent = () => {
                                    ] :
                                    [
                                      {
-                                       title: `Опыт в финтехе, авиации,\nтелекоммуникация,\nлогистике и гос. секторе`,
+                                       title: `Опыт в финтехе, авиации, телекоммуникациях,\nлогистике и гос. секторе`,
                                        text: "Экспертиза в различных сферах среднего\nи крупного бизнеса" +
                                            "наших специалистов\nпоможет грамотно" +
                                            "реализовать ваш проект."
@@ -136,7 +137,7 @@ const AboutUsLetterComponent = () => {
                                      }
                                    ]}/>
                 <SliderSection ref={secondRef} title="Прозрачность"
-                               points={!hide1024px ? [
+                               points={!hide1025px ? [
                                  {
                                    title: "Полный контроль на всех этапах разработки",
                                    text: "Отчетность, ежедневные обновления репозитория."
@@ -163,7 +164,7 @@ const AboutUsLetterComponent = () => {
                                    text: "Если не попали, работаем за свой счет."
                                  }
                                ]}/>
-                <SliderSection ref={thirdRef} title="Гарантии" points={!hide1024px ? [
+                <SliderSection ref={thirdRef} title="Гарантии" points={!hide1025px ? [
                   {
                     title: "Четкие сроки по договору",
                     text: "После истечения срока работаем бесплатно."
@@ -175,7 +176,7 @@ const AboutUsLetterComponent = () => {
                   },
                   {
                     title: "100% соответствие ожиданиям",
-                    text: "Документация на программный код и продукт, готовность к\n" +
+                    text: "Документация на программный код и продукт,\nготовность к" +
                         "внешнему аудиту"
                   }
                 ] : [
@@ -209,7 +210,7 @@ const AboutUsLetterComponent = () => {
                                            "реализовать ваш проект."
                                      },
                                      {
-                                       title: "Минимальный опыт специалиста - 4 года",
+                                       title: "Минимальный опыт специалиста\n- 4 года",
                                        text: "Не допускаем" +
                                            " к" +
                                            "проекту стажеров и jun`ов."
@@ -221,7 +222,7 @@ const AboutUsLetterComponent = () => {
                                    ] :
                                    [
                                      {
-                                       title: `Опыт в финтехе, авиации,\nтелекоммуникация, логистике и гос. секторе`,
+                                       title: `Опыт в финтехе, авиации,\nтелекоммуникация, логистике\nи гос. секторе`,
                                        text: "Экспертиза в различных сферах среднего\nи крупного бизнеса" +
                                            "наших специалистов\nпоможет грамотно" +
                                            "реализовать\nваш проект."
