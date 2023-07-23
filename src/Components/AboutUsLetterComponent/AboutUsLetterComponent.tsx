@@ -1,13 +1,12 @@
 import React, {useEffect, useRef, useState} from "react";
 import styles from "./AboutUsLetterComponent.module.css";
-import Scroll from 'react-scroll'
-import AnimateButton from "../AnimateButton/AnimateButton";
-import Logo from "../Logo/Logo";
+import Scroll from "react-scroll";
 import TitleText from "../TitleText/TitleText";
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import SliderSection from "../SliderSection/SliderSection";
 import {useMediaQuery} from "react-responsive";
+import AnimateButtonWithLogo from "../AnimateButtonWithLogo/AnimateButtonWithLogo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,10 +26,10 @@ const AboutUsLetterComponent = () => {
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      sections.current = wrapperRef?.current?.querySelectorAll('section');
+      sections.current = wrapperRef?.current?.querySelectorAll("section");
       const verticalTween = gsap.to(sections?.current, {
         yPercent: -100 * (sections?.current?.length - 1),
-        ease: 'none',
+        ease: "none",
         scrollTrigger: {
           trigger: wrapperRef?.current,
           pin: true,
@@ -74,42 +73,62 @@ const AboutUsLetterComponent = () => {
       <div ref={wrapperRef} className={styles.aboutUsLetterComponent}>
         <Element name="aboutUsLetterComponent"></Element>
         {!hideOnMobile && <div className={styles.animateButtonBlock}>
-          <AnimateButton onClick={() => {}}>
-            <Logo showLogo={true}/>
-          </AnimateButton>
+          <AnimateButtonWithLogo/>
         </div>}
         <div className={styles.container}>
           <div className={styles.title}>
-            <TitleText text='О нас в буквах'/>
+            <TitleText text="О нас в буквах"/>
           </div>
           <div className={styles.mainContent}>
             {hideOnMobile && <div className={styles.leftBlock}>
-              <AnimateButton onClick={() => {}}>
-                <Logo showLogo={true}/>
-              </AnimateButton>
+              <AnimateButtonWithLogo/>
             </div>}
             <div className={styles.rightBlock}>
-              <div ref={sliderRef} id="sliderContainer" className={styles.sliderContainer}>
-                <SliderSection ref={firstRef} title='Профессионализм' points={[
-                  {title: 'Опыт в финтехе, авиации, телекоммуникациях, логистике и' +
-                        ' гос. секторе', text: 'Экспертиза в различных сферах среднего и крупного бизнеса\n' +
-                        '                      наших специалистов поможет грамотно' +
-                        ' реализовать ваш проект.'},
-                  {title: 'Минимальный опыт специалиста 4 года', text: 'Не допускаем к' +
-                        ' проекту стажеров и jun`ов.'},
-                  {title: 'Контроль и ревью', text: 'Jira, тимлиды, регулярные проверки качества.'}
+              <div ref={sliderRef} id="sliderContainer"
+                   className={styles.sliderContainer}>
+                <SliderSection ref={firstRef} title="Профессионализм" points={[
+                  {
+                    title: "Опыт в финтехе, авиации, телекоммуникациях, логистике и" +
+                        " гос. секторе",
+                    text: "Экспертиза в различных сферах среднего и крупного бизнеса\n" +
+                        "                      наших специалистов поможет грамотно" +
+                        " реализовать ваш проект."
+                  },
+                  {
+                    title: "Минимальный опыт специалиста 4 года", text: "Не допускаем к" +
+                        " проекту стажеров и jun`ов."
+                  },
+                  {
+                    title: "Контроль и ревью",
+                    text: "Jira, тимлиды, регулярные проверки качества."
+                  }
                 ]}/>
-                <SliderSection ref={secondRef} title='Прозрачность' points={[
-                  {title: 'Полный контроль на всех этапах разработки', text: 'Отчетность, ежедневные обновления репозитория.'},
-                  {title: 'Минимальный опыт специалиста 4 года', text: 'CV всей команды, выделенный менеджер.'},
-                  {title: 'Точные цены', text: 'Если не попали, работаем за свой счет.'}
+                <SliderSection ref={secondRef} title="Прозрачность" points={[
+                  {
+                    title: "Полный контроль на всех этапах разработки",
+                    text: "Отчетность, ежедневные обновления репозитория."
+                  },
+                  {
+                    title: "Доступ к любому сотруднику",
+                    text: "CV всей команды, выделенный менеджер."
+                  },
+                  {title: "Точные цены", text: "Если не попали, работаем за свой счет."}
                 ]}/>
-                <SliderSection ref={thirdRef} title='Гарантии' points={[
-                  {title: 'Четкие сроки по договору', text: 'После истечения срока работаем бесплатно.'},
-                  {title: 'Сроки выполнения задач не зависят от человеческого фактора', text: 'Дублирующий и страхующий специалист на каждого участника вашей\n' +
-                        '                  команды.'},
-                  {title: '100% соответствие ожиданиям', text: 'Документация на программный код и продукт, готовность к\n' +
-                        '                  внешнему аудиту'}
+                <SliderSection ref={thirdRef} title="Гарантии" points={[
+                  {
+                    title: "Четкие сроки по договору",
+                    text: "После истечения срока работаем бесплатно."
+                  },
+                  {
+                    title: "Сроки выполнения задач не зависят от человеческого фактора",
+                    text: "Дублирующий и страхующий специалист на каждого участника вашей\n" +
+                        "                  команды."
+                  },
+                  {
+                    title: "100% соответствие ожиданиям",
+                    text: "Документация на программный код и продукт, готовность к\n" +
+                        "                  внешнему аудиту"
+                  }
                 ]}/>
               </div>
             </div>

@@ -45,7 +45,7 @@ const MobileMainComponent = () => {
           </div>
           {hideOnSmallDesktop && <div style={{width: '30%'}}><AnimateButton onClick={() => {
           }}>
-            <div>Стать клиентом</div>
+            <div className={styles.animateButtonText}>Стать клиентом</div>
           </AnimateButton></div>}
         </div>
       </div>

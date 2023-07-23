@@ -70,7 +70,7 @@ const HeaderMobileComponent = () => {
                 spy={true}
                 smooth={true}
                 duration={150}
-                className={styles.navBtn}
+                className={styles.navBtnUnderline}
             >
               Стать клиентом
             </Link>
@@ -90,7 +90,7 @@ const HeaderMobileComponent = () => {
                 spy={true}
                 smooth={true}
                 duration={150}
-                className={styles.navBtn}
+                className={styles.navBtnUnderline}
             >
               Стать клиентом
             </Link>}

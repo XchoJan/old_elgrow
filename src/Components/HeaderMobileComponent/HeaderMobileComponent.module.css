@@ -48,30 +48,60 @@
 .navBtn:before {
   position: absolute;
   content: '';
-  bottom: -5px;
+  bottom: -1px;
   left: 0;
   width: 100%;
   height: 1px;
-  background: #3ece5d;
+  background: #000;
   opacity: 0;
-  transition: all 0.8s ease 0s;
-
+  transition: all 0.4s ease 0s;
 }
 
 .navBtn:hover::before {
   position: absolute;
   content: '';
-  bottom: -5px;
+  bottom: -1px;
   left: 0;
   width: 100%;
   height: 1px;
-  background: #3ece5d;
+  background: #000;
   opacity: 1;
-  transition: all 0.8s ease 0s;
+  transition: all 0.4s ease 0s;
 }
 
 .navBtnUnderline {
-  text-decoration-line: underline;
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.08px;
+  cursor: pointer;
+  position: relative;
+}
+
+.navBtnUnderline:before {
+  position: absolute;
+  content: '';
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  opacity: 1;
+  transition: all 0.4s ease 0s;
+}
+
+.navBtnUnderline:hover::before {
+  position: absolute;
+  content: '';
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  opacity: 0;
+  transition: all 0.4s ease 0s;
 }
 
 .contactsBlock {
@@ -108,6 +138,8 @@
 }
 
 .tgLink {
+  position: relative;
+  width: fit-content;
   color: #000;
   font-family: Inter Tight;
   font-size: 16px;
@@ -115,17 +147,66 @@
   font-weight: 300;
   line-height: normal;
   letter-spacing: -0.08px;
-  text-decoration-line: underline;
+}
+
+
+.tgLink:before {
+  position: absolute;
+  content: '';
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  opacity: 1;
+  transition: all 0.4s ease 0s;
+}
+
+.tgLink:hover::before {
+  position: absolute;
+  content: '';
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  opacity: 0;
+  transition: all 0.4s ease 0s;
 }
 
 .phoneBlock {
+  position: relative;
   color: #000;
   font-size: 16px;
   font-style: normal;
   font-weight: 300;
   line-height: 140%;
-  text-decoration-line: underline;
   cursor: pointer;
+}
+
+
+.phoneBlock:before {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.5px;
+  background: #000;
+  opacity: 1;
+  transition: all 0.4s ease 0s;
+}
+
+.phoneBlock:hover::before {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.5px;
+  background: #000;
+  opacity: 0;
+  transition: all 0.4s ease 0s;
 }
 
 .burgerBtn {
