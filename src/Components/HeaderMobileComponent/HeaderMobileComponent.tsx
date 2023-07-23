@@ -20,11 +20,11 @@ const navButtons = [
 const HeaderMobileComponent = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
-  const [hideOnSmallDesktop, setHideOnSmallDesktop] = useState(false);
   const [hideOnMobile, setHideOnMobile] = useState(false);
+  const [hide1224px, setHide1224px] = useState(false);
 
+  const is1224px = useMediaQuery({query: "(min-width: 1224px)"});
 
-  const isSmallDesktop = useMediaQuery({query: "(min-width: 1223px)"});
   const isMobile = useMediaQuery({query: "(min-width: 1024px)"});
 
   const handleScroll = () => {
@@ -41,16 +41,16 @@ const HeaderMobileComponent = () => {
   }, []);
 
   useEffect(() => {
-    setHideOnSmallDesktop(isSmallDesktop);
     setHideOnMobile(isMobile);
-  }, [isSmallDesktop, isMobile]);
+    setHide1224px(is1224px)
+  }, [isMobile, is1224px]);
 
   return (
       <div className={styles.header}>
         <div className={styles.container}>
           <MobileMenu isOpen={showMenu} close={setShowMenu}/>
           <Logo showLogo={showNavbar}/>
-          {hideOnSmallDesktop && <div className={!showNavbar ? styles.active : styles.navMenu}>
+          {hide1224px && <div className={!showNavbar ? styles.active : styles.navMenu}>
             {navButtons.map((btn, index) => {
               return <Link
                   key={index}
@@ -76,15 +76,7 @@ const HeaderMobileComponent = () => {
             </Link>
           </div>}
           <div className={!showNavbar ? styles.activeContactsBlock:  styles.contactsBlock}>
-            {hideOnMobile ? <>
-              <div className={styles.tgBlock}>
-                <img className={styles.tgIcon} src="/images/telegram-small1440.svg"
-                     alt=""/>
-                <a className={styles.tgLink}
-                   href="https://t.me/Elgrow_dev"> Elgrow_dev</a>
-              </div>
-              <div className={styles.phoneBlock}>+7 495 109 90 49</div>
-            </> : <Link
+            {!hide1224px && <Link
                 offset={0}
                 to="becomeClientComponent"
                 spy={true}
@@ -94,10 +86,19 @@ const HeaderMobileComponent = () => {
             >
               Стать клиентом
             </Link>}
-            <div onClick={() => setShowMenu(true)} className={!showNavbar ? styles.burgerDesktopActive : styles.burgerDesktopBtn}>
+            {hideOnMobile && <>
+              <div className={styles.tgBlock}>
+                <img className={styles.tgIcon} src="/images/telegram-small1440.svg"
+                     alt=""/>
+                <a className={styles.tgLink}
+                   href="https://t.me/Elgrow_dev"> Elgrow_dev</a>
+              </div>
+              <div className={styles.phoneBlock}>+7 495 109 90 49</div>
+            </>}
+            {!hide1224px && <div onClick={() => setShowMenu(true)} className={styles.burgerDesktopBtn}>
               <img className={styles.burgerBtnIcon} src="/images/burgerMobile.svg"
                    alt="burgerMobile"/>
-            </div>
+            </div>}
           </div>
         </div>
       </div>

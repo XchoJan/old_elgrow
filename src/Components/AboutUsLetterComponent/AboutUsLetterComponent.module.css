@@ -39,11 +39,11 @@
 }
 
 .leftBlock {
-  width: 50%;
+  width: 40%;
 }
 
 .rightBlock {
-  width: 50%;
+  width: 60%;
   height: 600px;
 }
 
@@ -65,12 +65,15 @@
 .secondaryText {}
 
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .mainContent {
     gap: 43px;
   }
   .title {
     padding-top: 40px;
+  }
+  .leftBlock {
+    width: 50%;
   }
 }
 

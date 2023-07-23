@@ -125,7 +125,7 @@ const MobileMenu: React.FC<Props> = ({isOpen, close}) => {
                 offset={-70}
                 className={styles.animateButton}
           >
-            <div className={styles.animateButtonText}>Стать клиентом</div>
+            <div className={styles.animateButtonText}>{`Стать\nклиентом`}</div>
           </Link>
         </div>
       </motion.div>

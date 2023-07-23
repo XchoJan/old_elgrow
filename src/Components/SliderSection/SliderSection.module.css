@@ -28,6 +28,7 @@
   line-height: 33.6px;
   letter-spacing: 0.28px;
   margin-bottom: 10px;
+  white-space: pre-wrap
 }
 
 .secondaryText {
@@ -37,6 +38,7 @@
   font-weight: 300;
   line-height: 19.2px;
   letter-spacing: 0.16px;
+  white-space: pre-wrap
 }
 
 @media screen and (max-width: 1023px) {

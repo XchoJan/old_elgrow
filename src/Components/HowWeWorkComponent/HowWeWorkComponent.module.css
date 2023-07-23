@@ -16,7 +16,7 @@
 .pointsBlock {
   display: flex;
   flex-wrap: wrap;
-  gap: 80px;
+  gap: 55px;
   margin-bottom: 230px;
 }
 

@@ -148,78 +148,66 @@
 @media screen and (max-width: 767px) {
   .animateButtonBlock {
     position: absolute;
-    right: 1%;
-    top: 80%;
+    right: -5%;
+    top: 85%;
   }
 
   .animateButton {
     width: 160px;
     height: 86px;
   }
+
+  .animateButtonText {
+    font-size: 22px;
+    line-height: 26.4px;
+    letter-spacing: -0.11px;
+    white-space: pre-wrap;
+  }
+
   .animateButton:before {
+    border-bottom: none;
+    border-left: 2px solid #9B4EFE;
+    border-top: 2px solid #9B4EFE;
+    left: 0;
+    bottom: auto;
+    top: 0;
     animation-name: beforeMobile;
   }
+
+
   .animateButton:after {
+    border-bottom: 2px solid #DB418C;
+    border-top: none;
+    border-right: 2px solid #DB418C;
+    right: 0;
+    top: auto;
+    bottom: 0;
     animation-name: afterMobile;
   }
 }
 
-
 @keyframes beforeMobile {
   0% {
-    left: 0;
-    top: 0;
-  }
-  25% {
-    left: 141px;
-    top: 0;
-    transform: rotate(90deg);
-  }
-  50% {
-    left: 141px;
-    top: 69px;
-    transform: rotate(180deg);
-  }
-  75% {
-    left: 0;
-    top: 69px;
-    transform: rotate(270deg);
+    border-left: 2px solid #9B4EFE;
+    border-top: 2px solid #9B4EFE;
+    transition: all 0.8s ease 0s;
   }
   100% {
-    left: 0;
-    top: 0;
-    transform: rotate(360deg);
+    border-image: linear-gradient(#3ECE5D, #35CA77);
+    border-image-slice: 1;
+    transition: all 0.8s ease 0s;
   }
 }
 
 @keyframes afterMobile {
   0% {
-    bottom: 0;
-    right: 0;
-    transition: all 0.8s ease 0s;
-  }
-  25% {
-    bottom: 0;
-    right: 141px;
-    transform: rotate(90deg);
-    transition: all 0.8s ease 0s;
-  }
-  50% {
-    bottom: 69px;
-    right: 141px;
-    transform: rotate(180deg);
-    transition: all 0.8s ease 0s;
-  }
-  75% {
-    bottom: 69px;
-    right: 0;
-    transform: rotate(270deg);
+    border-bottom: 2px solid #DB418C;
+    border-right: 2px solid #DB418C;
     transition: all 0.8s ease 0s;
   }
   100% {
-    bottom: 0;
-    right: 0;
-    transform: rotate(360deg);
+    border-image: linear-gradient(#16BDCE, #07B7F9);
+    border-image-slice: 1;
     transition: all 0.8s ease 0s;
   }
 }

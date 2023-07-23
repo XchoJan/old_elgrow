@@ -4,7 +4,7 @@ import styles from "./PortfolioCard.module.css";
 export type PortfolioCardPropsType = {
   backgroundColor: string
   title: string
-  tags: string[]
+  tags: string
   description: string
   children: ReactNode
 }
@@ -14,11 +14,7 @@ const PortfolioCard:FC<PortfolioCardPropsType> = ({backgroundColor, title, tags,
       <div className={styles.portfolioCard} style={{backgroundColor: backgroundColor}}>
         <div className={styles.textContainer}>
           <div className={styles.title}>{title}</div>
-          <div className={styles.tags}>
-            {tags.map((tag, index) => {
-              return <div key={index} className={styles.tag}>{tag}</div>
-            })}
-          </div>
+          <div className={styles.tag}>{tags}</div>
           <div className={styles.description}>{description}</div>
         </div>
         {children}

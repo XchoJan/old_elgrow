@@ -11,18 +11,19 @@
 }
 
 .textContainer {
-  width: 425px;
   padding-top: 100px;
 }
 
 .title {
   color: #FFF;
+  font-family: Inter Tight;
   font-size: 36px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 140%;
   letter-spacing: 0.36px;
   margin-bottom: 64px;
+  white-space: pre-wrap;
 }
 
 .tags {
@@ -37,17 +38,20 @@
   color: #FFF;
   font-size: 16px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 19.2px;
+  font-weight: 200;
+  line-height: 170%;
+  white-space: pre-wrap;
+  margin-bottom: 24px;
 }
 
 .description {
   color: #FFF;
   font-size: 22px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 26.4px;
   letter-spacing: 0.22px;
+  white-space: pre-wrap
 }
 
 @media screen and (max-width: 1023px) {
