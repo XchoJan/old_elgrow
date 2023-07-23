@@ -16,12 +16,12 @@ const AboutUsLetterComponent = () => {
   const [hideOnMobile, setHideOnMobile] = useState(false);
   const [hide1024px, setHide1024px] = useState(false);
   const [hide769px, setHide769px] = useState(false);
-  const [hide390px, setHide390px] = useState(false);
+  const [hide391px, setHide391px] = useState(false);
 
   const isMobile = useMediaQuery({query: "(min-width: 767px)"});
   const is1024px = useMediaQuery({query: "(min-width: 1024px)"});
   const is769px = useMediaQuery({query: "(min-width: 769px)"});
-  const is390px = useMediaQuery({query: "(max-width: 390px)"});
+  const is391px = useMediaQuery({query: "(max-width: 391px)"});
 
   const wrapperRef: any = useRef();
   const sliderRef: any = useRef();
@@ -75,8 +75,8 @@ const AboutUsLetterComponent = () => {
     setHideOnMobile(isMobile);
     setHide1024px(is1024px);
     setHide769px(is769px)
-    setHide390px(is390px)
-  }, [isMobile, is1024px, is769px, is390px]);
+    setHide391px(is391px)
+  }, [isMobile, is1024px, is769px, is391px]);
 
 
   return (
@@ -200,12 +200,12 @@ const AboutUsLetterComponent = () => {
               <div ref={sliderRef} id="sliderContainer"
                    className={styles.sliderContainer}>
                 <SliderSection ref={firstRef} title="Профессионализм"
-                               points={!hide390px ?
+                               points={!hide391px ?
                                    [
                                      {
                                        title: `Опыт в финтехе, авиации, телекоммуникациях,\nлогистике и гос. секторе`,
                                        text: "Экспертиза в различных сферах среднего\nи крупного бизнеса" +
-                                           "наших специалистов поможет грамотно\n" +
+                                           "наших специалистов поможет грамотно " +
                                            "реализовать ваш проект."
                                      },
                                      {
@@ -240,7 +240,7 @@ const AboutUsLetterComponent = () => {
                                      }
                                    ]}/>
                 <SliderSection ref={secondRef} title="Прозрачность"
-                               points={!hide390px ? [
+                               points={!hide391px ? [
                                  {
                                    title: "Полный контроль на всех этапах разработки",
                                    text: "Отчетность, ежедневные обновления репозитория."
@@ -267,19 +267,19 @@ const AboutUsLetterComponent = () => {
                                    text: "Если не попали, работаем\nза свой счет."
                                  }
                                ]}/>
-                <SliderSection ref={thirdRef} title="Гарантии" points={!hide390px ? [
+                <SliderSection ref={thirdRef} title="Гарантии" points={!hide391px ? [
                   {
                     title: "Четкие сроки по договору",
                     text: "После истечения срока работаем бесплатно."
                   },
                   {
-                    title: `Сроки выполнения задач\nне зависят от человеческого фактора`,
+                    title: `Сроки выполнения задач не зависят\nот человеческого фактора`,
                     text: "Дублирующий и страхующий специалист\nна каждого участника вашей" +
                         "команды."
                   },
                   {
                     title: "100% соответствие ожиданиям",
-                    text: "Документация на программный код и продукт, готовность к\n" +
+                    text: "Документация на программный код и продукт, готовность к " +
                         "внешнему аудиту"
                   }
                 ] : [
