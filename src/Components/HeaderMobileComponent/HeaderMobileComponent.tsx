@@ -33,16 +33,16 @@ const HeaderMobileComponent = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   useEffect(() => {
     setHideOnMobile(isMobile);
-    setHide1224px(is1224px)
+    setHide1224px(is1224px);
   }, [isMobile, is1224px]);
 
   return (
@@ -75,7 +75,8 @@ const HeaderMobileComponent = () => {
               Стать клиентом
             </Link>
           </div>}
-          <div className={!showNavbar ? styles.activeContactsBlock:  styles.contactsBlock}>
+          {hide1224px ? <div
+              className={!showNavbar ? styles.activeContactsBlock : styles.contactsBlock}>
             {!hide1224px && <Link
                 offset={0}
                 to="becomeClientComponent"
@@ -95,11 +96,50 @@ const HeaderMobileComponent = () => {
               </div>
               <div className={styles.phoneBlock}>+7 495 109 90 49</div>
             </>}
-            {!hide1224px && <div onClick={() => setShowMenu(true)} className={styles.burgerDesktopBtn}>
+            {!hide1224px && <div onClick={() => setShowMenu(true)}
+                                 className={styles.burgerDesktopActive}>
               <img className={styles.burgerBtnIcon} src="/images/burgerMobile.svg"
                    alt="burgerMobile"/>
             </div>}
-          </div>
+            {hide1224px && <div onClick={() => setShowMenu(true)}
+                                className={!showNavbar ? styles.burgerDesktopActive : styles.burgerDesktopBtn}>
+              <img className={styles.burgerBtnIcon} src="/images/burgerMobile.svg"
+                   alt="burgerMobile"/>
+            </div>}
+          </div> :
+            <div
+            className={styles.activeContactsBlock}>
+          {!hide1224px && <Link
+            offset={0}
+            to="becomeClientComponent"
+            spy={true}
+            smooth={true}
+            duration={150}
+            className={styles.navBtnUnderline}
+            >
+            Стать клиентом
+            </Link>}
+          {hideOnMobile && <>
+            <div className={styles.tgBlock}>
+            <img className={styles.tgIcon} src="/images/telegram-small1440.svg"
+            alt=""/>
+            <a className={styles.tgLink}
+            href="https://t.me/Elgrow_dev"> Elgrow_dev</a>
+            </div>
+            <div className={styles.phoneBlock}>+7 495 109 90 49</div>
+            </>}
+          {!hide1224px && <div onClick={() => setShowMenu(true)}
+            className={styles.burgerDesktopActive}>
+            <img className={styles.burgerBtnIcon} src="/images/burgerMobile.svg"
+            alt="burgerMobile"/>
+            </div>}
+          {hide1224px && <div onClick={() => setShowMenu(true)}
+            className={!showNavbar ? styles.burgerDesktopActive : styles.burgerDesktopBtn}>
+            <img className={styles.burgerBtnIcon} src="/images/burgerMobile.svg"
+            alt="burgerMobile"/>
+            </div>}
+            </div>
+          }
         </div>
       </div>
   );
