@@ -55,26 +55,17 @@ const AboutUsNumbersComponent = () => {
             {hideOnMobile && <div className={styles.rightBlock}>
 
               <div className={styles.parking1}>
-                <Fade duration={1500} className={styles.parking1Image} direction={"down"} cascade={true}
-                      triggerOnce={false} damping={0.1}>
                   <img className={styles.parking1Image} src={`/images/parking1.png`}
                        alt="parking1"/>
-                </Fade>
               </div>
 
               <div className={styles.parking2}>
-                <Fade duration={1500} className={styles.parking1Image} direction={"up"} cascade={true}
-                      triggerOnce={false} damping={0.1}>
                   <img className={styles.parking2Image} src={`/images/parking2.png`}
                        alt="parking2"/>
-                </Fade>
               </div>
               <div className={styles.parking3}>
-                <Fade duration={1500} className={styles.parking1Image} direction={"down"} cascade={true}
-                      triggerOnce={false} damping={0.1}>
                   <img className={styles.parking3Image} src={`/images/parking3.png`}
                        alt="parking3"/>
-                </Fade>
               </div>
             </div>}
           </div>
