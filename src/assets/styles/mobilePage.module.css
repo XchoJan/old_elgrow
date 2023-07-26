@@ -19,11 +19,28 @@
 }
 
 @media screen and (max-width: 1223px) {
+  .eagleOutstaff {
+    top: 20%;
+    transform: rotate(15.722deg);
+    width: 65%;
+    height: auto;
+  }
+}
 
+@media screen and (max-width: 1023px) {
+  .eagleOutstaff {
+    transform: rotate(15.722deg);
+    height: auto;
+    top: 40px;
+  }
 }
 
 @media screen and (max-width: 767px) {
-
+  .eagleOutstaff {
+    top: 26%;
+    width: 90%;
+    right: -11%;
+  }
 }
 
 @media screen and (max-width: 374px) {
