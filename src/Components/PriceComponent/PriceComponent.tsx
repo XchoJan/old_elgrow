@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./PriceComponent.module.css";
 import TitleText from "../TitleText/TitleText";
 import Scroll from "react-scroll";
-import {Roll} from "react-awesome-reveal";
 
 const Element = Scroll.Element;
 
