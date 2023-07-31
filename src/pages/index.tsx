@@ -55,6 +55,8 @@ const MainPage: NextPage = () => {
       router.push('/brief').then(() => setIsLoading(false));
     } else if (router.asPath === '/politic') {
       router.push('/politic').then(() => setIsLoading(false));
+    } else if (router.asPath === '/mobilePage') {
+      router.push('/mobilePage').then(() => setIsLoading(false));
     } else if (router.asPath === '/nouBrand') {
       router.push('/nouBrand').then(() => setIsLoading(false));
     } else if (router.asPath === '/portfolio') {
