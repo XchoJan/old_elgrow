@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import styles from "./MobileMainComponent.module.css";
 import AnimateButton from "../AnimateButton/AnimateButton";
 import {useMediaQuery} from "react-responsive";
+import CallBackMenu from "../CallBackMenu";
 
 const images = [
   "nespresso.png",
@@ -15,6 +16,7 @@ const images = [
 
 const MobileMainComponent = () => {
   const [hideOnSmallDesktop, setHideOnSmallDesktop] = useState(false);
+  const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
 
   const isSmallDesktop = useMediaQuery({query: "(min-width: 1223px)"});
 
@@ -24,6 +26,12 @@ const MobileMainComponent = () => {
 
   return (
       <div className={styles.mobileMainComponent}>
+        <CallBackMenu
+            y="0"
+            x="0"
+            isOpen={isVisibleCallbackMenu}
+            close={setVisibleCallbackMenu}
+        />
         <div className={styles.title}>
           <h1 className={styles.titleText}>Разработка <br/>мобильных приложений</h1>
         </div>
@@ -43,8 +51,7 @@ const MobileMainComponent = () => {
               <img className={styles.KFC} src={`/images/KFC.svg`} alt={`KFC`}/>
             </div>
           </div>
-          {hideOnSmallDesktop && <div style={{width: '30%'}}><AnimateButton onClick={() => {
-          }}>
+          {hideOnSmallDesktop && <div style={{width: '30%'}}><AnimateButton onClick={() => setVisibleCallbackMenu(true)}>
             <div className={styles.animateButtonText}>Стать клиентом</div>
           </AnimateButton></div>}
         </div>

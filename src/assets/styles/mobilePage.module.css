@@ -7,7 +7,9 @@
 }
 
 .container {
-  width: 90%;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .eagleOutstaff {
@@ -40,6 +42,10 @@
     top: 26%;
     width: 90%;
     right: -11%;
+  }
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 

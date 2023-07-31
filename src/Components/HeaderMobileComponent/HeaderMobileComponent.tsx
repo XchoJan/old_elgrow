@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {Link} from "react-scroll";
+import {Link as ScrollLink} from "react-scroll";
+import Link from "next/link";
 import styles from "./HeaderMobileComponent.module.css";
 import Logo from "../Logo/Logo";
 import {useMediaQuery} from "react-responsive";
 import MobileMenu from "../MobileMenu/MobileMenu";
+import CallBackMenu from "../CallBackMenu";
 
 const navButtons = [
   {title: "О нас в цифрах", value: "aboutUsNumbersComponent"}, {
@@ -22,6 +24,7 @@ const HeaderMobileComponent = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [hideOnMobile, setHideOnMobile] = useState(false);
   const [hide1224px, setHide1224px] = useState(false);
+  const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
 
   const is1224px = useMediaQuery({query: "(min-width: 1224px)"});
 
@@ -48,11 +51,17 @@ const HeaderMobileComponent = () => {
   return (
       <div className={styles.header}>
         <div className={styles.container}>
+          <CallBackMenu
+              y="0"
+              x="0"
+              isOpen={isVisibleCallbackMenu}
+              close={setVisibleCallbackMenu}
+          />
           <MobileMenu isOpen={showMenu} close={setShowMenu}/>
-          <Logo showLogo={showNavbar}/>
+          <Link target="_blank" href={'/'}><Logo showLogo={showNavbar}/></Link>
           {hide1224px && <div className={!showNavbar ? styles.active : styles.navMenu}>
             {navButtons.map((btn, index) => {
-              return <Link
+              return <ScrollLink
                   key={index}
                   offset={-70}
                   to={btn.value}
@@ -62,39 +71,29 @@ const HeaderMobileComponent = () => {
                   className={styles.navBtn}
               >
                 {btn.title}
-              </Link>;
+              </ScrollLink>;
             })}
-            <Link
-                offset={-70}
-                to="becomeClientComponent"
-                spy={true}
-                smooth={true}
-                duration={150}
-                className={styles.navBtnUnderline}
+            <div
+                className={styles.navBtnUnderline} onClick={() => setVisibleCallbackMenu(true)}
             >
               Стать клиентом
-            </Link>
+            </div>
           </div>}
           {hide1224px ? <div
-              className={!showNavbar ? styles.activeContactsBlock : styles.contactsBlock}>
-            {!hide1224px && <Link
-                offset={0}
-                to="becomeClientComponent"
-                spy={true}
-                smooth={true}
-                duration={150}
-                className={styles.navBtnUnderline}
+              className={!showNavbar ? styles.activeContactsBlock : styles.contactsBlock} >
+            {!hide1224px && <div
+                className={styles.navBtnUnderline} onClick={() => setVisibleCallbackMenu(true)}
             >
               Стать клиентом
-            </Link>}
+            </div>}
             {hideOnMobile && <>
               <div className={styles.tgBlock}>
                 <img className={styles.tgIcon} src="/images/telegram-small1440.svg"
                      alt=""/>
-                <a className={styles.tgLink}
+                <a className={styles.tgLink} target='_blank'
                    href="https://t.me/Elgrow_dev"> Elgrow_dev</a>
               </div>
-              <div className={styles.phoneBlock}>+7 495 109 90 49</div>
+              <a className={styles.phoneBlock} href="tel:+74951099049" target='_blank'>+7 495 109 90 49</a>
             </>}
             {!hide1224px && <div onClick={() => setShowMenu(true)}
                                  className={styles.burgerDesktopActive}>
@@ -109,24 +108,19 @@ const HeaderMobileComponent = () => {
           </div> :
             <div
             className={styles.activeContactsBlock}>
-          {!hide1224px && <Link
-            offset={0}
-            to="becomeClientComponent"
-            spy={true}
-            smooth={true}
-            duration={150}
+          {!hide1224px && <div onClick={() => setVisibleCallbackMenu(true)}
             className={styles.navBtnUnderline}
             >
             Стать клиентом
-            </Link>}
+            </div>}
           {hideOnMobile && <>
             <div className={styles.tgBlock}>
             <img className={styles.tgIcon} src="/images/telegram-small1440.svg"
             alt=""/>
-            <a className={styles.tgLink}
+            <a className={styles.tgLink} target='_blank'
             href="https://t.me/Elgrow_dev"> Elgrow_dev</a>
             </div>
-            <div className={styles.phoneBlock}>+7 495 109 90 49</div>
+            <a className={styles.phoneBlock} href="tel:+74951099049" target='_blank'>+7 495 109 90 49</a>
             </>}
           {!hide1224px && <div onClick={() => setShowMenu(true)}
             className={styles.burgerDesktopActive}>

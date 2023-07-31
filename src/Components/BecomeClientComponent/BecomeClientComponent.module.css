@@ -10,7 +10,9 @@
 }
 
 .container {
-  width: 90%;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .logo {
@@ -95,8 +97,11 @@
 
 .footer {
   position: absolute;
-  width: 90%;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
   bottom: 24px;
+  left: 0;
 }
 
 .line {
@@ -211,5 +216,13 @@
   }
   .footerContainer {
     margin-bottom: 27px;
+  }
+  .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }

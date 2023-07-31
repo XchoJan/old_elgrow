@@ -2,6 +2,7 @@ import {motion} from "framer-motion";
 import React, {Dispatch, SetStateAction, useEffect, useState} from "react";
 import {Link} from "react-scroll";
 import styles from "./MobileMenu.module.css";
+import CallBackMenu from "../CallBackMenu";
 
 interface Props {
   isOpen: boolean;
@@ -10,6 +11,8 @@ interface Props {
 
 const MobileMenu: React.FC<Props> = ({isOpen, close}) => {
   const [max, setMax]: any = useState(0);
+
+  const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
 
   useEffect(() => {
     setMax(window?.visualViewport?.width);
@@ -38,11 +41,17 @@ const MobileMenu: React.FC<Props> = ({isOpen, close}) => {
           variants={variants}
           className="MobileMenu"
       >
+        <CallBackMenu
+            y="0"
+            x="0"
+            isOpen={isVisibleCallbackMenu}
+            close={setVisibleCallbackMenu}
+        />
         <motion.div className="headerMenu">
         <span className="logoText">
           e<span className="letterL">l</span>grow.
         </span>
-          <motion.div onClick={() => close(false)}>
+          <motion.div className={styles.menuClose} onClick={() => close(false)}>
             <img className={styles.closeBtn} src="/images/closeBlack.svg" alt=""/>
           </motion.div>
         </motion.div>
@@ -109,24 +118,19 @@ const MobileMenu: React.FC<Props> = ({isOpen, close}) => {
         <motion.div className="contactsContainer">
           <div>
             <img src="/images/telegram-small1440.svg" alt=""/>
-            <a href="https://t.me/Elgrow_dev"> Elgrow_dev</a>
+            <a className={styles.tgText} target='_blank' href="https://t.me/Elgrow_dev"> Elgrow_dev</a>
           </div>
           <div>
-            <a> +7 343 302 90 49 </a>
+            <a className={styles.phoneText} href="tel:+74951099049" target='_blank'> +7 495 109 90 49 </a>
           </div>
         </motion.div>
         <div className={styles.animateButtonBlock}>
-          <Link delay={700}
-                onClick={() => close(false)}
-                to="becomeClientComponent"
-                spy={true}
-                smooth={true}
-                duration={500}
-                offset={-70}
+          <div
+              onClick={() => setVisibleCallbackMenu(true)}
                 className={styles.animateButton}
           >
             <div className={styles.animateButtonText}>{`Стать\nклиентом`}</div>
-          </Link>
+          </div>
         </div>
       </motion.div>
   );

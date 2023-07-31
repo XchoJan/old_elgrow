@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import styles from "../AboutUsNumbersComponent/AboutUsNumbersComponent.module.css";
 import Scroll from "react-scroll";
 import {useMediaQuery} from "react-responsive";
-import {Fade} from "react-awesome-reveal";
 
 const Element = Scroll.Element;
 
@@ -55,17 +54,17 @@ const AboutUsNumbersComponent = () => {
             {hideOnMobile && <div className={styles.rightBlock}>
 
               <div className={styles.parking1}>
-                  <img className={styles.parking1Image} src={`/images/parking1.png`}
-                       alt="parking1"/>
+                <img className={styles.parking1Image} src={`/images/parking1.png`}
+                     alt="parking1"/>
               </div>
 
               <div className={styles.parking2}>
-                  <img className={styles.parking2Image} src={`/images/parking2.png`}
-                       alt="parking2"/>
+                <img className={styles.parking2Image} src={`/images/parking2.png`}
+                     alt="parking2"/>
               </div>
               <div className={styles.parking3}>
-                  <img className={styles.parking3Image} src={`/images/parking3.png`}
-                       alt="parking3"/>
+                <img className={styles.parking3Image} src={`/images/parking3.png`}
+                     alt="parking3"/>
               </div>
             </div>}
           </div>

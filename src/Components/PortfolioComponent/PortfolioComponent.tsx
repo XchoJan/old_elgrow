@@ -3,9 +3,8 @@ import styles from "./PortfolioComponent.module.css";
 import Scroll from "react-scroll";
 import TitleText from "../TitleText/TitleText";
 import PortfolioCard from "../PortfolioCard/PortfolioCard";
-import {Flip, Hinge, JackInTheBox, Reveal, Slide} from "react-awesome-reveal";
-import {keyframes} from "@emotion/react";
 import {useMediaQuery} from "react-responsive";
+import Link from "next/link";
 
 const Element = Scroll.Element;
 
@@ -20,8 +19,8 @@ const PortfolioComponent = () => {
 
   useEffect(() => {
     setHide1025px(is1025px);
-    setHide769px(is769px)
-    setHide391px(is391px)
+    setHide769px(is769px);
+    setHide391px(is391px);
   }, [is1025px, is769px, is391px]);
 
   return (
@@ -38,20 +37,20 @@ const PortfolioComponent = () => {
                            description={!hide1025px ? `Разработали приложение для наземного\nобслуживания воздушных судов\nкрупнейшему росссийскому игроку\nUTG Group.` : `Разработали приложение для наземного\nобслуживания воздушных судов\nкрупнейшему росссийскому игроку\nUTG Group.`}>
               <div className={styles.images}>
                 <div className={styles.utg1}>
-                    <img className={styles.utg1Image} src={`/images/utg1.png`}
-                         alt="utg1"/>
+                  <img className={styles.utg1Image} src={`/images/utg1.png`}
+                       alt="utg1"/>
                 </div>
                 <div className={styles.utg2}>
-                    <img className={styles.utg2Image} src={`/images/utg2.png`}
-                         alt="utg2"/>
+                  <img className={styles.utg2Image} src={`/images/utg2.png`}
+                       alt="utg2"/>
                 </div>
                 <div className={styles.utg3}>
-                    <img className={styles.utg3Image} src={`/images/utg3.png`}
-                         alt="utg3"/>
+                  <img className={styles.utg3Image} src={`/images/utg3.png`}
+                       alt="utg3"/>
                 </div>
                 <div className={styles.utg4}>
-                    <img className={styles.utg4Image} src={`/images/utg4.png`}
-                         alt="utg4"/>
+                  <img className={styles.utg4Image} src={`/images/utg4.png`}
+                       alt="utg4"/>
                 </div>
               </div>
             </PortfolioCard>
@@ -61,20 +60,20 @@ const PortfolioComponent = () => {
                            description={`Мобильное приложение для федерального\nдистрибьютора Nespresso в Америке.`}>
               <div className={styles.images}>
                 <div className={styles.nespresso1}>
-                    <img className={styles.nespresso1Image} src={`/images/nespresso1.png`}
-                         alt="nespresso1"/>
+                  <img className={styles.nespresso1Image} src={`/images/nespresso1.png`}
+                       alt="nespresso1"/>
                 </div>
                 <div className={styles.nespresso2}>
-                    <img className={styles.nespresso2Image} src={`/images/nespresso2.png`}
-                         alt="nespresso2"/>
+                  <img className={styles.nespresso2Image} src={`/images/nespresso2.png`}
+                       alt="nespresso2"/>
                 </div>
                 <div className={styles.nespresso3}>
-                    <img className={styles.nespresso3Image} src={`/images/nespresso3.png`}
-                         alt="nespresso3"/>
+                  <img className={styles.nespresso3Image} src={`/images/nespresso3.png`}
+                       alt="nespresso3"/>
                 </div>
                 <div className={styles.nespresso4}>
-                    <img className={styles.nespresso4Image} src={`/images/nespresso4.png`}
-                         alt="nespresso4"/>
+                  <img className={styles.nespresso4Image} src={`/images/nespresso4.png`}
+                       alt="nespresso4"/>
                 </div>
               </div>
             </PortfolioCard>
@@ -84,16 +83,16 @@ const PortfolioComponent = () => {
                            description={`Разработка ряда сервисов федерального\ne-commerce. Кооперация с несколькими\nразработчиками в РФ.`}>
               <div className={styles.images}>
                 <div className={styles.luxxy1}>
-                    <img className={styles.luxxy1Image} src={`/images/Luxxy1.png`}
-                         alt="Luxxy1"/>
+                  <img className={styles.luxxy1Image} src={`/images/Luxxy1.png`}
+                       alt="Luxxy1"/>
                 </div>
                 <div className={styles.luxxy2}>
                   <img className={styles.luxxy2Image} src={`/images/Luxxy2.png`}
                        alt="Luxxy2"/>
                 </div>
                 <div className={styles.luxxy3}>
-                    <img className={styles.luxxy3Image} src={`/images/Luxxy3.png`}
-                         alt="Luxxy3"/>
+                  <img className={styles.luxxy3Image} src={`/images/Luxxy3.png`}
+                       alt="Luxxy3"/>
                 </div>
               </div>
             </PortfolioCard>
@@ -103,39 +102,39 @@ const PortfolioComponent = () => {
                            description={!hide1025px ? `Разработка MVP для федерального стартапа\nпо строительству и ремонту.` : `Разработка MVP для федерального\nстартапа по строительству и ремонту.`}>
               <div className={styles.images}>
                 <div className={styles.statusStroy1}>
-                    <img className={styles.statusStroy1Image}
-                         src={`/images/statusStroy1.png`} alt="statusStroy1"/>
+                  <img className={styles.statusStroy1Image}
+                       src={`/images/statusStroy1.png`} alt="statusStroy1"/>
                 </div>
                 <div className={styles.statusStroy2}>
-                    <img className={styles.statusStroy2Image}
-                         src={`/images/statusStroy2.png`} alt="statusStroy2"/>
+                  <img className={styles.statusStroy2Image}
+                       src={`/images/statusStroy2.png`} alt="statusStroy2"/>
                 </div>
                 <div className={styles.statusStroy3}>
-                    <img className={styles.statusStroy3Image}
-                         src={`/images/statusStroy3.png`} alt="statusStroy3"/>
+                  <img className={styles.statusStroy3Image}
+                       src={`/images/statusStroy3.png`} alt="statusStroy3"/>
                 </div>
                 <div className={styles.statusStroy4}>
-                    <img className={styles.statusStroy4Image}
-                         src={`/images/statusStroy4.png`} alt="statusStroy4"/>
+                  <img className={styles.statusStroy4Image}
+                       src={`/images/statusStroy4.png`} alt="statusStroy4"/>
                 </div>
               </div>
             </PortfolioCard>
             <PortfolioCard backgroundColor="#DB418C"
                            title={!hide1025px ? `Управление\nпарковками аэропортов` : `Управление\nпарковками\nаэропортов`}
-                           tags={!hide1025px ? `# стартап  # сервисы\n# интеграции` : `# стартап  # сервисы  # интеграции`}
-                           description={!hide1025px ? `Разработка MVP для федерального стартапа\nпо строительству и ремонту.` : `Разработка MVP для федерального\nстартапа по строительству и\nремонту.`}>
+                           tags={!hide1025px ? `# управление аэропортами # авиация` : `# управление аэропортами # авиация`}
+                           description={!hide1025px ? `Cистема бронирования парковочных мест,\nа также заказа трансфера в аэропорту "Внуково".` : `Cистема бронирования парковочных\nмест, а также заказа трансфера\nв аэропорту "Внуково".`}>
               <div className={styles.images}>
                 <div className={styles.parking4}>
-                    <img className={styles.parking4Image} src={`/images/parking4.png`}
-                         alt="parking4"/>
+                  <img className={styles.parking4Image} src={`/images/parking4.png`}
+                       alt="parking4"/>
                 </div>
                 <div className={styles.parking5}>
-                    <img className={styles.parking5Image} src={`/images/parking5.png`}
-                         alt="parking5"/>
+                  <img className={styles.parking5Image} src={`/images/parking5.png`}
+                       alt="parking5"/>
                 </div>
                 <div className={styles.parking6}>
-                    <img className={styles.parking6Image} src={`/images/parking6.png`}
-                         alt="parking6"/>
+                  <img className={styles.parking6Image} src={`/images/parking6.png`}
+                       alt="parking6"/>
                 </div>
               </div>
             </PortfolioCard>
@@ -147,20 +146,20 @@ const PortfolioComponent = () => {
                            description={!hide391px ? `Разработали приложение для наземного\nобслуживания воздушных судов крупнейшему\nросссийскому игроку UTG Group.` : `Разработали\nприложение\nдля наземного\nобслуживания\nвоздушных судов\nкрупнейшему\nросссийскому игроку\nUTG Group.`}>
               <div className={styles.images}>
                 <div className={styles.utg1}>
-                    <img className={styles.utg1Image} src={`/images/utg1.png`}
-                         alt="utg1"/>
+                  <img className={styles.utg1Image} src={`/images/utg1.png`}
+                       alt="utg1"/>
                 </div>
                 <div className={styles.utg2}>
-                    <img className={styles.utg2Image} src={`/images/utg2.png`}
-                         alt="utg2"/>
+                  <img className={styles.utg2Image} src={`/images/utg2.png`}
+                       alt="utg2"/>
                 </div>
                 <div className={styles.utg3}>
-                    <img className={styles.utg3Image} src={`/images/utg3.png`}
-                         alt="utg3"/>
+                  <img className={styles.utg3Image} src={`/images/utg3.png`}
+                       alt="utg3"/>
                 </div>
                 <div className={styles.utg4}>
-                    <img className={styles.utg4Image} src={`/images/utg4.png`}
-                         alt="utg4"/>
+                  <img className={styles.utg4Image} src={`/images/utg4.png`}
+                       alt="utg4"/>
                 </div>
               </div>
             </PortfolioCard>
@@ -170,20 +169,20 @@ const PortfolioComponent = () => {
                            description={!hide391px ? `Мобильное приложение\nдля федерального дистрибьютора\nNespresso в Америке.` : `Мобильное приложение\nдля федерального\nдистрибьютора\nNespresso в Америке.`}>
               <div className={styles.images}>
                 <div className={styles.nespresso1}>
-                    <img className={styles.nespresso1Image} src={`/images/nespresso1.png`}
-                         alt="nespresso1"/>
+                  <img className={styles.nespresso1Image} src={`/images/nespresso1.png`}
+                       alt="nespresso1"/>
                 </div>
                 <div className={styles.nespresso2}>
-                    <img className={styles.nespresso2Image} src={`/images/nespresso2.png`}
-                         alt="nespresso2"/>
+                  <img className={styles.nespresso2Image} src={`/images/nespresso2.png`}
+                       alt="nespresso2"/>
                 </div>
                 <div className={styles.nespresso3}>
-                    <img className={styles.nespresso3Image} src={`/images/nespresso3.png`}
-                         alt="nespresso3"/>
+                  <img className={styles.nespresso3Image} src={`/images/nespresso3.png`}
+                       alt="nespresso3"/>
                 </div>
                 <div className={styles.nespresso4}>
-                    <img className={styles.nespresso4Image} src={`/images/nespresso4.png`}
-                         alt="nespresso4"/>
+                  <img className={styles.nespresso4Image} src={`/images/nespresso4.png`}
+                       alt="nespresso4"/>
                 </div>
               </div>
             </PortfolioCard>
@@ -193,69 +192,69 @@ const PortfolioComponent = () => {
                            description={!hide391px ? `Разработка ряда сервисов федерального\ne-commerce. Кооперация с несколькими\nразработчиками в РФ.` : `Разработка ряда\nсервисов федерального\ne-commerce.\nКооперация\nс несколькими\nразработчиками в РФ.`}>
               <div className={styles.images}>
                 <div className={styles.luxxy1}>
-                    <img className={styles.luxxy1Image} src={`/images/Luxxy1.png`}
-                         alt="Luxxy1"/>
+                  <img className={styles.luxxy1Image} src={`/images/Luxxy1.png`}
+                       alt="Luxxy1"/>
                 </div>
                 <div className={styles.luxxy2}>
                   <img className={styles.luxxy2Image} src={`/images/Luxxy2.png`}
                        alt="Luxxy2"/>
                 </div>
                 <div className={styles.luxxy3}>
-                    <img className={styles.luxxy3Image} src={`/images/Luxxy3.png`}
-                         alt="Luxxy3"/>
+                  <img className={styles.luxxy3Image} src={`/images/Luxxy3.png`}
+                       alt="Luxxy3"/>
                 </div>
               </div>
             </PortfolioCard>
             <PortfolioCard backgroundColor="#07B7F9"
                            title="Статус строй"
-                           tags={!hide391px ? `# стартап  # сервисы  # интеграции`: `# стартап  # сервисы\n# интеграции`}
+                           tags={!hide391px ? `# стартап  # сервисы  # интеграции` : `# стартап  # сервисы\n# интеграции`}
                            description={!hide391px ? `Разработка MVP для федерального\nстартапа по строительству и ремонту.` : `Разработка MVP\nдля федерального\nстартапа\nпо строительству\nи ремонту.`}>
               <div className={styles.images}>
                 <div className={styles.statusStroy1}>
-                    <img className={styles.statusStroy1Image}
-                         src={`/images/statusStroy1.png`} alt="statusStroy1"/>
+                  <img className={styles.statusStroy1Image}
+                       src={`/images/statusStroy1.png`} alt="statusStroy1"/>
                 </div>
                 <div className={styles.statusStroy2}>
-                    <img className={styles.statusStroy2Image}
-                         src={`/images/statusStroy2.png`} alt="statusStroy2"/>
+                  <img className={styles.statusStroy2Image}
+                       src={`/images/statusStroy2.png`} alt="statusStroy2"/>
                 </div>
                 <div className={styles.statusStroy3}>
-                    <img className={styles.statusStroy3Image}
-                         src={`/images/statusStroy3.png`} alt="statusStroy3"/>
+                  <img className={styles.statusStroy3Image}
+                       src={`/images/statusStroy3.png`} alt="statusStroy3"/>
                 </div>
                 <div className={styles.statusStroy4}>
-                    <img className={styles.statusStroy4Image}
-                         src={`/images/statusStroy4.png`} alt="statusStroy4"/>
+                  <img className={styles.statusStroy4Image}
+                       src={`/images/statusStroy4.png`} alt="statusStroy4"/>
                 </div>
               </div>
             </PortfolioCard>
             <PortfolioCard backgroundColor="#DB418C"
                            title={!hide391px ? `Управление\nпарковками аэропортов` : `Управление\nпарковками\nаэропортов`}
-                           tags={!hide391px ? `# стартап  # сервисы # интеграции` : `# стартап  # сервисы\n# интеграции`}
-                           description={!hide391px ? `Разработка MVP для федерального стартапа\nпо строительству и ремонту.` : `Разработка MVP\nдля федерального\nстартапа\nпо строительству\nи ремонту.`}>
+                           tags={!hide391px ? `#управление аэропортами #авиация` : `#управление\nаэропортами\n#авиация`}
+                           description={!hide391px ? `Cистема бронирования парковочных мест,\nа также заказа трансфера в аэропорту "Внуково".` : `Cистема\nбронирования\nпарковочных мест,\nа также заказа трансфера\nв аэропорту "Внуково".`}>
               <div className={styles.images}>
                 <div className={styles.parking4}>
-                    <img className={styles.parking4Image} src={`/images/parking4.png`}
-                         alt="parking4"/>
+                  <img className={styles.parking4Image} src={`/images/parking4.png`}
+                       alt="parking4"/>
                 </div>
                 <div className={styles.parking5}>
-                    <img className={styles.parking5Image} src={`/images/parking5.png`}
-                         alt="parking5"/>
+                  <img className={styles.parking5Image} src={`/images/parking5.png`}
+                       alt="parking5"/>
                 </div>
                 <div className={styles.parking6}>
-                    <img className={styles.parking6Image} src={`/images/parking6.png`}
-                         alt="parking6"/>
+                  <img className={styles.parking6Image} src={`/images/parking6.png`}
+                       alt="parking6"/>
                 </div>
               </div>
             </PortfolioCard>
           </div>}
-          <div className={styles.allProject}>
+          <Link className={styles.allProject} target="_blank" href={"/portfolio"}>
             <div className={styles.allProjectContainer}>
               <span className={styles.allProjectText}>Все проекты</span>
               <img className={styles.allProjectIcon} src={`/images/mobileArrow.svg`}
                    alt="mobileArrow"/>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
   );

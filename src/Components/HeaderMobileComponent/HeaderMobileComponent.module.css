@@ -13,7 +13,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .navMenu {
@@ -268,6 +270,10 @@
   }
   .header {
     height: 51px;
+  }
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 

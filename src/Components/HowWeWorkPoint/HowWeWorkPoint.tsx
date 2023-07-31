@@ -14,20 +14,15 @@ const HowWeWorkPoint: FC<HowWeWorkPointPropsType> = ({
                                                        points,
                                                        description
                                                      }) => {
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
-      <div className={styles.howWeWorkPoint}
-           onMouseEnter={() => setIsHovered(true)}
-           onMouseLeave={() => setIsHovered(false)}
-      >
-
+      <div className={styles.howWeWorkPoint}>
         <div className={styles.titleBlock}>
           <div
-               className={isHovered ? `${styles.whiteTitle} ${styles.title}` : styles.title}>
+               className={styles.title}>
             {title}
             <div
-                className={isHovered ? styles.hoveredTitleContainer : styles.titleContainer}>
+                className={styles.titleContainer}>
             </div>
           </div>
 

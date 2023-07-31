@@ -3,11 +3,13 @@ import styles from "./BecomeClientComponent.module.css";
 import Scroll from "react-scroll";
 import Logo from "../Logo/Logo";
 import {useMediaQuery} from "react-responsive";
+import CallBackMenu from "../CallBackMenu";
 
 const Element = Scroll.Element;
 
 const BecomeClientComponent = () => {
   const [hideOnMobile, setHideOnMobile] = useState(false);
+  const [isVisibleCallbackMenu, setVisibleCallbackMenu] = useState(false);
 
   const isMobile = useMediaQuery({query: "(min-width: 1024px)"});
 
@@ -18,15 +20,21 @@ const BecomeClientComponent = () => {
   return (
       <div className={styles.becomeClientComponent}>
         <Element name="becomeClientComponent"></Element>
+        <CallBackMenu
+            y="0"
+            x="0"
+            isOpen={isVisibleCallbackMenu}
+            close={setVisibleCallbackMenu}
+        />
         <div className={styles.container}>
           <div className={styles.logo}>
             <Logo isLightMode/>
           </div>
           <div className={styles.textBlock}>
-            <h2 className={styles.title}>Стать клиентом</h2>
+            <h2 onClick={() => setVisibleCallbackMenu(true)} className={styles.title}>Стать клиентом</h2>
             <div className={styles.btnsBlock}>
-              <a className={styles.presentation} href="#">Презентация</a>
-              <a className={styles.mainSite} href="https://elgrow.ru/">Основной сайт</a>
+              <a className={styles.presentation} href="https://elgrow.ru/presentation1.pdf" target='_blank'>Презентация</a>
+              <a className={styles.mainSite} href="https://elgrow.ru/" target='_blank'>Основной сайт</a>
             </div>
           </div>
           {!hideOnMobile ? <div className={styles.footer}>
