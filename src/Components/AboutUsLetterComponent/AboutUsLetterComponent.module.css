@@ -78,6 +78,9 @@
 }
 
 @media screen and (max-width: 767px) {
+  .aboutUsLetterComponent {
+    min-height: 400px;
+  }
   .title {
     margin-bottom: 20px;
     width: 80%;

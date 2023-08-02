@@ -103,6 +103,9 @@
 }
 
 @media screen and (max-width: 767px) {
+  .priceComponent {
+    min-height: 600px;
+  }
   .title {
     margin-bottom: 48px;
     padding-top: 50px;

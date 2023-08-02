@@ -49,15 +49,15 @@ const CallBackMenu: React.FC<Props> = ({
     let body: any = document.querySelector("body");
     let callbackMenu: any = document.querySelectorAll(".contacts");
 
-    setTimeout(() => {
-      if (max <= 560) {
-
-        callbackMenu[0].scrollTop = 0;
-        if (callbackMenu[1]) {
-          callbackMenu[1].scrollTop = 0;
-        }
-      }
-    }, 1000);
+    // setTimeout(() => {
+    //   if (max <= 560) {
+    //
+    //     callbackMenu[0].scrollTop = 0;
+    //     if (callbackMenu[1]) {
+    //       callbackMenu[1].scrollTop = 0;
+    //     }
+    //   }
+    // }, 1000);
 
     body.style.overflowY = "hidden";
   } else if (typeof window !== "undefined" && !isOpen) {
@@ -175,6 +175,7 @@ const CallBackMenu: React.FC<Props> = ({
                 </motion.div>
                 <motion.div animate={isOpen ? "open" : "closed"}>
                   <Input
+                          type="number"
                          reactHookForm={{...register("phone", {required: true})}}
                          alignItems="center"
                          textarea={false}
