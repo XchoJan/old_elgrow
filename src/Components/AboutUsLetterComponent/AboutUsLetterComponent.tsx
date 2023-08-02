@@ -28,6 +28,7 @@ const AboutUsLetterComponent = () => {
   const firstRef: any = useRef();
   const secondRef: any = useRef();
   const thirdRef: any = useRef();
+  const fourtRef: any = useRef();
   const sections = useRef([]);
   const verticalTweenContext: any = useRef(null);
 
@@ -82,9 +83,9 @@ const AboutUsLetterComponent = () => {
   return (
       <div ref={wrapperRef} className={styles.aboutUsLetterComponent}>
         <Element name="aboutUsLetterComponent"></Element>
-        {!hideOnMobile && <div className={styles.animateButtonBlock}>
-          <AnimateButtonWithLogo/>
-        </div>}
+        {/*{!hideOnMobile && <div className={styles.animateButtonBlock}>*/}
+        {/*  <AnimateButtonWithLogo/>*/}
+        {/*</div>}*/}
         <div className={styles.container}>
           <div className={styles.title}>
             <TitleText text="О нас в буквах"/>
@@ -268,7 +269,7 @@ const AboutUsLetterComponent = () => {
                                    text: "Если не попали, работаем\nза свой счет."
                                  }
                                ]}/>
-                <SliderSection ref={thirdRef} title="Гарантии" points={!hide391px ? [
+                <SliderSection withLogo ref={thirdRef} title="Гарантии" points={!hide391px ? [
                   {
                     title: "Четкие сроки по договору",
                     text: "После истечения срока работаем бесплатно."
@@ -302,6 +303,9 @@ const AboutUsLetterComponent = () => {
               </div>
             </div>}
           </div>
+          {/*{!hideOnMobile && <div className={styles.animateButtonBlock}>*/}
+          {/*  <AnimateButtonWithLogo/>*/}
+          {/*</div>}*/}
         </div>
       </div>
   );

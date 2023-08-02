@@ -8,13 +8,6 @@
   overflow: hidden;
 }
 
-.animateButtonBlock {
-  position: absolute;
-  bottom: 100px;
-  right: -60px;
-  z-index: 10;
-}
-
 .container {
   width: 100%;
   display: flex;
@@ -48,7 +41,8 @@
 }
 
 .sliderContainer {
-  height: 100%;
+  /*height: 80%;*/
+  height: 600px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -96,9 +90,9 @@
     width: 80%;
     height: 80%;
   }
-  .animateButtonBlock {
-    position: absolute;
-    bottom: 45%;
-    right: -60px;
-  }
+  /*.animateButtonBlock {*/
+  /*  position: absolute;*/
+  /*  bottom: 45%;*/
+  /*  right: -60px;*/
+  /*}*/
 }

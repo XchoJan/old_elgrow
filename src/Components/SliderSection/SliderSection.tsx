@@ -1,5 +1,8 @@
-import React, {FC} from "react";
+import React, {FC, useEffect, useState} from "react";
 import styles from "./SliderSection.module.css";
+import AnimateButtonWithLogo
+  from "../AnimateButtonWithLogo/AnimateButtonWithLogo";
+import {useMediaQuery} from "react-responsive";
 
 
 export type SliderPointType = {
@@ -8,12 +11,21 @@ export type SliderPointType = {
 }
 
 export type SliderSectionPropsType = {
+  withLogo?: boolean
   ref: any
   title: string
   points: SliderPointType[]
 }
 
-const SliderSection:FC<SliderSectionPropsType> = ({ref, title, points}) => {
+const SliderSection:FC<SliderSectionPropsType> = ({ref, title, points, withLogo}) => {
+  const [hideOnMobile, setHideOnMobile] = useState(false);
+
+  const isMobile = useMediaQuery({query: "(min-width: 767px)"});
+
+  useEffect(() => {
+    setHideOnMobile(isMobile);
+  }, [isMobile]);
+
   return (
       <section ref={ref} className={styles.section}>
         <div className={styles.sectionTitle}>{title}</div>
@@ -27,6 +39,9 @@ const SliderSection:FC<SliderSectionPropsType> = ({ref, title, points}) => {
             </div>
           </div>
         })}
+        {withLogo && !hideOnMobile && <div className={styles.animateButtonBlock}>
+          <AnimateButtonWithLogo/>
+          </div>}
       </section>
   );
 };

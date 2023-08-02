@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 .sectionTitle {
@@ -39,6 +40,13 @@
   line-height: 19.2px;
   letter-spacing: 0.16px;
   white-space: pre-wrap
+}
+
+.animateButtonBlock {
+  position: absolute;
+  bottom: 100px;
+  right: -100px;
+  z-index: 10;
 }
 
 @media screen and (max-width: 1023px) {
