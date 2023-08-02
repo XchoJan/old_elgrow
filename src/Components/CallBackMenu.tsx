@@ -176,7 +176,7 @@ const CallBackMenu: React.FC<Props> = ({
                 <motion.div animate={isOpen ? "open" : "closed"}>
                   <Input
                           type="number"
-                         reactHookForm={{...register("phone", {required: true})}}
+                         reactHookForm={{...register("phone", {required: true, valueAsNumber: true})}}
                          alignItems="center"
                          textarea={false}
                          placeholder="Номер телефона"
