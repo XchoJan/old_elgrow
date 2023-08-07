@@ -32,7 +32,7 @@ const PortfolioComponent = () => {
           </div>
           {hide769px && <div className={styles.portfolioCards}>
             <PortfolioCard backgroundColor="#9B4EFE"
-                           title="Наземное обслуживание"
+                           title={`Наземное обслуживание\nвоздушных судов в аэропортах`}
                            tags={!hide1025px ? `# гражданская авиация  # аэропорты\n# наземное обслуживание  # Внуково  # Пулково` : `# гражданская авиация  # аэропорты  # наземное обслуживание\n# Внуково  # Пулково`}
                            description={!hide1025px ? `Разработали приложение для наземного\nобслуживания воздушных судов\nкрупнейшему росссийскому игроку\nUTG Group.` : `Разработали приложение для наземного\nобслуживания воздушных судов\nкрупнейшему росссийскому игроку\nUTG Group.`}>
               <div className={styles.images}>
@@ -77,25 +77,25 @@ const PortfolioComponent = () => {
                 </div>
               </div>
             </PortfolioCard>
-            <PortfolioCard backgroundColor="#88CB6B"
-                           title="Luxxy"
-                           tags={!hide1025px ? `# e-commerce  # люкс\n# бренды  # совместная работа` : `# e-commerce  # люкс  # бренды  # совместная работа`}
-                           description={`Разработка ряда сервисов федерального\ne-commerce. Кооперация с несколькими\nразработчиками в РФ.`}>
-              <div className={styles.images}>
-                <div className={styles.luxxy1}>
-                  <img className={styles.luxxy1Image} src={`/images/Luxxy1.png`}
-                       alt="Luxxy1"/>
-                </div>
-                <div className={styles.luxxy2}>
-                  <img className={styles.luxxy2Image} src={`/images/Luxxy2.png`}
-                       alt="Luxxy2"/>
-                </div>
-                <div className={styles.luxxy3}>
-                  <img className={styles.luxxy3Image} src={`/images/Luxxy3.png`}
-                       alt="Luxxy3"/>
-                </div>
-              </div>
-            </PortfolioCard>
+            {/*<PortfolioCard backgroundColor="#88CB6B"*/}
+            {/*               title="Luxxy"*/}
+            {/*               tags={!hide1025px ? `# e-commerce  # люкс\n# бренды  # совместная работа` : `# e-commerce  # люкс  # бренды  # совместная работа`}*/}
+            {/*               description={`Разработка ряда сервисов федерального\ne-commerce. Кооперация с несколькими\nразработчиками в РФ.`}>*/}
+            {/*  <div className={styles.images}>*/}
+            {/*    <div className={styles.luxxy1}>*/}
+            {/*      <img className={styles.luxxy1Image} src={`/images/Luxxy1.png`}*/}
+            {/*           alt="Luxxy1"/>*/}
+            {/*    </div>*/}
+            {/*    <div className={styles.luxxy2}>*/}
+            {/*      <img className={styles.luxxy2Image} src={`/images/Luxxy2.png`}*/}
+            {/*           alt="Luxxy2"/>*/}
+            {/*    </div>*/}
+            {/*    <div className={styles.luxxy3}>*/}
+            {/*      <img className={styles.luxxy3Image} src={`/images/Luxxy3.png`}*/}
+            {/*           alt="Luxxy3"/>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
+            {/*</PortfolioCard>*/}
             <PortfolioCard backgroundColor="#07B7F9"
                            title="Статус строй"
                            tags={!hide1025px ? `# стартап  # сервисы\n# интеграции` : `# стартап  # сервисы  # интеграции`}
@@ -141,7 +141,7 @@ const PortfolioComponent = () => {
           </div>}
           {!hide769px && <div className={styles.portfolioCards}>
             <PortfolioCard backgroundColor="#9B4EFE"
-                           title={!hide391px ? `Наземное\nобслуживание` : `Наземное обслуживание`}
+                           title={!hide391px ? `Наземное\nобслуживание воздушных судов в аэропортах` : `Наземное обслуживание воздушных судов в аэропортах`}
                            tags={!hide391px ? `# гражданская авиация  # аэропорты\n# наземное обслуживание  # Внуково  # Пулково` : `# наземное обслуживание\n# гражданская авиация\n# аэропорты  # Внуково\n# Пулково`}
                            description={!hide391px ? `Разработали приложение для наземного\nобслуживания воздушных судов крупнейшему\nросссийскому игроку UTG Group.` : `Разработали\nприложение\nдля наземного\nобслуживания\nвоздушных судов\nкрупнейшему\nросссийскому игроку\nUTG Group.`}>
               <div className={styles.images}>
@@ -186,25 +186,25 @@ const PortfolioComponent = () => {
                 </div>
               </div>
             </PortfolioCard>
-            <PortfolioCard backgroundColor="#88CB6B"
-                           title="Luxxy"
-                           tags={!hide391px ? `# e-commerce  # люкс # бренды\n# совместная работа` : `# e-commerce  # люкс\n# совместная работа\n# бренды  `}
-                           description={!hide391px ? `Разработка ряда сервисов федерального\ne-commerce. Кооперация с несколькими\nразработчиками в РФ.` : `Разработка ряда\nсервисов федерального\ne-commerce.\nКооперация\nс несколькими\nразработчиками в РФ.`}>
-              <div className={styles.images}>
-                <div className={styles.luxxy1}>
-                  <img className={styles.luxxy1Image} src={`/images/Luxxy1.png`}
-                       alt="Luxxy1"/>
-                </div>
-                <div className={styles.luxxy2}>
-                  <img className={styles.luxxy2Image} src={`/images/Luxxy2.png`}
-                       alt="Luxxy2"/>
-                </div>
-                <div className={styles.luxxy3}>
-                  <img className={styles.luxxy3Image} src={`/images/Luxxy3.png`}
-                       alt="Luxxy3"/>
-                </div>
-              </div>
-            </PortfolioCard>
+            {/*<PortfolioCard backgroundColor="#88CB6B"*/}
+            {/*               title="Luxxy"*/}
+            {/*               tags={!hide391px ? `# e-commerce  # люкс # бренды\n# совместная работа` : `# e-commerce  # люкс\n# совместная работа\n# бренды  `}*/}
+            {/*               description={!hide391px ? `Разработка ряда сервисов федерального\ne-commerce. Кооперация с несколькими\nразработчиками в РФ.` : `Разработка ряда\nсервисов федерального\ne-commerce.\nКооперация\nс несколькими\nразработчиками в РФ.`}>*/}
+            {/*  <div className={styles.images}>*/}
+            {/*    <div className={styles.luxxy1}>*/}
+            {/*      <img className={styles.luxxy1Image} src={`/images/Luxxy1.png`}*/}
+            {/*           alt="Luxxy1"/>*/}
+            {/*    </div>*/}
+            {/*    <div className={styles.luxxy2}>*/}
+            {/*      <img className={styles.luxxy2Image} src={`/images/Luxxy2.png`}*/}
+            {/*           alt="Luxxy2"/>*/}
+            {/*    </div>*/}
+            {/*    <div className={styles.luxxy3}>*/}
+            {/*      <img className={styles.luxxy3Image} src={`/images/Luxxy3.png`}*/}
+            {/*           alt="Luxxy3"/>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
+            {/*</PortfolioCard>*/}
             <PortfolioCard backgroundColor="#07B7F9"
                            title="Статус строй"
                            tags={!hide391px ? `# стартап  # сервисы  # интеграции` : `# стартап  # сервисы\n# интеграции`}

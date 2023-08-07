@@ -93,6 +93,7 @@
   .portfolioCard {
     padding-left: 20px;
     min-height: 400px;
+    padding-bottom: 20px;
   }
   .textContainer {
     padding-top: 40px;
