@@ -39,9 +39,6 @@ const SliderSection:FC<SliderSectionPropsType> = ({ref, title, points, withLogo}
             </div>
           </div>
         })}
-        {withLogo && !hideOnMobile && <div className={styles.animateButtonBlock}>
-          <AnimateButtonWithLogo/>
-          </div>}
       </section>
   );
 };
