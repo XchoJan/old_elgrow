@@ -52,7 +52,7 @@ const MobileMainComponent = () => {
             </div>
           </div>
           {hideOnSmallDesktop && <div style={{width: '30%'}}><AnimateButton onClick={() => setVisibleCallbackMenu(true)}>
-            <div className={styles.animateButtonText}>Стать клиентом</div>
+            <div className={styles.animateButtonText}>Обратный звонок</div>
           </AnimateButton></div>}
         </div>
       </div>

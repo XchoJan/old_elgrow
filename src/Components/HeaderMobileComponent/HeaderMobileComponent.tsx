@@ -76,7 +76,7 @@ const HeaderMobileComponent = () => {
             <div
                 className={styles.navBtnUnderline} onClick={() => setVisibleCallbackMenu(true)}
             >
-              Стать клиентом
+              Обратный звонок
             </div>
           </div>}
           {hide1224px ? <div
@@ -84,7 +84,7 @@ const HeaderMobileComponent = () => {
             {!hide1224px && <div
                 className={styles.navBtnUnderline} onClick={() => setVisibleCallbackMenu(true)}
             >
-              Стать клиентом
+              Обратный звонок
             </div>}
             {hideOnMobile && <>
               <div className={styles.tgBlock}>
@@ -111,7 +111,7 @@ const HeaderMobileComponent = () => {
           {!hide1224px && <div onClick={() => setVisibleCallbackMenu(true)}
             className={styles.navBtnUnderline}
             >
-            Стать клиентом
+            Обратный звонок
             </div>}
           {hideOnMobile && <>
             <div className={styles.tgBlock}>

@@ -129,7 +129,7 @@ const MobileMenu: React.FC<Props> = ({isOpen, close}) => {
               onClick={() => setVisibleCallbackMenu(true)}
                 className={styles.animateButton}
           >
-            <div className={styles.animateButtonText}>{`Стать\nклиентом`}</div>
+            <div className={styles.animateButtonText}>{`Обратный\nзвонок`}</div>
           </div>
         </div>
       </motion.div>
