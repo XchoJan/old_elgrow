@@ -72,11 +72,6 @@ const HeaderMobileComponent = () => {
                 {btn.title}
               </ScrollLink>;
             })}
-            <div
-                className={styles.navBtnUnderline} onClick={() => setVisibleCallbackMenu(true)}
-            >
-              Обратный звонок
-            </div>
           </div>}
           {hide1224px ? <div
               className={!showNavbar ? styles.activeContactsBlock : styles.contactsBlock} >
@@ -86,6 +81,11 @@ const HeaderMobileComponent = () => {
               Обратный звонок
             </div>}
             {hideOnMobile && <>
+              <div
+                  className={styles.navBtnUnderline} onClick={() => setVisibleCallbackMenu(true)}
+              >
+                Обратный звонок
+              </div>
               <div className={styles.tgBlock}>
                 <img className={styles.tgIcon} src="/images/telegram-small1440.svg"
                      alt=""/>
