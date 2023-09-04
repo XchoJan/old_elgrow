@@ -31,11 +31,7 @@ const BecomeClientComponent = () => {
             <Logo isLightMode/>
           </div>
           <div className={styles.textBlock}>
-            <h2 onClick={() => setVisibleCallbackMenu(true)} className={styles.title}>Стать клиентом</h2>
-            <div className={styles.btnsBlock}>
-              <a className={styles.presentation} href="https://elgrow.ru/presentation1.pdf" target='_blank'>Презентация</a>
-              <a className={styles.mainSite} href="https://elgrow.ru/" target='_blank'>Основной сайт</a>
-            </div>
+            <h2 onClick={() => setVisibleCallbackMenu(true)} className={styles.title}>Получить КП</h2>
           </div>
           {!hideOnMobile ? <div className={styles.footer}>
             <div className={styles.footerContainer}>

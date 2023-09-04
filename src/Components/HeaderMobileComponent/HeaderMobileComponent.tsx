@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {Link as ScrollLink} from "react-scroll";
-import Link from "next/link";
 import styles from "./HeaderMobileComponent.module.css";
 import Logo from "../Logo/Logo";
 import {useMediaQuery} from "react-responsive";
@@ -58,7 +57,7 @@ const HeaderMobileComponent = () => {
               close={setVisibleCallbackMenu}
           />
           <MobileMenu isOpen={showMenu} close={setShowMenu}/>
-          <Link target="_blank" href={'/'}><Logo showLogo={showNavbar}/></Link>
+          <Logo showLogo={showNavbar}/>
           {hide1224px && <div className={!showNavbar ? styles.active : styles.navMenu}>
             {navButtons.map((btn, index) => {
               return <ScrollLink
