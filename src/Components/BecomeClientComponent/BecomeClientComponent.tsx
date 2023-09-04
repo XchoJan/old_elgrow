@@ -31,7 +31,8 @@ const BecomeClientComponent = () => {
             <Logo isLightMode/>
           </div>
           <div className={styles.textBlock}>
-            <h2 onClick={() => setVisibleCallbackMenu(true)} className={styles.title}>Получить КП</h2>
+            <h2 onClick={() => setVisibleCallbackMenu(true)} className={styles.title}>Получить предложение</h2>
+            <div className={styles.titleUnderline}></div>
           </div>
           {!hideOnMobile ? <div className={styles.footer}>
             <div className={styles.footerContainer}>

@@ -30,19 +30,23 @@
   font-size: 80px;
   font-style: normal;
   line-height: 130%;
-  width: 584px;
+  width: 90%;
   font-weight: 300;
   color: #ffffff;
   text-align: center;
   transition: 0.5s;
-  border-bottom: 1px solid #c9c9c9;
   cursor: pointer;
-  margin-bottom: 79px;
 }
 
 .title:hover {
   color: #9c9c9c;
-  border-bottom: 1px solid white;
+}
+
+.titleUnderline {
+  width: 860px;
+  height: 1px;
+  background: #F5F7F7;
+  margin-bottom: 79px;
 }
 
 .btnsBlock {
@@ -152,12 +156,14 @@
     margin-top: 50px;
   }
   .title {
-    width: 438px;
+    width: 90%;
     font-size: 60px;
     font-style: normal;
     font-weight: 300;
     line-height: 130%;
-    margin-bottom: 47px;
+  }
+  .titleUnderline {
+    width: 647px;
   }
   .btnsBlock {
     width: 438px;
@@ -180,14 +186,14 @@
   .logo {
     margin-top: 20px;
   }
-  .title {
-    margin-bottom: 64px;
-  }
   .presentation {
     font-size: 16px;
   }
   .mainSite {
     font-size: 16px;
+  }
+  .titleUnderline {
+    width: 374px;
   }
   .footerItem {
     font-size: 14px;
@@ -212,7 +218,9 @@
     width: 273px;
     font-size: 36px;
     line-height: 130%;
-    margin-bottom: 40px;
+  }
+  .titleUnderline {
+    width: 225px;
   }
   .btnsBlock {
     width: 273px;
