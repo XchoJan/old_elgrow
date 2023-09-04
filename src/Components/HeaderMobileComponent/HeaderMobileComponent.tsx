@@ -92,7 +92,7 @@ const HeaderMobileComponent = () => {
                 <a className={styles.tgLink} target='_blank'
                    href="https://t.me/Elgrow_dev"> Elgrow_dev</a>
               </div>
-              <a className={styles.phoneBlock} href="tel:+74951099049" target='_blank'>+7 495 109 90 49</a>
+              <a className={styles.phoneBlock} type='text' href="tel:+74951099049" target='_blank'>+7 495 109 90 49</a>
             </>}
             {!hide1224px && <div onClick={() => setShowMenu(true)}
                                  className={styles.burgerDesktopActive}>
