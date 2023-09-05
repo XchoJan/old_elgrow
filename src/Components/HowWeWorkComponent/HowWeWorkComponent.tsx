@@ -24,7 +24,7 @@ const HowWeWorkComponent = () => {
   }, [is1025px, is769px, is391px]);
 
   return (
-      <div id='howWeWorkComponent' className={styles.howWeWorkComponent}>
+      <div style={{paddingTop: 30}} id='howWeWorkComponent' className={styles.howWeWorkComponent}>
         <Element name="howWeWorkComponent"></Element>
         <div className={styles.title}>
           <TitleText text="Как мы работаем"/>

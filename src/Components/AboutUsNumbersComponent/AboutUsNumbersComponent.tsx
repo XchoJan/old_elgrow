@@ -22,7 +22,7 @@ const AboutUsNumbersComponent = () => {
   }, [isSmallDesktop, isMobile]);
 
   return (
-      <div id='aboutUsNumbersComponent' className={styles.aboutUsNumbersComponent}>
+      <div style={{paddingTop: 30}} id='aboutUsNumbersComponent' className={styles.aboutUsNumbersComponent}>
         <Element name="aboutUsNumbersComponent"></Element>
         <div className={styles.container}>
           <div className={styles.mainContent}>

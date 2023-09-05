@@ -81,7 +81,7 @@ const AboutUsLetterComponent = () => {
 
 
   return (
-      <div id='aboutUsLetterComponent' ref={wrapperRef} className={styles.aboutUsLetterComponent}>
+      <div style={{paddingTop: 30}} id='aboutUsLetterComponent' ref={wrapperRef} className={styles.aboutUsLetterComponent}>
         <Element name="aboutUsLetterComponent"></Element>
         <div className={styles.container}>
           <div className={styles.title}>

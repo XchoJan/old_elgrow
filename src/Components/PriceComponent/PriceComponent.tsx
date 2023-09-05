@@ -7,7 +7,7 @@ const Element = Scroll.Element;
 
 const PriceComponent = () => {
   return (
-    <div id='priceComponent' className={styles.priceComponent}>
+    <div style={{paddingTop: 200}} id='priceComponent' className={styles.priceComponent}>
       <Element name="priceComponent"></Element>
       <div className={styles.title}>
         <TitleText text="Цены" />
