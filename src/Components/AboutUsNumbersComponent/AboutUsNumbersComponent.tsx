@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import styles from "../AboutUsNumbersComponent/AboutUsNumbersComponent.module.css";
 import Scroll from "react-scroll";
 import {useMediaQuery} from "react-responsive";
@@ -9,12 +9,12 @@ const stacks = ["React Native", "NodeJS", "Adobe AI", "PHP", "Swift", "Jira", "C
 const stacksMobile = ["React Native", "NodeJS", "Adobe AI", "PHP", "Swift", "Jira", "C#", ".net", "React", "Flutter"];
 
 const AboutUsNumbersComponent = () => {
+
   const [hideOnSmallDesktop, setHideOnSmallDesktop] = useState(false);
   const [hideOnMobile, setHideOnMobile] = useState(false);
 
   const isSmallDesktop = useMediaQuery({query: "(min-width: 1223px)"});
   const isMobile = useMediaQuery({query: "(min-width: 767px)"});
-
 
   useEffect(() => {
     setHideOnSmallDesktop(isSmallDesktop);
@@ -22,7 +22,7 @@ const AboutUsNumbersComponent = () => {
   }, [isSmallDesktop, isMobile]);
 
   return (
-      <div className={styles.aboutUsNumbersComponent}>
+      <div id='aboutUsNumbersComponent' className={styles.aboutUsNumbersComponent}>
         <Element name="aboutUsNumbersComponent"></Element>
         <div className={styles.container}>
           <div className={styles.mainContent}>

@@ -55,8 +55,8 @@ const MainPage: NextPage = () => {
       router.push('/brief').then(() => setIsLoading(false));
     } else if (router.asPath === '/politic') {
       router.push('/politic').then(() => setIsLoading(false));
-    } else if (router.asPath === '/mobilePage') {
-      router.push('/mobilePage').then(() => setIsLoading(false));
+    } else if (router.asPath === '/mobile-page') {
+      router.push('/mobile-page').then(() => setIsLoading(false));
     } else if (router.asPath === '/nouBrand') {
       router.push('/nouBrand').then(() => setIsLoading(false));
     } else if (router.asPath === '/portfolio') {
@@ -1029,7 +1029,7 @@ const MainPage: NextPage = () => {
                           </h1>
                         </div>
                       </div>
-                    
+
                       <div className="team_slider-inner_bootom_right">
                         <div className="team_slider-inner_bootom_right_nameAndPost">
                           <h1>Роман Адигезалов</h1>
@@ -1064,7 +1064,7 @@ const MainPage: NextPage = () => {
                           </h1>
                         </div>
                       </div>
-                    
+
                       <div className="team_slider-inner_bootom_right">
                         <div className="team_slider-inner_bootom_right_nameAndPost">
                           <h1>Роман Адигезалов</h1>
@@ -1099,7 +1099,7 @@ const MainPage: NextPage = () => {
                           </h1>
                         </div>
                       </div>
-                   
+
                       <div className="team_slider-inner_bootom_right">
                         <div className="team_slider-inner_bootom_right_nameAndPost">
                           <h1>Роман Адигезалов</h1>

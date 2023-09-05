@@ -81,11 +81,8 @@ const AboutUsLetterComponent = () => {
 
 
   return (
-      <div ref={wrapperRef} className={styles.aboutUsLetterComponent}>
+      <div id='aboutUsLetterComponent' ref={wrapperRef} className={styles.aboutUsLetterComponent}>
         <Element name="aboutUsLetterComponent"></Element>
-        {/*{!hideOnMobile && <div className={styles.animateButtonBlock}>*/}
-        {/*  <AnimateButtonWithLogo/>*/}
-        {/*</div>}*/}
         <div className={styles.container}>
           <div className={styles.title}>
             <TitleText text="О нас в буквах"/>

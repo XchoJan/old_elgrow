@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {Link as ScrollLink} from "react-scroll";
-import styles from "./HeaderMobileComponent.module.css";
+import styles from "./HeaderMobileComponentBrief.module.css";
 import Logo from "../Logo/Logo";
 import {useMediaQuery} from "react-responsive";
-import MobileMenu from "../MobileMenu/MobileMenu";
 import CallBackMenu from "../CallBackMenu";
 import Link from "next/link";
+import MobileMenuBrief from "../../Components/MobileMenuBrief/MobileMenuBrief";
 
 const navButtons = [
   {title: "О нас в цифрах", value: "aboutUsNumbersComponent"}, {
@@ -19,7 +18,7 @@ const navButtons = [
     value: "priceComponent"
   }];
 
-const HeaderMobileComponent = () => {
+const HeaderMobileComponentBrief = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
   const [hideOnMobile, setHideOnMobile] = useState(false);
@@ -29,6 +28,15 @@ const HeaderMobileComponent = () => {
   const is1224px = useMediaQuery({query: "(min-width: 1300px)"});
 
   const isMobile = useMediaQuery({query: "(min-width: 1024px)"});
+
+  // const scrollToTarget = (path: string) => {
+  //   console.log('path', path);
+  //   const targetElement = document.getElementById('aboutUsNumbersComponent');
+  //   console.log('targetElement', targetElement);
+  //   if (targetElement) {
+  //     targetElement.scrollIntoView({ behavior: 'smooth' });
+  //   }
+  // };
 
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
@@ -57,21 +65,32 @@ const HeaderMobileComponent = () => {
               isOpen={isVisibleCallbackMenu}
               close={setVisibleCallbackMenu}
           />
-          <MobileMenu isOpen={showMenu} close={setShowMenu}/>
+          <MobileMenuBrief isOpen={showMenu} close={setShowMenu}/>
           <Logo showLogo={showNavbar}/>
+          {/*{hide1224px && <div className={!showNavbar ? styles.active : styles.navMenu}>*/}
+          {/*  {navButtons.map((btn, index) => {*/}
+          {/*    return <ScrollLink*/}
+          {/*        key={index}*/}
+          {/*        offset={-70}*/}
+          {/*        to={btn.value}*/}
+          {/*        spy={true}*/}
+          {/*        smooth={true}*/}
+          {/*        duration={150}*/}
+          {/*        className={styles.navBtn}*/}
+          {/*    >*/}
+          {/*      {btn.title}*/}
+          {/*    </ScrollLink>*/}
+          {/*  })}*/}
+          {/*</div>}*/}
           {hide1224px && <div className={!showNavbar ? styles.active : styles.navMenu}>
             {navButtons.map((btn, index) => {
-              return <ScrollLink
+              return <Link
                   key={index}
-                  offset={-70}
-                  to={btn.value}
-                  spy={true}
-                  smooth={true}
-                  duration={150}
+                  href={`/mobilePage#${btn.value}`}
                   className={styles.navBtn}
-              >
+               >
                 {btn.title}
-              </ScrollLink>
+              </Link>
             })}
           </div>}
           {hide1224px ? <div
@@ -155,4 +174,4 @@ const HeaderMobileComponent = () => {
   );
 };
 
-export default HeaderMobileComponent;
+export default HeaderMobileComponentBrief;

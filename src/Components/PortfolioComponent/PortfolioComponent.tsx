@@ -24,7 +24,7 @@ const PortfolioComponent = () => {
   }, [is1025px, is769px, is391px]);
 
   return (
-      <div className={styles.portfolioComponent}>
+      <div id='portfolioComponent' className={styles.portfolioComponent}>
         <Element name="portfolioComponent"></Element>
         <div className={styles.container}>
           <div className={styles.title}>

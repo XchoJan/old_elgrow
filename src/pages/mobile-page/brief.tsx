@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useForm, useWatch, useFieldArray } from 'react-hook-form';
-import { Store as notification } from 'react-notifications-component';
-import axios from 'axios';
+import React, {useEffect, useState} from "react";
+import {useFieldArray, useForm, useWatch} from "react-hook-form";
+import {Store as notification} from "react-notifications-component";
+import axios from "axios";
 import Input from "../../Components/Input";
-import HeaderMobileComponent
-  from "../../Components/HeaderMobileComponent/HeaderMobileComponent";
+import HeaderMobileComponentBrief
+  from "../../Components/HeaderMobileComponentBrief/HeaderMobileComponentBrief";
 
 const brief = () => {
   const [max, setMax]: any = useState(0);
@@ -206,8 +206,7 @@ const brief = () => {
           position: 'fixed',
         }}
       >
-        {/*<Header />*/}
-        <HeaderMobileComponent/>
+        <HeaderMobileComponentBrief/>
       </div>
       <form onSubmit={sendForm}>
         <div className="briefContent">

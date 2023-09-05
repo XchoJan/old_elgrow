@@ -18,7 +18,7 @@ const BecomeClientComponent = () => {
   }, [isMobile]);
 
   return (
-      <div className={styles.becomeClientComponent}>
+      <div id='becomeClientComponent' className={styles.becomeClientComponent}>
         <Element name="becomeClientComponent"></Element>
         <CallBackMenu
             y="0"
