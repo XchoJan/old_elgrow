@@ -5,6 +5,7 @@ import axios from "axios";
 import Input from "../../Components/Input";
 import HeaderMobileComponentBrief
   from "../../Components/HeaderMobileComponentBrief/HeaderMobileComponentBrief";
+import {useRouter} from "next/router";
 
 const brief = () => {
   const [max, setMax]: any = useState(0);
@@ -176,6 +177,8 @@ const brief = () => {
     },
   };
 
+  const router = useRouter()
+
   const sendForm = handleSubmit(async (dataForm) => {
     const response = await axios.post(
       'https://outstaff-server.elgrow.ru/api/brief',
@@ -193,6 +196,7 @@ const brief = () => {
         data: null,
       });
     }
+    router.push('/mobilePage')
   });
 
   return (

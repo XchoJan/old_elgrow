@@ -50,9 +50,8 @@ const Input: React.FC<InputProps> = ({
               </>
           ) : (
               <>
-                {/* Используем InputMask для добавления маски */}
                 <InputMask
-                    mask="+7 (999) 999 99 99"
+                    mask="+9 (999) 999 99 99"
                     maskChar="_"
                     {...reactHookForm}
                     type={type}
