@@ -1,5 +1,6 @@
 import React, {FC} from "react";
 import styles from "./Logo.module.css";
+import Link from "next/link";
 
 export type LogoPropsType = {
   isLightMode?: boolean
@@ -8,12 +9,12 @@ export type LogoPropsType = {
 
 const Logo: FC<LogoPropsType> = ({isLightMode, showLogo}) => {
   return (
-      <div className={!showLogo ? styles.active : styles.logoContainer}>
+      <Link href={'/mobilePage'} className={!showLogo ? styles.active : styles.logoContainer}>
         <div className={styles.logo}
              style={isLightMode ? {color: "#FFF"} : {color: "#424D5E"}}>
           e<span className={`${styles.logo} ${styles.letterL}`}>l</span>grow.
         </div>
-      </div>
+      </Link>
   );
 };
 

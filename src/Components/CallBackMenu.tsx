@@ -3,8 +3,9 @@ import React, {Dispatch, SetStateAction, useEffect, useState} from "react";
 import Input from "./Input";
 import {useRouter} from "next/router";
 import {useForm, useWatch} from "react-hook-form";
-import {Store as notification} from "react-notifications-component";
+import PhoneInput from "../Components/PhoneInput";
 import axios from "axios";
+import { Store as notification } from 'react-notifications-component';
 
 interface Props {
   isOpen: boolean;
@@ -106,8 +107,13 @@ const CallBackMenu: React.FC<Props> = ({
   };
 
   const sendForm = handleSubmit(async (dataForm) => {
+
+    const formattedNumber = `+${dataForm.phone.replace(/\D/g, '')}`;
+
+    const formattedDataForm = {...dataForm, phone:formattedNumber }
+
     const response = await axios.post(
-        "https://outstaff-server.elgrow.ru/api/elgrow", dataForm,
+        "https://outstaff-server.elgrow.ru/api/elgrow", formattedDataForm,
     );
     if (response.status !== 200) {
       notification.addNotification({
@@ -174,12 +180,12 @@ const CallBackMenu: React.FC<Props> = ({
                   />
                 </motion.div>
                 <motion.div animate={isOpen ? "open" : "closed"}>
-                  <Input
-                          type="number"
-                         reactHookForm={{...register("phone", {required: true, valueAsNumber: true})}}
-                         alignItems="center"
-                         textarea={false}
-                         placeholder="Номер телефона"
+                  <PhoneInput
+                      placeholder="Номер телефона"
+                      type="text"
+                      alignItems="center"
+                      textarea={false}
+                      reactHookForm={{...register("phone", {required: true})}}
                   />
                 </motion.div>
                 <motion.div animate={isOpen ? "open" : "closed"}>

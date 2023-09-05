@@ -49,6 +49,7 @@
     "@types/node": "18.11.18",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
+    "@types/react-input-mask": "^3.0.2",
     "@types/react-lazy-load-image-component": "^1.5.2",
     "@types/react-router-hash-link": "^2.4.5",
     "babel-loader": "^9.1.0",

@@ -5,6 +5,7 @@ import Logo from "../Logo/Logo";
 import {useMediaQuery} from "react-responsive";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import CallBackMenu from "../CallBackMenu";
+import Link from "next/link";
 
 const navButtons = [
   {title: "О нас в цифрах", value: "aboutUsNumbersComponent"}, {
@@ -81,6 +82,11 @@ const HeaderMobileComponent = () => {
               Обратный звонок
             </div>}
             {hideOnMobile && <>
+              {/*<Link href={'/mobilePage/brief'}*/}
+              {/*    className={styles.navBtnUnderline}*/}
+              {/*>*/}
+              {/*  Заполнить бриф*/}
+              {/*</Link>*/}
               <div
                   className={styles.navBtnUnderline} onClick={() => setVisibleCallbackMenu(true)}
               >
