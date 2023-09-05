@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import {useFieldArray, useForm, useWatch} from "react-hook-form";
 import {Store as notification} from "react-notifications-component";
 import axios from "axios";
-import Input from "../../Components/Input";
+import Input from "@components/Input";
 import HeaderMobileComponentBrief
-  from "../../Components/HeaderMobileComponentBrief/HeaderMobileComponentBrief";
+  from "@components/HeaderMobileComponentBrief/HeaderMobileComponentBrief";
 import {useRouter} from "next/router";
 
 const brief = () => {

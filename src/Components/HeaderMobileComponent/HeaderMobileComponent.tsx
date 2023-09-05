@@ -83,7 +83,7 @@ const HeaderMobileComponent = () => {
                   Обратный звонок
                 </div>}
                 {hideOnMobile && <>
-                  <Link href={"/mobilePage/brief"}
+                  <Link href={"/mobile-page/brief"}
                         className={styles.navBtnUnderline}
                   >
                     Заполнить бриф
@@ -117,7 +117,7 @@ const HeaderMobileComponent = () => {
               <div
                   className={styles.activeContactsBlock}>
                 {!hide1224px && <>
-                  <Link href={"/mobilePage/brief"}
+                  <Link href={"/mobile-page/brief"}
                                         className={styles.navBtnUnderline}
                 >
                   Заполнить бриф
