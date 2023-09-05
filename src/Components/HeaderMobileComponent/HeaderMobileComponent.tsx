@@ -83,17 +83,17 @@ const HeaderMobileComponent = () => {
                   Обратный звонок
                 </div>}
                 {hideOnMobile && <>
-                  <Link href={"/mobile-page/brief"}
-                        className={styles.navBtnUnderline}
-                  >
-                    Заполнить бриф
-                  </Link>
                   <div
                       className={styles.navBtnUnderline}
                       onClick={() => setVisibleCallbackMenu(true)}
                   >
                     Обратный звонок
                   </div>
+                  <Link href={"/mobile-page/brief"} target={'_blank'}
+                        className={styles.navBtnUnderline}
+                  >
+                    Заполнить бриф
+                  </Link>
                   <div className={styles.tgBlock}>
                     <img className={styles.tgIcon} src="/images/telegram-small1440.svg"
                          alt=""/>
@@ -117,16 +117,17 @@ const HeaderMobileComponent = () => {
               <div
                   className={styles.activeContactsBlock}>
                 {!hide1224px && <>
-                  <Link href={"/mobile-page/brief"}
-                                        className={styles.navBtnUnderline}
-                >
-                  Заполнить бриф
-                </Link>
                   <div onClick={() => setVisibleCallbackMenu(true)}
                        className={styles.navBtnUnderline}
                   >
                     Обратный звонок
                   </div>
+                  <Link href={"/mobile-page/brief"}
+                        className={styles.navBtnUnderline}
+                        target={'_blank'}
+                  >
+                    Заполнить бриф
+                  </Link>
                 </>}
                 {hideOnMobile && <>
                   <div className={styles.tgBlock}>
