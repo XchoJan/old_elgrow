@@ -1,6 +1,5 @@
 import {motion} from "framer-motion";
 import React, {Dispatch, SetStateAction, useEffect, useState} from "react";
-import {Link as ScrollLink} from "react-scroll";
 import styles from "./MobileMenuBrief.module.css";
 import CallBackMenu from "../CallBackMenu";
 import Link from "next/link";
@@ -57,85 +56,30 @@ const MobileMenuBrief: React.FC<Props> = ({isOpen, close}) => {
           </motion.div>
         </motion.div>
         <motion.div className="menuContent">
-          {/*<Link delay={700}*/}
-          {/*      onClick={() => close(false)}*/}
-          {/*      to="aboutUsNumbersComponent"*/}
-          {/*      spy={true}*/}
-          {/*      smooth={true}*/}
-          {/*      duration={500} offset={-70}*/}
-          {/*      className={styles.navBtn}*/}
-          {/*>*/}
-          {/*  О нас в цифрах*/}
-          {/*</Link>*/}
           <Link
               href='/mobilePage#aboutUsNumbersComponent'
               className={styles.navBtn}
           >
             О нас в цифрах
           </Link>
-          {/*<Link delay={700}*/}
-          {/*      onClick={() => close(false)}*/}
-          {/*      to="aboutUsLetterComponent"*/}
-          {/*      spy={true}*/}
-          {/*      smooth={true}*/}
-          {/*      duration={500}*/}
-          {/*      offset={-50}*/}
-          {/*      className={styles.navBtn}*/}
-          {/*>*/}
-          {/*  О нас в буквах*/}
-          {/*</Link>*/}
           <Link
               href='/mobilePage#aboutUsLetterComponent'
               className={styles.navBtn}
           >
             О нас в буквах
           </Link>
-          {/*<Link*/}
-          {/*    delay={700}*/}
-          {/*    onClick={() => close(false)}*/}
-          {/*    to="portfolioComponent"*/}
-          {/*    spy={true}*/}
-          {/*    smooth={true}*/}
-          {/*    duration={500}*/}
-          {/*    offset={-70}*/}
-          {/*    className={styles.navBtn}*/}
-          {/*>*/}
-          {/*  Портфолио*/}
-          {/*</Link>*/}
           <Link
               href='/mobilePage#portfolioComponent'
               className={styles.navBtn}
           >
             Портфолио
           </Link>
-          {/*<Link delay={700}*/}
-          {/*      onClick={() => close(false)}*/}
-          {/*      to="howWeWorkComponent"*/}
-          {/*      spy={true}*/}
-          {/*      smooth={true}*/}
-          {/*      duration={500}*/}
-          {/*      offset={-70}*/}
-          {/*      className={styles.navBtn}*/}
-          {/*>*/}
-          {/*  Как мы работаем*/}
-          {/*</Link>*/}
           <Link
               href='/mobilePage#howWeWorkComponent'
               className={styles.navBtn}
           >
             Как мы работаем
           </Link>
-          {/*<Link delay={700}*/}
-          {/*      onClick={() => close(false)}*/}
-          {/*      to="priceComponent"*/}
-          {/*      spy={true}*/}
-          {/*      smooth={true}*/}
-          {/*      duration={500}*/}
-          {/*      offset={-70}*/}
-          {/*      className={styles.navBtn}*/}
-          {/*>*/}
-          {/*  Цены*/}
-          {/*</Link>*/}
           <Link
               href='/mobilePage#priceComponent'
               className={styles.navBtn}
