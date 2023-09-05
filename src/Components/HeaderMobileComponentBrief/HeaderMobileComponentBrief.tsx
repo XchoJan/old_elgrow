@@ -29,15 +29,6 @@ const HeaderMobileComponentBrief = () => {
 
   const isMobile = useMediaQuery({query: "(min-width: 1024px)"});
 
-  // const scrollToTarget = (path: string) => {
-  //   console.log('path', path);
-  //   const targetElement = document.getElementById('aboutUsNumbersComponent');
-  //   console.log('targetElement', targetElement);
-  //   if (targetElement) {
-  //     targetElement.scrollIntoView({ behavior: 'smooth' });
-  //   }
-  // };
-
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
     setShowNavbar(scrollPosition < 100);
@@ -67,52 +58,38 @@ const HeaderMobileComponentBrief = () => {
           />
           <MobileMenuBrief isOpen={showMenu} close={setShowMenu}/>
           <Logo showLogo={showNavbar}/>
-          {/*{hide1224px && <div className={!showNavbar ? styles.active : styles.navMenu}>*/}
-          {/*  {navButtons.map((btn, index) => {*/}
-          {/*    return <ScrollLink*/}
-          {/*        key={index}*/}
-          {/*        offset={-70}*/}
-          {/*        to={btn.value}*/}
-          {/*        spy={true}*/}
-          {/*        smooth={true}*/}
-          {/*        duration={150}*/}
-          {/*        className={styles.navBtn}*/}
-          {/*    >*/}
-          {/*      {btn.title}*/}
-          {/*    </ScrollLink>*/}
-          {/*  })}*/}
-          {/*</div>}*/}
           {hide1224px && <div className={!showNavbar ? styles.active : styles.navMenu}>
             {navButtons.map((btn, index) => {
               return <Link
                   key={index}
                   href={`/mobilePage#${btn.value}`}
                   className={styles.navBtn}
-               >
+              >
                 {btn.title}
-              </Link>
+              </Link>;
             })}
           </div>}
           {hide1224px ? <div
                   className={!showNavbar ? styles.activeContactsBlock : styles.contactsBlock}>
-                {!hide1224px && <div
-                    className={styles.navBtnUnderline}
-                    onClick={() => setVisibleCallbackMenu(true)}
-                >
-                  Обратный звонок
-                </div>}
-                {hideOnMobile && <>
-                  <Link href={"/mobile-page/brief"}
+                {!hide1224px &&
+                    <div
                         className={styles.navBtnUnderline}
-                  >
-                    Заполнить бриф
-                  </Link>
+                        onClick={() => setVisibleCallbackMenu(true)}
+                    >
+                      Обратный звонок
+                    </div>}
+                {hideOnMobile && <>
                   <div
                       className={styles.navBtnUnderline}
                       onClick={() => setVisibleCallbackMenu(true)}
                   >
                     Обратный звонок
                   </div>
+                  <Link href={"/mobile-page/brief"} target={'_blank'}
+                        className={styles.navBtnUnderline}
+                  >
+                    Заполнить бриф
+                  </Link>
                   <div className={styles.tgBlock}>
                     <img className={styles.tgIcon} src="/images/telegram-small1440.svg"
                          alt=""/>
@@ -136,16 +113,17 @@ const HeaderMobileComponentBrief = () => {
               <div
                   className={styles.activeContactsBlock}>
                 {!hide1224px && <>
-                  <Link href={"/mobile-page/brief"}
-                                        className={styles.navBtnUnderline}
-                >
-                  Заполнить бриф
-                </Link>
                   <div onClick={() => setVisibleCallbackMenu(true)}
                        className={styles.navBtnUnderline}
                   >
                     Обратный звонок
                   </div>
+                  <Link href={"/mobile-page/brief"}
+                        className={styles.navBtnUnderline}
+                        target={'_blank'}
+                  >
+                    Заполнить бриф
+                  </Link>
                 </>}
                 {hideOnMobile && <>
                   <div className={styles.tgBlock}>

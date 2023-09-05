@@ -1,27 +1,21 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Pagination, Virtual, EffectFade } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/mousewheel';
-import 'swiper/css/pagination';
-import 'swiper/css/virtual';
-import 'swiper/css/effect-fade';
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Pagination, Virtual} from "swiper";
+import "swiper/css";
+import "swiper/css/mousewheel";
+import "swiper/css/pagination";
+import "swiper/css/virtual";
+import "swiper/css/effect-fade";
 
-import Header from '../Components/Header';
+import Header from "../Components/Header";
 
-import Footer from '../Components/Footer';
-import CallBackMenu from '../Components/CallBackMenu';
-import { useState, useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import ScrollTriggerInstanceVars from 'gsap/ScrollTrigger';
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useTransform,
-} from 'framer-motion';
-import { useRouter } from 'next/router';
-import { GetServerSideProps, NextPage } from 'next/types';
+import Footer from "../Components/Footer";
+import CallBackMenu from "../Components/CallBackMenu";
+import {useEffect, useRef, useState} from "react";
+import gsap from "gsap";
+import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+import {AnimatePresence, motion, useScroll, useTransform,} from "framer-motion";
+import {useRouter} from "next/router";
+import {NextPage} from "next/types";
 
 gsap.registerPlugin(ScrollTrigger);
 
