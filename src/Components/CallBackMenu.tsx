@@ -114,23 +114,23 @@ const CallBackMenu: React.FC<Props> = ({
 
     console.log('formattedDataForm', formattedDataForm);
 
-    // const response = await axios.post(
-    //     "https://outstaff-server.elgrow.ru/api/elgrow", formattedDataForm,
-    // );
-    // if (response.status !== 200) {
-    //   notification.addNotification({
-    //     ...notificationOptionsError,
-    //   });
-    // } else {
-    //   notification.addNotification({
-    //     ...notificationOptionsSuccess,
-    //   });
-    //   setValue("money", ""),
-    //       setValue("name", ""),
-    //       setValue("company", ""),
-    //       setValue("phone", ""),
-    //       setValue("comment", "");
-    // }
+    const response = await axios.post(
+        "https://outstaff-server.elgrow.ru/api/elgrow", formattedDataForm,
+    );
+    if (response.status !== 200) {
+      notification.addNotification({
+        ...notificationOptionsError,
+      });
+    } else {
+      notification.addNotification({
+        ...notificationOptionsSuccess,
+      });
+      setValue("money", ""),
+          setValue("name", ""),
+          setValue("company", ""),
+          setValue("phone", ""),
+          setValue("comment", "");
+    }
   });
 
   return (
