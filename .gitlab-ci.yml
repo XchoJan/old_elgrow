@@ -2,22 +2,16 @@ variables:
   DOCKER_FILE_LOCATION: .
   PROJECT_NAME: new_elgrow
   DEVELOP_DOCKER_STACK_FILE: ./cicd/docker-stack.develop.yml
-#  TEST_DOCKER_STACK_FILE: ./cicd/docker-stack.test.yml
-#  MAIN_DOCKER_STACK_FILE: ./cicd/docker-stack.main.yml
 
 stages:
-#  - build_project
   - make_image
   - deploy_image
   - clean
 
 include:
   - project: 'templates/cicd-templates'
-    ref: v2.0.0
+    ref: v2.0.2
     file:
-#      - 'build_project.yml'
       - 'make_docker_image.yml'
       - 'deploy_to_develop.yml'
-      #      - 'deploy_to_test.yml'
-      #      - 'deploy_to_main.yml'
       - 'clean.yml'

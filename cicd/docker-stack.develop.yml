@@ -1,6 +1,26 @@
 version: '3.3'
 services:
   app:
-    image: ${REGISTER_USER}/${PROJECT_NAME}:${CI_COMMIT_TAG}${CI_COMMIT_SHORT_SHA}
+    image: ${REGISTER_USER}/${PROJECT_NAME}:${CI_COMMIT_SHORT_SHA}
+    container_name: new_elgrow_develop
     ports:
-      - "7777:3000"
+      - "7777:80"
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik
+      - traefik.http.routers.new_elgrow-http.entrypoints=http
+      - traefik.http.routers.new_elgrow-http.rule=Host(`elgrow.devcontour.ru`)
+      - traefik.http.routers.new_elgrow-http.middlewares=new_elgrow-https
+      - traefik.http.middlewares.new_elgrow-https.redirectscheme.scheme=https
+      - traefik.http.routers.new_elgrow.entrypoints=https
+      - traefik.http.routers.new_elgrow.tls.certresolver=myresolver
+      - traefik.http.routers.new_elgrow.rule=Host(`elgrow.devcontour.ru`)
+      - traefik.http.routers.new_elgrow.tls=true
+      - traefik.services.new_elgrow.loadbalancer.server.port=7777
+    networks:
+      - traefik
+    restart: always
+
+networks:
+  traefik:
+    external: true
