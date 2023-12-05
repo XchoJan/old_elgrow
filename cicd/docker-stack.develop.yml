@@ -9,12 +9,12 @@ services:
       - traefik.enable=true
       - traefik.docker.network=traefik
       - traefik.http.routers.new_elgrow-http.entrypoints=http
-      - traefik.http.routers.new_elgrow-http.rule=Host(`web.elgrow.devcontour.ru`)
+      - traefik.http.routers.new_elgrow-http.rule=Host(`elgrow.devcontour.ru`)
       - traefik.http.routers.new_elgrow-http.middlewares=new_elgrow-https
       - traefik.http.middlewares.new_elgrow-https.redirectscheme.scheme=https
       - traefik.http.routers.new_elgrow.entrypoints=https
       - traefik.http.routers.new_elgrow.tls.certresolver=myresolver
-      - traefik.http.routers.new_elgrow.rule=Host(`web.elgrow.devcontour.ru`)
+      - traefik.http.routers.new_elgrow.rule=Host(`elgrow.devcontour.ru`)
       - traefik.http.routers.new_elgrow.tls=true
       - traefik.services.new_elgrow.loadbalancer.server.port=7777
     networks:
