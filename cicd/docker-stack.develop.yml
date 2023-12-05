@@ -4,7 +4,7 @@ services:
     image: ${REGISTER_USER}/${PROJECT_NAME}:${CI_COMMIT_SHORT_SHA}
     container_name: new_elgrow_develop
     ports:
-      - "7777:80"
+      - "7777:3000"
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik
