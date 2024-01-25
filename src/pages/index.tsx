@@ -17,11 +17,13 @@ import {AnimatePresence, motion, useScroll, useTransform,} from "framer-motion";
 import {useRouter} from "next/router";
 import {NextPage} from "next/types";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger); 
 
 const MainPage: NextPage = () => {
   let viewportWidth: any = 0;
   let viewportHeight: any = 0;
+
+  console.log('qwezxc');
 
   if (typeof window !== 'undefined') {
     viewportWidth = window?.visualViewport?.width;
