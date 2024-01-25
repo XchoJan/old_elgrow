@@ -38,7 +38,7 @@ const MainPage: NextPage = () => {
   const y1 = useTransform(
     scrollY,
     [0, 400],
-    [0, viewportWidth > 560 ? 410 : viewportHeight / 3],
+    [0, viewportWidth > 560 ? 450 : viewportHeight / 3],
   );
 
   const [isLoading, setIsLoading] = useState(true);
