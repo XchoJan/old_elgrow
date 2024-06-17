@@ -120,7 +120,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
               // }}
               className="contacts_addresses_adress_phone"
             >
-              +7 495 109 90 49
+              +7 495 118 93 56
             </motion.div>
             <motion.div
               // animate={isOpen ? 'open' : 'closed'}
@@ -186,7 +186,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
               // }}
               className="contacts_addresses_adress_phone"
             >
-              +7 343 302 90 49
+              +7 922 152 15 63
             </motion.div>
             <motion.div
               // animate={isOpen ? 'open' : 'closed'}
@@ -252,7 +252,7 @@ const Contacts: React.FC<Props> = ({ isOpen, close, childFromMenu }) => {
               // }}
               className="contacts_addresses_adress_phone"
             >
-              +7 812 209 90 49
+              +7 812 309 13 61
             </motion.div>
             <motion.div
               // animate={isOpen ? 'open' : 'closed'}

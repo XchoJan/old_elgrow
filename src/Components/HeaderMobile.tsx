@@ -9,7 +9,7 @@ const HeaderMobile: React.FC<Props> = ({ setShowMenu }) => {
   const [max, setMax]: any = useState(0);
 
   useEffect(() => {
-    const screenWidth = window?.visualViewport?.width
+    const screenWidth = window?.visualViewport?.width;
     setMax(screenWidth);
   }, []);
 
@@ -73,7 +73,7 @@ const HeaderMobile: React.FC<Props> = ({ setShowMenu }) => {
             </div>
             <div>
               <a> +7 343 302 90 49 </a>
-            </div>{' '}
+            </div>
           </>
         )}
 
