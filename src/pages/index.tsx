@@ -16,8 +16,9 @@ import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {AnimatePresence, motion, useScroll, useTransform,} from "framer-motion";
 import {useRouter} from "next/router";
 import {NextPage} from "next/types";
+import MainServices from "../Components/MainServicesBox/MainServices";
 
-gsap.registerPlugin(ScrollTrigger); 
+gsap.registerPlugin(ScrollTrigger);
 
 const MainPage: NextPage = () => {
   let viewportWidth: any = 0;
@@ -380,113 +381,113 @@ const MainPage: NextPage = () => {
           </div>
           <section className="tabs">
             <div className="tabs_container">
-              <div className="tabsNav"></div>
-              <CallBackMenu
-                y="0"
-                x="0"
-                isOpen={isVisibleCallbackMenu}
-                close={setVisibleCallbackMenu}
-              />
+              {/*<div className="tabsNav"></div>*/}
+              {/*<CallBackMenu*/}
+              {/*  y="0"*/}
+              {/*  x="0"*/}
+              {/*  isOpen={isVisibleCallbackMenu}*/}
+              {/*  close={setVisibleCallbackMenu}*/}
+              {/*/>*/}
               <div className="tabs__content">
-                <Swiper
-                  style={max > 560 ? { height: '800px' } : { height: '590px' }}
-                  modules={[Pagination, Virtual]}
-                  spaceBetween={50}
-                  slidesPerView={1}
-                  speed={1000}
-                  pagination={{
-                    el: '.tabsNav',
-                    type: 'bullets',
-                    clickable: true,
-                    bulletClass: 'tabsBtn',
-                    bulletActiveClass: 'tabsBtnActive',
-                    renderBullet: function (index, className) {
-                      return (
-                        '<span class="' +
-                        className +
-                        '">' +
-                        navigation[index] +
-                        '</span>'
-                      );
-                    },
-                  }}
-                >
-                  {navigationSlider.map((slide: any) => {
-                    return (
-                      <SwiperSlide>
-                        <div className="tabs__pane tabs__pane_show ">
-                          <div className="info_box">
-                            <div className="info_box_top">
-                              <div className="info_box_top_left">
-                                <span>{slide.maintext}</span>
-                              </div>
-                              <div
-                                style={
-                                  slide.price.cash === '1 800 ₽'
-                                    ? { gap: '17px' }
-                                    : {}
-                                }
-                                className="info_box_bottom_left"
-                              >
-                                {slide.price.cash === '1 800 ₽' && (
-                                  <span> NDA</span>
-                                )}
-                                {slide.images.map((image: string) => (
-                                  <div>
-                                    <img
-                                      style={
-                                        image === 'smile.svg' ||
-                                        image === 'OpenBank.png'
-                                          ? { paddingTop: '10px' }
-                                          : {}
-                                      }
-                                      src={`/images/${image}`}
-                                      alt=""
-                                    />
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                            <div className="info_box_bottom">
-                              <div className="info_box_top_right">
-                                <h3>
-                                  от <span>{slide.price.cash}</span> <br />
-                                  <p> {slide.price.time} </p>
-                                </h3>
-                              </div>
-                              <div className="info_box_bottom_right">
-                                <a onClick={() => setVisibleCallbackMenu(true)}>
-                                  <span> Подробнее </span>
-                                  <svg
-                                    width="41"
-                                    height="8"
-                                    viewBox="0 0 41 8"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path d="M40.3536 4.35355C40.5488 4.15829 40.5488 3.84171 40.3536 3.64645L37.1716 0.464466C36.9763 0.269204 36.6597 0.269204 36.4645 0.464466C36.2692 0.659728 36.2692 0.976311 36.4645 1.17157L39.2929 4L36.4645 6.82843C36.2692 7.02369 36.2692 7.34027 36.4645 7.53553C36.6597 7.7308 36.9763 7.7308 37.1716 7.53553L40.3536 4.35355ZM0 4.5H40V3.5H0V4.5Z" />
-                                  </svg>
-                                </a>
-                              </div>
-                            </div>
-                            <div className="info_box-tags">
-                              <h1 className="info_box_title">Теги:</h1>
-                              <h3 className="tags">
-                                {slide.tags.map((tag: string) => (
-                                  <div>
-                                    <span className="tags_lattice">#</span>
-                                    &nbsp;
-                                    <span>{tag}</span>
-                                    &nbsp;
-                                  </div>
-                                ))}
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                      </SwiperSlide>
-                    );
-                  })}
-                </Swiper>
+                {/*<Swiper*/}
+                {/*  style={max > 560 ? { height: '800px' } : { height: '590px' }}*/}
+                {/*  modules={[Pagination, Virtual]}*/}
+                {/*  spaceBetween={50}*/}
+                {/*  slidesPerView={1}*/}
+                {/*  speed={1000}*/}
+                {/*  pagination={{*/}
+                {/*    el: '.tabsNav',*/}
+                {/*    type: 'bullets',*/}
+                {/*    clickable: true,*/}
+                {/*    bulletClass: 'tabsBtn',*/}
+                {/*    bulletActiveClass: 'tabsBtnActive',*/}
+                {/*    renderBullet: function (index, className) {*/}
+                {/*      return (*/}
+                {/*        '<span class="' +*/}
+                {/*        className +*/}
+                {/*        '">' +*/}
+                {/*        navigation[index] +*/}
+                {/*        '</span>'*/}
+                {/*      );*/}
+                {/*    },*/}
+                {/*  }}*/}
+                {/*>*/}
+                  {/*{navigationSlider.map((slide: any) => {*/}
+                  {/*  return (*/}
+                  {/*    <SwiperSlide>*/}
+                  {/*      <div className="tabs__pane tabs__pane_show ">*/}
+                  {/*        <div className="info_box">*/}
+                  {/*          <div className="info_box_top">*/}
+                  {/*            <div className="info_box_top_left">*/}
+                  {/*              <span>{slide.maintext}</span>*/}
+                  {/*            </div>*/}
+                  {/*            <div*/}
+                  {/*              style={*/}
+                  {/*                slide.price.cash === '1 800 ₽'*/}
+                  {/*                  ? { gap: '17px' }*/}
+                  {/*                  : {}*/}
+                  {/*              }*/}
+                  {/*              className="info_box_bottom_left"*/}
+                  {/*            >*/}
+                  {/*              {slide.price.cash === '1 800 ₽' && (*/}
+                  {/*                <span> NDA</span>*/}
+                  {/*              )}*/}
+                  {/*              {slide.images.map((image: string) => (*/}
+                  {/*                <div>*/}
+                  {/*                  <img*/}
+                  {/*                    style={*/}
+                  {/*                      image === 'smile.svg' ||*/}
+                  {/*                      image === 'OpenBank.png'*/}
+                  {/*                        ? { paddingTop: '10px' }*/}
+                  {/*                        : {}*/}
+                  {/*                    }*/}
+                  {/*                    src={`/images/${image}`}*/}
+                  {/*                    alt=""*/}
+                  {/*                  />*/}
+                  {/*                </div>*/}
+                  {/*              ))}*/}
+                  {/*            </div>*/}
+                  {/*          </div>*/}
+                  {/*          <div className="info_box_bottom">*/}
+                  {/*            <div className="info_box_top_right">*/}
+                  {/*              <h3>*/}
+                  {/*                от <span>{slide.price.cash}</span> <br />*/}
+                  {/*                <p> {slide.price.time} </p>*/}
+                  {/*              </h3>*/}
+                  {/*            </div>*/}
+                  {/*            <div className="info_box_bottom_right">*/}
+                  {/*              <a onClick={() => setVisibleCallbackMenu(true)}>*/}
+                  {/*                <span> Подробнее </span>*/}
+                  {/*                <svg*/}
+                  {/*                  width="41"*/}
+                  {/*                  height="8"*/}
+                  {/*                  viewBox="0 0 41 8"*/}
+                  {/*                  xmlns="http://www.w3.org/2000/svg"*/}
+                  {/*                >*/}
+                  {/*                  <path d="M40.3536 4.35355C40.5488 4.15829 40.5488 3.84171 40.3536 3.64645L37.1716 0.464466C36.9763 0.269204 36.6597 0.269204 36.4645 0.464466C36.2692 0.659728 36.2692 0.976311 36.4645 1.17157L39.2929 4L36.4645 6.82843C36.2692 7.02369 36.2692 7.34027 36.4645 7.53553C36.6597 7.7308 36.9763 7.7308 37.1716 7.53553L40.3536 4.35355ZM0 4.5H40V3.5H0V4.5Z" />*/}
+                  {/*                </svg>*/}
+                  {/*              </a>*/}
+                  {/*            </div>*/}
+                  {/*          </div>*/}
+                  {/*          <div className="info_box-tags">*/}
+                  {/*            <h1 className="info_box_title">Теги:</h1>*/}
+                  {/*            <h3 className="tags">*/}
+                  {/*              {slide.tags.map((tag: string) => (*/}
+                  {/*                <div>*/}
+                  {/*                  <span className="tags_lattice">#</span>*/}
+                  {/*                  &nbsp;*/}
+                  {/*                  <span>{tag}</span>*/}
+                  {/*                  &nbsp;*/}
+                  {/*                </div>*/}
+                  {/*              ))}*/}
+                  {/*            </h3>*/}
+                  {/*          </div>*/}
+                  {/*        </div>*/}
+                  {/*      </div>*/}
+                  {/*    </SwiperSlide>*/}
+                  {/*  );*/}
+                  {/*})}*/}
+                {/*</Swiper>*/}
               </div>
               <div
                 ref={wrapperRef}
@@ -1120,6 +1121,13 @@ const MainPage: NextPage = () => {
         </div> */}
             </div>
           </section>
+
+          <div>
+            <MainServices/>
+          </div>
+
+
+
           <div className="portfolio">
             <div
               onClick={() => router.push('/portfolio')}
@@ -1142,17 +1150,17 @@ const MainPage: NextPage = () => {
             <div className="container">
               <div className="carusel_inner">
                 <div className="carusel_top">
-                  <span>2023</span>
+                  <span>2024</span>
                   <div
-                    onClick={() => router.push('/aviationTrainingCenter')}
+                    onClick={() => router.push('./cowberry-detail-page/cowberry-detail')}
                     className="carusel_top_banner"
                   >
-                    <div className="carusel_banner_words">
-                      <h1>
-                        Найди свое идеальное место для парковки возле себя, не
-                        выходя из машины
-                      </h1>
-                    </div>
+                    {/*<div className="carusel_banner_words">*/}
+                    {/*  <h1>*/}
+                    {/*    Найди свое идеальное место для парковки возле себя, не*/}
+                    {/*    выходя из машины*/}
+                    {/*  </h1>*/}
+                    {/*</div>*/}
                     <div
                       style={{ display: 'none' }}
                       className="cases_box_green"
@@ -1160,12 +1168,11 @@ const MainPage: NextPage = () => {
                       <p>Смотреть</p>
                     </div>
                     <div className="carusel_top_banner_image1">
-                      <img src="/images/phone_banner.jpg" alt="" />{' '}
+                      <img className="carousel_image_new" src="/images/main-cowberry.png" alt="" />{' '}
                     </div>
                   </div>
-                  <h3 onClick={() => router.push('/aviationTrainingCenter')}>
-                    Мобильное приложение по управлению {max > 560 && <br />}
-                    парковками {max <= 560 && <br />} аэропорта
+                  <h3 onClick={() => router.push('./cowberry-detail-page/cowberry-detail')}>
+                    Брусника
                   </h3>
                   <a onClick={() => router.push('/portfolio')}>
                     <p>Все кейсы</p>
@@ -1184,22 +1191,20 @@ const MainPage: NextPage = () => {
                   <span>2023</span>
 
                   <div
-                    onClick={() => router.push('/nouBrand')}
+                    onClick={() => router.push('./vtb-detail-page/vtb-detail')}
                     className="carusel_bottom_banner"
                   >
-                    <div className="carusel_bottom_banner_words">
-                      <h1>
-                        Интернет-магазин брендовой <br />
-                        женской одежды
-                      </h1>
-                    </div>
+                    {/*<div className="carusel_bottom_banner_words">*/}
+                    {/*  <h1>*/}
+                    {/*    ВТБ*/}
+                    {/*  </h1>*/}
+                    {/*</div>*/}
                     <div className="carusel_bottom_banner_image2">
-                      <img src="/images/main.png" alt="" />
+                      <img className="carousel_image_new" src="/images/vtb-img.png" alt="" />
                     </div>
 
                     <h2>
-                      Интернет-магазин бренда женской {max > 560 && <br />}
-                      одежды NOU
+                      ВТБ
                     </h2>
                   </div>
                 </div>

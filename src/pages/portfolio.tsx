@@ -1,1542 +1,1961 @@
 import Header from '../Components/Header';
 import Menu from '../Components/Menu';
-import React, { useRef, SetStateAction, useState, useEffect } from 'react';
+import React, {useRef, SetStateAction, useState, useEffect} from 'react';
 import CallBackMenu from 'src/Components/CallBackMenu';
-import { Link, animateScroll as scroll } from 'react-scroll';
-import { useRouter } from 'next/router';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import {Link, animateScroll as scroll} from 'react-scroll';
+import {useRouter} from 'next/router';
+import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Portfolio = () => {
-  const [isSticky, setIsSticky] = useState(false);
-  const [topOffset, setTopOffset] = useState(0);
-  const [showMenu, setShowMenu] = useState(false);
-  const [activeNav, setActiveNav] = useState('');
-  const router = useRouter();
-  const navContainer = useRef(null);
+    const [isSticky, setIsSticky] = useState(false);
+    const [topOffset, setTopOffset] = useState(0);
+    const [showMenu, setShowMenu] = useState(false);
+    const [activeNav, setActiveNav] = useState('');
+    const router = useRouter();
+    const navContainer = useRef(null);
 
-  const [max, setMax]: any = useState(0);
+    const [max, setMax]: any = useState(0);
 
-  const navItems = [
-    { id: '2023' },
-    { id: '2022' },
-    { id: '2021' },
-    { id: '2020' },
-    { id: '2019' },
-    { id: '2018' },
-    { id: '2017' },
-  ];
+    const navItems = [
+        {id: '2024'},
+        {id: '2023'},
+        {id: '2022'},
+        {id: '2021'},
+        {id: '2020'},
+        {id: '2019'},
+        {id: '2018'},
+        {id: '2017'}
+    ];
 
-  useEffect(() => {
-    setMax(window?.visualViewport?.width);
-  }, []);
+    useEffect(() => {
+        setMax(window?.visualViewport?.width);
+    }, []);
 
-  function getCurrentBlock() {
-    let currentBlock = navItems[0];
-    navItems.forEach((navItem) => {
-      const block = document.getElementById(navItem.id);
-      const blockTop = block!?.getBoundingClientRect().top;
-      if (blockTop < window.innerHeight / 2) {
-        currentBlock = navItem;
-      }
-    });
-    return currentBlock;
-  }
-
-  function setActiveNavItem() {
-    const currentBlock = getCurrentBlock();
-    setActiveNav(currentBlock.id);
-    const navContainerForScroll = document?.querySelector('#nav3');
-    if (max <= 560) {
-      const containerRect: any = navContainerForScroll?.getBoundingClientRect();
-      const elementRect: any = document
-        ?.querySelector('.portfolio_year_active')
-        ?.getBoundingClientRect();
-
-      if (elementRect?.right < containerRect?.right) {
-        navContainerForScroll!.scrollLeft =
-          elementRect.right -
-          containerRect.right +
-          navContainerForScroll!.scrollLeft;
-      } else if (elementRect?.left > containerRect?.left) {
-        navContainerForScroll!.scrollLeft =
-          elementRect.left -
-          containerRect.left +
-          navContainerForScroll!.scrollLeft;
-        console.log(navContainerForScroll!.scrollLeft);
-      }
+    function getCurrentBlock() {
+        let currentBlock = navItems[0];
+        navItems.forEach((navItem) => {
+            const block = document.getElementById(navItem.id);
+            const blockTop = block!?.getBoundingClientRect().top;
+            if (blockTop < window.innerHeight / 2) {
+                currentBlock = navItem;
+            }
+        });
+        return currentBlock;
     }
-  }
 
-  const handleScroll = () => {
-    const element: any = document.querySelector('#nav');
-    const { top } = element?.getBoundingClientRect();
+    function setActiveNavItem() {
+        const currentBlock = getCurrentBlock();
+        setActiveNav(currentBlock.id);
+        const navContainerForScroll = document?.querySelector('#nav3');
+        if (max <= 560) {
+            const containerRect: any = navContainerForScroll?.getBoundingClientRect();
+            const elementRect: any = document
+                ?.querySelector('.portfolio_year_active')
+                ?.getBoundingClientRect();
 
-    setIsSticky(top <= topOffset);
-  };
+            if (elementRect?.right < containerRect?.right) {
+                navContainerForScroll!.scrollLeft =
+                    elementRect.right -
+                    containerRect.right +
+                    navContainerForScroll!.scrollLeft;
+            } else if (elementRect?.left > containerRect?.left) {
+                navContainerForScroll!.scrollLeft =
+                    elementRect.left -
+                    containerRect.left +
+                    navContainerForScroll!.scrollLeft;
+                console.log(navContainerForScroll!.scrollLeft);
+            }
+        }
+    }
 
-  useEffect(() => {
-    const element: any = document.querySelector('#nav');
-    const data = element?.getBoundingClientRect();
-    setTopOffset(element?.offsetTop);
+    const handleScroll = () => {
+        const element: any = document.querySelector('#nav');
+        const {top} = element?.getBoundingClientRect();
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
+        setIsSticky(top <= topOffset);
     };
-  }, []);
 
-  useEffect(() => {
-    window.addEventListener('scroll', setActiveNavItem);
-    return () => window.removeEventListener('scroll', setActiveNavItem);
-  }, []);
+    useEffect(() => {
+        const element: any = document.querySelector('#nav');
+        const data = element?.getBoundingClientRect();
+        setTopOffset(element?.offsetTop);
 
-  return (
-    <div id="mainContainer">
-      <Header />
-      <Menu isOpen={showMenu} close={setShowMenu} />
-      <div className="portfolio_main">
-        <div className="portfolio_main_title">
-          <h1>Портфолио</h1>
-        </div>
-        <div className="portfolio_main_text">
-          <h3>
-            Еще оформляем, но обо всех кейсах <br />
-            можем рассказать лично
-          </h3>
-        </div>
-        <div className="logoImage">
-          <img src="/images/portfolioLogo.png" alt="" />
-        </div>
-        <div id={navItems[0].id} className="projects2023">
-          <div className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    // onClick={() => router.push('/nouBrand')}
-                    placeholderSrc={'/images/vtb.png'}
-                    effect="blur"
-                    src={'/images/vtb.png'}
-                    alt=""
-                  />
-                  <span className="nda"> NDA 😞 </span>
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    useEffect(() => {
+        window.addEventListener('scroll', setActiveNavItem);
+        return () => window.removeEventListener('scroll', setActiveNavItem);
+    }, []);
+
+
+    return (
+        <div id="mainContainer">
+            <Header/>
+            <Menu isOpen={showMenu} close={setShowMenu}/>
+            <div className="portfolio_main">
+                <div className="portfolio_main_title">
+                    <h1>Портфолио</h1>
                 </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">ВТБ</span>
-                    <span className="projectTitle">NDA</span>
-                  </div>
-                  <span className="projectYear">2021-2023</span>
+                <div className="portfolio_main_text">
+                    <h3>
+                        Еще оформляем, но обо всех кейсах <br/>
+                        можем рассказать лично
+                    </h3>
                 </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">NDA</span>
-                  </div>
-                  <span className="projectYear"> 2021-2023</span>
+                <div className="logoImage">
+                    <img src="/images/portfolioLogo.png" alt=""/>
                 </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/vtb.png'}
-                    effect="blur"
-                    src={'/images/vtb.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">ВТБ</span>
-              </>
-            )}
-          </div>
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/statusStroy.png'}
-                    effect="blur"
-                    src={'/images/statusStroy.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                    <span className="projectTitle">
-                      Мобильное приложение по покупке
-                      <br /> товаров для стройки и ремонта
+                <div id={navItems[0].id} className="projects2024">
+                    <div className="NOUproject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        onClick={() => router.push('./cowberry-detail-page/cowberry-detail')}
+                                        placeholderSrc={'/images/cowberry.png'}
+                                        effect="blur"
+                                        src={'/images/cowberry.png'}
+                                        alt=""
+                                    />
+                                    <span className="nda"> </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">Брусника</span>
+                                        {/*<span className="projectTitle">NDA</span>*/}
+                                    </div>
+                                    <span className="projectYear">2024</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">NDA</span>
+                                    </div>
+                                    <span className="projectYear"> 2021-2023</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        onClick={() => router.push('./cowberry-detail-page/cowberry-detail')}
+                                        placeholderSrc={'/images/cowberry.png'}
+                                        effect="blur"
+                                        src={'/images/cowberry.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">Брусника</span>
+                            </>
+                        )}
+                    </div>
+                    <div className="AUZProject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/ego.png'}
+                                        effect="blur"
+                                        src={'/images/ego.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">веб-сервис и мобильное приложение</span>
+                                        <span className="projectTitle">
+                      EGO
                     </span>
-                  </div>
-                  <span className="projectYear"> 2023</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                  </div>
-                  <span className="projectYear"> 2023</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/statusStroy.png'}
-                    effect="blur"
-                    src={'/images/statusStroy.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
+                                    </div>
+                                    <span className="projectYear"> 2024</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                    </div>
+                                    <span className="projectYear"> 2024</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/ego.png'}
+                                        effect="blur"
+                                        src={'/images/ego.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
                   Мобильное приложение по покупке
-                  <br /> товаров для стройки и ремонта
+                  <br/> товаров для стройки и ремонта
                 </span>
-              </>
-            )}
-          </div>
-          <div className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="available"
-                    onClick={() => router.push('/nouBrand')}
-                    placeholderSrc={'/images/NOULogo.png'}
-                    effect="blur"
-                    src={'/images/NOULogo.png'}
-                    alt=""
-                  />
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">e-commerce сайт</span>
-                    <span className="projectTitle">
-                      Интернет-магазин брендовой женской
-                      <br /> одежды
+                            </>
+                        )}
+                    </div>
+
+                    <div className="NOUproject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="available"
+                                        // onClick={() => router.push('/nouBrand')}
+                                        placeholderSrc={'/images/sparkle.png'}
+                                        effect="blur"
+                                        src={'/images/sparkle.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                      <span className="projectType">
+                        веб-сервис и мобильное приложение
+                      </span>
+                                        <span className="projectTitle">
+                        Sparkle
                     </span>
-                  </div>
-                  <span className="projectYear">2023</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">e-commerce сайт</span>
-                  </div>
-                  <span className="projectYear">2023</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/nouBrand')}
-                    placeholderSrc={'/images/NOULogo.png'}
-                    effect="blur"
-                    src={'/images/NOULogo.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
+                                    </div>
+                                    <span className="projectYear">2024</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">веб-сервис и мобильное приложение </span>
+                                    </div>
+                                    <span className="projectYear">2024</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        // onClick={() => router.push('/nouBrand')}
+                                        placeholderSrc={'/images/sparkle.png'}
+                                        effect="blur"
+                                        src={'/images/sparkle.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
+                 Sparkle
+                </span>
+                            </>
+                        )}
+                    </div>
+
+
+                    <div className="AUZProject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/okoola.png'}
+                                        effect="blur"
+                                        src={'/images/okoola.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">веб-сервис и мобильное приложение</span>
+                                        <span className="projectTitle">
+                      EGO
+                    </span>
+                                    </div>
+                                    <span className="projectYear"> 2024</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                    </div>
+                                    <span className="projectYear"> 2024</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/okoola.png'}
+                                        effect="blur"
+                                        src={'/images/okoola.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
+                  Мобильное приложение по покупке
+                  <br/> товаров для стройки и ремонта
+                </span>
+                            </>
+                        )}
+                    </div>
+
+                    <div className="NOUproject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="available"
+                                        // onClick={() => router.push('/nouBrand')}
+                                        placeholderSrc={'/images/special-ret.png'}
+                                        effect="blur"
+                                        src={'/images/special-ret.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                      <span className="projectType">
+                        веб - сервис
+                      </span>
+                                        <span className="projectTitle">
+                        Спецаренда
+                    </span>
+                                    </div>
+                                    <span className="projectYear">2024</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">веб - сервис</span>
+                                    </div>
+                                    <span className="projectYear">2024</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        // onClick={() => router.push('/nouBrand')}
+                                        placeholderSrc={'/images/special-ret.png'}
+                                        effect="blur"
+                                        src={'/images/special-ret.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
+                 Спецаренда
+                </span>
+                            </>
+                        )}
+                    </div>
+
+
+                    <div className="AUZProject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        onClick={() => router.push('./vtb-detail-page/vtb-detail')}
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/vtb-img.png'}
+                                        effect="blur"
+                                        src={'/images/vtb-img.png'}
+                                        alt=""
+                                    />
+                                    {/*<span className="processing">Еще заполняем </span>*/}
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">ВТБ</span>
+                                        <span className="projectTitle">
+                      NDA
+                    </span>
+                                    </div>
+                                    <span className="projectYear">2021-2023</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">ВТБ</span>
+                                    </div>
+                                    <span className="projectYear">2021-2023</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        onClick={() => router.push('./vtb-detail-page/vtb-detail')}
+                                        placeholderSrc={'/images/vtb-img.png'}
+                                        effect="blur"
+                                        src={'/images/vtb-img.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
+                  Мобильное приложение по покупке
+                  <br/> товаров для стройки и ремонта
+                </span>
+                            </>
+                        )}
+                    </div>
+
+
+                    <div className="NOUproject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="available"
+                                        // onClick={() => router.push('/nouBrand')}
+                                        placeholderSrc={'/images/airplant.png'}
+                                        effect="blur"
+                                        src={'/images/airplant.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                      <span className="projectType">
+                      разработка ПО
+                      </span>
+                                        <span className="projectTitle">
+                        Система обслуживания воздушных судов
+                    </span>
+                                    </div>
+                                    <span className="projectYear">2023</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">разработка ПО</span>
+                                    </div>
+                                    <span className="projectYear">2024</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        // onClick={() => router.push('/nouBrand')}
+                                        placeholderSrc={'/images/airplant.png'}
+                                        effect="blur"
+                                        src={'/images/airplant.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
+                  Система обслуживания воздушных судов
+                </span>
+                            </>
+                        )}
+                    </div>
+                    <div id={navItems[1].id} className="projects2023">
+                        <div className="AUZProject">
+                            {max > 560 ? (
+                                <>
+                                    <div className="imgContainer">
+                                        <LazyLoadImage
+                                            className="available"
+                                            onClick={() => router.push('/nouBrand')}
+                                            placeholderSrc={'/images/NOULogo.png'}
+                                            effect="blur"
+                                            src={'/images/NOULogo.png'}
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div className="description">
+                                        <div className="descriptionContainer">
+                                            <span className="projectType">e-commerce сайт</span>
+                                            <span className="projectTitle">
+                      Интернет-магазин брендовой женской
+                      <br/> одежды
+                    </span>
+                                        </div>
+                                        <span className="projectYear">2023</span>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="description">
+                                        <div className="descriptionContainer">
+                                            <span className="projectType">e-commerce сайт</span>
+                                        </div>
+                                        <span className="projectYear">2023</span>
+                                    </div>
+                                    <div className="imgContainer">
+                                        <LazyLoadImage
+                                            onClick={() => router.push('/nouBrand')}
+                                            placeholderSrc={'/images/NOULogo.png'}
+                                            effect="blur"
+                                            src={'/images/NOULogo.png'}
+                                            alt=""
+                                        />
+                                    </div>
+                                    <span className="projectTitle">
                   Интернет-магазин брендовой женской одежды
                 </span>
-              </>
-            )}
-          </div>
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/utg.png'}
-                    effect="blur"
-                    src={'/images/utg.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">веб-сайт</span>
-                    <span className="projectTitle">
+                                </>
+                            )}
+                        </div>
+
+
+                        <div className="NOUproject">
+                            {max > 560 ? (
+                                <>
+                                    <div className="imgContainer">
+                                        <LazyLoadImage
+                                            className="ndaImg"
+                                            placeholderSrc={'/images/utg.png'}
+                                            effect="blur"
+                                            src={'/images/utg.png'}
+                                            alt=""
+                                        />
+                                        <span className="processing">Еще заполняем </span>
+                                    </div>
+                                    <div className="description">
+                                        <div className="descriptionContainer">
+                                            <span className="projectType">веб-сайт</span>
+                                            <span className="projectTitle">
                       Разработка корпоративного сайта для
-                      <br /> UTG PA
+                      <br/> UTG PA
                     </span>
-                  </div>
-                  <span className="projectYear"> 2023</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">веб-сайт</span>
-                  </div>
-                  <span className="projectYear"> 2023</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/utg.png'}
-                    effect="blur"
-                    src={'/images/utg.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
+                                        </div>
+                                        <span className="projectYear"> 2023</span>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="description">
+                                        <div className="descriptionContainer">
+                                            <span className="projectType">веб-сайт</span>
+                                        </div>
+                                        <span className="projectYear"> 2023</span>
+                                    </div>
+                                    <div className="imgContainer">
+                                        <LazyLoadImage
+                                            placeholderSrc={'/images/utg.png'}
+                                            effect="blur"
+                                            src={'/images/utg.png'}
+                                            alt=""
+                                        />
+                                    </div>
+                                    <span className="projectTitle">
                   Разработка корпоративного сайта для UTG PA
                 </span>
-              </>
-            )}
-          </div>
-        </div>
-        <div id={navItems[1].id} className="projects2022">
-          <div className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="available"
-                    onClick={() => router.push('/aviationTrainingCenter')}
-                    placeholderSrc={'/images/portfolioAUZ.png'}
-                    effect="blur"
-                    src={'/images/portfolioAUZ.png'}
-                    alt=""
-                  />
+                                </>
+                            )}
+                        </div>
+                    </div>
+
+                    {/*<div className="NOUproject">*/}
+                    {/*    {max > 560 ? (*/}
+                    {/*        <>*/}
+                    {/*            <div className="imgContainer">*/}
+                    {/*                <LazyLoadImage*/}
+                    {/*                    className="ndaImg"*/}
+                    {/*                    // onClick={() => router.push('/nouBrand')}*/}
+                    {/*                    placeholderSrc={'/images/vtb.png'}*/}
+                    {/*                    effect="blur"*/}
+                    {/*                    src={'/images/vtb.png'}*/}
+                    {/*                    alt=""*/}
+                    {/*                />*/}
+                    {/*                <span className="nda"> NDA 😞 </span>*/}
+                    {/*            </div>*/}
+                    {/*            <div className="description">*/}
+                    {/*                <div className="descriptionContainer">*/}
+                    {/*                    <span className="projectType">ВТБ</span>*/}
+                    {/*                    <span className="projectTitle">NDA</span>*/}
+                    {/*                </div>*/}
+                    {/*                <span className="projectYear">2021-2023</span>*/}
+                    {/*            </div>*/}
+                    {/*        </>*/}
+                    {/*    ) : (*/}
+                    {/*        <>*/}
+                    {/*            <div className="description">*/}
+                    {/*                <div className="descriptionContainer">*/}
+                    {/*                    <span className="projectType">NDA</span>*/}
+                    {/*                </div>*/}
+                    {/*                <span className="projectYear"> 2021-2023</span>*/}
+                    {/*            </div>*/}
+                    {/*            <div className="imgContainer">*/}
+                    {/*                <LazyLoadImage*/}
+                    {/*                    placeholderSrc={'/images/vtb.png'}*/}
+                    {/*                    effect="blur"*/}
+                    {/*                    src={'/images/vtb.png'}*/}
+                    {/*                    alt=""*/}
+                    {/*                />*/}
+                    {/*            </div>*/}
+                    {/*            <span className="projectTitle">ВТБ</span>*/}
+                    {/*        </>*/}
+                    {/*    )}*/}
+                    {/*</div>*/}
+                    {/*    <div className="AUZProject">*/}
+                    {/*        {max > 560 ? (*/}
+                    {/*            <>*/}
+                    {/*                <div className="imgContainer">*/}
+                    {/*                    <LazyLoadImage*/}
+                    {/*                        className="ndaImg"*/}
+                    {/*                        placeholderSrc={'/images/statusStroy.png'}*/}
+                    {/*                        effect="blur"*/}
+                    {/*                        src={'/images/statusStroy.png'}*/}
+                    {/*                        alt=""*/}
+                    {/*                    />*/}
+                    {/*                    <span className="processing">Еще заполняем </span>*/}
+                    {/*                </div>*/}
+                    {/*                <div className="description">*/}
+                    {/*                    <div className="descriptionContainer">*/}
+                    {/*                        <span className="projectType">мобильное приложение</span>*/}
+                    {/*                        <span className="projectTitle">*/}
+                    {/*      Мобильное приложение по покупке*/}
+                    {/*      <br/> товаров для стройки и ремонта*/}
+                    {/*    </span>*/}
+                    {/*                    </div>*/}
+                    {/*                    <span className="projectYear"> 2023</span>*/}
+                    {/*                </div>*/}
+                    {/*            </>*/}
+                    {/*        ) : (*/}
+                    {/*            <>*/}
+                    {/*                <div className="description">*/}
+                    {/*                    <div className="descriptionContainer">*/}
+                    {/*                        <span className="projectType">мобильное приложение</span>*/}
+                    {/*                    </div>*/}
+                    {/*                    <span className="projectYear"> 2023</span>*/}
+                    {/*                </div>*/}
+                    {/*                <div className="imgContainer">*/}
+                    {/*                    <LazyLoadImage*/}
+                    {/*                        placeholderSrc={'/images/statusStroy.png'}*/}
+                    {/*                        effect="blur"*/}
+                    {/*                        src={'/images/statusStroy.png'}*/}
+                    {/*                        alt=""*/}
+                    {/*                    />*/}
+                    {/*                </div>*/}
+                    {/*                <span className="projectTitle">*/}
+                    {/*  Мобильное приложение по покупке*/}
+                    {/*  <br/> товаров для стройки и ремонта*/}
+                    {/*</span>*/}
+                    {/*            </>*/}
+                    {/*        )}*/}
+                    {/*    </div>*/}
+
+                    {/*    <div className="AUZProject">*/}
+                    {/*        {max > 560 ? (*/}
+                    {/*            <>*/}
+                    {/*                <div className="imgContainer">*/}
+                    {/*                    <LazyLoadImage*/}
+                    {/*                        className="ndaImg"*/}
+                    {/*                        placeholderSrc={'/images/utg.png'}*/}
+                    {/*                        effect="blur"*/}
+                    {/*                        src={'/images/utg.png'}*/}
+                    {/*                        alt=""*/}
+                    {/*                    />*/}
+                    {/*                    <span className="processing">Еще заполняем </span>*/}
+                    {/*                </div>*/}
+                    {/*                <div className="description">*/}
+                    {/*                    <div className="descriptionContainer">*/}
+                    {/*                        <span className="projectType">веб-сайт</span>*/}
+                    {/*                        <span className="projectTitle">*/}
+                    {/*      Разработка корпоративного сайта для*/}
+                    {/*      <br/> UTG PA*/}
+                    {/*    </span>*/}
+                    {/*                    </div>*/}
+                    {/*                    <span className="projectYear"> 2023</span>*/}
+                    {/*                </div>*/}
+                    {/*            </>*/}
+                    {/*        ) : (*/}
+                    {/*            <>*/}
+                    {/*                <div className="description">*/}
+                    {/*                    <div className="descriptionContainer">*/}
+                    {/*                        <span className="projectType">веб-сайт</span>*/}
+                    {/*                    </div>*/}
+                    {/*                    <span className="projectYear"> 2023</span>*/}
+                    {/*                </div>*/}
+                    {/*                <div className="imgContainer">*/}
+                    {/*                    <LazyLoadImage*/}
+                    {/*                        placeholderSrc={'/images/utg.png'}*/}
+                    {/*                        effect="blur"*/}
+                    {/*                        src={'/images/utg.png'}*/}
+                    {/*                        alt=""*/}
+                    {/*                    />*/}
+                    {/*                </div>*/}
+                    {/*                <span className="projectTitle">*/}
+                    {/*  Разработка корпоративного сайта для UTG PA*/}
+                    {/*</span>*/}
+                    {/*            </>*/}
+                    {/*        )}*/}
+                    {/*    </div>*/}
                 </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType"> веб-сервис</span>
-                    <span className="projectTitle">
+                <div id={navItems[2].id} className="projects2022">
+                    <div className="AUZProject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="available"
+                                        onClick={() => router.push('/aviationTrainingCenter')}
+                                        placeholderSrc={'/images/portfolioAUZ.png'}
+                                        effect="blur"
+                                        src={'/images/portfolioAUZ.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType"> веб-сервис</span>
+                                        <span className="projectTitle">
                       Система обучения сотрудников
-                      <br />
+                      <br/>
                       оператора наземного обслуживания
-                      <br /> воздушных судов
+                      <br/> воздушных судов
                     </span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">веб-сервис</span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    onClick={() => router.push('/aviationTrainingCenter')}
-                    placeholderSrc={'/images/portfolioAUZ.png'}
-                    effect="blur"
-                    src={'/images/portfolioAUZ.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
+                                    </div>
+                                    <span className="projectYear"> 2022</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">веб-сервис</span>
+                                    </div>
+                                    <span className="projectYear"> 2022</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        onClick={() => router.push('/aviationTrainingCenter')}
+                                        placeholderSrc={'/images/portfolioAUZ.png'}
+                                        effect="blur"
+                                        src={'/images/portfolioAUZ.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
                   Система обучения сотрудников
-                  <br />
+                  <br/>
                   оператора наземного обслуживания
-                  <br /> воздушных судов
+                  <br/> воздушных судов
                 </span>
-              </>
-            )}
-          </div>
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/parking.png'}
-                    effect="blur"
-                    src={'/images/parking.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                    <span className="projectTitle">
+                            </>
+                        )}
+                    </div>
+                    <div className="NOUproject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/parking.png'}
+                                        effect="blur"
+                                        src={'/images/parking.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                        <span className="projectTitle">
                       Мобильное приложение по управлению
-                      <br /> парковками аэропорта
+                      <br/> парковками аэропорта
                     </span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/parking.png'}
-                    effect="blur"
-                    src={'/images/parking.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
+                                    </div>
+                                    <span className="projectYear"> 2022</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                    </div>
+                                    <span className="projectYear"> 2022</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/parking.png'}
+                                        effect="blur"
+                                        src={'/images/parking.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
                   Мобильное приложение по управлению
-                  <br /> парковками аэропорта
+                  <br/> парковками аэропорта
                 </span>
-              </>
-            )}
-          </div>
-          <div className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/vauchers.png'}
-                    effect="blur"
-                    src={'/images/vauchers.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
+                            </>
+                        )}
+                    </div>
+                    <div className="AUZProject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/vauchers.png'}
+                                        effect="blur"
+                                        src={'/images/vauchers.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
                     <span className="projectType">
                       веб-сервис и мобильное приложение
                     </span>
-                    <span className="projectTitle">
+                                        <span className="projectTitle">
                       Автоматизация предоставления услуг
-                      <br />
+                      <br/>
                       пассажирам при задержках авиарейсов и
-                      <br /> других сбойных ситуациях
+                      <br/> других сбойных ситуациях
                     </span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
+                                    </div>
+                                    <span className="projectYear"> 2022</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
                     <span className="projectType">
                       веб-сервис и мобильное приложение
                     </span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/vauchers.png'}
-                    effect="blur"
-                    src={'/images/vauchers.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
+                                    </div>
+                                    <span className="projectYear"> 2022</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/vauchers.png'}
+                                        effect="blur"
+                                        src={'/images/vauchers.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
                   Автоматизация предоставления услуг
-                  <br />
+                  <br/>
                   пассажирам при задержках авиарейсов и
-                  <br /> других сбойных ситуациях
+                  <br/> других сбойных ситуациях
                 </span>
-              </>
-            )}
-          </div>
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/srm.png'}
-                    effect="blur"
-                    src={'/images/srm.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
+                            </>
+                        )}
+                    </div>
+                    <div className="NOUproject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/srm.png'}
+                                        effect="blur"
+                                        src={'/images/srm.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
                     <span className="projectType">
                       SRM и мобильное приложение
                     </span>
-                    <span className="projectTitle">
+                                        <span className="projectTitle">
                       Автоматизация наземного обслуживания
-                      <br /> воздушных судов UTG
+                      <br/> воздушных судов UTG
                     </span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
+                                    </div>
+                                    <span className="projectYear"> 2022</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
                     <span className="projectType">
                       SRM и мобильное приложение
                     </span>
-                  </div>
-                  <span className="projectYear"> 2022</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/srm.png'}
-                    effect="blur"
-                    src={'/images/srm.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
+                                    </div>
+                                    <span className="projectYear"> 2022</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/srm.png'}
+                                        effect="blur"
+                                        src={'/images/srm.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
                   Автоматизация наземного обслуживания
-                  <br /> воздушных судов UTG
+                  <br/> воздушных судов UTG
                 </span>
-              </>
-            )}
-          </div>
-        </div>
-        <div id={navItems[2].id} className="projects2022">
-          <div className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/pogruzki.png'}
-                    effect="blur"
-                    src={'/images/pogruzki.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
+                            </>
+                        )}
+                    </div>
                 </div>
-                <div className="description">
-                  <div className="descriptionContainer">
+                <div id={navItems[3].id} className="projects2022">
+                    <div className="AUZProject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/pogruzki.png'}
+                                        effect="blur"
+                                        src={'/images/pogruzki.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
                     <span className="projectType">
                       веб и мобильное приложение
                     </span>
-                    <span className="projectTitle">
+                                        <span className="projectTitle">
                       Сервис грузовых и пассажирских
-                      <br />
+                      <br/>
                       перевозок
                     </span>
-                  </div>
-                  <span className="projectYear"> 2021</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
+                                    </div>
+                                    <span className="projectYear"> 2021</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
                     <span className="projectType">
                       веб-сервис и мобильное приложение
                     </span>
-                  </div>
-                  <span className="projectYear"> 2021</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/pogruzki.png'}
-                    effect="blur"
-                    src={'/images/pogruzki.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
+                                    </div>
+                                    <span className="projectYear"> 2021</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/pogruzki.png'}
+                                        effect="blur"
+                                        src={'/images/pogruzki.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
                   Сервис грузовых и пассажирских перевозок
                 </span>
-              </>
-            )}
-          </div>
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/beatme.png'}
-                    effect="blur"
-                    src={'/images/beatme.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                    <span className="projectTitle">
+                            </>
+                        )}
+                    </div>
+                    <div className="NOUproject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/beatme.png'}
+                                        effect="blur"
+                                        src={'/images/beatme.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                        <span className="projectTitle">
                       Beatme - стартап сервиса соревнований
                     </span>
-                  </div>
-                  <span className="projectYear"> 2021</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                  </div>
-                  <span className="projectYear"> 2021</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/beatme.png'}
-                    effect="blur"
-                    src={'/images/beatme.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
+                                    </div>
+                                    <span className="projectYear"> 2021</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                    </div>
+                                    <span className="projectYear"> 2021</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/beatme.png'}
+                                        effect="blur"
+                                        src={'/images/beatme.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
                   Beatme - стартап сервиса соревнований
                 </span>
-              </>
-            )}
-          </div>
-          <div className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/NespressoPort.png'}
-                    effect="blur"
-                    src={'/images/NespressoPort.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                    <span className="projectTitle">
+                            </>
+                        )}
+                    </div>
+                    <div className="AUZProject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/NespressoPort.png'}
+                                        effect="blur"
+                                        src={'/images/NespressoPort.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                        <span className="projectTitle">
                       Nespresso - федеральный дистрибьютор
-                      <br />
+                      <br/>
                       капсульных кофе-машин в США
                     </span>
-                  </div>
-                  <span className="projectYear"> 2021</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                  </div>
-                  <span className="projectYear"> 2021</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/NespressoPort.png'}
-                    effect="blur"
-                    src={'/images/NespressoPort.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
+                                    </div>
+                                    <span className="projectYear"> 2021</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                    </div>
+                                    <span className="projectYear"> 2021</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/NespressoPort.png'}
+                                        effect="blur"
+                                        src={'/images/NespressoPort.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
                   Nespresso - федеральный дистрибьютор
-                  <br />
+                  <br/>
                   капсульных кофе-машин в США
                 </span>
-              </>
-            )}
-          </div>
-        </div>
-        <div id={navItems[3].id} className="projects2022">
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/insignia.png'}
-                    effect="blur"
-                    src={'/images/insignia.png'}
-                    alt=""
-                  />
-                  <span className="nda"> NDA 😞 </span>
+                            </>
+                        )}
+                    </div>
                 </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">Insignia bank</span>
-                    <span className="projectTitle">NDA</span>
-                  </div>
-                  <span className="projectYear"> 2020</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">Insignia bank</span>
-                  </div>
-                  <span className="projectYear"> 2020</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/insignia.png'}
-                    effect="blur"
-                    src={'/images/insignia.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">NDA</span>
-              </>
-            )}
-          </div>
-          <div className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/OpenBankPort.png'}
-                    effect="blur"
-                    src={'/images/OpenBankPort.png'}
-                    alt=""
-                  />
-                  <span className="nda"> NDA 😞 </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">Банк Открытие</span>
-                    <span className="projectTitle">NDA</span>
-                  </div>
-                  <span className="projectYear"> 2020</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">Банк Открытие</span>
-                  </div>
-                  <span className="projectYear"> 2020</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/OpenBankPort.png'}
-                    effect="blur"
-                    src={'/images/OpenBankPort.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">NDA</span>
-              </>
-            )}
-          </div>
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/KFC.png'}
-                    effect="blur"
-                    src={'/images/KFC.png'}
-                    alt=""
-                  />
-                  <span className="nda"> NDA 😞 </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">KFC</span>
-                    <span className="projectTitle">NDA</span>
-                  </div>
-                  <span className="projectYear"> 2020</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">KFC</span>
-                  </div>
-                  <span className="projectYear"> 2020</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/KFC.png'}
-                    effect="blur"
-                    src={'/images/KFC.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">NDA</span>
-              </>
-            )}
-          </div>
-          <div className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/LuxxyPort.png'}
-                    effect="blur"
-                    src={'/images/LuxxyPort.png'}
-                    alt=""
-                  />
-                  <span className="nda"> NDA 😞 </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">Luxxy</span>
-                    <span className="projectTitle">NDA</span>
-                  </div>
-                  <span className="projectYear"> 2020</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">Luxxy</span>
-                  </div>
-                  <span className="projectYear"> 2020</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/LuxxyPort.png'}
-                    effect="blur"
-                    src={'/images/LuxxyPort.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">NDA</span>
-              </>
-            )}
-          </div>
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/federal.png'}
-                    effect="blur"
-                    src={'/images/federal.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
+                <div id={navItems[4].id} className="projects2022">
+                    <div className="NOUproject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/insignia.png'}
+                                        effect="blur"
+                                        src={'/images/insignia.png'}
+                                        alt=""
+                                    />
+                                    <span className="nda"> NDA 😞 </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">Insignia bank</span>
+                                        <span className="projectTitle">NDA</span>
+                                    </div>
+                                    <span className="projectYear"> 2020</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">Insignia bank</span>
+                                    </div>
+                                    <span className="projectYear"> 2020</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/insignia.png'}
+                                        effect="blur"
+                                        src={'/images/insignia.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">NDA</span>
+                            </>
+                        )}
+                    </div>
+                    <div className="AUZProject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/OpenBankPort.png'}
+                                        effect="blur"
+                                        src={'/images/OpenBankPort.png'}
+                                        alt=""
+                                    />
+                                    <span className="nda"> NDA 😞 </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">Банк Открытие</span>
+                                        <span className="projectTitle">NDA</span>
+                                    </div>
+                                    <span className="projectYear"> 2020</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">Банк Открытие</span>
+                                    </div>
+                                    <span className="projectYear"> 2020</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/OpenBankPort.png'}
+                                        effect="blur"
+                                        src={'/images/OpenBankPort.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">NDA</span>
+                            </>
+                        )}
+                    </div>
+                    <div className="NOUproject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/KFC.png'}
+                                        effect="blur"
+                                        src={'/images/KFC.png'}
+                                        alt=""
+                                    />
+                                    <span className="nda"> NDA 😞 </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">KFC</span>
+                                        <span className="projectTitle">NDA</span>
+                                    </div>
+                                    <span className="projectYear"> 2020</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">KFC</span>
+                                    </div>
+                                    <span className="projectYear"> 2020</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/KFC.png'}
+                                        effect="blur"
+                                        src={'/images/KFC.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">NDA</span>
+                            </>
+                        )}
+                    </div>
+                    <div className="AUZProject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/LuxxyPort.png'}
+                                        effect="blur"
+                                        src={'/images/LuxxyPort.png'}
+                                        alt=""
+                                    />
+                                    <span className="nda"> NDA 😞 </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">Luxxy</span>
+                                        <span className="projectTitle">NDA</span>
+                                    </div>
+                                    <span className="projectYear"> 2020</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">Luxxy</span>
+                                    </div>
+                                    <span className="projectYear"> 2020</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/LuxxyPort.png'}
+                                        effect="blur"
+                                        src={'/images/LuxxyPort.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">NDA</span>
+                            </>
+                        )}
+                    </div>
+                    <div className="NOUproject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/federal.png'}
+                                        effect="blur"
+                                        src={'/images/federal.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
                     <span className="projectType">
                       веб - сайт и мобильное приложение
                     </span>
-                    <span className="projectTitle">
-                      Тендерная система для федерального <br /> мобильного
+                                        <span className="projectTitle">
+                      Тендерная система для федерального <br/> мобильного
                       оператора
                     </span>
-                  </div>
-                  <span className="projectYear"> 2020</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
+                                    </div>
+                                    <span className="projectYear"> 2020</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
                     <span className="projectType">
                       веб - сайт и мобильное приложение
                     </span>
-                  </div>
-                  <span className="projectYear"> 2020</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/federal.png'}
-                    effect="blur"
-                    src={'/images/federal.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
-                  Тендерная система для федерального <br /> мобильного оператора
+                                    </div>
+                                    <span className="projectYear"> 2020</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/federal.png'}
+                                        effect="blur"
+                                        src={'/images/federal.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
+                  Тендерная система для федерального <br/> мобильного оператора
                 </span>
-              </>
-            )}
-          </div>
-        </div>
-        <div id={navItems[4].id} className="projects2022">
-          <div className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/mamado.png'}
-                    effect="blur"
-                    src={'/images/mamado.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
+                            </>
+                        )}
+                    </div>
                 </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                    <span className="projectTitle">
+                <div id={navItems[5].id} className="projects2022">
+                    <div className="AUZProject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/mamado.png'}
+                                        effect="blur"
+                                        src={'/images/mamado.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                        <span className="projectTitle">
                       разработка мобильного приложения
-                      <br /> Mamado
+                      <br/> Mamado
                     </span>
-                  </div>
-                  <span className="projectYear"> 2019</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                  </div>
-                  <span className="projectYear"> 2019</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/mamado.png'}
-                    effect="blur"
-                    src={'/images/mamado.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
+                                    </div>
+                                    <span className="projectYear"> 2019</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                    </div>
+                                    <span className="projectYear"> 2019</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/mamado.png'}
+                                        effect="blur"
+                                        src={'/images/mamado.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
                   разработка мобильного приложения
-                  <br /> Mamado
+                  <br/> Mamado
                 </span>
-              </>
-            )}
-          </div>
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/cleaning.png'}
-                    effect="blur"
-                    src={'/images/cleaning.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
+                            </>
+                        )}
+                    </div>
+                    <div className="NOUproject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/cleaning.png'}
+                                        effect="blur"
+                                        src={'/images/cleaning.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
                     <span className="projectType">
                       SRM и мобильное приложение
                     </span>
-                    <span className="projectTitle">Клининг-сервис Svoi</span>
-                  </div>
-                  <span className="projectYear"> 2019</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
+                                        <span className="projectTitle">Клининг-сервис Svoi</span>
+                                    </div>
+                                    <span className="projectYear"> 2019</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
                     <span className="projectType">
                       SRM и мобильное приложение
                     </span>
-                  </div>
-                  <span className="projectYear"> 2019</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/cleaning.png'}
-                    effect="blur"
-                    src={'/images/cleaning.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">Клининг-сервис Svoi</span>
-              </>
-            )}
-          </div>
-          <div className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/gudzone.png'}
-                    effect="blur"
-                    src={'/images/gudzone.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                    <span className="projectTitle">
-                      Gudzone - разработка мобильного <br /> приложения
+                                    </div>
+                                    <span className="projectYear"> 2019</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/cleaning.png'}
+                                        effect="blur"
+                                        src={'/images/cleaning.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">Клининг-сервис Svoi</span>
+                            </>
+                        )}
+                    </div>
+                    <div className="AUZProject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/gudzone.png'}
+                                        effect="blur"
+                                        src={'/images/gudzone.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                        <span className="projectTitle">
+                      Gudzone - разработка мобильного <br/> приложения
                     </span>
-                  </div>
-                  <span className="projectYear"> 2019</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                  </div>
-                  <span className="projectYear"> 2019</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/gudzone.png'}
-                    effect="blur"
-                    src={'/images/gudzone.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
-                  Gudzone - разработка мобильного <br /> приложения
+                                    </div>
+                                    <span className="projectYear"> 2019</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                    </div>
+                                    <span className="projectYear"> 2019</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/gudzone.png'}
+                                        effect="blur"
+                                        src={'/images/gudzone.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
+                  Gudzone - разработка мобильного <br/> приложения
                 </span>
-              </>
-            )}
-          </div>
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/megafon.png'}
-                    effect="blur"
-                    src={'/images/megafon.png'}
-                    alt=""
-                  />
-                  <span className="nda"> NDA 😞 </span>
+                            </>
+                        )}
+                    </div>
+                    <div className="NOUproject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/megafon.png'}
+                                        effect="blur"
+                                        src={'/images/megafon.png'}
+                                        alt=""
+                                    />
+                                    <span className="nda"> NDA 😞 </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">Мегафон Урал</span>
+                                        <span className="projectTitle">NDA</span>
+                                    </div>
+                                    <span className="projectYear"> 2019</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">Мегафон Урал</span>
+                                    </div>
+                                    <span className="projectYear"> 2019</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/megafon.png'}
+                                        effect="blur"
+                                        src={'/images/megafon.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">NDA</span>
+                            </>
+                        )}
+                    </div>
                 </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">Мегафон Урал</span>
-                    <span className="projectTitle">NDA</span>
-                  </div>
-                  <span className="projectYear"> 2019</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">Мегафон Урал</span>
-                  </div>
-                  <span className="projectYear"> 2019</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/megafon.png'}
-                    effect="blur"
-                    src={'/images/megafon.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">NDA</span>
-              </>
-            )}
-          </div>
-        </div>
-        <div id={navItems[5].id} className="projects2022">
-          <div className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/houses.png'}
-                    effect="blur"
-                    src={'/images/houses.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">SRM-сервис</span>
-                    <span className="projectTitle">
+                <div id={navItems[6].id} className="projects2022">
+                    <div className="AUZProject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/houses.png'}
+                                        effect="blur"
+                                        src={'/images/houses.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">SRM-сервис</span>
+                                        <span className="projectTitle">
                       Управление объектами недвижимости
                     </span>
-                  </div>
-                  <span className="projectYear"> 2018</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">SRM-сервис</span>
-                  </div>
-                  <span className="projectYear"> 2018</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/houses.png'}
-                    effect="blur"
-                    src={'/images/houses.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
+                                    </div>
+                                    <span className="projectYear"> 2018</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">SRM-сервис</span>
+                                    </div>
+                                    <span className="projectYear"> 2018</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/houses.png'}
+                                        effect="blur"
+                                        src={'/images/houses.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
                   Управление объектами недвижимости
                 </span>
-              </>
-            )}
-          </div>
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/cowabunga.png'}
-                    effect="blur"
-                    src={'/images/cowabunga.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                    <span className="projectTitle">
-                      Cowabunga - мобильное приложение для <br /> спортивного
+                            </>
+                        )}
+                    </div>
+                    <div className="NOUproject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/cowabunga.png'}
+                                        effect="blur"
+                                        src={'/images/cowabunga.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                        <span className="projectTitle">
+                      Cowabunga - мобильное приложение для <br/> спортивного
                       стартапа
                     </span>
-                  </div>
-                  <span className="projectYear"> 2018</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                  </div>
-                  <span className="projectYear"> 2018</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/cowabunga.png'}
-                    effect="blur"
-                    src={'/images/cowabunga.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
-                  Cowabunga - мобильное приложение для <br /> спортивного
+                                    </div>
+                                    <span className="projectYear"> 2018</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                    </div>
+                                    <span className="projectYear"> 2018</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/cowabunga.png'}
+                                        effect="blur"
+                                        src={'/images/cowabunga.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
+                  Cowabunga - мобильное приложение для <br/> спортивного
                   стартапа
                 </span>
-              </>
-            )}
-          </div>
-          <div className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/CoachApp.png'}
-                    effect="blur"
-                    src={'/images/CoachApp.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                    <span className="projectTitle">
-                      CoachApp - мобильное приложение для <br /> психологической
+                            </>
+                        )}
+                    </div>
+                    <div className="AUZProject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/CoachApp.png'}
+                                        effect="blur"
+                                        src={'/images/CoachApp.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                        <span className="projectTitle">
+                      CoachApp - мобильное приложение для <br/> психологической
                       помощи
                     </span>
-                  </div>
-                  <span className="projectYear"> 2018</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">мобильное приложение</span>
-                  </div>
-                  <span className="projectYear"> 2018</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/CoachApp.png'}
-                    effect="blur"
-                    src={'/images/CoachApp.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
-                  CoachApp - мобильное приложение для <br /> психологической
+                                    </div>
+                                    <span className="projectYear"> 2018</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">мобильное приложение</span>
+                                    </div>
+                                    <span className="projectYear"> 2018</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/CoachApp.png'}
+                                        effect="blur"
+                                        src={'/images/CoachApp.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
+                  CoachApp - мобильное приложение для <br/> психологической
                   помощи
                 </span>
-              </>
-            )}
-          </div>
-        </div>
-        <div id={navItems[6].id} className="projects2022">
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/management.png'}
-                    effect="blur"
-                    src={'/images/management.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
+                            </>
+                        )}
+                    </div>
                 </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">сайт и SRM</span>
-                    <span className="projectTitle">
-                      D&D Management - разработка сайта и <br /> SRM для УК
+                <div id={navItems[7].id} className="projects2022">
+                    <div className="NOUproject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/management.png'}
+                                        effect="blur"
+                                        src={'/images/management.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">сайт и SRM</span>
+                                        <span className="projectTitle">
+                      D&D Management - разработка сайта и <br/> SRM для УК
                       отелей
                     </span>
-                  </div>
-                  <span className="projectYear"> 2017</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">сайт и SRM</span>
-                  </div>
-                  <span className="projectYear"> 2017</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/management.png'}
-                    effect="blur"
-                    src={'/images/management.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
-                  D&D Management - разработка сайта и <br /> SRM для УК отелей
+                                    </div>
+                                    <span className="projectYear"> 2017</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">сайт и SRM</span>
+                                    </div>
+                                    <span className="projectYear"> 2017</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/management.png'}
+                                        effect="blur"
+                                        src={'/images/management.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
+                  D&D Management - разработка сайта и <br/> SRM для УК отелей
                 </span>
-              </>
-            )}
-          </div>
-          <div className="NOUproject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/tatTelekom.png'}
-                    effect="blur"
-                    src={'/images/tatTelekom.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
-                </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">веб-сервис</span>
-                    <span className="projectTitle">
-                      Разработка личного кабинета абонента <br />{' '}
-                      интернет-провайдера Тат Телеком
+                            </>
+                        )}
+                    </div>
+                    <div className="AUZProject">
+                        {max > 560 ? (
+                            <>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        className="ndaImg"
+                                        placeholderSrc={'/images/tatTelekom.png'}
+                                        effect="blur"
+                                        src={'/images/tatTelekom.png'}
+                                        alt=""
+                                    />
+                                    <span className="processing">Еще заполняем </span>
+                                </div>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">веб-сервис</span>
+                                        <span className="projectTitle">
+                      Разработка личного кабинета абонента <br/>{' '}
+                                            интернет-провайдера Тат Телеком
                     </span>
-                  </div>
-                  <span className="projectYear"> 2017</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">веб-сервис</span>
-                  </div>
-                  <span className="projectYear"> 2017</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/tatTelekom.png'}
-                    effect="blur"
-                    src={'/images/tatTelekom.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">
-                  Разработка личного кабинета абонента <br />
+                                    </div>
+                                    <span className="projectYear"> 2017</span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="description">
+                                    <div className="descriptionContainer">
+                                        <span className="projectType">веб-сервис</span>
+                                    </div>
+                                    <span className="projectYear"> 2017</span>
+                                </div>
+                                <div className="imgContainer">
+                                    <LazyLoadImage
+                                        placeholderSrc={'/images/tatTelekom.png'}
+                                        effect="blur"
+                                        src={'/images/tatTelekom.png'}
+                                        alt=""
+                                    />
+                                </div>
+                                <span className="projectTitle">
+                  Разработка личного кабинета абонента <br/>
                   интернет-провайдера Тат Телеком
                 </span>
-              </>
-            )}
-          </div>
-          <div className="AUZProject">
-            {max > 560 ? (
-              <>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    className="ndaImg"
-                    placeholderSrc={'/images/kinostudio.png'}
-                    effect="blur"
-                    src={'/images/kinostudio.png'}
-                    alt=""
-                  />
-                  <span className="processing">Еще заполняем </span>
+                            </>
+                        )}
+                    </div>
+                    {/*<div className="AUZProject">*/}
+                    {/*    {max > 560 ? (*/}
+                    {/*        <>*/}
+                    {/*            <div className="imgContainer">*/}
+                    {/*                <LazyLoadImage*/}
+                    {/*                    className="ndaImg"*/}
+                    {/*                    placeholderSrc={'/images/kinostudio.png'}*/}
+                    {/*                    effect="blur"*/}
+                    {/*                    src={'/images/kinostudio.png'}*/}
+                    {/*                    alt=""*/}
+                    {/*                />*/}
+                    {/*                <span className="processing">Еще заполняем </span>*/}
+                    {/*            </div>*/}
+                    {/*            <div className="description">*/}
+                    {/*                <div className="descriptionContainer">*/}
+                    {/*                    <span className="projectType">интернет-магазин</span>*/}
+                    {/*                    <span className="projectTitle">*/}
+                    {/*  Свердловская киностудия*/}
+                    {/*</span>*/}
+                    {/*                </div>*/}
+                    {/*                <span className="projectYear"> 2017</span>*/}
+                    {/*            </div>*/}
+                    {/*        </>*/}
+                    {/*    ) : (*/}
+                    {/*        <>*/}
+                    {/*            <div className="description">*/}
+                    {/*                <div className="descriptionContainer">*/}
+                    {/*                    <span className="projectType">интернет-магазин</span>*/}
+                    {/*                </div>*/}
+                    {/*                <span className="projectYear"> 2017</span>*/}
+                    {/*            </div>*/}
+                    {/*            <div className="imgContainer">*/}
+                    {/*                <LazyLoadImage*/}
+                    {/*                    placeholderSrc={'/images/kinostudio.png'}*/}
+                    {/*                    effect="blur"*/}
+                    {/*                    src={'/images/kinostudio.png'}*/}
+                    {/*                    alt=""*/}
+                    {/*                />*/}
+                    {/*            </div>*/}
+                    {/*            <span className="projectTitle">Свердловская киностудия</span>*/}
+                    {/*        </>*/}
+                    {/*    )}*/}
+                    {/*</div>*/}
                 </div>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">интернет-магазин</span>
-                    <span className="projectTitle">
-                      Свердловская киностудия
-                    </span>
-                  </div>
-                  <span className="projectYear"> 2017</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="description">
-                  <div className="descriptionContainer">
-                    <span className="projectType">интернет-магазин</span>
-                  </div>
-                  <span className="projectYear"> 2017</span>
-                </div>
-                <div className="imgContainer">
-                  <LazyLoadImage
-                    placeholderSrc={'/images/kinostudio.png'}
-                    effect="blur"
-                    src={'/images/kinostudio.png'}
-                    alt=""
-                  />
-                </div>
-                <span className="projectTitle">Свердловская киностудия</span>
-              </>
-            )}
-          </div>
-        </div>
-        <div id="nav" className="portfolio_pagination_container">
-          <div className="portfolio_pagination_content">
-            <Link
-              to="2023"
-              spy={true}
-              smooth={true}
-              duration={500}
-              offset={-100}
-              className={
-                activeNav === '2023'
-                  ? 'portfolio_year_active'
-                  : 'portfolio_year'
-              }
-            >
-              2023
-            </Link>
-            <Link
-              to="2022"
-              spy={true}
-              smooth={true}
-              duration={500}
-              offset={-100}
-              className={
-                activeNav === '2022'
-                  ? 'portfolio_year_active'
-                  : 'portfolio_year'
-              }
-            >
-              2022
-            </Link>
-            <Link
-              to="2021"
-              spy={true}
-              smooth={true}
-              duration={500}
-              offset={-100}
-              className={
-                activeNav === '2021'
-                  ? 'portfolio_year_active'
-                  : 'portfolio_year'
-              }
-            >
-              2021
-            </Link>
-            <Link
-              to="2020"
-              spy={true}
-              smooth={true}
-              duration={500}
-              offset={-100}
-              className={
-                activeNav === '2020'
-                  ? 'portfolio_year_active'
-                  : 'portfolio_year'
-              }
-            >
-              2020
-            </Link>
-            <Link
-              to="2019"
-              spy={true}
-              smooth={true}
-              duration={500}
-              offset={-100}
-              className={
-                activeNav === '2019'
-                  ? 'portfolio_year_active'
-                  : 'portfolio_year'
-              }
-            >
-              2019
-            </Link>
-            <Link
-              to="2018"
-              spy={true}
-              smooth={true}
-              duration={500}
-              offset={-100}
-              className={
-                activeNav === '2018'
-                  ? 'portfolio_year_active'
-                  : 'portfolio_year'
-              }
-            >
-              2018
-            </Link>
-            <Link
-              to="2017"
-              spy={true}
-              smooth={true}
-              duration={500}
-              offset={-100}
-              className={
-                activeNav === '2017'
-                  ? 'portfolio_year_active'
-                  : 'portfolio_year'
-              }
-            >
-              2017
-            </Link>
-          </div>
+                <div id="nav" className="portfolio_pagination_container">
+                    <div className="portfolio_pagination_content">
+                        <Link
+                            to="2024"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                            offset={-100}
+                            className={
+                                activeNav === '2024'
+                                    ? 'portfolio_year_active'
+                                    : 'portfolio_year'
+                            }
+                        >
+                            2024
+                        </Link>
+                        <Link
+                            to="2023"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                            offset={-100}
+                            className={
+                                activeNav === '2023'
+                                    ? 'portfolio_year_active'
+                                    : 'portfolio_year'
+                            }
+                        >
+                            2023
+                        </Link>
+                        <Link
+                            to="2022"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                            offset={-100}
+                            className={
+                                activeNav === '2022'
+                                    ? 'portfolio_year_active'
+                                    : 'portfolio_year'
+                            }
+                        >
+                            2022
+                        </Link>
+                        <Link
+                            to="2021"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                            offset={-100}
+                            className={
+                                activeNav === '2021'
+                                    ? 'portfolio_year_active'
+                                    : 'portfolio_year'
+                            }
+                        >
+                            2021
+                        </Link>
+                        <Link
+                            to="2020"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                            offset={-100}
+                            className={
+                                activeNav === '2020'
+                                    ? 'portfolio_year_active'
+                                    : 'portfolio_year'
+                            }
+                        >
+                            2020
+                        </Link>
+                        <Link
+                            to="2019"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                            offset={-100}
+                            className={
+                                activeNav === '2019'
+                                    ? 'portfolio_year_active'
+                                    : 'portfolio_year'
+                            }
+                        >
+                            2019
+                        </Link>
+                        <Link
+                            to="2018"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                            offset={-100}
+                            className={
+                                activeNav === '2018'
+                                    ? 'portfolio_year_active'
+                                    : 'portfolio_year'
+                            }
+                        >
+                            2018
+                        </Link>
+                        <Link
+                            to="2017"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                            offset={-100}
+                            className={
+                                activeNav === '2017'
+                                    ? 'portfolio_year_active'
+                                    : 'portfolio_year'
+                            }
+                        >
+                            2017
+                        </Link>
+                    </div>
 
-          {isSticky && (
-            <div id="nav2" className="portfolio_pagination_container_fixed">
-              <div id="nav3" className="portfolio_pagination_content">
-                <Link
-                  to="2023"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  offset={-100}
-                  className={
-                    activeNav === '2023'
-                      ? 'portfolio_year_active'
-                      : 'portfolio_year'
-                  }
-                >
-                  2023
-                </Link>
-                <Link
-                  to="2022"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  offset={-100}
-                  className={
-                    activeNav === '2022'
-                      ? 'portfolio_year_active'
-                      : 'portfolio_year'
-                  }
-                >
-                  2022
-                </Link>
-                <Link
-                  to="2021"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  offset={-100}
-                  className={
-                    activeNav === '2021'
-                      ? 'portfolio_year_active'
-                      : 'portfolio_year'
-                  }
-                >
-                  2021
-                </Link>
-                <Link
-                  to="2020"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  offset={-100}
-                  className={
-                    activeNav === '2020'
-                      ? 'portfolio_year_active'
-                      : 'portfolio_year'
-                  }
-                >
-                  2020
-                </Link>
-                <Link
-                  to="2019"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  offset={-100}
-                  className={
-                    activeNav === '2019'
-                      ? 'portfolio_year_active'
-                      : 'portfolio_year'
-                  }
-                >
-                  2019
-                </Link>
-                <Link
-                  to="2018"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  offset={-100}
-                  className={
-                    activeNav === '2018'
-                      ? 'portfolio_year_active'
-                      : 'portfolio_year'
-                  }
-                >
-                  2018
-                </Link>
-                <Link
-                  to="2017"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  offset={-100}
-                  className={
-                    activeNav === '2017'
-                      ? 'portfolio_year_active'
-                      : 'portfolio_year'
-                  }
-                >
-                  2017
-                </Link>
-                {max > 560 && (
-                  <div onClick={() => setShowMenu(true)} className="after_logo">
-                    <img id="burger2" src="/images/burger2.svg" alt="" />
-                    <img id="burger1" src="/images/burger.svg" alt="" />
-                  </div>
-                )}
-              </div>
+                    {isSticky && (
+                        <div id="nav2" className="portfolio_pagination_container_fixed">
+                            <div id="nav3" className="portfolio_pagination_content">
+                                <Link
+                                    to="2024"
+                                    spy={true}
+                                    smooth={true}
+                                    duration={500}
+                                    offset={-100}
+                                    className={
+                                        activeNav === '2024'
+                                            ? 'portfolio_year_active'
+                                            : 'portfolio_year'
+                                    }
+                                >
+                                    2024
+                                </Link>
+                                <Link
+                                    to="2023"
+                                    spy={true}
+                                    smooth={true}
+                                    duration={500}
+                                    offset={-100}
+                                    className={
+                                        activeNav === '2023'
+                                            ? 'portfolio_year_active'
+                                            : 'portfolio_year'
+                                    }
+                                >
+                                    2023
+                                </Link>
+                                <Link
+                                    to="2022"
+                                    spy={true}
+                                    smooth={true}
+                                    duration={500}
+                                    offset={-100}
+                                    className={
+                                        activeNav === '2022'
+                                            ? 'portfolio_year_active'
+                                            : 'portfolio_year'
+                                    }
+                                >
+                                    2022
+                                </Link>
+                                <Link
+                                    to="2021"
+                                    spy={true}
+                                    smooth={true}
+                                    duration={500}
+                                    offset={-100}
+                                    className={
+                                        activeNav === '2021'
+                                            ? 'portfolio_year_active'
+                                            : 'portfolio_year'
+                                    }
+                                >
+                                    2021
+                                </Link>
+                                <Link
+                                    to="2020"
+                                    spy={true}
+                                    smooth={true}
+                                    duration={500}
+                                    offset={-100}
+                                    className={
+                                        activeNav === '2020'
+                                            ? 'portfolio_year_active'
+                                            : 'portfolio_year'
+                                    }
+                                >
+                                    2020
+                                </Link>
+                                <Link
+                                    to="2019"
+                                    spy={true}
+                                    smooth={true}
+                                    duration={500}
+                                    offset={-100}
+                                    className={
+                                        activeNav === '2019'
+                                            ? 'portfolio_year_active'
+                                            : 'portfolio_year'
+                                    }
+                                >
+                                    2019
+                                </Link>
+                                <Link
+                                    to="2018"
+                                    spy={true}
+                                    smooth={true}
+                                    duration={500}
+                                    offset={-100}
+                                    className={
+                                        activeNav === '2018'
+                                            ? 'portfolio_year_active'
+                                            : 'portfolio_year'
+                                    }
+                                >
+                                    2018
+                                </Link>
+                                <Link
+                                    to="2017"
+                                    spy={true}
+                                    smooth={true}
+                                    duration={500}
+                                    offset={-100}
+                                    className={
+                                        activeNav === '2017'
+                                            ? 'portfolio_year_active'
+                                            : 'portfolio_year'
+                                    }
+                                >
+                                    2017
+                                </Link>
+                                {max > 560 && (
+                                    <div onClick={() => setShowMenu(true)} className="after_logo">
+                                        <img id="burger2" src="/images/burger2.svg" alt=""/>
+                                        <img id="burger1" src="/images/burger.svg" alt=""/>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
-          )}
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Portfolio;

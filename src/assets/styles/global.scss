@@ -101,7 +101,7 @@ $small-mobile: 390px;
 * {
   scroll-behavior: smooth;
   ::-webkit-scrollbar {
-    width: 10px;
+    width: none;
   }
 
   ::-webkit-scrollbar-track {
@@ -113,9 +113,11 @@ $small-mobile: 390px;
   ::-webkit-scrollbar-thumb {
     background: #3ece5d;
     border-radius: 10px;
+
   }
 
   box-sizing: border-box;
+  scrollbar-width: none
 }
 
 img {

@@ -1,0 +1,176 @@
+.container {
+    margin-top: 130px;
+    padding-bottom: 120px;
+}
+
+.paddingContainer{
+    padding-right: clamp(1.25rem, 0.693rem + 2.03vw, 3.125rem);
+    padding-left: clamp(1.25rem, 0.693rem + 2.03vw, 3.125rem);
+}
+
+.titleContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.descriptionsContainer{
+    display: flex;
+}
+
+.descriptionTitle{
+    font-size: 18px;
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 400;
+    color: #878787;
+    line-height: 28px;
+}
+.description {
+    font-size: 18px;
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 400;
+    color: #303030;
+    line-height: 28px
+}
+.title{
+    font-size: clamp(2.5rem, 1.757rem + 2.7vw, 5rem);
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 300;
+    color: #303030
+}
+
+.imgBox{
+    width: 100%;
+    height: clamp(14.375rem, -2.675rem + 62vw, 53.125rem);
+    background-image: url("../../../public/images/cowPic.png");
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: cover;
+}
+
+.projectInfoBox{
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.projectInfoTitle{
+    font-size: clamp(1.75rem, 1.42rem + 1.2vw, 2.5rem);
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 300;
+    color: #303030;
+    line-height: 28px
+}
+
+.logoNameBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    margin-right: 20px;
+    width: 160px;
+    margin-bottom: -42px;
+}
+
+
+.stackBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-self: flex-start;
+    /* margin: 0 auto; */
+    width: 580px;
+    left: 30px;
+    position: relative;
+}
+
+.stackBox2{
+    display: flex;
+    align-self: flex-end;
+}
+
+.stackBox2Parent{
+    display: flex;
+}
+
+.bottomArrow{
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+}
+
+.topArrow{
+    position: absolute;
+    top: -16px;
+    left: 10px;
+}
+
+.stackItemTitle{
+    font-size: 18px;
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 300;
+    color: #878787;
+    margin-bottom: 0;
+}
+.backend{
+    position: absolute;
+    left: 30px;
+    top: -22px;
+    color: #878787;
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 300;
+    font-size: clamp(0.875rem, 0.591rem + 1.01vw, 1.5rem);
+}
+.frontend{
+    color: #878787;
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 300;
+    font-size: clamp(0.875rem, 0.591rem + 1.01vw, 1.5rem);
+    margin-bottom: -40px;
+    margin-top: 44px;
+}
+
+.stackItems{
+    width: clamp(21.125rem, 110.841rem + 36.57vw, 43.75rem);
+    position: relative;
+    height: 263px;
+    display: flex;
+    flex-direction: column;
+}
+
+.stackFlex{
+    display: flex;
+    justify-content: center;
+    margin-top: 180px;
+
+
+}
+
+.elemName{
+    color: #303030;
+    margin-left: 12px;
+    font-size: clamp(0.875rem, 0.591rem + 1.01vw, 1.5rem);
+    font-weight: 300;
+    font-family: "Inter Tight", sans-serif;
+}
+
+
+@media (max-width: 440px) {
+    .titleContainer{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .projectInfoBox{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .projectInfoTitle{
+        margin-top: 0;
+    }
+    .stackBox{
+        margin-right: 0;
+        width: 370px;
+    }
+}
+

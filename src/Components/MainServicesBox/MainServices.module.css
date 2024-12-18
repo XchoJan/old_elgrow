@@ -1,0 +1,203 @@
+.servicesBox{
+    background-image: url('../../../public/images/serviceBGC.jpg');
+    background-repeat: no-repeat;
+    background-position: center; /* Смещение картинки к верхней части */
+    overflow: hidden;
+    background-size: cover;
+    width: 100%;
+    height: 852px;
+    padding-left: 92px;
+    padding-right: 92px;
+
+}
+.filters{
+    font-family: "Inter Tight", sans-serif;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 400;
+    cursor: pointer;
+
+}
+.filtersBox{
+    display: flex;
+    flex-direction: column;
+}
+.description{
+    font-family: "Inter Tight", sans-serif;
+    color: #fff;
+    font-size: clamp(1.75rem, 1.553rem + 0.79vw, 2.5rem);
+    line-height: 48px;
+    font-weight: 300;
+}
+.servicesElements{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 160px;
+}
+
+.descriptionBox{
+    width: 512px;
+}
+
+.descriptionIconsBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.logoNameBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    margin-right: 20px;
+    width: 120px
+}
+.nameBox{
+   position: relative;
+    margin-right: 24px;
+    width: fit-content;
+    flex: 0 auto;
+
+}
+
+.activeElementIcon {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 46px;
+    right: -16px;
+}
+
+.activeElementIcon::before,
+.activeElementIcon::after {
+    content: '';
+    position: absolute;
+    background-color: #3ece5d;
+}
+
+.activeElementIcon::before {
+    width: 3px;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+}
+
+.activeElementIcon::after {
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    right: 0;
+}
+
+.priceBox{
+    display: flex;
+    align-items: flex-end;
+    height: 35%;
+    position: relative;
+}
+
+.price{
+    color: #fff;
+    font-size: clamp(1.75rem, 1.553rem + 0.79vw, 2.5rem)
+}
+
+
+
+@media (max-width: 1024px) {
+    .servicesBox{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+
+
+@media (max-width: 790px) {
+    .nameBox{
+        margin-right: 40px;
+    }
+    .descriptionBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto
+    }
+    .servicesBox{
+        height: 700px;
+    }
+    .filtersBox{
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        margin-top: 40px;
+        width: 100%;
+        scrollbar-width: none;
+        height: 70px;
+        justify-content: center;
+        padding-bottom: 40px;
+        margin-bottom: 80px;
+
+    }
+    .filters{
+        font-size: 16px;
+        white-space: nowrap;
+    }
+    .servicesElements{
+        flex-direction: column;
+        align-items: center;
+        padding-right: 0;
+    }
+
+    .descriptionIconsBox{
+        align-items: flex-start;
+    }
+    .activeElementIcon {
+        right: 16px;
+        top: 0;
+    }
+    .priceBox{
+        display: flex;
+        align-items: flex-start;
+        height: 35%;
+        position: relative;
+        margin-top: 20px;
+        margin-left: 120px;
+    }
+
+    .activeElementIcon {
+        top: 22px;
+        right: -16px;
+    }
+
+
+}
+
+@media (max-width: 440px) {
+    .servicesBox{
+        padding-left: 20px;
+        padding-right: 20px;
+        height: auto;
+        padding-bottom: 120px;
+    }
+    .priceBox{
+        width: fit-content;
+        margin-top: 40px;
+    }
+    .description{
+        margin-right: 180px;
+    }
+    .descriptionIconsBox{
+        margin-right: 180px;
+    }
+    .filtersBox{
+        justify-content: flex-start;
+        padding-bottom: 60px;
+        margin-bottom: 40px;
+
+    }
+
+}
+

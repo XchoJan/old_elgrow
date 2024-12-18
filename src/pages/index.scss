@@ -143,7 +143,7 @@ h6 {
     background: #000000;
     position: relative;
     @include adaptive-value('height', 1080, 263, 1);
-    background-image: url('../../public/images/newMain1920.png');
+    background-image: url('../../public/images/newMain.png');
     // background-image: url('../../public/images/main1920.png');
     background-repeat: no-repeat;
     background-position: bottom right;
@@ -1288,6 +1288,38 @@ h6 {
 .website-mini_tab_content {
   animation: scale 0.3s ease-in-out;
 }
+
+.carousel_image_new{
+    width: 724px !important;
+    height: 830px !important;
+}
+
+@media (max-width: 1024px) {
+    .carousel_image_new {
+        width: 540px !important;
+        height: 650px !important;
+        object: cover !important
+    }
+}
+
+/* При ширине экрана 780px и меньше */
+@media (max-width: 768px) {
+    .carousel_image_new {
+        width: 430px !important;
+        height: 490px !important;
+        object: cover !important
+    }
+}
+
+/* При ширине экрана 440px и меньше */
+@media (max-width: 400px) {
+    .carousel_image_new {
+        width: 230px !important;
+        height: 270px !important;
+        object: cover !important
+    }
+}
+
 @keyframes scale {
   0% {
     transform: translate(0px, -20px);
