@@ -1,0 +1,118 @@
+.animateButton {
+  display: flex;
+  width: 283px;
+  height: 154px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #000;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26.4px;
+  letter-spacing: -0.11px;
+}
+
+.animateButton:before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-bottom: 2px solid #9B4EFE;
+  border-left: 2px solid #9B4EFE;
+  left: 0;
+  bottom: 0;
+  animation-name: before;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+
+.animateButton:after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-top: 2px solid #DB418C;
+  border-right: 2px solid #DB418C;
+  right: 0;
+  top: 0;
+  animation-name: after;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+.logoContainer {
+  transform: translate(0px, 0px);
+  opacity: 1;
+  transition: all 0.8s ease 0s;
+}
+
+.active {
+  transform: translate(-200%, 0px);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
+}
+
+.logo {
+  font-family: Inter Medium;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.letterL {
+  color: #3ece5d;
+}
+
+
+@keyframes before {
+  0% {
+    border-bottom: 2px solid #9B4EFE;
+    border-left: 2px solid #9B4EFE;
+    transition: all 0.8s ease 0s;
+  }
+  50% {
+    border-image: linear-gradient(#3ECE5D, #35CA77);
+    border-image-slice: 1;
+    transition: all 0.8s ease 0s;
+  }
+  75% {
+    border-image: linear-gradient(#05846F, #147F7D);
+    border-image-slice: 1;
+    transition: all 0.8s ease 0s;
+  }
+  100% {
+    border-bottom: 2px solid #9B4EFE;
+    border-left: 2px solid #9B4EFE;
+    transition: all 0.8s ease 0s;
+  }
+}
+
+@keyframes after {
+  0% {
+    border-top: 2px solid #DB418C;
+    border-right: 2px solid #DB418C;
+    transition: all 0.8s ease 0s;
+  }
+  50% {
+    border-image: linear-gradient(#16BDCE, #07B7F9);
+    border-image-slice: 1;
+    transition: all 0.8s ease 0s;
+  }
+  75% {
+    border-image: linear-gradient(#297791, #9B4EFE);
+    border-image-slice: 1;
+    transition: all 0.8s ease 0s;
+  }
+  100% {
+    border-top: 2px solid #DB418C;
+    border-right: 2px solid #DB418C;
+    transition: all 0.8s ease 0s;
+  }
+}

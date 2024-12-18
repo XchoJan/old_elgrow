@@ -1,0 +1,1039 @@
+.mobileMain {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: 'Inter Tight';
+
+  .titleHeading {
+    width: max-content;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      @include adaptive-value('width', 18, 16, 1);
+      @include adaptive-value('height', 18, 16, 1);
+      border-top: 3px solid #3ece5d;
+      border-right: 3px solid #3ece5d;
+      right: -17px;
+      @include responsive-size(top, 5px, 5px, 10px, 10px);
+    }
+    @include responsive-size(font-size, 36px, 48px, 80px, 80px);
+    font-weight: 300;
+  }
+
+  #mainMobileTitle {
+    @media (max-width: 760px) {
+      max-width: 350px;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      @include adaptive-value('width', 18, 16, 1);
+      @include adaptive-value('height', 18, 16, 1);
+      border-top: 3px solid #3ece5d;
+      border-right: 3px solid #3ece5d;
+      @include responsive-size(top, 79px, 55px, 90px, 90px);
+      @include responsive-size(right, 106px, -17px, -17px, -17px);
+      @media (max-width: 760px) {
+        @include responsive-size(top, 79px, 108px, 90px, 90px);
+        @include responsive-size(right, 127px, 64px, -17px, -17px);
+      }
+    }
+  }
+
+  #aboutNumbersTitleHeading {
+    @include responsive-size(max-width, 180px, 511px, 511px, 570px);
+    &::after {
+      border-top: none;
+      border-right: none;
+    }
+  }
+
+  .button-rainbow {
+    $size: 320px;
+    $color-main: #00f0c0;
+    $color-1: #00ccff;
+    $color-2: #d8ff99;
+    $color-3: #00ffaa;
+    $color-4: #0cf;
+    $color-5: #ff00bb;
+
+    @media (max-width: 900px) {
+      display: none;
+    }
+
+    position: absolute;
+    z-index: 0;
+    bottom: -23%;
+    right: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    background-color: $color-main;
+    background: linear-gradient(195deg, $color-main 0%, $color-1 50%);
+    transform: translate3d(50%, -50%, 0);
+    opacity: 0;
+    animation: visualButtonCircleShow 0.4s ease-in 0.1s both;
+
+    @keyframes visualButtonCircleShow {
+      to {
+        opacity: 1;
+      }
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+    &:before {
+      z-index: 1;
+      background: linear-gradient(195deg, $color-2 0%, $color-3 50%);
+      animation: fadeIn-decor 4s linear infinite forwards;
+    }
+    &:after {
+      z-index: 2;
+      background: linear-gradient(180deg, $color-4 0%, $color-5 50%);
+      opacity: 0;
+      animation: fadeIn-decor 4s linear 1.3s infinite forwards;
+    }
+    @keyframes fadeIn-decor {
+      0% {
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    &-circle {
+      transition: all 0.3s;
+      position: relative;
+      z-index: 3;
+      width: 72%;
+      height: 72%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      color: black;
+      border-radius: 50%;
+      box-shadow: 0 4px 100px rgba(0, 0, 0, 0.25);
+
+      text-align: center;
+      line-height: 1.2;
+      font-size: 18px;
+
+      &:hover {
+        cursor: pointer;
+        transition: all 0.3s;
+        width: 80%;
+        height: 80%;
+      }
+    }
+  }
+  .button-rainbowSecond {
+    $size: 320px;
+
+    $color-main: #00f0c0;
+    $color-1: #00ccff;
+    $color-2: #d8ff99;
+    $color-3: #00ffaa;
+    $color-4: #0cf;
+    $color-5: #ff00bb;
+    @media (max-width: 560px) {
+      $size: 240px;
+    }
+    position: absolute;
+    @include responsive-size(left, 10px, -167px, -40px, 0);
+    @media (max-width: 652px) {
+      @include responsive-size(left, 80px, 250px, -40px, 0);
+    }
+    @media (max-width: 560px) {
+      top: 95%;
+    }
+    top: 58%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    background-color: $color-main;
+    background: linear-gradient(195deg, $color-main 0%, $color-1 50%);
+    transform: translate3d(50%, -50%, 0);
+    opacity: 0;
+    animation: visualButtonCircleShow 0.4s ease-in 0.1s both;
+
+    @keyframes visualButtonCircleShow {
+      to {
+        opacity: 1;
+      }
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+    &:before {
+      z-index: 1;
+      background: linear-gradient(195deg, $color-2 0%, $color-3 50%);
+      animation: fadeIn-decor 4s linear infinite forwards;
+    }
+    &:after {
+      z-index: 2;
+      background: linear-gradient(180deg, $color-4 0%, $color-5 50%);
+      opacity: 0;
+      animation: fadeIn-decor 4s linear 1.3s infinite forwards;
+    }
+    @keyframes fadeIn-decor {
+      0% {
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    &-circle {
+      transition: all 0.3s;
+      position: relative;
+      z-index: 3;
+      width: 72%;
+      height: 72%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      color: black;
+      border-radius: 50%;
+      box-shadow: 0 4px 100px rgba(0, 0, 0, 0.25);
+
+      text-align: center;
+      line-height: 1.2;
+      font-size: 18px;
+
+      .logoText {
+        color: #424d5e;
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transition: all 0.3s;
+        width: 80%;
+        height: 80%;
+      }
+    }
+  }
+
+  .mainScreen {
+    height: 100vh;
+    position: relative;
+    @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
+    @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
+
+    .mainScreenContent {
+      @include responsive-size(padding-top, 80px, 109px, 266px, 313px);
+      height: 94vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .mainScreenTitle {
+      max-width: 911px;
+    }
+    .ourClients {
+      h1 {
+        @include responsive-size(font-size, 16px, 28px, 28px, 28px);
+
+        font-weight: 300;
+      }
+      .containerImages {
+        @include responsive-size(max-width, 280px, 468px, 468px, 940px);
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  .aboutNumbers {
+    padding-bottom: 48px;
+    position: relative;
+    padding-top: 100px;
+    @include responsive-size(padding-right, 8px, 8px, 36px, 50px);
+    @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
+    background: #07b7f9;
+    color: white;
+    .parking1 {
+      @include responsive-size(width, 20px, 160px, 240px, 320px);
+      @include responsive-size(height, 20px, 346px, 519px, 692px);
+      @include responsive-size(right, 20px, 145px, 220px, 312px);
+      @include responsive-size(top, 20px, 88px, 79px, 83px);
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      z-index: 3;
+      position: absolute;
+      @media (max-width: 560px) {
+        display: none;
+      }
+    }
+    .parking2 {
+      @media (max-width: 560px) {
+        display: none;
+      }
+      @include responsive-size(width, 20px, 160px, 240px, 320px);
+      @include responsive-size(height, 20px, 357px, 535px, 714px);
+      @include responsive-size(right, 20px, 40px, 58px, 118px);
+      @include responsive-size(top, 20px, -27px, -36px, -32px);
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      z-index: 2;
+      position: absolute;
+    }
+    .parking3 {
+      @include responsive-size(width, 20px, 112px, 120px, 180px);
+      @include responsive-size(height, 20px, 346px, 519px, 688px);
+      @media (max-width: 560px) {
+        display: none;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      @include responsive-size(top, 20px, 82px, 73px, 87px);
+      position: absolute;
+      right: 0px;
+    }
+
+    .aboutNumbersContent {
+      padding-top: 50px;
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 500px;
+      @include responsive-size(gap, 0, 75px, 75px, 75px);
+      @media (max-width: 560px) {
+        gap: 0px;
+      }
+      .containerNum {
+        min-width: 158px;
+        display: flex;
+        flex-direction: column;
+        gap: 21px;
+
+        .num {
+          @include responsive-size(font-size, 36px, 48px, 72px, 72px);
+          font-weight: 500;
+        }
+        .content {
+          @include responsive-size(font-size, 14px, 14px, 22px, 22px);
+          font-weight: 300;
+        }
+      }
+    }
+    .stack {
+      padding-top: 270px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      @media (max-width: 560px) {
+        justify-content: initial;
+        gap: 1vw;
+      }
+      .stackItem {
+        @include responsive-size(font-size, 12px, 14px, 16px, 22px);
+        font-weight: 500;
+        display: flex;
+        @include responsive-size(gap, 10px, 5px, 10px, 10px);
+      }
+    }
+  }
+  .aboutLetters {
+    @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
+    @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
+    padding-top: 100px;
+
+    .aboutLettersContent {
+      height: 600px;
+
+      max-width: 1340px;
+      position: relative;
+      gap: 188px;
+      padding-top: 60px;
+      display: flex;
+      justify-content: flex-end;
+
+      @media (max-width: 652px) {
+        justify-content: flex-start;
+      }
+      @media (max-width: 560px) {
+        max-width: 400px;
+      }
+
+      #sliderContainer {
+  
+        @include responsive-size(max-width, 240px, 320px, 417px, 625px);
+        overflow: hidden;
+      }
+      .mainText {
+        font-weight: 400;
+        @include responsive-size(font-size, 16px, 28px, 36px, 36px);
+        @media (max-width: 560px) {
+          font-weight: 500;
+        }
+      }
+      .secondatyText {
+        max-width: 625px;
+        @include responsive-size(font-size, 14px, 14px, 28px, 28px);
+
+        font-weight: 400;
+        padding-top: 48px;
+        @media (max-width: 560px) {
+          max-width: 200px;
+          font-weight: 500;
+        }
+        div {
+          padding-top: 10px;
+          font-weight: 300;
+          line-height: 19.2px;
+          max-width: 417px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .mobilePortfolio {
+    @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
+    @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
+    padding-top: 243px;
+
+    .allProjects {
+      display: flex;
+      justify-content: center;
+      margin-top: 66px;
+      .allProjectsContent {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        span {
+          @include responsive-size(font-size, 28px, 28px, 28px, 28px);
+
+          font-weight: 300;
+          border-bottom: 1px solid black;
+        }
+      }
+    }
+
+    .portfolioCard {
+      overflow: hidden;
+
+      .utg1 {
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        width: 100%;
+        height: 100%;
+        @include responsive-size(max-width, 72px, 120px, 160px, 160px);
+        @include responsive-size(max-height, 160px, 267px, 356px, 356px);
+        @include responsive-size(right, 96px, 169px, 234px, 494px);
+        @include responsive-size(top, 186px, 94px, 136px, 156px);
+        z-index: 3;
+        position: absolute;
+      }
+      .utg2 {
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        @include responsive-size(right, 51px, 98px, 127px, 390px);
+        @include responsive-size(top, 140px, 15px, 64px, 33px);
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
+        z-index: 2;
+
+        position: absolute;
+      }
+      .utg3 {
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
+        z-index: 1;
+        @include responsive-size(right, 8px, 23px, 26px, 283px);
+        @include responsive-size(top, 186px, 119px, 214px, 211px);
+
+        position: absolute;
+      }
+      .utg4 {
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
+        z-index: 0;
+        @include responsive-size(right, -36px, -58px, -59px, 203px);
+        @include responsive-size(top, 146px, 40px, 100px, 88px);
+        position: absolute;
+      }
+      .nespresso1 {
+        transform: rotate(35.622deg);
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        position: absolute;
+        @include responsive-size(right, 69px, 215px, 187px, 648px);
+        @include responsive-size(top, 40px, 22px, -173px, 310px);
+      }
+      .nespresso2 {
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
+        position: absolute;
+        transform: rotate(35.622deg);
+        @include responsive-size(right, 110px, 192px, 387px, 363px);
+        @include responsive-size(top, 272px, 255px, 314px, 257px);
+      }
+      .nespresso3 {
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
+        position: absolute;
+
+        transform: rotate(35.622deg);
+        @include responsive-size(right, 44px, 48px, 118px, 136px);
+        @include responsive-size(top, 127px, 18px, 45px, -58px);
+      }
+      .nespresso4 {
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
+        position: absolute;
+        @include responsive-size(right, -3px, -32px, 83px, -9px);
+        @include responsive-size(top, 237px, 160px, 300px, 108px);
+        transform: rotate(35.622deg);
+      }
+      .luxxy1 {
+        transform: rotate(-20.217deg);
+        position: absolute;
+        @include responsive-size(right, 97px, 214px, 253px, 514px);
+        @include responsive-size(top, 60px, 37px, 47px, 40px);
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
+      }
+      .luxxy2 {
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
+        @include responsive-size(right, 39px, 89px, 99px, 324px);
+        @include responsive-size(top, 121px, 81px, 139px, 152px);
+        z-index: 2;
+        position: absolute;
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .luxxy3 {
+        @include responsive-size(width, 72px, 120px, 160px, 160px);
+        @include responsive-size(height, 160px, 267px, 356px, 356px);
+        @include responsive-size(right, -41px, 6px, -73px, 143px);
+        @include responsive-size(top, 95px, 38px, 95px, 199px);
+        position: absolute;
+        transform: rotate(30.17deg);
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .statusStroy1 {
+        z-index: 4;
+        @include responsive-size(right, 111px, 192px, 272px, 458px);
+        @include responsive-size(top, 193px, 80px, 173px, 128px);
+
+        @include responsive-size(width, 72px, 120px, 160px, 200px);
+        @include responsive-size(height, 160px, 267px, 356px, 446px);
+        position: absolute;
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .statusStroy2 {
+        @include responsive-size(right, 58px, 94px, 155px, 315px);
+        @include responsive-size(top, 131px, 29px, 66px, -51px);
+        @include responsive-size(width, 72px, 120px, 160px, 200px);
+        @include responsive-size(height, 160px, 267px, 356px, 446px);
+        position: absolute;
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .statusStroy3 {
+        z-index: 3;
+        @include responsive-size(right, 17px, 34px, 64px, 194px);
+        @include responsive-size(top, 245px, 214px, 300px, 287px);
+        @include responsive-size(width, 72px, 120px, 160px, 200px);
+        @include responsive-size(height, 160px, 267px, 356px, 446px);
+        position: absolute;
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .statusStroy4 {
+        z-index: 4;
+        @include responsive-size(right, -29px, -60px, -63px, 51px);
+        @include responsive-size(top, 200px, 55px, 159px, 96px);
+        @include responsive-size(width, 72px, 120px, 160px, 200px);
+        @include responsive-size(height, 160px, 267px, 356px, 446px);
+        position: absolute;
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .parking4 {
+        z-index: 2;
+        @include responsive-size(right, 98px, 178px, 275px, 424px);
+        @include responsive-size(top, 93px, 25px, 34px, 30px);
+        @include responsive-size(width, 72px, 120px, 200px, 200px);
+        @include responsive-size(height, 160px, 267px, 446px, 446px);
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        position: absolute;
+      }
+      .parking5 {
+        @include responsive-size(right, 32px, 80px, 121px, 253px);
+        @include responsive-size(top, 159px, 95px, 120px, 115px);
+        @include responsive-size(width, 72px, 120px, 200px, 200px);
+        @include responsive-size(height, 160px, 267px, 446px, 446px);
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+        position: absolute;
+      }
+      .parking6 {
+        @include responsive-size(right, -11px, -24px, -52px, 86px);
+        @include responsive-size(top, 114px, 54px, 56px, 54px);
+        @include responsive-size(width, 72px, 120px, 200px, 200px);
+        @include responsive-size(height, 160px, 267px, 446px, 446px);
+        z-index: 2;
+        position: absolute;
+        img {
+          border-radius: 16px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      position: relative;
+      margin-top: 40px;
+
+      @include responsive-size(padding-top, 40px, 60px, 100px, 100px);
+      color: white;
+      width: 100%;
+      border-radius: 24px;
+      @include responsive-size(height, 400px, 400px, 600px, 600px);
+      @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
+
+      .cardName {
+        @include responsive-size(font-size, 18px, 28px, 36px, 36px);
+        @include responsive-size(max-width, 160px, 320px, 400px, 425px);
+        font-weight: 500;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        @include responsive-size(gap, 8px, 8px, 16px, 16px);
+        @include responsive-size(max-width, 140px, 326px, 424px, 424px);
+        @include responsive-size(padding-top, 32px, 48px, 64px, 64px);
+
+        @include responsive-size(font-size, 14px, 14px, 16px, 18px);
+        font-weight: 400;
+      }
+      .content {
+        @media (max-width: 560px) {
+          line-height: 16.8px;
+        }
+        @include responsive-size(padding-top, 16px, 16px, 24px, 24px);
+        @include responsive-size(max-width, 130px, 259px, 455px, 455px);
+        @include responsive-size(font-size, 14px, 14px, 22px, 22px);
+        font-weight: 300;
+        line-height: 26.4px;
+        letter-spacing: 0.22px;
+      }
+    }
+  }
+  .workingProcess {
+    @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
+    @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
+    padding-top: 179px;
+    .workingProcessContent {
+      max-width: 1160px;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 63px;
+      @include responsive-size(gap, 20px, 20px, 40px, 80px);
+      .workingStep {
+        @include responsive-size(width, 310px, 324px, 426px, 540px);
+        display: flex;
+        flex-direction: column;
+
+        .num {
+          color: #07b7f9;
+
+          @include responsive-size(font-size, 72px, 72px, 72px, 72px);
+
+          font-weight: 300;
+        }
+
+        .stepContent {
+          padding-top: 56px;
+          max-width: 540px;
+          .title {
+            @include responsive-size(font-size, 28px, 28px, 36px, 36px);
+            color: black;
+            font-weight: 300;
+          }
+          .subtitles {
+            padding-top: 25px;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            .subtitle {
+              align-items: center;
+              display: flex;
+              gap: 10px;
+              .dot {
+                font-size: 25px;
+                color: #07b7f9;
+              }
+              .text {
+                max-width: 466px;
+                @include responsive-size(font-size, 14px, 16px, 16px, 16px);
+
+                font-weight: 300;
+              }
+            }
+
+            .notSpam {
+              padding-left: 21px;
+              max-width: 394px;
+              color: #05846f;
+              font-size: 16px;
+
+              font-weight: 300;
+            }
+          }
+        }
+      }
+    }
+  }
+  .pricesBlock {
+    @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
+    @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
+    padding-top: 332px;
+    .pricesContent {
+      display: flex;
+      justify-content: center;
+      margin-top: 110px;
+      @include responsive-size(gap, 32px, 40px, 80px, 80px);
+
+      @media (max-width: 560px) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .stick {
+        width: 1px;
+        height: 245px;
+        background: #05846f;
+        @media (max-width: 560px) {
+          height: 1px;
+          width: 185px;
+        }
+      }
+      .priceItem {
+        .budget {
+          @include responsive-size(font-size, 22px, 22px, 28px, 28px);
+          font-weight: 300;
+        }
+        .price {
+          padding-top: 8px;
+          color: #007c68;
+
+          @include responsive-size(font-size, 36px, 48px, 72px, 72px);
+          font-weight: 300;
+          .minimum {
+            @include responsive-size(font-size, 22px, 22px, 22px, 22px);
+            color: black;
+            font-weight: 300;
+          }
+        }
+        .time {
+          gap: 8px;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          @include responsive-size(font-size, 22px, 28px, 36px, 36px);
+          color: #007c68;
+          font-weight: 300;
+          margin-top: 35px;
+          @media (max-width: 560px) {
+            margin-top: 8px;
+          }
+
+          .minimum {
+            font-size: 22px;
+            color: black;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+  .mobileFooter {
+    .footer {
+      margin: 0 auto;
+      background: #000000;
+      width: 100%;
+      margin-top: 500px;
+      @media (max-width: 560px) {
+        margin-top: 350px;
+      }
+    }
+    .footer_inner {
+      @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
+      @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
+    }
+    .footer_title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .footer_title_left {
+        @include responsive-size(font-size, 16px, 18px, 22px, 24px);
+
+        font-weight: 500;
+
+        color: #ffffff;
+      }
+    }
+
+    .footer_title_right {
+      border-bottom: 1px solid white;
+      a {
+        @include adaptive-value('font-size', 20, 16, 1);
+        font-family: 'Inter Tight';
+        font-weight: 300;
+        text-decoration-line: none;
+        text-transform: uppercase;
+        color: #ffffff;
+        transition: 0.5s;
+        &:hover {
+          color: #898989;
+          border-bottom: 1px solid #898989;
+        }
+      }
+    }
+    .footer_center {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: max-content;
+      margin: 118px auto auto;
+    }
+    .footer_center-title {
+      transition: 0.5s;
+      cursor: pointer;
+      margin-bottom: 84px;
+    }
+    .footer_center-title {
+      display: flex;
+      justify-content: center;
+      h1 {
+        width: max-content;
+        @include responsive-size(font-size, 36px, 60px, 60px, 80px);
+        margin: 0;
+        font-weight: 300;
+        color: #ffffff;
+        text-align: center;
+        transition: 0.5s;
+        border-bottom: 1px solid #c9c9c9;
+        &:hover {
+          color: #9c9c9c;
+
+          border-bottom: 1px solid white;
+        }
+      }
+    }
+    .footer_center-wrap_left {
+      display: flex;
+      flex-direction: column;
+    }
+    .footer_center-wrap_left a {
+      font-family: 'Inter Tight';
+      font-weight: 200;
+      @include responsive-size(font-size, 14px, 16px, 20px, 20px);
+      text-transform: uppercase;
+      color: #ffffff;
+      text-decoration: none;
+      margin-bottom: 20px;
+      transition: 0.5s;
+      &:hover {
+        color: #9c9c9c;
+      }
+    }
+    .presentation {
+      font-family: 'Inter Tight';
+      font-weight: 300;
+      @include responsive-size(font-size, 16px, 16px, 20px, 20px);
+      text-align: right;
+      text-decoration-line: none;
+      text-transform: uppercase;
+      position: relative;
+      color: #ffffff;
+      z-index: 2;
+      transition: 0.5s;
+      border-bottom: 1px solid white;
+      &:hover {
+        color: #898989;
+
+        border-bottom: 1px solid #898989;
+      }
+    }
+    .presentation::before {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: lowercase;
+      content: 'pdf';
+      position: absolute;
+      width: 42px;
+      height: 23px;
+      background: #3ece5d;
+      border-radius: 12px;
+      font-family: 'Inter Tight';
+      font-weight: 300;
+      font-size: 15px;
+      color: #ffffff;
+      text-align: center;
+      top: -16px;
+      right: -21px;
+      z-index: -1;
+      opacity: 0.9;
+    }
+
+    .footer_center-wrap {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+    .footer_bottom {
+      height: 74px;
+      width: 100%;
+      border-top: 0.4px solid #f5f7f7;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 176px;
+
+      @media (max-width: 560px) {
+        border-top: none;
+        border-bottom: 0.4px solid #f5f7f7;
+      }
+    }
+    .footer_bottom_item h2 {
+      font-weight: 300;
+      @include responsive-size(font-size, 12px, 14px, 16px, 20px);
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+    }
+    .footer_bottom_item h2 img {
+      margin-right: 12.5px;
+    }
+    .footer_bottom_item {
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        filter: brightness(50%);
+      }
+      display: flex;
+      align-items: center;
+      a {
+        text-decoration: none;
+        font-family: 'Inter Tight';
+        display: flex;
+        align-items: center;
+        font-weight: 200;
+        @include responsive-size(font-size, 14px, 14px, 16px, 20px);
+        color: #ffffff;
+      }
+    }
+    .footer_bottom_item a img {
+      margin-right: 10px;
+    }
+  }
+}

@@ -1,0 +1,687 @@
+.portfolioComponent {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  justify-content: center;
+  display: flex;
+  font-family: Inter Tight;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+}
+
+.title {
+  padding-top: 100px;
+  margin-bottom: 60px;
+}
+
+.portfolioCards {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.images {
+  width: 40%;
+  display: flex;
+  right: 0;
+}
+
+.utg1,
+.utg2,
+.utg3,
+.utg4,
+.nespresso1,
+.nespresso2,
+.nespresso3,
+.nespresso4,
+.luxxy1,
+.luxxy2,
+.luxxy3,
+.luxxy4,
+.statusStroy1,
+.statusStroy2,
+.statusStroy3,
+.statusStroy4,
+.parking4,
+.parking5,
+.parking6 {
+  position: absolute;
+  border-radius: 16px;
+}
+
+.utg1 {
+  top: 150px;
+  right: 494px;
+  z-index: 3;
+}
+
+.utg2 {
+  top: 33px;
+  right: 390px;
+  z-index: 2;
+}
+
+.utg3 {
+  top: 211px;
+  right: 283px;
+  z-index: 1;
+}
+
+.utg4 {
+  top: 88px;
+  right: 203px;
+}
+
+.utg1Image,
+.utg2Image,
+.utg3Image,
+.utg4Image {
+  border: 2px solid #9B4EFE;
+}
+
+.nespresso1 {
+  top: 310px;
+  right: 661.05px;
+}
+
+.nespresso2 {
+  top: 257px;
+  right: 360.16px;
+}
+
+.nespresso3 {
+  top: -58px;
+  right: 133.85px;;
+}
+
+.nespresso4 {
+  top: 108px;
+  right: -12.95px;
+}
+
+.nespresso1Image,
+.nespresso2Image,
+.nespresso3Image,
+.nespresso4Image {
+  border: 2px solid #05846F;
+}
+
+.luxxy1 {
+  top: 23px;
+  right: 493.52px;
+  transform: rotate(-20.217deg);
+  z-index: 2;
+}
+
+.luxxy2 {
+  top: 152px;
+  right: 324px;
+  z-index: 3;
+}
+
+.luxxy3 {
+  top: 199px;
+  right: 138.3px;
+  transform: rotate(30.17deg);
+  z-index: 1;
+}
+
+.luxxy1Image,
+.luxxy3Image {
+  border: 2px solid #88CB6B;
+}
+
+.luxxy2Image {
+  border: 1px solid #88CB6B;
+}
+
+.statusStroy1 {
+  top: 128px;
+  right: 395px;
+  z-index: 3;
+}
+
+.statusStroy2 {
+  top: -40px;
+  right: 274px;
+}
+
+.statusStroy3 {
+  top: 254px;
+  right: 167px;
+}
+
+.statusStroy4 {
+  top: 96px;
+  right: 51px;
+}
+
+.statusStroy1Image,
+.statusStroy2Image,
+.statusStroy3Image,
+.statusStroy4Image {
+  border: 2px solid #07B7F9;
+}
+
+.parking4 {
+  top: 30px;
+  right: 358px;
+  z-index: 3;
+}
+
+.parking5 {
+  top: 115px;
+  right: 222px;
+}
+
+.parking6 {
+  top: 54px;
+  right: 86px;
+}
+
+.parking4Image {
+  border: 0.5px solid #DB418C;
+}
+
+.parking5Image,
+.parking6Image {
+  border: 2px solid #DB418C;
+}
+
+
+.utg1Image,
+.utg2Image,
+.utg3Image,
+.utg4Image,
+.nespresso1Image,
+.nespresso2Image,
+.nespresso3Image,
+.nespresso4Image,
+.luxxy1Image,
+.luxxy2Image,
+.luxxy3Image,
+.luxxy4Image,
+.statusStroy1Image,
+.statusStroy2Image,
+.statusStroy3Image,
+.statusStroy4Image {
+  height: 356.923px;
+  border-radius: 16px;
+}
+
+.parking4Image,
+.parking5Image,
+.parking6Image {
+  height: 446px;
+  border-radius: 16px;
+}
+
+.nespresso1,
+.nespresso2,
+.nespresso3,
+.nespresso4 {
+  transform: rotate(35.622deg);
+}
+
+.allProject {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.allProjectContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 58px;
+}
+
+.allProjectText {
+  color: #000;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.14px;
+  position: relative;
+}
+
+.allProjectText:before {
+  position: absolute;
+  content: '';
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  opacity: 1;
+  transition: all 0.4s ease 0s;
+}
+
+.allProjectText:hover::before {
+  position: absolute;
+  content: '';
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  opacity: 0;
+  transition: all 0.4s ease 0s;
+}
+
+.allProjectIcon {
+  width: 40px;
+}
+
+
+@media screen and (max-width: 1439px) {
+  .utg1 {
+    right: 444px;
+  }
+
+  .utg2 {
+    right: 340px;
+  }
+
+  .utg3 {
+    right: 233px;
+  }
+
+  .utg4 {
+    right: 153px;
+  }
+
+  .nespresso1 {
+    top: -173px;
+    right: 318px;
+  }
+
+  .nespresso2 {
+    top: 267px;
+    right: 365.16px;
+  }
+
+  .nespresso3 {
+
+  }
+
+  .nespresso4 {
+    top: 200px;
+    right: 48.05px;
+  }
+
+  .luxxy1 {
+    right: 463.52px;
+  }
+
+  .luxxy2 {
+    right: 294px;
+  }
+
+  .luxxy3 {
+    right: 108.3px;
+  }
+
+  .parking4 {
+    top: 30px;
+    right: 358px;
+  }
+
+  .parking5 {
+    top: 115px;
+    right: 222px;
+  }
+
+  .parking6 {
+    top: 54px;
+    right: 86px;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .utg1 {
+    right: 234px;
+  }
+
+  .utg2 {
+    right: 127px;
+  }
+
+  .utg3 {
+    right: 26px;
+  }
+
+  .utg4 {
+    right: -59px;
+  }
+
+  .nespresso1,
+  .nespresso2,
+  .nespresso3,
+  .nespresso4 {
+    transform: rotate(45deg);
+  }
+
+  .nespresso1 {
+    top: -173px;
+    right: 228px;
+  }
+
+  .nespresso2 {
+    top: 314px;
+    right: 400.16px;
+  }
+
+  .nespresso3 {
+    top: 45px;
+  }
+
+  .nespresso4 {
+    top: 300px;
+    right: 85.05px;
+  }
+
+  .luxxy1 {
+    right: 279.52px;
+  }
+
+  .luxxy2 {
+    right: 110px;
+  }
+
+  .luxxy3 {
+    right: -73.7px;
+  }
+
+  .statusStroy1 {
+    right: 272px;
+  }
+
+  .statusStroy2 {
+    right: 155px;
+  }
+
+  .statusStroy3 {
+    right: 64px;
+  }
+
+  .statusStroy4 {
+    right: -63px;
+  }
+
+  .parking4 {
+    right: 275px;
+  }
+
+  .parking5 {
+    right: 121px;
+  }
+
+  .parking6 {
+    right: -52px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .title {
+    padding-top: 40px;
+  }
+
+  .utg1Image,
+  .utg2Image,
+  .utg3Image,
+  .utg4Image,
+  .nespresso1Image,
+  .nespresso2Image,
+  .nespresso3Image,
+  .nespresso4Image,
+  .luxxy1Image,
+  .luxxy2Image,
+  .luxxy3Image,
+  .statusStroy1Image,
+  .statusStroy2Image,
+  .statusStroy3Image,
+  .statusStroy4Image,
+  .parking4Image,
+  .parking5Image,
+  .parking6Image {
+    height: 267.692px;
+  }
+
+  .nespresso1,
+  .nespresso2,
+  .nespresso3,
+  .nespresso4 {
+    transform: rotate(33.523deg);
+  }
+
+  .utg1 {
+    right: 169px;
+  }
+
+  .utg2 {
+    right: 98px;
+  }
+
+  .utg3 {
+    right: 23px;
+  }
+
+  .utg4 {
+    right: -58px;
+  }
+
+  .nespresso1 {
+    top: 22px;
+    right: 197px
+  }
+
+  .nespresso2 {
+    top: 255.22px;
+    right: 183.16px;
+  }
+
+  .nespresso3 {
+    top: 18.42px;
+    right: 25.85px;
+  }
+
+  .nespresso4 {
+    top: 160px;
+    right: -47.95px;
+  }
+
+  .luxxy1 {
+    top: 20px;
+    right: 237.52px;
+    transform: rotate(-25.895deg);
+  }
+
+  .luxxy2 {
+    top: 81px;
+    right: 104px;
+  }
+
+  .luxxy3 {
+    top: 38px;
+    right: -36.7px;
+    transform: rotate(15.895deg);
+  }
+
+  .statusStroy1 {
+    top: 80px;
+    right: 192px;
+  }
+
+  .statusStroy2 {
+    top: 29px;
+    right: 94px;
+  }
+
+  .statusStroy3 {
+    top: 213px;
+    right: 34px;
+  }
+
+  .statusStroy4 {
+    right: -60px;
+    top: 55px;
+  }
+
+  .parking4 {
+    top: 25px;
+    right: 178px;
+  }
+
+  .parking5 {
+    top: 95px;
+    right: 80px;
+  }
+
+  .parking6 {
+    top: 54px;
+    right: -24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    margin-bottom: 20px;
+    width: 80%;
+  }
+
+  .utg1Image,
+  .utg2Image,
+  .utg3Image,
+  .utg4Image,
+  .nespresso1Image,
+  .nespresso2Image,
+  .nespresso3Image,
+  .nespresso4Image,
+  .luxxy1Image,
+  .luxxy2Image,
+  .luxxy3Image,
+  .statusStroy1Image,
+  .statusStroy2Image,
+  .statusStroy3Image,
+  .statusStroy4Image,
+  .parking4Image,
+  .parking5Image,
+  .parking6Image {
+    height: 160.615px;
+  }
+
+  .nespresso1,
+  .nespresso2,
+  .nespresso3,
+  .nespresso4 {
+    transform: rotate(33.523deg);
+  }
+
+  .utg1 {
+    top: 186px;
+    right: 96px;
+  }
+
+  .utg2 {
+    top: 140px;
+    right: 51px;
+  }
+
+  .utg3 {
+    top: 186px;
+    right: 8px;
+  }
+
+  .utg4 {
+    top: 146px;
+    right: -36px;
+  }
+
+  .nespresso1 {
+    top: 40px;
+    right: 21px;
+  }
+
+  .nespresso2 {
+    top: 272.02px;
+    right: 74.16px;
+  }
+
+  .nespresso3 {
+    top: 127.57px;
+    right: -21.15px;
+  }
+
+  .nespresso4 {
+    top: 237.42px;
+    right: -47.95px;
+  }
+
+  .luxxy1 {
+    top: 34px;
+    right: 90.52px;
+    transform: rotate(-3.437deg)
+  }
+
+  .luxxy2 {
+    top: 121px;
+    right: 29px;
+  }
+
+  .luxxy3 {
+    top: 95px;
+    right: -59.7px;
+    transform: rotate(36.869deg);
+  }
+
+  .statusStroy1 {
+    top: 193px;
+    right: 111px;
+  }
+
+  .statusStroy2 {
+    top: 131px;
+    right: 58px;
+  }
+
+  .statusStroy3 {
+    top: 245px;
+    right: 17px;
+  }
+
+  .statusStroy4 {
+    right: -29px;
+    top: 200px;
+  }
+
+  .parking4 {
+    top: 93px;
+    right: 98px;
+  }
+
+  .parking5 {
+    top: 159px;
+    right: 32px;
+  }
+
+  .parking6 {
+    top: 114px;
+    right: -11px;
+  }
+
+  .portfolioCards {
+    margin-bottom: 26px;
+  }
+}
+

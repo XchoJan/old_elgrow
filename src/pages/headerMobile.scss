@@ -1,0 +1,51 @@
+.HeaderMobile {
+  z-index: 10;
+  position: fixed;
+  display: flex;
+  font-family: 'Inter Tight';
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  @include responsive-size(padding-right, 20px, 50px, 50px, 50px);
+  @include responsive-size(padding-left, 20px, 50px, 50px, 50px);
+  @include responsive-size(padding-top, 16px, 16px, 24px, 24px);
+  @include responsive-size(padding-bottom, 16px, 16px, 24px, 24px);
+
+  .importantText {
+    font-weight: 600;
+    border-bottom: 1px solid black;
+  }
+
+  .logoText {
+    color: #424d5e;
+    font-weight: 500;
+    @include responsive-size(font-size, 16px, 18px, 22px, 24px);
+  }
+  .navContainer {
+    font-size: 16px;
+    display: flex;
+    gap: 24px;
+    font-weight: 400;
+    a {
+      cursor: pointer;
+    }
+  }
+
+  .contactsContainer {
+    display: flex;
+    gap: 24px;
+    div {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      a {
+        color: black;
+        font-weight: 600;
+        border-bottom: 1px solid black;
+        cursor: pointer;
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+html {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+  height: 100%;
+  background: white;
+  font-weight: 400;
+}
+
+small {
+  opacity: 1 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+$desktop: 1440px;
+$tablet: 1024px;
+$mobile: 768px;
+$small-mobile: 390px;
+
+@mixin responsive-size($property, $values...) {
+  $breakpoints: $small-mobile, $mobile, $tablet, $desktop;
+  $num-values: length($values);
+  $range: $desktop - $small-mobile;
+
+  @for $i from 1 through $num-values {
+    $value: nth($values, $i);
+
+    @if $i < $num-values {
+      $next-value: nth($values, $i + 1);
+      $next-breakpoint: nth($breakpoints, $i + 1);
+      $increment: ($next-value - $value) /
+        ($next-breakpoint - nth($breakpoints, $i));
+
+      @if $i == 1 {
+        @media only screen and (max-width: $small-mobile) {
+          #{$property}: $value;
+        }
+      }
+
+      @media only screen and (min-width: nth($breakpoints, $i)) and (max-width: $next-breakpoint - 1) {
+        #{$property}: calc(
+          #{$value} + #{$increment} * (100vw - #{nth($breakpoints, $i)})
+        );
+      }
+    } @else {
+      #{$property}: $value;
+    }
+  }
+}
+
+@mixin adaptive-value($property, $start_size, $min_size, $type) {
+  $add_size: $start_size - $min_size;
+
+  // если type равен 1
+  @if $type == 1 {
+    #{$property}: $start_size + px;
+
+    // применить значение для разрешения экрана меньше 1440px
+    @media (max-width: #{1440 + px}) {
+      #{$property}: calc(
+        #{$min_size + px} + #{$add_size} * ((100vw - 390px) / #{1440 - 390})
+      );
+    }
+
+    // если type равен 2
+  } @else if $type == 2 {
+    #{$property}: $start_size + px;
+
+    // применить значение для разрешения экрана больше или равно 1440px
+    @media (min-width: #{1440 + px}) {
+      #{$property}: calc(
+        #{$min_size + px} + #{$add_size} * ((100vw - 390px) / #{1920 - 390})
+      );
+    }
+
+    // если type не равен 1 или 2
+  } @else {
+    #{$property}: calc(
+      #{$min_size + px} + #{$add_size} * ((100vw - 390px) / #{1920 - 390})
+    );
+  }
+}
+
+.letterL {
+  color: #3ece5d;
+}
+
+* {
+  scroll-behavior: smooth;
+  ::-webkit-scrollbar {
+    width: none;
+  }
+
+  ::-webkit-scrollbar-track {
+    display: none;
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #3ece5d;
+    border-radius: 10px;
+
+  }
+
+  box-sizing: border-box;
+  scrollbar-width: none
+}
+
+img {
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+}

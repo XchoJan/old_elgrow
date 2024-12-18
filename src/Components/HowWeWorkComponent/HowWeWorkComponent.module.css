@@ -1,0 +1,41 @@
+.howWeWorkComponent {
+  width: 100%;
+  min-height: 100vh;
+  font-family: Inter Tight;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.title {
+  padding-top: 100px;
+  margin-bottom: 60px;
+}
+
+.pointsBlock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 55px;
+  margin-bottom: 230px;
+}
+
+@media screen and (max-width: 1023px) {
+  .title {
+    margin-bottom: 40px;
+  }
+  .pointsBlock {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .pointsBlock {
+    flex-direction: column;
+  }
+  .title {
+    padding-top: 0px;
+    width: 70%;
+    margin-bottom: 20px;
+  }
+}

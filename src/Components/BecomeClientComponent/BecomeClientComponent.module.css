@@ -1,0 +1,239 @@
+.becomeClientComponent {
+  width: 100%;
+  min-height: 90vh;
+  font-family: Inter Tight;
+  position: relative;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.logo {
+  margin-top: 64px;
+  margin-bottom: 131px;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 80px;
+  font-style: normal;
+  line-height: 130%;
+  width: 90%;
+  font-weight: 300;
+  color: #ffffff;
+  text-align: center;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.title:hover {
+  color: #9c9c9c;
+}
+
+.titleUnderline {
+  width: 860px;
+  height: 1px;
+  background: #F5F7F7;
+  margin-bottom: 79px;
+}
+
+.btnsBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 584px;
+}
+
+.presentation,
+.mainSite {
+  position: relative;
+  color: #ffffff;
+  z-index: 2;
+  transition: 0.5s;
+  cursor: pointer;
+  font-size: 20px;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.presentation:hover,
+.mainSite:hover {
+  color: #898989;
+  border-bottom: 1px solid #898989;
+}
+
+.presentation {
+  border-bottom: 1px solid white;
+}
+
+.presentation:before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: lowercase;
+  content: 'pdf';
+  position: absolute;
+  width: 42px;
+  height: 23px;
+  background: #3ece5d;
+  border-radius: 12px;
+  font-weight: 300;
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+  top: -16px;
+  right: -21px;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+  bottom: 24px;
+  left: 0;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background: #F5F7F7;
+  margin-bottom: 24px;
+}
+
+.footerContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerItem {
+  display: flex;
+  align-items: center;
+  color: #FFF;
+  font-family: Manrope;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.footerItemIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
+.footerTGIcon {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.footerEmailIcon {
+  width: 27px;
+  height: 27px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 1439px) {
+  .logo {
+    margin-top: 50px;
+  }
+  .title {
+    width: 90%;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%;
+  }
+  .titleUnderline {
+    width: 647px;
+  }
+  .btnsBlock {
+    width: 438px;
+  }
+  .footerItem {
+    font-size: 16px;
+    line-height: normal;
+  }
+  .footerTGIcon {
+    width: 20px;
+    height: 20px;
+  }
+  .footerEmailIcon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .logo {
+    margin-top: 20px;
+  }
+  .presentation {
+    font-size: 16px;
+  }
+  .mainSite {
+    font-size: 16px;
+  }
+  .titleUnderline {
+    width: 374px;
+  }
+  .footerItem {
+    font-size: 14px;
+  }
+  .footerContainer {
+    margin-bottom: 27px;
+  }
+}
+
+
+@media screen and (max-width: 769px) {
+  .textBlock {
+  margin-bottom: 244px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .becomeClientComponent {
+    min-height: 600px;
+  }
+  .title {
+    width: 273px;
+    font-size: 36px;
+    line-height: 130%;
+  }
+  .titleUnderline {
+    width: 225px;
+  }
+  .btnsBlock {
+    width: 273px;
+  }
+  .footerContainer {
+    margin-bottom: 27px;
+  }
+  .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

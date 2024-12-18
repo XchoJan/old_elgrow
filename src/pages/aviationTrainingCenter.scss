@@ -1,0 +1,1362 @@
+.aviationTrainingCenter {
+ @include responsive-size(margin-top, 128px, 164px, 147px, 147px);
+  .aviationTrainingCenter_main_title {
+    @include adaptive-value('padding-left', 50, 20, 1);
+    @include responsive-size(font-size, 30px, 50px, 60px, 80px);
+    @include adaptive-value('line-height', 97, 36, 1);
+    margin-top: 48px;
+    font-family: 'Inter Tight';
+    font-weight: 400;
+
+    @media (max-width: 560px) {
+      margin-top: 20px;
+    }
+  }
+
+  .aviationTrainingCenter_main_info {
+    position: absolute;
+    display: flex;
+    @include adaptive-value('gap', 77, 45, 1);
+    @include responsive-size(top, 220px, 295px, 339px, 287px);
+    @include adaptive-value('font-size', 20, 14, 1);
+    font-family: 'Inter Tight';
+    font-weight: 400;
+    right: 50px;
+
+    :nth-child(1) {
+      text-align: right;
+    }
+    :nth-child(3) {
+      text-align: right;
+    }
+
+    @media (max-width: 560px) {
+      :nth-child(1) {
+        text-align: left;
+      }
+      :nth-child(3) {
+        text-align: left;
+      }
+      // top: 220px;
+      right: 0;
+      left: 6vw;
+    }
+    .aviationTrainingCenter_main_info_item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: #7e7b77;
+      span {
+        text-align: right;
+        color: black;
+        @media (max-width: 560px) {
+          text-align: left;
+        }
+      }
+    }
+  }
+  .aviationTrainingCenter_main_logo {
+    position: relative;
+    @include responsive-size(margin-top, 114px, 136px, 187px, 71px);
+    @media (max-width: 560px) {
+      margin-top: 94px;
+    }
+    width: 100vw;
+    @include adaptive-value('height', 852, 243, 1);
+    img {
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+    }
+    .aviationTrainingCenter_main_logo_text {
+      .aviationTrainingCenter_main_logo_yearAndLogo {
+        display: flex;
+        @include adaptive-value('padding-left', 12, 4, 1);
+        @include adaptive-value('gap', 74, 20, 1);
+        span {
+          padding: 0;
+          background: none;
+          font-family: 'Inter Tight';
+          font-weight: 300;
+          @include adaptive-value('font-size', 20, 6, 1);
+          color: #131d2d;
+        }
+        .aviationTrainingCenter_main_logo_yearAndLogo_logo {
+          display: flex;
+          align-items: center;
+          @include adaptive-value('gap', 11, 3, 1);
+          img {
+            @include adaptive-value('height', 24, 6, 1);
+            @include adaptive-value('width', 24, 6, 1);
+          }
+        }
+      }
+      position: absolute;
+      font-family: 'Inter Tight';
+      @include adaptive-value('top', 154, 41, 1);
+      @include adaptive-value('left', 100, 27, 1);
+      font-weight: 400;
+      @include adaptive-value('font-size', 36, 10, 1);
+      @include adaptive-value('line-height', 54, 15, 1);
+      :nth-child(2) {
+        @include adaptive-value('padding-right', 12, 4, 1);
+        margin: 0;
+        width: max-content;
+        border-radius: 20px;
+        background: rgba(57, 100, 216, 0.13);
+        color: #14399d;
+      }
+      span {
+        @include adaptive-value('padding-left', 12, 4, 1);
+      }
+    }
+  }
+
+  .aviationTrainingCenter_aboutProject {
+    // margin: 0 auto;
+    // width: 100%;
+    // max-width: 1440px;
+    position: relative;
+    @include adaptive-value('padding-left', 50, 20, 1);
+    font-family: 'Inter Tight';
+    .aviationTrainingCenter_aboutProject_text1 {
+      @include adaptive-value('font-size', 20, 14, 1);
+      color: #7e7b77;
+      position: absolute;
+      @include adaptive-value('top', 25, 3, 1);
+    }
+    .aviationTrainingCenter_aboutProject_text2 {
+      margin-top: 30px;
+      font-weight: 400;
+      @include adaptive-value('font-size', 45, 18, 1);
+      @include adaptive-value('line-height', 65, 26, 1);
+      color: #000000;
+
+      @media (max-width: 560px) {
+        padding-top: 30px;
+      }
+      span {
+        @include adaptive-value('padding-left', 179, 63, 1);
+        @media (max-width: 560px) {
+          padding-left: 0px;
+        }
+      }
+    }
+    .aviationTrainingCenter_aboutProject_text3 {
+      @include adaptive-value('margin-top', 45, 26, 1);
+      @include adaptive-value('font-size', 18, 11, 1);
+      @include adaptive-value('padding-right', 38, 20, 1);
+      display: flex;
+      justify-content: flex-end;
+      span {
+        @include adaptive-value('line-height', 21, 16, 1);
+        font-weight: 300;
+        text-align: right;
+        width: 100%;
+        max-width: 522px;
+      }
+    }
+  }
+  .aviationTrainingCenter_lyrical_retreat {
+    // margin: 0 auto;
+    // width: 100%;
+    // max-width: 1440px;
+    @include adaptive-value('margin-top', 262, 1, 1);
+
+    @media (max-width: 560px) {
+      margin-top: 155px;
+    }
+    .aviationTrainingCenter_lyrical_retreat_text1 {
+      position: relative;
+      font-family: 'Inter Tight';
+      font-weight: 400;
+      @include adaptive-value('padding-left', 50, 20, 1);
+      @include adaptive-value('font-size', 45, 24, 1);
+      .aviationTrainingCenter_lyrical_retreat_text1_number {
+        color: rgba(217, 217, 217, 0.2);
+        position: absolute;
+        bottom: -28px;
+        @include responsive-size(left, 20px, 36px, 36px, 36px);
+        @include adaptive-value('font-size', 130, 60, 1);
+      }
+    }
+    .aviationTrainingCenter_lyrical_retreat_text2 {
+      font-family: 'Inter Tight';
+      @include adaptive-value('margin-top', 120, 52, 1);
+      @include adaptive-value('font-size', 24, 14, 1);
+      @include adaptive-value('line-height', 38, 22, 1);
+      @include adaptive-value('width', 756, 390, 1);
+
+      @include adaptive-value('margin-left', 250, 20, 1);
+      @media (max-width: 768px) {
+        @include adaptive-value('width', 890, 337, 1);
+        @include adaptive-value('margin-left', 426, 20, 1);
+      }
+
+      :nth-child(1) {
+        color: black;
+        font-weight: 500;
+      }
+      span {
+        font-weight: 600;
+        color: rgba(62, 206, 93, 1);
+      }
+    }
+
+    .aviationTrainingCenter_lyrical_retreat_text3 {
+      position: relative;
+      font-family: 'Inter Tight';
+      font-weight: 300;
+      @include adaptive-value('font-size', 24, 14, 1);
+      @include adaptive-value('line-height', 38, 22, 1);
+      @include adaptive-value('width', 643, 373, 1);
+      @include adaptive-value('margin-left', 619, 20, 1);
+      @include adaptive-value('margin-top', 45, 1, 1);
+
+      @media (max-width: 768px) {
+        margin-top: 51px;
+      }
+      @media (max-width: 560px) {
+        width: 330px;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-bottom: 3px solid #3ece5d;
+        border-right: 3px solid #3ece5d;
+        bottom: -100px;
+        @include adaptive-value('right', -100, 20, 1);
+        @media (max-width: 560px) {
+          right: -20px;
+        }
+      }
+    }
+
+    .aviationTrainingCenter_lyrical_retreat_airplane {
+      @include adaptive-value('margin-top', 350, 1, 1);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @media (max-width: 560px) {
+        margin-top: 140px;
+      }
+    }
+    .aviationTrainingCenter_lyrical_retreat_text4 {
+      margin-left: auto;
+      @include adaptive-value('padding-right', 38, 20, 1);
+    
+      @include adaptive-value('margin-top', 25, 1, 1);
+      font-family: 'Inter Tight';
+      font-weight: 300;
+      @include adaptive-value('font-size', 16, 11, 1);
+      width: max-content;
+      @media (max-width: 560px) {
+        margin-top: 20px;
+        // width: 268px;
+      }
+      div {
+        padding-left: 10px;
+      }
+      span {
+        color: rgba(62, 206, 93, 1);
+      }
+    }
+  }
+  .aviationTrainingCenter_problems {
+    // margin: 0 auto;
+    // width: 100%;
+    // max-width: 1440px;
+    @include adaptive-value('margin-top', 348, 98, 1);
+    .aviationTrainingCenter_problems_text1 {
+      position: relative;
+      font-family: 'Inter Tight';
+      @include adaptive-value('padding-left', 50, 20, 1);
+      font-weight: 400;
+      @include adaptive-value('font-size', 45, 24, 1);
+      .aviationTrainingCenter_problems_text1_number {
+        color: rgba(217, 217, 217, 0.2);
+        position: absolute;
+        bottom: -20px;
+        @include responsive-size(left, 20px, 36px, 36px, 36px);
+    
+        @include adaptive-value('font-size', 130, 60, 1);
+      }
+    }
+    .aviationTrainingCenter_problems_text2 {
+      font-family: 'Inter Tight';
+      font-weight: 300;
+      color: #696e72;
+
+      @include adaptive-value('padding-left', 142, 39, 1);
+      @include adaptive-value('margin-top', 60, 47, 1);
+      @include adaptive-value('font-size', 24, 14, 1);
+      @include adaptive-value('line-height', 34, 20, 1);
+      span {
+        font-weight: 400;
+        color: black;
+      }
+    }
+    .aviationTrainingCenter_problems_text3 {
+      @include adaptive-value('margin-top', 88, 1, 1);
+      @include adaptive-value('font-size', 18, 10, 1);
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      font-family: 'Inter Tight';
+      gap: 5px;
+      font-weight: 300;
+      padding-right: 50px;
+      span {
+        text-align: right;
+        color: rgba(62, 206, 93, 1);
+      }
+    }
+    .aviationTrainingCenter_problems_img {
+      position: relative;
+      @include adaptive-value('margin-top', 146, 61, 1);
+      @include adaptive-value('margin-left', 285, 40, 1);
+      @include adaptive-value('width', 891, 310, 1);
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      :nth-child(2) {
+        @include adaptive-value('top', 32, 7, 1);
+        @include adaptive-value('left', 45, 8, 1);
+      }
+      :nth-child(3) {
+        @include adaptive-value('bottom', 444, 152, 1);
+        @include adaptive-value('left', 620, 144, 1);
+      }
+      :nth-child(4) {
+        @include adaptive-value('top', 400, 140, 1);
+        @include adaptive-value('right', 675, 202, 1);
+      }
+      :nth-child(5) {
+        @include adaptive-value('top', 310, 100, 1);
+        @include adaptive-value('left', 637, 190, 1);
+      }
+      .aviationTrainingCenter_problems_img_block {
+        font-family: 'Inter Tight';
+        font-weight: 300;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+
+        @include adaptive-value('width', 312, 127, 1);
+        @include adaptive-value('height', 169, 61, 1);
+        @include adaptive-value('font-size', 18, 6, 1);
+        @include adaptive-value('line-height', 25, 9, 1);
+        background: #ffffff;
+        border-radius: 15px;
+        border: 1px solid #3964d8;
+        img {
+          position: absolute;
+          top: -18%;
+          @include adaptive-value('width', 59, 24, 1);
+          @include adaptive-value('height', 59, 24, 1);
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  .aviationTrainingCenter_tasks {
+    // margin: 0 auto;
+    // width: 100%;
+    // max-width: 1440px;
+    @include adaptive-value('margin-top', 327, 127, 1);
+    .aviationTrainingCenter_tasks_text1 {
+      position: relative;
+      @include adaptive-value('padding-left', 50, 20, 1);
+      font-family: 'Inter Tight';
+      font-weight: 400;
+      @include adaptive-value('font-size', 45, 24, 1);
+      .aviationTrainingCenter_tasks_text1_number {
+        color: rgba(217, 217, 217, 0.2);
+        position: absolute;
+        bottom: -20px;
+        @include responsive-size(left, 20px, 36px, 36px, 36px);
+        @include adaptive-value('font-size', 130, 60, 1);
+      }
+    }
+    .aviationTrainingCenter_tasks_listContainer {
+      @include adaptive-value('padding-left', 173, 33, 1);
+      @media (max-width: 1024px) {
+        @include adaptive-value('margin-top', 80, 44, 1);
+        @include adaptive-value('padding-left', 120, 33, 1);
+      }
+      @media (max-width: 768px) {
+        @include adaptive-value('padding-left', 150, 1, 1);
+      }
+      @media (max-width: 560px) {
+        @include adaptive-value('padding-left', 150, 35, 1);
+      }
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      @media (max-width: 560px) {
+        @include adaptive-value('margin-right', 150, 35, 1);
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .aviationTrainingCenter_tasks_listContainer_content {
+        gap: 33px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-family: 'Inter Tight';
+        @include adaptive-value('font-size', 24, 14, 1);
+        @media (max-width: 1024px) {
+          @include adaptive-value('font-size', 20, 14, 1);
+        }
+        @media (max-width: 768px) {
+          gap: 30px;
+        }
+        font-weight: 300;
+        .aviationTrainingCenter_tasks_listContainer_content_item {
+          display: flex;
+          @include adaptive-value('gap', 25, 13, 1);
+          span {
+            @include adaptive-value('line-height', 34, 20, 1);
+            @media (max-width: 1024px) {
+              white-space: pre;
+            }
+          }
+        }
+      }
+
+      .aviationTrainingCenter_tasks_listContainer_img {
+        @include adaptive-value('width', 726, 34, 1);
+
+        @include adaptive-value('height', 437, 100, 1);
+        @media (max-width: 1024px) {
+          width: 465px;
+          @include adaptive-value('margin-right', 68, 33, 1);
+        }
+        @media (max-width: 768px) {
+          width: 45vw;
+          @include adaptive-value('margin-right', 97, 1, 1);
+        }
+        @media (max-width: 560px) {
+          height: 49vw;
+          width: 100%;
+        }
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          @media (max-width: 560px) {
+            // margin-right: 40px;
+            height: 116%;
+          }
+        }
+      }
+    }
+  }
+
+  .aviationTrainingCenter_development {
+    @include adaptive-value('height', 5765, 3489, 1);
+    // height: 3489px;
+    overflow: hidden;
+    position: relative;
+    @include adaptive-value('padding-top', 406, 113, 1);
+    // margin: 0 auto;
+    // width: 100%;
+    // max-width: 1440px;
+    .aviationTrainingCenter_development_text1 {
+      position: relative;
+      @include adaptive-value('padding-left', 50, 20, 1);
+      font-family: 'Inter Tight';
+      font-weight: 400;
+      @include adaptive-value('font-size', 45, 24, 1);
+      .aviationTrainingCenter_development_text1_number {
+        color: rgba(217, 217, 217, 0.2);
+        position: absolute;
+        bottom: -20px;
+        @include responsive-size(left, 20px, 36px, 36px, 36px);
+        @include adaptive-value('font-size', 130, 60, 1);
+      }
+    }
+    .aviationTrainingCenter_development_text2 {
+      font-family: 'Inter Tight';
+      font-weight: 500;
+      color: rgba(20, 57, 157, 1);
+      @include adaptive-value('font-size', 32, 16, 1);
+      @include adaptive-value('padding-left', 161, 63, 1);
+      @include adaptive-value('margin-top', 137, 43, 1);
+      @media (max-width: 560px) {
+        width: max-content;
+        text-align: center;
+      }
+    }
+    .aviationTrainingCenter_development_arrow1 {
+      @include adaptive-value('margin-top', 34, 140, 1);
+      @include adaptive-value('margin-left', 321, 150, 1);
+      @media (max-width: 1024px) {
+        @include adaptive-value('margin-top', 34, 47, 1);
+      }
+    }
+    .aviationTrainingCenter_development_atcProfile {
+      @include adaptive-value('width', 766, 433, 1);
+      @include adaptive-value('height', 534, 270, 1);
+      @include adaptive-value('top', 500, 600, 1);
+      @include adaptive-value('right', 0, -330, 1);
+
+      @media (max-width: 1024px) {
+        right: -126px;
+
+        @include adaptive-value('top', 500, 610, 1);
+      }
+      @media (max-width: 768px) {
+        @include adaptive-value('right', 0, -250, 1);
+      }
+      @media (max-width: 560px) {
+        @include adaptive-value('top', 650, 410, 1);
+        @include adaptive-value('right', 0, -150, 1);
+      }
+      position: absolute;
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        @media (max-width: 1024px) {
+          object-fit: contain;
+        }
+        @media (max-width: 768px) {
+          width: 92%;
+        }
+        @media (max-width: 560px) {
+          width: 104%;
+          height: 113%;
+        }
+      }
+    }
+    .aviationTrainingCenter_development_atcForm {
+      @include adaptive-value('width', 292, 148, 1);
+      @include adaptive-value('height', 353, 173, 1);
+      position: absolute;
+
+      @include adaptive-value('top', 760, 710, 1);
+      @include adaptive-value('left', 490, 210, 1);
+
+      @media (max-width: 768px) {
+        @include adaptive-value('top', 760, 590, 1);
+        @include adaptive-value('left', 490, 120, 1);
+      }
+      @media (max-width: 390px) {
+        @include adaptive-value('top', 760, 590, 1);
+        @include adaptive-value('left', 190, 60, 1);
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .aviationTrainingCenter_development_miniAir {
+      @media (max-width: 768px) {
+        width: 50px;
+        height: 50px;
+      }
+      @media (max-width: 560px) {
+        width: 32px;
+        height: 32px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      position: absolute;
+      @include adaptive-value('top', 1000, 75, 1);
+      @include adaptive-value('left', 233, 31, 1);
+      @media (max-width: 1024px) {
+        @include adaptive-value('top', 400, 906, 1);
+      }
+      @media (max-width: 768px) {
+        @include adaptive-value('top', 1600, 520, 1);
+      }
+    }
+    .aviationTrainingCenter_development_text3 {
+      position: relative;
+
+      margin-top: 500px;
+
+      p {
+        margin: 0;
+        @include adaptive-value('font-size', 32, 16, 1);
+        color: rgba(20, 57, 157, 1);
+        text-align: center;
+        width: max-content;
+        font-family: 'Inter Tight';
+        font-weight: 500;
+
+        @include adaptive-value('margin-left', 649, 95, 1);
+      }
+      .aviationTrainingCenter_development_text3_arrow2 {
+        @include adaptive-value('margin-top', 35, 17, 1);
+        @include adaptive-value('margin-left', 650, 146, 1);
+      }
+      .aviationTrainingCenter_development_text3_list1 {
+        position: relative;
+        margin-top: 50px;
+        @include adaptive-value('margin-left', 147, 20, 1);
+        @include adaptive-value('width', 816, 282, 1);
+        @include adaptive-value('height', 510, 176, 1);
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .aviationTrainingCenter_development_text3_list1_studyList {
+          position: absolute;
+          left: 47%;
+          top: 37%;
+          @media (max-width: 560px) {
+            left: 38%;
+          }
+          @include adaptive-value('width', 719, 248, 1);
+          @include adaptive-value('height', 438, 151, 1);
+        }
+        .aviationTrainingCenter_development_text3_list1_arrow3 {
+          position: absolute;
+          width: 5vw;
+          height: 8vw;
+          @include adaptive-value('right', -135, -30, 1);
+          top: 20px;
+        }
+        .aviationTrainingCenter_development_text3_list1_books {
+          position: absolute;
+          top: 10px;
+          @include adaptive-value('right', -300, -55, 1);
+          width: 70px;
+          height: 70px;
+          @media (max-width: 1024px) {
+            top: -60px;
+          }
+          @media (max-width: 768px) {
+            width: 50px;
+            height: 50px;
+            top: 10px;
+          }
+          @media (max-width: 560px) {
+            top: -41px;
+            width: 32px;
+            height: 32px;
+          }
+        }
+      }
+    }
+    .aviationTrainingCenter_development_text4 {
+      position: relative;
+      @include adaptive-value('margin-top', 406, 132, 1);
+      span {
+        @include adaptive-value('font-size', 32, 16, 1);
+        color: rgba(20, 57, 157, 1);
+
+        width: max-content;
+        font-family: 'Inter Tight';
+        font-weight: 500;
+
+        @include adaptive-value('margin-left', 238, 45, 1);
+      }
+      .aviationTrainingCenter_development_text4_arrow1 {
+        @include adaptive-value('margin-top', 42, 65, 1);
+        @include adaptive-value('margin-left', 169, 44, 1);
+      }
+      .aviationTrainingCenter_development_text4_arrow2 {
+        position: absolute;
+        @include adaptive-value('top', 46, 1, 1);
+        @include adaptive-value('left', 665, 182, 1);
+      }
+      .aviationTrainingCenter_development_text4_bag {
+        position: absolute;
+        @include adaptive-value('top', 85, 73, 1);
+        @include adaptive-value('left', 509, 167, 1);
+        @media (max-width: 768px) {
+          width: 50px;
+          height: 50px;
+        }
+        @media (max-width: 560px) {
+          width: 32px;
+          height: 32px;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .aviationTrainingCenter_development_text4_processStudies {
+        position: absolute;
+        @include adaptive-value('width', 488, 168, 1);
+        @include adaptive-value('height', 136, 46, 1);
+
+        @include adaptive-value('right', 126, 51, 1);
+        @include adaptive-value('top', 10, 200, 1);
+        @media (max-width: 768px) {
+          @include adaptive-value('top', 10, 150, 1);
+        }
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .aviationTrainingCenter_development_text4_workerStatus {
+        position: absolute;
+        @include adaptive-value('right', 126, 20, 1);
+        top: 289px;
+
+        @media (max-width: 560px) {
+          top: 30px;
+        }
+        @include adaptive-value('width', 236, 108, 1);
+        @include adaptive-value('height', 72, 32, 1);
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .aviationTrainingCenter_development_text4_applicationTraining {
+        position: relative;
+        @include adaptive-value('width', 777, 228, 1);
+        @include adaptive-value('height', 538, 223, 1);
+        @include adaptive-value('margin-top', 58, 64, 1);
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+        .aviationTrainingCenter_development_text4_applicationTraining_form {
+          position: absolute;
+          @include adaptive-value('width', 379, 148, 1);
+          @include adaptive-value('height', 515, 282, 1);
+          top: 50%;
+          left: 87%;
+          @media (max-width: 1024px) {
+            left: 74%;
+          }
+          img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .aviationTrainingCenter_development_text4_applicationTraining_arrow {
+          top: 20%;
+          position: absolute;
+          @media (max-width: 560px) {
+            height: 67px;
+          }
+          @media (max-width: 768px) {
+            top: 15%;
+          }
+          @media (max-width: 560px) {
+            top: 25%;
+          }
+          @include adaptive-value('right', -150, -70, 1);
+
+          img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+    .aviationTrainingCenter_development_text5 {
+      position: relative;
+      @include adaptive-value('margin-top', 453, 190, 1);
+      p {
+        text-align: center;
+        margin: 0;
+        @include adaptive-value('font-size', 32, 16, 1);
+        color: rgba(20, 57, 157, 1);
+        width: max-content;
+        font-family: 'Inter Tight';
+        font-weight: 500;
+        @include adaptive-value('margin-left', 143, 28, 1);
+      }
+      .aviationTrainingCenter_development_text5_arrow {
+        position: absolute;
+        @include adaptive-value('top', 52, 70, 1);
+        @include adaptive-value('left', 350, 140, 1);
+        img {
+          object-fit: contain;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .aviationTrainingCenter_development_text5_air {
+        @media (max-width: 768px) {
+          width: 50px;
+          height: 50px;
+        }
+        @media (max-width: 560px) {
+          width: 32px;
+          height: 32px;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        position: absolute;
+        @include adaptive-value('left', 902, 292, 1);
+      }
+    }
+    .aviationTrainingCenter_development_integration {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      @include adaptive-value('margin-top', 148, 90, 1);
+      @media (max-width: 1024px) {
+        @include adaptive-value('margin-top', 200, 90, 1);
+      }
+      @media (max-width: 768px) {
+        @include adaptive-value('margin-top', 500, 90, 1);
+      }
+      @media (max-width: 560px) {
+        flex-direction: column;
+        gap: 80px;
+        @include adaptive-value('margin-top', 148, 110, 1);
+      }
+
+      .aviationTrainingCenter_development_integration_history {
+        @include adaptive-value('width', 636, 350, 1);
+        @include adaptive-value('height', 397, 218, 1);
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .aviationTrainingCenter_development_integration_text {
+        position: relative;
+        text-align: center;
+        @include adaptive-value('font-size', 32, 16, 1);
+        color: rgba(20, 57, 157, 1);
+        width: max-content;
+        font-family: 'Inter Tight';
+        font-weight: 500;
+        @media (width: 560px) {
+          padding-left: 19%;
+        }
+        .aviationTrainingCenter_development_integration_text_arrow {
+          position: absolute;
+          @include adaptive-value('bottom', -180, -50, 1);
+          @media (max-width: 1024px) {
+            @include adaptive-value('bottom', -180, -100, 1);
+          }
+          @media (max-width: 768px) {
+            @include adaptive-value('bottom', -180, -130, 1);
+          }
+          @media (max-width: 560px) {
+            @include adaptive-value('bottom', -120, -70, 1);
+          }
+        }
+      }
+    }
+    .aviationTrainingCenter_development_vacation {
+      position: relative;
+      @include adaptive-value('margin-top', 33, 80, 1);
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      @media (max-width: 560px) {
+        @include adaptive-value('margin-top', 100, 80, 1);
+        align-items: center;
+        flex-direction: column-reverse;
+        gap: 80px;
+      }
+      .aviationTrainingCenter_development_vacation_img {
+        @include adaptive-value('width', 636, 350, 1);
+        @include adaptive-value('height', 397, 218, 1);
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .aviationTrainingCenter_development_vacation_img2 {
+        top: 650px;
+        left: 5%;
+        position: absolute;
+        @include adaptive-value('width', 790, 300, 1);
+        @include adaptive-value('height', 493, 187, 1);
+        @media (max-width: 560px) {
+          top: 390px;
+        }
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+        .aviationTrainingCenter_development_vacation_img2_second {
+          position: absolute;
+          top: 64%;
+          left: 21%;
+          @media (max-width: 560px) {
+            left: 18%;
+          }
+          @include adaptive-value('width', 790, 300, 1);
+          @include adaptive-value('height', 493, 187, 1);
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
+          .aviationTrainingCenter_development_vacation_img2_second_arrow {
+            position: absolute;
+            bottom: -70px;
+          }
+        }
+        .aviationTrainingCenter_development_vacation_img2_third {
+          position: absolute;
+          top: 20px;
+          left: 125%;
+
+          @media (max-width: 1200px) {
+            left: 120%;
+          }
+          @media (max-width: 1100px) {
+            left: 105%;
+          }
+          @media (max-width: 768px) {
+            top: -78px;
+            left: 100%;
+          }
+          @media (max-width: 650px) {
+            top: -78px;
+            left: 87%;
+          }
+          @media (max-width: 560px) {
+            top: 356px;
+            left: 35%;
+          }
+          @include adaptive-value('width', 337, 194, 1);
+          @include adaptive-value('height', 258, 149, 1);
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+
+      .aviationTrainingCenter_development_vacation_text {
+        position: relative;
+        text-align: center;
+        @include adaptive-value('font-size', 32, 16, 1);
+        color: rgba(20, 57, 157, 1);
+        width: max-content;
+        font-family: 'Inter Tight';
+        font-weight: 500;
+        @media (max-width: 560px) {
+          padding-right: 181px;
+        }
+        .aviationTrainingCenter_development_vacation_text_img {
+          left: 35%;
+          bottom: -160px;
+          position: absolute;
+          @media (max-width: 1024px) {
+            left: 60%;
+          }
+          @media (max-width: 768px) {
+            left: 79%;
+          }
+        }
+        .aviationTrainingCenter_development_vacation_text_img2 {
+          position: absolute;
+          top: 193px;
+          left: 507px;
+          @media (max-width: 1024px) {
+            left: 430px;
+          }
+          @media (max-width: 768px) {
+            top: 100px;
+          }
+          @media (max-width: 560px) {
+            top: 20%;
+            left: 60%;
+            width: 32px;
+            height: 32px;
+          }
+        }
+      }
+    }
+  }
+  .aviationTrainingCenter_results {
+    // margin: 0 auto;
+    // width: 100%;
+    // max-width: 1440px;
+    position: relative;
+    @include adaptive-value('margin-top', 239, 37, 1);
+    .aviationTrainingCenter_results_content_human {
+      top: 30%;
+      left: 68%;
+      @media (max-width: 768px) {
+        top: 26%;
+        left: 73%;
+      }
+
+      @media (max-width: 560px) {
+        top: 42%;
+        left: 59%;
+      }
+      position: absolute;
+      @include adaptive-value('width', 290, 93, 1);
+
+      @include adaptive-value('height', 290, 93, 1);
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .aviationTrainingCenter_results_content {
+      position: relative;
+      margin-top: 100px;
+      margin-left: 112px;
+
+      :nth-child(1) {
+        z-index: 2;
+        position: absolute;
+        @include adaptive-value('top', 150, 15, 1);
+        @include adaptive-value('left', 30, -84, 1);
+
+        @include adaptive-value('width', 467, 181, 1);
+        @include adaptive-value('height', 218, 84, 1);
+        transform: rotate(-25.2deg);
+        background: #fffdfa;
+        background-image: repeating-linear-gradient(
+            60deg,
+            #ec9b57,
+            #ec9b57 30px,
+            transparent 30px,
+            transparent 60px,
+            #ec9b57 60px
+          ),
+          repeating-linear-gradient(
+            150deg,
+            #ec9b57,
+            #ec9b57 30px,
+            transparent 30px,
+            transparent 60px,
+            #ec9b57 60px
+          ),
+          repeating-linear-gradient(
+            240deg,
+            #ec9b57,
+            #ec9b57 30px,
+            transparent 30px,
+            transparent 60px,
+            #ec9b57 60px
+          ),
+          repeating-linear-gradient(
+            330deg,
+            #ec9b57,
+            #ec9b57 30px,
+            transparent 30px,
+            transparent 60px,
+            #ec9b57 60px
+          );
+        background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
+        background-position: 0 0, 0 0, 100% 0, 0 100%;
+        background-repeat: no-repeat;
+
+        @media (max-width: 560px) {
+          background-image: repeating-linear-gradient(
+              120deg,
+              rgba(236, 155, 87, 1),
+              rgba(236, 155, 87, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(236, 155, 87, 1) 11px
+            ),
+            repeating-linear-gradient(
+              210deg,
+              rgba(236, 155, 87, 1),
+              rgba(236, 155, 87, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(236, 155, 87, 1) 11px
+            ),
+            repeating-linear-gradient(
+              -60deg,
+              rgba(236, 155, 87, 1),
+              rgba(236, 155, 87, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(236, 155, 87, 1) 11px
+            ),
+            repeating-linear-gradient(
+              30deg,
+              rgba(236, 155, 87, 1),
+              rgba(236, 155, 87, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(236, 155, 87, 1) 11px
+            );
+          background-size: 1px 100%, 100% 1px, 1px 100%, 100% 1px;
+          background-position: 0 0, 0 0, 100% 0, 0 100%;
+          background-repeat: no-repeat;
+        }
+      }
+      :nth-child(2) {
+        text-align: right;
+        z-index: 1;
+        position: absolute;
+
+        @include adaptive-value('top', -24, -49, 1);
+        @include adaptive-value('left', 430, 43, 1);
+        @include adaptive-value('width', 462, 179, 1);
+        @include adaptive-value('height', 218, 84, 1);
+
+        transform: rotate(8.12deg);
+        background: #fcfffc;
+        background-image: repeating-linear-gradient(
+            60deg,
+            #3ece5d,
+            #3ece5d 30px,
+            transparent 30px,
+            transparent 60px,
+            #3ece5d 60px
+          ),
+          repeating-linear-gradient(
+            150deg,
+            #3ece5d,
+            #3ece5d 30px,
+            transparent 30px,
+            transparent 60px,
+            #3ece5d 60px
+          ),
+          repeating-linear-gradient(
+            240deg,
+            #3ece5d,
+            #3ece5d 30px,
+            transparent 30px,
+            transparent 60px,
+            #3ece5d 60px
+          ),
+          repeating-linear-gradient(
+            330deg,
+            #3ece5d,
+            #3ece5d 30px,
+            transparent 30px,
+            transparent 60px,
+            #3ece5d 60px
+          );
+        background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
+        background-position: 0 0, 0 0, 100% 0, 0 100%;
+        background-repeat: no-repeat;
+
+        @media (max-width: 560px) {
+          background-image: repeating-linear-gradient(
+              120deg,
+              rgba(62, 206, 93, 1),
+              rgba(62, 206, 93, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(62, 206, 93, 1) 11px
+            ),
+            repeating-linear-gradient(
+              210deg,
+              rgba(62, 206, 93, 1),
+              rgba(62, 206, 93, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(62, 206, 93, 1) 11px
+            ),
+            repeating-linear-gradient(
+              -60deg,
+              rgba(62, 206, 93, 1),
+              rgba(62, 206, 93, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(62, 206, 93, 1) 11px
+            ),
+            repeating-linear-gradient(
+              30deg,
+              rgba(62, 206, 93, 1),
+              rgba(62, 206, 93, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(62, 206, 93, 1) 11px
+            );
+          background-size: 1px 100%, 100% 1px, 1px 100%, 100% 1px;
+          background-position: 0 0, 0 0, 100% 0, 0 100%;
+          background-repeat: no-repeat;
+        }
+      }
+      :nth-child(3) {
+        z-index: 3;
+        position: absolute;
+        @include adaptive-value('top', 367, 82, 1);
+        @include adaptive-value('left', 133, -50, 1);
+
+        text-align: center;
+        @include adaptive-value('width', 612, 238, 1);
+        @include adaptive-value('height', 218, 84, 1);
+        transform: rotate(-9.54deg);
+        background: #f9fdff;
+        background-image: repeating-linear-gradient(
+            60deg,
+            #3964d8,
+            #3964d8 30px,
+            transparent 30px,
+            transparent 60px,
+            #3964d8 60px
+          ),
+          repeating-linear-gradient(
+            150deg,
+            #3964d8,
+            #3964d8 30px,
+            transparent 30px,
+            transparent 60px,
+            #3964d8 60px
+          ),
+          repeating-linear-gradient(
+            240deg,
+            #3964d8,
+            #3964d8 30px,
+            transparent 30px,
+            transparent 60px,
+            #3964d8 60px
+          ),
+          repeating-linear-gradient(
+            330deg,
+            #3964d8,
+            #3964d8 30px,
+            transparent 30px,
+            transparent 60px,
+            #3964d8 60px
+          );
+        background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
+        background-position: 0 0, 0 0, 100% 0, 0 100%;
+        background-repeat: no-repeat;
+        @media (max-width: 560px) {
+          background-image: repeating-linear-gradient(
+              120deg,
+              rgba(57, 100, 216, 1),
+              rgba(57, 100, 216, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(57, 100, 216, 1) 11px
+            ),
+            repeating-linear-gradient(
+              210deg,
+              rgba(57, 100, 216, 1),
+              rgba(57, 100, 216, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(57, 100, 216, 1) 11px
+            ),
+            repeating-linear-gradient(
+              -60deg,
+              rgba(57, 100, 216, 1),
+              rgba(57, 100, 216, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(57, 100, 216, 1) 11px
+            ),
+            repeating-linear-gradient(
+              30deg,
+              rgba(57, 100, 216, 1),
+              rgba(57, 100, 216, 1) 3px,
+              transparent 3px,
+              transparent 11px,
+              rgba(57, 100, 216, 1) 11px
+            );
+          background-size: 1px 100%, 100% 1px, 1px 100%, 100% 1px;
+          background-position: 0 0, 0 0, 100% 0, 0 100%;
+          background-repeat: no-repeat;
+        }
+      }
+      .aviationTrainingCenter_results_content_item {
+        font-family: 'Inter Tight';
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 300;
+        @include adaptive-value('font-size', 24, 9, 1);
+
+        border-radius: 40px;
+        @media (max-width: 560px) {
+          border-radius: 15px;
+        }
+      }
+    }
+    .aviationTrainingCenter_results_text2 {
+      position: relative;
+      @include adaptive-value('margin-top', 900, 438, 1);
+      @include adaptive-value('margin-left', 627, 154, 1);
+      @include adaptive-value('font-size', 32, 16, 1);
+      color: rgba(20, 57, 157, 1);
+      width: max-content;
+      font-family: 'Inter Tight';
+      font-weight: 500;
+
+      .aviationTrainingCenter_results_text2_arrow {
+        position: absolute;
+        @include adaptive-value('top', 82, 60, 1);
+        @include adaptive-value('left', -84, -30, 1);
+        left: -84px;
+      }
+
+      .aviationTrainingCenter_results_text2_computer {
+        position: absolute;
+
+        @include adaptive-value('top', 52, 40, 1);
+        @include adaptive-value('left', -280, -80, 1);
+        @media (max-width: 768px) {
+          width: 50px;
+          height: 50px;
+        }
+        @media (max-width: 560px) {
+          width: 32px;
+          height: 32px;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .aviationTrainingCenter_results_text3 {
+      height: 200px;
+      @include adaptive-value('margin-top', 225, 120, 1);
+
+      font-family: 'Inter Tight';
+      font-weight: 300;
+      @include adaptive-value('font-size', 24, 14, 1);
+      @include adaptive-value('margin-left', 145, 30, 1);
+      @include adaptive-value('line-height', 34, 20, 1);
+    }
+    .aviationTrainingCenter_results_text1 {
+      position: relative;
+      font-family: 'Inter Tight';
+      @include adaptive-value('padding-left', 50, 20, 1);
+      font-weight: 400;
+      @include adaptive-value('font-size', 45, 24, 1);
+      .aviationTrainingCenter_results_text1_number {
+        color: rgba(217, 217, 217, 0.2);
+        position: absolute;
+        bottom: -20px;
+        @include responsive-size(left, 20px, 36px, 36px, 36px);
+        @include adaptive-value('font-size', 130, 60, 1);
+      }
+    }
+  }
+}

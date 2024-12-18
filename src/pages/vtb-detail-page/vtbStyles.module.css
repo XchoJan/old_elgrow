@@ -1,0 +1,124 @@
+.container {
+    margin-top: 130px;
+    padding-bottom: 120px;
+}
+
+.paddingContainer{
+    padding-right: clamp(1.25rem, 0.693rem + 2.03vw, 3.125rem);
+    padding-left: clamp(1.25rem, 0.693rem + 2.03vw, 3.125rem);
+}
+
+.titleContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.descriptionsContainer{
+    display: flex;
+}
+
+.descriptionTitle{
+    font-size: 18px;
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 400;
+    color: #878787;
+    line-height: 28px;
+}
+.description {
+    font-size: 18px;
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 400;
+    color: #303030;
+    line-height: 28px
+}
+.title{
+    font-size: clamp(2.5rem, 1.757rem + 2.7vw, 5rem);
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 300;
+    color: #303030
+}
+
+.imgBox{
+    width: 100%;
+    height: clamp(14.375rem, -2.675rem + 62vw, 53.125rem);
+    background-image: url("../../../public/images/vtb-img.png");
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: cover;
+}
+
+.projectInfoBox{
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.projectInfoTitle{
+    font-size: clamp(1.75rem, 1.42rem + 1.2vw, 2.5rem);
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 300;
+    color: #303030;
+    line-height: 28px
+}
+
+.logoNameBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    margin-right: 20px;
+    width: 120px
+}
+
+
+.stackBox{
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+    /* margin: 0 auto; */
+    width: 300px;
+    position: absolute;
+    right: 10%;
+    margin-top: 120px;
+}
+
+.bottomArrow{
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+}
+
+.topArrow{
+    position: absolute;
+    top: -5px;
+    left: -10px;
+}
+
+.stackItemTitle{
+    font-size: 18px;
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 300;
+    color: #878787;
+    margin-bottom: 0;
+}
+
+
+@media (max-width: 440px) {
+    .titleContainer{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .projectInfoBox{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .projectInfoTitle{
+        margin-top: 0;
+    }
+    .stackBox{
+        margin-right: 0;
+    }
+}
+

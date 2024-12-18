@@ -1,0 +1,303 @@
+.aboutUsNumbersComponent {
+  width: 100%;
+  min-height: 100vh;
+  background: #07B7F9;
+  position: relative;
+  justify-content: center;
+  display: flex;
+  font-family: Inter Tight;
+  overflow-x: clip;
+}
+
+.container {
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 100px;
+}
+
+.leftBlock {
+  width: 50%;
+  margin-bottom: 172px;
+}
+
+.leftBlockTitle {
+  color: #FFF;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 96px;
+  margin-bottom: 40px ;
+}
+
+.leftBlockTitle:after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-top: 2px solid #3ece5d;
+  border-right: 2px solid #3ece5d;
+}
+
+.aboutNumbersContent {
+  display: flex;
+  gap: 75px;
+}
+
+.aboutNumbersLeftContent,
+.aboutNumbersRightContent {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.containerNum {
+
+}
+
+.num {
+  color: #FFF;
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: 0.72px;
+}
+
+.content {
+  color: #FFF;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26.4px;
+  letter-spacing: 0.22px;
+}
+
+.rightBlock {
+  width: 50%;
+  display: flex;
+}
+
+.parking1,
+.parking2,
+.parking3 {
+  border-radius: 16px;
+}
+
+.parking1 {
+  height: 519.216px;
+  right: 412px;
+  top: 83px;
+  z-index: 3;
+  position: absolute;
+}
+
+.parking2 {
+  height: 519.216px;
+  right: 218px;
+  top: -32px;
+  z-index: 2;
+  position: absolute;
+}
+
+.parking3 {
+  overflow: hidden;
+  height: 519.216px;
+  right: 50px;
+  top: 83px;
+  position: absolute;
+}
+
+.parking1Image,
+.parking2Image,
+.parking3Image {
+  width: 100%;
+  height: 100%;
+}
+
+.stacksBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.stackBlock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot,
+.stackText {
+  color: #FFF;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+  letter-spacing: 0.22px;
+}
+
+@media screen and (max-width: 1800px) {
+  .parking1,
+  .parking2,
+  .parking3 {
+    height: 519.216px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .parking1 {
+    height: 519.216px;
+    right: 404px;
+  }
+
+  .parking2 {
+    height: 519.216px;
+    right: 214px;
+  }
+
+  .parking3 {
+    height: 519.216px;
+    right: 70px;
+  }
+  .stackText {
+    font-size: 16px;
+    line-height: 19.2px;
+    letter-spacing: 0.16px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .parking1 {
+    height: 519.216px;
+    right: 324px;
+  }
+
+  .parking2 {
+    height: 519.216px;
+    right: 134px;
+  }
+
+  .parking3 {
+    height: 519.216px;
+    right: -10px;
+  }
+}
+
+@media screen and (max-width: 1223px) {
+  .aboutNumbersContent {
+    gap: 50px;
+  }
+  .parking1 {
+    height: 519.216px;
+    right: 228px;
+  }
+
+  .parking2 {
+    height: 519.216px;
+    right: 60px;
+  }
+
+  .parking3 {
+    height: 519.216px;
+    right: -100px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .leftBlockTitle {
+    font-size: 48px;
+    line-height: 145.496%;
+    margin-bottom: 24px;
+  }
+  .num {
+    font-size: 48px;
+    line-height: 140%;
+    letter-spacing: 0.48px;
+  }
+  .parking1 {
+    height: 346.144px;
+    right: 161px;
+  }
+
+  .parking2 {
+    height: 346.144px;
+  }
+
+  .parking3 {
+    height: 346.144px;
+    right: -50px;
+  }
+  .mainContent {
+    padding-top: 40px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .stackText {
+    font-size: 14px;
+    line-height: 16.8px;
+    letter-spacing: 0.14px;
+  }
+  .content {
+    font-size: 14px;
+    line-height: 16.8px;
+    letter-spacing: 0.14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .aboutUsNumbersComponent {
+    min-height: 600px;
+  }
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .leftBlock {
+    width: 100%;
+  }
+  .leftBlockTitle {
+    font-size: 36px;
+    line-height: 43.2px;
+    width: 164px;
+    margin-bottom: 20px;
+  }
+  .num {
+    font-size: 36px;
+    line-height: 33.6px;
+    letter-spacing: 0.36px;
+    margin-bottom: 8px;
+  }
+  .stackText {
+    font-size: 8px;
+    line-height: 9.6px;
+    letter-spacing: 0.08px;
+  }
+  .dot {
+    font-size: 8px;
+  }
+  .aboutNumbersLeftContent,
+  .aboutNumbersRightContent {
+    gap: 24px;
+  }
+  .stacksBlock {
+    gap: 4px;
+  }
+  .stackBlock {
+    gap: 4px;
+  }
+}
+

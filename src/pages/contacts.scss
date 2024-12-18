@@ -1,0 +1,201 @@
+.contacts {
+  overflow-y: auto;
+  overflow-x: hidden;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 11;
+  width: 100vw;
+  height: 100%;
+  @include adaptive-value('padding-top', 23, 20, 1);
+  @include adaptive-value('padding-right', 66, 20, 1);
+  @include adaptive-value('padding-bottom', 23, 21, 1);
+  @include adaptive-value('padding-left', 50, 20, 1);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &::-webkit-scrollbar {
+    width: 0px !important;
+  }
+
+  .contacts_client {
+    transition: 0.5s;
+    &:hover {
+      background: #1a9634;
+    }
+    cursor: pointer;
+    text-align: right;
+    border-radius: 100% 0% 0% 0%;
+    @include adaptive-value('width', 145, 95, 1);
+    @include adaptive-value('height', 132, 91, 1);
+    background-color: #3ece5d;
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    font-family: 'Inter Tight';
+    font-weight: 400;
+    @include adaptive-value('font-size', 20, 12, 1);
+    color: white;
+    span {
+      width: 100px;
+      position: absolute;
+      @include adaptive-value('bottom', 28, 21, 1);
+      right: 15px;
+    }
+  }
+
+  .contacts_email {
+    font-family: 'Inter Tight';
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+  }
+
+  .contacts_addresses {   
+    
+    @include responsive-size(padding-bottom, 75px, 36px, 50px, 100px);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter Tight';
+
+    @media (max-width: 560px) {
+      margin-top: 75px;
+      flex-direction: column;
+      align-items: center;
+    }
+    .contacts_addresses_adress {
+      width: 33vw;
+      height: 267px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      @media (max-width: 560px) {
+        width: 60vw;
+      }
+
+      &:nth-child(1) {
+        border-right: 1px solid #bababa;
+      }
+      &:nth-child(2) {
+        border-right: 1px solid #bababa;
+      }
+
+      @media (max-width: 560px) {
+        &:nth-child(1) {
+          border-right: 0;
+          border-bottom: 1px solid #bababa;
+        }
+        &:nth-child(2) {
+          border-right: 0;
+          border-bottom: 1px solid #bababa;
+        }
+      }
+
+      .contacts_addresses_adress_city {
+        font-weight: 400;
+        @include adaptive-value('font-size', 28, 20, 1);
+        @media (max-width: 560px) {
+          text-align: center;
+          font-size: 28px;
+        }
+      }
+      .contacts_addresses_adress_street {
+        margin-top: 10px;
+        font-weight: 300;
+        @include adaptive-value('font-size', 16, 16, 1);
+        line-height: 22px;
+        @media (max-width: 560px) {
+          text-align: center;
+        }
+      }
+      .contacts_addresses_adress_phone {
+        margin-top: 30px;
+        font-weight: 500;
+        font-size: 16px;
+        @media (max-width: 560px) {
+          text-align: center;
+        }
+      }
+
+      .contacts_addresses_adress_howToGet {
+        @media (max-width: 560px) {
+          text-align: center;
+        }
+        color: #3ece5d;
+        margin-top: 10px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 22px;
+
+        :hover {
+          color: #1A9634;
+        }
+        span {
+          border-bottom: 1px solid #3ece5d;
+        }
+      }
+    }
+  }
+
+  .contacts_text1 {
+    @media (max-width: 560px) {
+      margin-top: 44px;
+    }
+    @include adaptive-value('margin-left', 70, 20, 1);
+    width: max-content;
+    font-family: 'Inter Tight';
+    font-weight: 400;
+    @include adaptive-value('font-size', 45, 28, 1);
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 17px;
+      height: 16px;
+      border-top: 2px solid #3ece5d;
+      border-right: 2px solid #3ece5d;
+      @include adaptive-value('bottom', 38, 19, 1);
+      right: -17px;
+    }
+  }
+
+  .contacts_logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    font-family: 'Inter Tight';
+    font-weight: 500;
+    @include adaptive-value('font-size', 24, 18, 1);
+    color: #424d5e;
+
+    .contacts_logo_close {
+      cursor: pointer;
+      &:hover {
+        img {
+          transition: 0.5s;
+          opacity: 0.5;
+        }
+      }
+    }
+    img {
+      @include adaptive-value('width', 50, 40, 1);
+      @include adaptive-value('height', 50, 40, 1);
+    }
+    .contacts_logo_letterL {
+      color: #3ece5d;
+    }
+  }
+}

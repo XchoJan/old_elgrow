@@ -1,0 +1,269 @@
+.mobileMainComponent {
+  width: 100%;
+  min-height: 100vh;
+  font-family: Inter Tight;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 51px;
+}
+
+.title {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.titleText {
+  color: #000;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 96px;
+  letter-spacing: 0.8px;
+}
+
+.titleText:after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-top: 2px solid #3ece5d;
+  border-right: 2px solid #3ece5d;
+}
+
+@media screen and (max-width: 1023px) {
+  .titleText {
+    text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-size: 48px;
+    line-height: 57.6px;
+    letter-spacing: 0.48px;
+    width: 100%;
+    padding-top: 50px;
+  }
+}
+
+.clientsBlock {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 70px;
+  bottom: 61.5px;
+  left: 0;
+}
+
+.clients {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.clientTitle {
+  color: #000;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  margin-bottom: 16px;
+}
+
+.clientsImages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+}
+
+.nespressoIcon {
+  width: 150px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.LuxxyIcon {
+  width: 110px;
+  height: 37px;
+  object-fit: contain;
+}
+
+.OpenBank {
+  width: 140.231px;
+  height: 36.46px;
+  object-fit: contain;
+}
+
+.vtb {
+  width: 83.332px;
+  height: 26.777px;
+  object-fit: contain;
+}
+
+.utg {
+  width: 80.378px;
+  height: 32.02px;
+  object-fit: contain;
+}
+
+.megafon {
+  width: 133px;
+  height: 23px;
+  object-fit: contain;
+}
+
+.KFC {
+  width: 53px;
+  height: 16.597px;
+  object-fit: contain;
+}
+
+.animateButtonText {
+  color: #000;
+  font-family: Inter Tight;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26.4px;
+  letter-spacing: -0.11px;
+  border-bottom: 2px solid #fff;
+}
+
+.animateButtonText:hover {
+  color: #000;
+  font-family: Inter Tight;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26.4px;
+  letter-spacing: -0.11px;
+  border-bottom: 2px solid #000;
+}
+
+.becomeClient {
+  display: flex;
+  width: 283px;
+  height: 154px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #000;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26.4px;
+  letter-spacing: -0.11px;
+}
+
+.becomeClient:before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-bottom: 2px solid #9B4EFE;
+  border-left: 2px solid #9B4EFE;
+  left: 0;
+  bottom: 0;
+}
+
+.becomeClient:after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-top: 2px solid #DB418C;
+  border-right: 2px solid #DB418C;
+  right: 0;
+  top: 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .mobileMainComponent {
+    align-items: normal;
+    flex-direction: column;
+    padding-top: 100px;
+  }
+  .clientsBlock {
+    position: static;
+    margin-top: 62px;
+    width: 100%;
+  }
+  .clientsImages {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  .clientTitle {
+    font-size: 28px;
+    line-height: 120%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .mobileMainComponent {
+    min-height: 600px;
+  }
+ .clientsImages {
+   flex-wrap: wrap;
+ }
+  .clientsBlock {
+    width: 100%;
+  }
+  .clients {
+    width: 100%;
+  }
+  .clientTitle {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19.2px;
+  }
+  .mobileMainComponent {
+    align-items: normal;
+  }
+
+  .nespressoIcon {
+    width: 78.013px;
+    height: 20.804px;
+  }
+
+  .LuxxyIcon {
+    width: 87px;
+    height: 24.518px;
+  }
+
+  .OpenBank {
+    width: 116px;
+    height: 30.161px;
+  }
+
+  .vtb {
+    width: 59px;
+    height: 20.966px;
+  }
+
+  .utg {
+    width: 62px;
+    height: 24px;
+  }
+
+  .megafon {
+    width: 123.227px;
+    height: 21.31px;
+  }
+
+  .KFC {
+    width: 40.227px;
+    height: 12.597px;
+  }
+  .titleText {
+    font-size: 36px;
+    line-height: 43.2px;
+    letter-spacing: 0.36px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 374px) {
+
+}
+

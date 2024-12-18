@@ -1,0 +1,48 @@
+.logoContainer {
+  transform: translate(0px, 0px);
+  opacity: 1;
+  transition: all 0.8s ease 0s;
+}
+
+.active {
+  transform: translate(-200%, 0px);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
+}
+
+.logo {
+  font-family: Inter Medium;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.letterL {
+  color: #3ece5d;
+}
+
+@media screen and (max-width: 1439px) {
+  .logo {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .logo {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .logo {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+
